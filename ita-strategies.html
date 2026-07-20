@@ -906,7 +906,7 @@
       if (!res.ok) throw new Error('Could not fetch tool module ' + moduleName + ' (HTTP ' + res.status + ')');
       py.globals.set('_src', await res.text());
       py.globals.set('_key', key);
-      py.runPython('import types, sys\n_m = types.ModuleType(_key)\nexec(compile(_src, _key, "exec"), _m.__dict__)\nsys.modules[_key] = _m');
+      py.runPython('import types, sys\n_m = types.ModuleType(_key)\nsys.modules[_key] = _m\nexec(compile(_src, _key, "exec"), _m.__dict__)');
       loaded[key] = true;
     }
     py.globals.set('_key', key);
