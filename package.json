@@ -1,0 +1,12 @@
+{
+  "name": "project-air",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "wire-comments": "node scripts/wire-comments.mjs",
+    "dev": "node scripts/dev-server.mjs"
+  },
+  "dependencies": {
+    "@dev-devsuccess/fieldnote": "^1.0.13"
+  }
+}

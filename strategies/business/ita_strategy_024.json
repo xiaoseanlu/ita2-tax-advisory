@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_024",
+  "category": "business",
+  "strategy_type": "Income Shifting",
+  "title": "Third Party Installment Sale for Gain Deferral",
+  "implementation_effort_score": 8,
+  "tax_savings_score": 6,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must structure sale of appreciated property using installment method receiving payments over multiple years to defer gain recognition, manage tax brackets, and potentially reduce overall tax liability through strategic timing",
+    "criteria": [
+      "Sell property and receive at least one payment in tax year after year of sale to qualify for installment method",
+      "Installment method available for capital gains on sale of real estate, business assets, and other property",
+      "Gain recognized proportionally as payments received based on gross profit percentage",
+      "Must elect out of installment treatment if prefer immediate gain recognition (e.g., to use expiring losses)",
+      "Interest must be charged on deferred payments at applicable federal rate (AFR) or higher",
+      "Installment method not available for inventory, publicly traded securities, or depreciation recapture (recapture recognized in year of sale)",
+      "Use installment sale to spread gain over multiple years managing marginal tax brackets and NIIT thresholds",
+      "Document sale terms, payment schedule, interest rate, and security interest in contract"
+    ]
+  },
+  "limitations": {
+    "installment_sale_rules": {
+      "gain_deferral": "Recognize gain proportionally as payments received; defers tax and cash receipt aligned",
+      "gross_profit_percentage": "Gain calculation: (Selling Price - Basis) ÷ Contract Price; applied to each payment",
+      "interest_income": "Interest on installment payments taxed as ordinary income when received",
+      "bracket_management": "Spread gain over multiple years can keep taxpayer in lower brackets and reduce NIIT",
+      "third_party_sale": "Seller receives installment payments from buyer; not related to §1031 exchange",
+      "security_interest": "Promissory note and mortgage/security agreement document payment obligation"
+    },
+    "restrictions": [
+      "Depreciation recapture (§1245, §1250) recognized in full in year of sale; cannot be deferred",
+      "Inventory and dealer property sales not eligible for installment method treatment",
+      "Related party sales subject to special look-through rules if related party resells property within 2 years",
+      "Pledging installment obligation as security for loan may trigger gain recognition as payment received",
+      "Sale or transfer of installment obligation generally triggers recognition of remaining deferred gain",
+      "State tax treatment varies; some states don't recognize federal installment method requiring full gain recognition",
+      "Imputed interest rules apply if stated interest below AFR; may recharacterize principal as interest",
+      "Default risk: seller bears credit risk of buyer over installment period; should evaluate creditworthiness"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

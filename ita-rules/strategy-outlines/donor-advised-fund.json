@@ -1,0 +1,325 @@
+{
+  "strategy": "Donor Advised Fund To Time Contributions",
+  "content_repo": "/Users/rraman2/Documents/GitHub/tax-strategy-content",
+  "summary": {
+    "calculated": 18,
+    "user-data": 3
+  },
+  "include_tree": [
+    {
+      "rel_path": "strategies/Donor Advised Fund To Time Contributions/Donor_Advised_Fund_To_Time_Contributions.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/Donor Advised Fund To Time Contributions/Donor_Advised_Fund_To_Time_Contributions.spe",
+      "depth": 0,
+      "included_from": null,
+      "is_entry": true
+    },
+    {
+      "rel_path": "strategies/common/rate_calculations.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/rate_calculations.spe",
+      "depth": 1,
+      "included_from": "strategies/Donor Advised Fund To Time Contributions/Donor_Advised_Fund_To_Time_Contributions.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/rate_global.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/rate_global.spe",
+      "depth": 1,
+      "included_from": "strategies/Donor Advised Fund To Time Contributions/Donor_Advised_Fund_To_Time_Contributions.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/setup_global.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/setup_global.spe",
+      "depth": 1,
+      "included_from": "strategies/Donor Advised Fund To Time Contributions/Donor_Advised_Fund_To_Time_Contributions.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/test/plan_strategy_transitions_test.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/test/plan_strategy_transitions_test.spe",
+      "depth": 1,
+      "included_from": "strategies/Donor Advised Fund To Time Contributions/Donor_Advised_Fund_To_Time_Contributions.spe",
+      "is_entry": false
+    }
+  ],
+  "missing_includes": [],
+  "fields": [
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.addtlMedTaxWithheldThreshold",
+      "leaf": "addtlMedTaxWithheldThreshold",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateAddtlMedicare",
+      "leaf": "marginalRateAddtlMedicare",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateFICA",
+      "leaf": "marginalRateFICA",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateMedicare",
+      "leaf": "marginalRateMedicare",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateSelfEmployed",
+      "leaf": "marginalRateSelfEmployed",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateSocialSecurity",
+      "leaf": "marginalRateSocialSecurity",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.maxSSwage",
+      "leaf": "maxSSwage",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.netEarningRatio",
+      "leaf": "netEarningRatio",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.adjustedGrossIncome",
+      "leaf": "adjustedGrossIncome",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": false,
+      "defined_in": "strategies/Donor Advised Fund To Time Contributions/Donor_Advised_Fund_To_Time_Contributions.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.marginalNYC",
+      "leaf": "marginalNYC",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_calculations.spe",
+      "also_defined_in": [
+        "strategies/common/rate_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.marginalRate",
+      "leaf": "marginalRate",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.stateMarginalRate",
+      "leaf": "stateMarginalRate",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareRRTA",
+      "leaf": "subjectMedicareRRTA",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareSE",
+      "leaf": "subjectMedicareSE",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareWages",
+      "leaf": "subjectMedicareWages",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.deductionsExemptions.usTxblInc.usDeductSum.usItemDedInp.totalContributions.totalAvailCharCont",
+      "leaf": "totalAvailCharCont",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Donor Advised Fund To Time Contributions/Donor_Advised_Fund_To_Time_Contributions.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Schedule A",
+      "likely_source_note": "Itemized deductions \u2014 Schedule A."
+    },
+    {
+      "path": "return.deductionsExemptions.usTxblInc.usDeductSum.usItemDedInp.usSchAContribInp.currentYearcontributions.cash50Lim",
+      "leaf": "cash50Lim",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Donor Advised Fund To Time Contributions/Donor_Advised_Fund_To_Time_Contributions.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Schedule A",
+      "likely_source_note": "Itemized deductions \u2014 Schedule A."
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.filingStatus",
+      "leaf": "filingStatus",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "Taxpayer selection (single/MFJ/MFS/HOH/QW).",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    }
+  ]
+}

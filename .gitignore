@@ -1,0 +1,9 @@
+.claude
+.playwright-mcp
+.env
+__pycache__/
+*.pyc
+# Local SQLite workspace snapshots (see workspace_snapshots.py)
+data/workspace.sqlite
+# Expert Advisory E2E local PDF uploads (expert_advisory_e2e.py)
+.expert_advisory_e2e_uploads/

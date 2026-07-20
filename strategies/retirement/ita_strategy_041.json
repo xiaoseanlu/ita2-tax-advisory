@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_041",
+  "category": "retirement",
+  "strategy_type": "Retirement Plans",
+  "title": "Direct Roth IRA Contribution",
+  "implementation_effort_score": 2,
+  "tax_savings_score": 5,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must have earned income below phase-out thresholds to directly contribute to Roth IRA, building tax-free retirement savings with no required minimum distributions and tax-free qualified withdrawals in retirement",
+    "criteria": [
+      "Must have earned income (wages, self-employment, alimony from pre-2019 divorces) to contribute",
+      "2024 income limits: $146,000-$161,000 (single); $230,000-$240,000 (MFJ) phase-out ranges",
+      "2024 contribution limit: $7,000 under age 50; $8,000 age 50+ (indexed annually)",
+      "Contributions not deductible but grow tax-free and qualified distributions tax-free",
+      "Contribution can be made until tax filing deadline (April 15) for prior tax year",
+      "No age limit for contributions as long as have earned income (unlike pre-2020 traditional IRA rules)",
+      "Can withdraw contributions (not earnings) anytime tax and penalty-free (contributions already taxed)",
+      "Qualified distributions (age 59½ + 5-year rule) completely tax-free including all earnings"
+    ]
+  },
+  "limitations": {
+    "roth_ira_contribution_rules": {
+      "tax_free_growth": "Contributions grow tax-free; qualified distributions completely tax-free including earnings",
+      "contribution_flexibility": "Can withdraw contributions anytime without tax or penalty (not earnings)",
+      "no_rmds": "No required minimum distributions during owner's lifetime; ideal for legacy planning",
+      "income_limits": "Phase-out at $146k-$161k (single), $230k-$240k (MFJ) for 2024",
+      "spousal_contribution": "Non-working spouse can contribute based on working spouse's earned income",
+      "five_year_rule": "Account must be open 5+ years for earnings to be tax-free (even if over age 59½)"
+    },
+    "restrictions": [
+      "Income phase-out reduces or eliminates contribution ability; use backdoor Roth if over limits",
+      "Cannot contribute more than earned income for the year; $7,000/$8,000 or earned income, whichever less",
+      "Contribution limit combined with traditional IRA; cannot contribute $7,000 to each (total limit applies)",
+      "Early withdrawal of earnings (before age 59½ and 5 years) subject to income tax and 10% penalty",
+      "Excess contributions subject to 6% excise tax annually until corrected; must withdraw excess with earnings",
+      "Recharacterization of current-year Roth to traditional allowed; conversion recharacterization eliminated after 2017",
+      "Modified AGI calculation for phase-out different from regular AGI; certain income excluded/added",
+      "State tax treatment uniformly follows federal; Roth contributions and distributions tax-free at state level"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

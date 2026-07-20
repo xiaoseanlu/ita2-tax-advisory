@@ -1,0 +1,537 @@
+form_name,yaml_name,line_on_form,description_on_form,prep_data_classification
+Form 1040,taxYear,Header - tax year,Tax Year,user inputs
+Form 1040,primaryFirstName,Header - name,Taxpayer first name,user inputs
+Form 1040,primaryMiddleInitial,Header - name,Taxpayer middle initial,user inputs
+Form 1040,primaryLastName,Header - name,Taxpayer last name,user inputs
+Form 1040,primarySSN,Header - SSN,Taxpayer SSN,user inputs
+Form 1040,spouseFirstName,Header - name (spouse),Spouse first name,user inputs
+Form 1040,spouseMiddleInitial,Header - name (spouse),Spouse middle initial,user inputs
+Form 1040,spouseLastName,Header - name (spouse),Spouse last name,user inputs
+Form 1040,spouseSSN,Header - SSN (spouse),Spouse SSN,user inputs
+Form 1040,streetAddress,Header - home address,Street Address,user inputs
+Form 1040,apartmentNumber,Header - apartment no.,Apartment number,user inputs
+Form 1040,city,"Header - city, town, or post office",City,user inputs
+Form 1040,stateAbbreviation,Header - state,State Abbreviation,user inputs
+Form 1040,zipCode,Header - ZIP code,ZIP Code - 5 digits plus optional 4 or 7 digits,user inputs
+Form 1040,foreignCountryName,Header - foreign country,Foreign Country,user inputs
+Form 1040,foreignProvinceName,Header - foreign province/state/county,Foreign province/country,user inputs
+Form 1040,foreignPostalCode,Header - foreign postal code,Foreign postal code,user inputs
+Form 1040,spouseNm,Header - spouse name (NRA / dual-status),MFS spouse name,user inputs
+Form 1040,qualifyingHOHNm,Header - qualifying person (HOH),HOH child name,user inputs
+Form 1040,filingStatus,Header - filing status,Filing Status - FS Single / FS Married filing joint / FS Married separate / FS Head of household / FS QSS,user inputs
+Form 1040,nrOrDualStatAlienSpName,Header - NRA spouse name,NR or Dual Status Alien Spouse Name,user inputs
+Form 1040,digitalAssetsInd,Digital assets question,Digital assert / virtual currency check boxes,user inputs
+Form 1040,primaryClaimAsDependentInd,Dependents - someone can claim you,Taxpayer claimed as dependent,user inputs
+Form 1040,spouseClaimAsDependentInd,Dependents - spouse claimed as dependent,Spouse claimed as dependent,user inputs
+Form 1040,mustItemizeInd,Standard deduction - MFS / dual-status itemize,Spouse itemizes box,user inputs
+Form 1040,primary65OrOlderInd,"Standard deduction - born before Jan 2, 1960 (you)",Taxpayer is 65 or over,user inputs
+Form 1040,primaryBlindInd,Standard deduction - blind (you),Taxpayer is blind,user inputs
+Form 1040,spouse65OrOlderInd,"Standard deduction - born before Jan 2, 1960 (spouse)",Spouse is 65 or over,user inputs
+Form 1040,spouseBlindInd,Standard deduction - blind (spouse),Spouse is blind,user inputs
+Form 1040,dependentDetail,"Dependents - table (name, SSN, relationship, credits)",Additional dependents,user inputs
+Form 1040,wagesAmt,1a,"Wages, salaries and tips",user inputs
+Form 1040,householdEmployeeWagesAmt,1b,Household employee wages,user inputs
+Form 1040,tipIncomeAmt,1c,Additional Tip income,user inputs
+Form 1040,medicaidWaiverPymtNotRptW2Amt,1g (Medicaid waiver payments not on W-2; see instructions),Medicaid waiver payments not reported,user inputs
+Form 1040,taxableBenefitsAmt,1d,Taxable dependent care benefits,calculated-outside-scope
+Form 1040,taxableBenefitsForm8839Amt,1e,Employer-provided adoption benefits from Form 8839,user inputs
+Form 1040,totalWagesWithNoWithholdingAmt,1f,Wages from Form 8919,user inputs
+Form 1040,otherEarnedIncomeAmt,1g,Other earned income,user inputs
+Form 1040,nontxCombatPayElectionAmt,1 (nontaxable combat pay election),Nontaxable combat pay election,user inputs
+Form 1040,wagesSalariesAndTipsAmt,1h,Wages salaries and tips amount. Add lines 1a through 1h,calculated-in-scope
+Form 1040,taxExemptInterestAmt,2a,Tax-exempt interest,user inputs
+Form 1040,taxableInterestAmt,2b,Taxable Interest,user inputs
+Form 1040,qualifiedDividendsAmt,3a,Qualified dividends,user inputs
+Form 1040,ordinaryDividendsAmt,3b,Ordinary dividends,user inputs
+Form 1040,iraDistributionsAmt,4a,IRA distributions,user inputs
+Form 1040,taxableIRAAmt,4b,IRA taxable amount,user inputs
+Form 1040,pensionsAnnuitiesAmt,5a,Pensions and annuities,user inputs
+Form 1040,totalTaxablePensionsAmt,5b,Pensions and annuities taxable amount,user inputs
+Form 1040,socSecBnftAmt,6a,Social security benefits,user inputs
+Form 1040,taxableSocSecAmt,6b,Social security benefits taxable amount,calculated-in-scope
+Form 1040,lumpSumElectionMethodInd,6c (lump-sum election),Lump sum election method  checkbox,user inputs
+Form 1040,capitalGainLossAmt,7,Capital gain loss,calculated-in-scope
+Form 1040,totalAdditionalIncomeAmt,8 (Schedule 1),Additional income from Schedule 1,calculated-in-scope
+Form 1040,totalIncomeAmt,9,Total income amount,calculated-in-scope
+Form 1040,totalAdjustmentsAmt,10 (Schedule 1),Adjustments to income from Schedule 1,calculated-in-scope
+Form 1040,adjustedGrossIncomeAmt,11,Adjusted gross income. Subtract total adjustments amount from total income amount. This is your adjusted gross income,calculated-in-scope
+Form 1040,totalItemizedOrStandardDedAmt,12,Standard deduction or itemized deductions,calculated-in-scope
+Form 1040,qualifiedBusinessIncomeDedAmt,13,Qualified business income deduction,calculated-outside-scope
+Form 1040,totalDeductionsAmt,14,Total Deductions Amount,calculated-in-scope
+Form 1040,taxableIncomeAmt,15,Taxable income,calculated-in-scope
+Form 1040,taxAmt,16,Tax Amount,calculated-in-scope
+Form 1040,ctcodcAmt,18 (Schedule 8812),Child tax credit or credit for other dependents from Schedule 8812,calculated-outside-scope
+Form 1040,totalNonrefundableCreditsAmt,19 (Schedule 3),Total Non refundable Credits amount. Amount from Schedule 2 line 3,calculated-in-scope
+Form 1040,totalCreditsAmt,20,Total credits amount. Add lines 19 and 20,calculated-in-scope
+Form 1040,taxLessCreditsAmt,21,Subtotal line (Tax minus credits). Subtract line 21 from line 18,calculated-in-scope
+Form 1040,totalOtherTaxesAmt,22 (Schedule 2),Other taxes including self-employment tax,calculated-in-scope
+Form 1040,totalTaxAmt,24,Add lines 22 and 23 this is your total tax,calculated-in-scope
+Form 1040,formW2WithheldTaxAmt,25a,Federal income tax withheld from Form W2,user inputs
+Form 1040,form1099WithheldTaxAmt,25b,Federal income tax withheld from Form 1099,user inputs
+Form 1040,taxWithheldOtherAmt,25c,Federal income tax withheld from Other forms,user inputs
+Form 1040,withholdingTaxAmt,25d,Total Tax withholdings. Add lines 25a through 25c,calculated-in-scope
+Form 1040,estimatedTaxPaymentsAmt,26,2023 estimated tax payments and amount applied from 2022 return,user inputs
+Form 1040,earnedIncomeCreditAmt,27,Earned income credit (EIC),calculated-outside-scope
+Form 1040,additionalChildTaxCreditAmt,28 (Schedule 8812),Additional child tax credit from Schedule 8812,calculated-outside-scope
+Form 1040,refundableAmerOppCreditAmt,29 (Form 8863),American opportunity credit from Form 8863,calculated-outside-scope
+Form 1040,totalOtherPaymentsRfdblCrAmt,31 (Schedule 3),Amount from Schedule 3,calculated-in-scope
+Form 1040,refundableCreditsAmt,32,Add lines 27 28 29 and 31 these are your total other payments and refundable credits,calculated-in-scope
+Form 1040,totalPaymentsAmt,33,Add lines 25d 26 and 32 these are your total payments,calculated-in-scope
+Form 1040,overpaidAmt,34,If line 33 is more than line 24 subtract line 24 from line 33 this is the amount you overpaid,calculated-in-scope
+Form 1040,refundAmt,35a,Amount of line 34 you want refunded to you if Form 8888 is attached,calculated-in-scope
+Form 1040,appliedToEsTaxAmt,36,Amount applied,user inputs
+Form 1040,owedAmt,37,Amount owed,calculated-in-scope
+Form 1040,estPenaltyAmt,38,Estimated tax penalty,user inputs
+Schedule 1,stateLocalIncomeTaxRefundAmt,Part I Line 1,"Taxable refunds, credits, or offsets of state and local income taxes (Taxable state/local refund (taxpayer))",user inputs
+Schedule 1,totalAlimonyReceivedAmt,Part I Line 2a,Alimony received (Alimony received (taxpayer)),user inputs
+Schedule 1,divorceOrSeparationAgreementDtReceived,Part I Line 2b,Date of divorce,user inputs
+Schedule 1,businessIncomeLossAmt,Part I Line 3,Business income or loss (Business income or loss (Schedule C net)),calculated-in-scope
+Schedule 1,otherGainLossAmt,Part I Line 4,Other gains or losses,calculated-outside-scope
+Schedule 1,rentalRealEstateIncomeLossAmt,Part I Line 5,"Rental real estate, royalties, partnerships, S corporations, trusts (Rental real estate royalties S corps)",calculated-in-scope
+Schedule 1,unemploymentCompAmt,Part I Line 7,Unemployment compensation (Unemployment compensation (taxpayer)),user inputs
+Schedule 1,netOperatingLossDeductionAmt,Part I Line 8,Net operating loss (NOL deduction (income tax)),calculated-outside-scope
+Schedule 1,gamblingReportableWinningAmt,Part I Line 8b,Gambling Income,user inputs
+Schedule 1,debtCancellationAmt,Part I Line 8c,Cancellation of debt,user inputs
+Schedule 1,totArcherMSAMedcrLTCAmt,Part I Line 8e (Form 8853),Income from Form 8853,calculated-outside-scope
+Schedule 1,totalIncomeExclusionAmt,Part I Line 8e,Foreign earned income exclusion from Form 2555 (Foreign earned income exclusion),calculated-outside-scope
+Schedule 1,totHSADistriHDHPAmt,Part I Line 8f (Form 8889),Taxable HSA Distribution. Income from Form 8889,calculated-outside-scope
+Schedule 1,alaskaPermanentFundDivAmt,Part I Line 8g,Alaska Permanent Fund dividends,user inputs
+Schedule 1,juryDutyPayAmt,Part I Line 8h,Jury duty pay,user inputs
+Schedule 1,prizesAwardsAmt,Part I Line 8i,Prizes and awards,user inputs
+Schedule 1,activityNotForProfitIncmAmt,Part I Line 8j (activity not engaged in for profit),Activity not engaged in for profit income,user inputs
+Schedule 1,stockOptionsAmt,Part I Line 8k,Stock options,user inputs
+Schedule 1,rentalIncomePersonalPropAmt,Part I Line 8l (rental of personal property),Income from the rental of personal property,user inputs
+Schedule 1,olympicParalympicMedalUSOCAmt,Part I Line 8m,Olympic and Paralympic medals and USOC prize money,user inputs
+Schedule 1,section951aInclusionAmt,Part I Line 8n (section 951(a) inclusion),Section 951-a inclusion,calculated-outside-scope
+Schedule 1,section951AaInclusionAmt,Part I Line 8o (section 951A(a) inclusion),Section 951A-a inclusion,calculated-outside-scope
+Schedule 1,taxableABLEDistributionsAmt,Part I Line 8p (ABLE account),Taxable distributions from an ABLE account,user inputs
+Schedule 1,nontxMedicaidWaiverPymtAmt,Part I Line 8q (Medicaid waiver nontaxable portion),Nontaxable amount of Medicaid waiver payments,user inputs
+Schedule 1,grantsOrScholarshipsAmt,Part I Line 8r (scholarships/fellowships),Scholarship and fellowship grants,user inputs
+Schedule 1,excessBusinessLossAmt,Part I Line 8s,Section 461-l excess business loss adjustment (Excess business loss (461(l))),calculated-outside-scope
+Schedule 1,recvd99KErrorOrPersonalLossAmt,Part I Line 8t (1099-K / similar; see instructions),1099K Error reported or personal loss amount,user inputs
+Schedule 1,certainPenalInstnWagesAmt,Part I Line 8u (wages while incarcerated),Wages earned while incarcerated,user inputs
+Schedule 1,digitalAssetAsOrdinaryIncomeAmt,Part I Line 8v (digital assets),Digital Assets received as ordinary income,user inputs
+Schedule 1,nonqlfyDeferredCompensationAmt,Part I Line 8z,Pension or annuity from a nonqualifed deferred compensation plan (Nonqualified deferred comp pension taxable),user inputs
+Schedule 1,otherIncomeTotalAmt,Part I Line 8z (other income - statement),Total Other income catch-all,user inputs
+Schedule 1,totalOtherIncomeAmt,Part I Line 9 - total other income (8a - 8z),Total Other Income,calculated-in-scope
+Schedule 1,educatorExpensesAmt,Part II Line 10,Educator expenses (Educator expenses (taxpayer only)),user inputs
+Schedule 1,totalAdditionalIncomeAmt,Part I Line 10 - total additional income (to Form 1040),Total Additional Income Amount,calculated-in-scope
+Schedule 1,busExpnsReservistsAndOthersAmt,Part II Line 11,"Certain business expenses of reservists, performing artists, and fee-basis (Business expenses reservists/performers (2106))",user inputs
+Schedule 1,healthSavingsAccountDedAmt,Part II Line 13,Health savings account deduction (HSA deduction (taxpayer)),user inputs
+Schedule 1,deductibleSelfEmploymentTaxAmt,Part II Line 14,Deductible part of self-employment tax (Deductible part of SE tax (not mapped; othAdj is ITA-calculated)),calculated-outside-scope
+Schedule 1,movingExpenseAmt,Part II Line 14 (Armed Forces),Moving expenses for members of the Armed Forces,user inputs
+Schedule 1,selfEmpldSepSimpleQlfyPlansAmt,Part II Line 15,"Self-employed SEP, SIMPLE, and qualified plans (SEP/SIMPLE qualified plans (taxpayer))",user inputs
+Schedule 1,selfEmpldHealthInsDedAmt,Part II Line 16,Self-employed health insurance deduction (Self-employed health insurance),user inputs
+Schedule 1,pnltyOnErlyWthdrwOfSavingsAmt,Part II Line 18 (early withdrawal penalty),Penalty on early withdrawal of savings,user inputs
+Schedule 1,totalAlimonyPaidAmt,Part II Line 18a,Alimony paid (Alimony paid (taxpayer only)),user inputs
+Schedule 1,divorceOrSeparationAgreementDtPaid,Part II Line 18b/c - date of agreement (alimony paid),Date of divorce,user inputs
+Schedule 1,recipientSSN,Part II Line 18b - recipient SSN (alimony),Recipients SSN,user inputs
+Schedule 1,iraDeductionAmt,Part II Line 20,IRA deduction Amount (IRA deduction (taxpayer only)),user inputs
+Schedule 1,studentLoanInterestDedAmt,Part II Line 21,Student loan interest deduction,user inputs
+Schedule 1,archerMSADeductionAmt,Part II Line 22,Archer MSA deduction Amount,user inputs
+Schedule 1,juryDutyPayDeductionAmt,Part II Line 23,Jury duty pay,user inputs
+Schedule 1,repaymentSuppUnemplBnftDedAmt,Part II Line 24,Repayment of supplemental unemployment benefits under the Trade Act of 1974 (Repayment supplemental unemployment benefits),user inputs
+Schedule 1,rntlIncmPrsnlPropExpnssDedAmt,Part II Line 24a,Deductible expenses related to income reported,user inputs
+Schedule 1,olympcPrlympcMedalUSOCDedAmt,Part II Line 24b,Nontaxable amount of the value of Olympic and Paralympic medals,user inputs
+Schedule 1,rforAmortzExpnssDedAmt,Part II Line 24c,Reforestation amortization and expenses,user inputs
+Schedule 1,sect501c18DContriDedAmt,Part II Line 24e,Contributions to section 501c 18D pension plan,user inputs
+Schedule 1,section403bContriDedAmt,Part II Line 24f,Contributions by certain chaplains to section 403b plans,user inputs
+Schedule 1,attyFeesCrtCostsDedAmt,Part II Line 24g,Attorney fees and court costs for actions involving certain unlawful discrimination claims,user inputs
+Schedule 1,attyFeesCrtCostsPdDedAmt,Part II Line 24h,Attorney fees and court costs you paid in connection with an award from the IRS for information,user inputs
+Schedule 1,housingDeductionAmt,Part II Line 24i (Form 2555),Housing deduction from Form 2555,user inputs
+Schedule 1,section67eExcessDeductionAmt,Part II Line 24j (section 67(e)),Excess deductions of section 67e expenses,user inputs
+Schedule 1,otherAdjustmentsTotalAmt,Part II Line 24z - other adjustments (detail),Other Adjustment Subtotal,calculated-in-scope
+Schedule 1,totalOtherAdjustmentsAmt,Part II Line 25 - total other adjustments,Total other adjustments. Add lines 24a through 24z,calculated-in-scope
+Schedule 1,totalAdjustmentsAmt,Part II Line 26 - total adjustments (to Form 1040),Total adjustments040Schedule1Type',calculated-in-scope
+Schedule 1,netFarmProfitLossAmt,Line 34,Farm income or loss (Net farm profit or loss),calculated-in-scope
+Schedule 1,ssn,Header - SSN,SSN,user inputs
+Schedule 1,taxYear,Header - tax year,Tax Year,user inputs
+Schedule 2,excessivePayments4255Amt,Part I Line 1 (Form 4255),box 1E Excessive Payments Form4255 Amount,calculated-outside-scope
+Schedule 2,excessivePaymentsLine1A,Part I Line 1 (Form 4255 excessive payment),box 1E Excessive Payments Line 1A Ind,calculated-outside-scope
+Schedule 2,excessivePaymentsLine1C,Part I Line 1 (Form 4255 excessive payment),box 1E Excessive Payments Line 1C Ind,calculated-outside-scope
+Schedule 2,excessivePaymentsLine1D,Part I Line 1 (Form 4255 excessive payment),box 1E Excessive Payments Line 1D Ind,calculated-outside-scope
+Schedule 2,excessivePaymentsLine2A,Part I Line 1 (Form 4255 excessive payment),box 1E Excessive Payments Line 2A Ind,calculated-outside-scope
+Schedule 2,otherAdditionsToTaxGrp,Part I Line 1 - other additional taxes (detail rows),Other Additions To Tax,user inputs
+Schedule 2,twentyPercentEPLine1A,Part I Line 1 (20% excessive payment),box 1F 20 Percent EP Form4255 Line 1A Ind,calculated-outside-scope
+Schedule 2,twentyPercentEPLine1C,Part I Line 1 (20% excessive payment),box 1F 20 Percent EP Form4255 Line 1C Ind,calculated-outside-scope
+Schedule 2,twentyPercentEPLine1D,Part I Line 1 (20% excessive payment),box 1F 20 Percent EP Form4255 Line 1D Ind,calculated-outside-scope
+Schedule 2,twentyPercentEPLine2A,Part I Line 1 (20% excessive payment),box 1F 20 Percent EP Form4255 Line 2A Ind,calculated-outside-scope
+Schedule 2,twentyPercentExcessivePayments4255Amt,Part I Line 1 (20% Form 4255),box 1F 20 Percent EP Form4255 Amount,calculated-outside-scope
+Schedule 2,premiumTaxCreditTaxLiabAmt,Line 1a,Excess advance premium tax credit repayment (Other Taxes - Premium Tax Credit Repayment),calculated-outside-scope
+Schedule 2,newCleanVehicleRepaymentAmt,Line 1b,Repayment of new clean vehicle credits transferred to a registered dealer from Schedule A (Other Federal Taxes),calculated-outside-scope
+Schedule 2,usedCleanVehicleRepaymentAmt,Line 1c,Repayment of previously owned clean vehicle credits transferred to a registered (Other Federal Taxes),calculated-outside-scope
+Schedule 2,netEPERecaptureAmt,Line 1d,Recapture of net EPE from Form 4255 (Other Federal Taxes),calculated-outside-scope
+Schedule 2,totalOtherAdditionsToTaxAmt,Line 1y,Other additions to tax subtotal (Other Federal Taxes),calculated-in-scope
+Schedule 2,totalRecaptureOtherCreditsAmt,Part I Line 1y / other (recapture),Recapture Creds Amount,calculated-outside-scope
+Schedule 2,alternativeMinimumTaxAmt,Line 2,Alternative minimum tax (Alternative Minimum Tax Summary),calculated-outside-scope
+Schedule 2,totalAdditionsToTaxAmt,Part I Line 3 - total additional taxes (to Form 1040),1Z Add lines 1a through 1y,calculated-in-scope
+Schedule 2,selfEmploymentTaxAmt,Line 4,Self employment tax (Other Federal Taxes),calculated-outside-scope
+Schedule 2,socSecMedicareTaxUnrptdTipAmt,Line 5,Social security and Medicare tax on unreported tip income (Other Federal Taxes),calculated-outside-scope
+Schedule 2,uncollectedSocSecMedTaxAmt,Line 6,Uncollected social security and Medicare tax on wages (Other Federal Taxes),calculated-outside-scope
+Schedule 2,taxOnIRAsAmt,Line 9,Additional tax on IRAs or other tax-favored accounts (Other Federal Taxes),calculated-outside-scope
+Schedule 2,householdEmploymentTaxAmt,Line 10,Household Employment Taxes (Other Federal Taxes),calculated-outside-scope
+Schedule 2,uncollSSMedcrRRTAGrpInsTxAmt,Line 13,Uncollected social security and Medicare or RRTA tax on tips or group-term life insurance from Form W-2 (Other Federal Taxes),user inputs
+Schedule 2,firstTimeHmByrRepaymentAmt,Line 14,Repayment of First Time Homebuyer Credit (Other Federal Taxes),user inputs
+Schedule 2,intTaxDueInstalSaleIncmAmt,Line 15,Interest on tax due on installment income from the sale residential lots and timeshares (Other Federal Taxes),calculated-outside-scope
+Schedule 2,totalAMRRTTaxAmt,Line 16,Additional Medicare Tax (Other Federal Taxes),calculated-outside-scope
+Schedule 2,indivNetInvstIncomeTaxAmt,Line 17,Net investment income tax (Other Federal Taxes),calculated-outside-scope
+Schedule 2,sect72m5ExcessBenefitsTaxAmt,Part II (section 72(m)(5) excess benefits),Section 72(m)(5) excess benefits tax,calculated-outside-scope
+Schedule 2,incmNonqlfyDefrdCompPlanAmt,Part II (section 409A income),Income you received from a non qualified deferred compensation plan that fails to meet the requirements of section 409A,calculated-outside-scope
+Schedule 2,compNonqlfyDefrdCompPlanAmt,Part II (section 457A compensation),Compensation you received from a non qualified deferred compensation plan described in section 457A,calculated-outside-scope
+Schedule 2,section965TaxInstallmentAmt,Part II (section 965 installment),Section 965 net tax liability installment from Form 965-A,calculated-outside-scope
+Schedule 2,incomeNotUSBusinessTaxAmt,Part II (1040-NR connected income),Tax on non-effectively connected income for any part of the year you were a nonresident alien from Form 1040-NR,calculated-outside-scope
+Schedule 2,totalAnyOtherTaxesAmt,Part II - total other taxes (before 1040),Any other taxes,calculated-in-scope
+Schedule 2,epeRecaptureColumnLAmt,Part II (Form 4255 column (l)),"Box19 Recapture of net EPE from Form 4255, line 1d, column",calculated-outside-scope
+Schedule 2,accruedInterestDueThisRetAmt,Part II (Form 8621 interest),"Any interest from Form 8621, line 24",calculated-outside-scope
+Schedule 2,ssn,Header - SSN,SSN,user inputs
+Schedule 2,taxYear,Header - tax year,Tax Year,user inputs
+Schedule 2,archerMSAAddnlDistriTaxAmt,Part II (Archer MSA additional tax),Additional tax on Archer MSA distributions,calculated-outside-scope
+Schedule 2,hdhpCoverageAddnlTaxAmt,Part II (HDHP additional tax),Additional tax on an HSA because you did not remain an eligible individual,calculated-outside-scope
+Schedule 2,hsaDistriAddnlPercentTaxAmt,Part II (HSA additional tax),Additional tax on HSA distributions,calculated-outside-scope
+Schedule 2,medicareMSAAddnlDistriTaxAmt,Part II (Medicare MSA additional tax),Additional tax on Medicare Advantage MSA distributions,calculated-outside-scope
+Schedule 2,interestOnEachNetIncrInTaxAmt,Part II (PFIC interest),"Any interest from Form 8621, line 16f, relating to distributions from, and dispositions of, stock of a section 1291 fund",calculated-outside-scope
+Schedule 2,partialTaxOnAccumDistriAmt,Part II (accumulation distribution),Tax on accumulation distribution of trusts,calculated-outside-scope
+Schedule 2,recaptureChrtblContriDedAmt,Part II (charitable contribution recapture),Recapture of a charitable contribution deduction,calculated-outside-scope
+Schedule 2,recaptureTaxAmt,Part II (credit recapture; see instructions),Recapture of low-income housing credit,calculated-outside-scope
+Schedule 2,excessParachutePaymentAmt,Part II (excess parachute),Golden parachute payments,calculated-outside-scope
+Schedule 2,insiderStockCompExciseTaxAmt,Part II (expatriated corporation excise),Excise tax on insider stock compensation from an expatriated corporation,calculated-outside-scope
+Schedule 2,intDefrdTaxGainInstalSalesAmt,Part II (installment / deferred tax; see instructions),"Interest on the deferred tax on gain from installment sales with a sales price over $150,000",calculated-outside-scope
+Schedule 2,lookBackIntSect167gOr460bAmt,Part II (look-back interest),Look-back interest under section 167(g) or 460(b) from Form 8697 or 8866,calculated-outside-scope
+Schedule 2,mortgSbsdyRecaptureTaxAmt,Part II (mortgage subsidy recapture),"Recapture of federal mortgage subsidy, if you sold your home",calculated-outside-scope
+Schedule 3,foreignTaxCreditAmt,Line 1,Foreign Tax Credit,calculated-outside-scope
+Schedule 3,creditForChildAndDepdCareAmt,Line 2,Credit for Child and Dependent Care Expenses (Child and Dependent Care Credit),calculated-outside-scope
+Schedule 3,reconciledPremiumTaxCreditAmt,Part II Line 2 (net premium tax credit),Net premium tax credit,calculated-outside-scope
+Schedule 3,currentYearAllowableCreditAmt,Schedule 3,Credit to holders of tax credit bonds,calculated-outside-scope
+Schedule 3,currentYrCreditsFrom8859Amt,Schedule 3,District of Columbia first-time homebuyer credit (DC first-time homebuyer (usOthCr; revert when UI fixed)),calculated-outside-scope
+Schedule 3,educationCreditAmt,Line 3,Education Credits from Form 8863 (Education Credits),calculated-outside-scope
+Schedule 3,qlfyElecMotorVehCrAmt,Schedule 3,Qualified electric vehicle credit (Qualified electric vehicle credit (usOthCr)),calculated-outside-scope
+Schedule 3,qlfyElecMotorVehPersUseCrAmt,Schedule 3,Clean Vehicle Credit (Clean Vehicle Credit (personal use)),calculated-outside-scope
+Schedule 3,requestForExtensionAmt,Part II Line 3 (amount paid with extension),Amount paid with request for extension to file,calculated-in-scope
+Schedule 3,totRptgYrTxIncreaseDecreaseAmt,Schedule 3,Amount on Form 8978,calculated-outside-scope
+Schedule 3,totalPersonalUsePartOfCrAmt,Schedule 3,Alternative fuel vehicle refueling property credit (Alternative fuel vehicle refueling (usOthCr)),calculated-outside-scope
+Schedule 3,excessSocSecAndTier1RRTATaxAmt,Part II Line 4,Excess social security and tier 1 RRTA tax withheld,calculated-in-scope
+Schedule 3,rtrSavingsContributionsCrAmt,Line 4,Retirement Savings Contributions Credit (Other Credits),calculated-outside-scope
+Schedule 3,form2439Amt,Part II Line 5 (Form 2439 credit),Tax Paid By RIC Or REIT Amount Form 2439,calculated-outside-scope
+Schedule 3,energyEfficientHomeCreditAmt,Line 5a (home improvement),Energy efficient home improvement credit (Energy efficient home improvement (iTAResidentialEnergyCredit)),calculated-outside-scope
+Schedule 3,residentialEnergyCreditAmt,Line 5a,Residential clean energy credit (Residential Energy Credits),calculated-outside-scope
+Schedule 3,otherCreditFrom3800,Line 5b,General business credit (General business credit (Form 3800 → usOthCr)),calculated-outside-scope
+Schedule 3,otherCreditFrom8801,Line 6,Prior year minimum tax (Minimum Tax Credit),calculated-outside-scope
+Schedule 3,otherCreditsAmt,Part I Line 6 (other nonrefundable credits),Nonrefund Credits Total,user inputs
+Schedule 3,totalFuelTaxCreditAmt,Part II Line 6 (federal fuel tax credit),Credit for federal tax on fuels,calculated-in-scope
+Schedule 3,creditForRepaymentOfTaxAmt,Part II Line 7 (repayment of tax),Cred:Repayment Earlier Yr,calculated-outside-scope
+Schedule 3,totOthNonrefundableCreditsAmt,Line 7,Total other non refundable credits (Other Credits),calculated-in-scope
+Schedule 3,electivePaymentElectionAmt,Part II Line 8 (elective payment election),Elective payment election amount,calculated-outside-scope
+Schedule 3,totalNonrefundableCreditsAmt,Part I Line 8 (total nonrefundable credits),Total Nonrefundable Credits Amount,calculated-in-scope
+Schedule 3,adoptionCreditAmt,Line 9,Adoption credit,calculated-outside-scope
+Schedule 3,netSection965TaxLiabilityAmt,Part II Line 9 (section 965),Credit for repayment of amounts included in income from earlier years,calculated-outside-scope
+Schedule 3,creditForElderlyOrDisabledAmt,Line 10,Credit for the elderly or disabled (Other Credits),calculated-outside-scope
+Schedule 3,personalUsePartOfCreditAmt,Line 11,Alternative motor vehicle credit (Other Credits),calculated-outside-scope
+Schedule 3,mortgageInterestCreditAmt,Line 12,Mortgage interest credit (DC and Mortgage Credit (usOthCr; revert when UI fixed)),calculated-outside-scope
+Schedule 3,rfdblCrQlfySLFMLWagesAftrAmt,Part II Line 12 (sick/family leave credits),Sick/Family Leave Credits,calculated-outside-scope
+Schedule 3,otherAmt,Part II Line 13 (other payments/refundable credits),Total other payments or refundable credits,calculated-in-scope
+Schedule 3,otherPaymentsAmt,Part II Line 14,Subtotal,calculated-in-scope
+Schedule 3,totalOtherPaymentsRfdblCrAmt,Part II Line 15 - total other payments and refundable credits,Total tax payments,calculated-in-scope
+Schedule 3,ssn,Header - SSN,SSN,user inputs
+Schedule 3,taxYear,Header - tax year,Tax Year,user inputs
+Schedule A,medicalAndDentalExpensesAmt,Line 1,Medical and Dental Expenses (1),user inputs
+Schedule A,taxReturnAGIAmt,Line 2 / worksheet - AGI from Form 1040,AGI Amount line2,calculated-in-scope
+Schedule A,calculatedMedicalAllowanceAmt,Line 3 - medical expense floor (calculated),Medical Allowance (3),calculated-in-scope
+Schedule A,totalMedicalAndDentalExpnssAmt,Line 4 - medical less floor,Total Medical and Dental (4),calculated-in-scope
+Schedule A,marriedFilingAmt,Line 5 - MFS allocation (if applicable),Married filing seperately,calculated-in-scope
+Schedule A,choiceStateAndLocalSalesTaxIncomeTax,Line 5a - state/local income tax vs. sales tax (see type),Choice State and Local Sales Tax Indicator or State and Local Income tax indicator,user inputs
+Schedule A,stateAndLocalIncomeTaxInd,Line 5a,Income Taxes Box,user inputs
+Schedule A,stateAndLocalSalesTaxInd,Line 5a,General Sales Taxes Box,user inputs
+Schedule A,stateAndLocalTaxAmt,Line 5a,State and Local Income taxes or general sales tax,user inputs
+Schedule A,realEstateTaxesAmt,Line 5b,Real Estate Taxes,user inputs
+Schedule A,personalPropertyTaxesAmt,Line 5c,Personal property taxes,user inputs
+Schedule A,otherTaxesAmt,Line 5d - other taxes (see instructions),Other taxes amount,user inputs
+Schedule A,stateAndLocalTaxLimitationAmt,Line 5d - SALT limitation (if applicable),"enter smaller of 5d or $10,000",calculated-in-scope
+Schedule A,totalStateAndLocalTaxAmt,Line 5e - total state and local taxes,Add lines 5a through 5c,calculated-in-scope
+Schedule A,totalTaxesPaidAmt,Line 5e - total taxes paid,Total Allowable tax deduction,calculated-in-scope
+Schedule A,rptHomeMortgIntAndPointsAmt,Line 8a,Mortgage Interest to Financial Institutions (8a),user inputs
+Schedule A,form1098HomeMortgIntNotRptAmt,Line 8b,Total Indiv Mortgage Interest Amount (8b),user inputs
+Schedule A,form1098PointsNotReportedAmt,Line 8c,Deductible Points (8c),user inputs
+Schedule A,homeMortgNotUsedInd,Line 8d - not all mortgage proceeds used to buy/build/improve,Did not use all to buy/build/improve checkbox,user inputs
+Schedule A,reservedAmt,Line 8d - reserved,Reserved for future use,user inputs
+Schedule A,mortgageInsurancePremiumsAmt,Line 8e - mortgage insurance premiums,Mortgage Insurance Premiums (8e),user inputs
+Schedule A,totalHomeMortgIntAndPointsAmt,Line 8e - total home mortgage interest,Total home mortgage interest and points amount,calculated-in-scope
+Schedule A,investmentInterestAmt,Line 9,Investment Interest (9),user inputs
+Schedule A,totalInterestPaidAmt,Line 10 - total interest paid,Total Interest (10),calculated-in-scope
+Schedule A,giftsByCashOrCheckAmt,Line 11,Gifts Cash/Check (11),user inputs
+Schedule A,otherThanByCashOrCheckAmt,Line 12,"Non-Cash, Check Contribution (12)",user inputs
+Schedule A,carryoverFromPriorYearAmt,Line 13,Carryover Prior Year (13),user inputs
+Schedule A,totalCharitableContriAmt,Line 14 - total charitable contributions,Total Contributions (14),calculated-in-scope
+Schedule A,casualtyLossesAmountAmt,Line 15,Casualty and Theft Losses (15),user inputs
+Schedule A,otherExpensesAmt,Line 16 - other expenses (if applicable),Total Other Expenses,user inputs
+Schedule A,otherListTypeAmt,Line 16 - other itemized (list type),Other-from list Amount,user inputs
+Schedule A,otherMiscellaneousDedAmt,Line 16 - other miscellaneous,Other Miscellaneous Deductions,user inputs
+Schedule A,taxPreparationFeesAmt,Line 16 - tax preparation fees (if applicable),Tax Preparation Fees,user inputs
+Schedule A,totJobExpnssAndCrtnMiscDedAmt,Line 16 - total job/misc (before limitation),Gross Job Expenses and Certain Miscellaneous Deductions,calculated-in-scope
+Schedule A,unreimEmployeeBusExpnsAmt,Line 16 - unreimbursed employee expenses (if applicable),Unreimbursed Employee Business Expense Amount,user inputs
+Schedule A,calcJobExpnssMiscDedAllwncAmt,Line 17 - allowable job/misc (2% floor),Job Expense Miscellaneous Allowance,calculated-in-scope
+Schedule A,totalItemizedDeductionsAmt,Line 17 - total itemized deductions,Total Itemized Deductions (17),calculated-in-scope
+Schedule A,itemizedLimitationsByFSInd,Line 18 - itemized limitations (filing status),Itemized Limitations By Filing Status Indicator,user inputs
+Schedule A,itmzdDedLessThanStdDedInd,Line 18,Itemize Deductions Less Than Standard Deduction (18),user inputs
+Schedule A,netMiscellaneousDeductionsAmt,Line 18 - net miscellaneous,Net Miscellaneous Deductions,calculated-in-scope
+Schedule A,name,Header - name shown on Form 1040,Name,user inputs
+Schedule A,ssn,Header - SSN,SSN,user inputs
+Schedule A,taxYear,Header - tax year,Tax Tear,user inputs
+Schedule B,interestTotalAmount,Line 2,Total Interest Amount (Ordinary Interest Income),calculated-in-scope
+Schedule B,amountFromF8815Ln14,Line 3,Excludable Interest from Savings Bonds (U.S. Obligations Interest),calculated-outside-scope
+Schedule B,dividendTotalAmount,Line 6,Dividend Payer Name (Ordinary Dividends),calculated-in-scope
+Schedule B,fincenRequirement,Part III Line 7a - FinCEN 114 required,Fincen Requirement Checkbox,user inputs
+Schedule B,foreignFinancialAccountInterest,Part III Line 7a - foreign account interest (Yes/No),Foreign Financial Account Interest,user inputs
+Schedule B,foreignTrustDistribution,Part III Line 8 - foreign trust distribution (Yes/No),Foreign Trust Distribution Checkbox,user inputs
+Schedule B,name,Header - name shown on Form 1040,Name,user inputs
+Schedule B,ssn,Header - SSN,SSN of proprietor,user inputs
+Schedule B,taxYear,Header - tax year,Tax Year,user inputs
+Schedule B,interestAdjustments,Part I - interest adjustments (description and amount),Interest Adjustment Text and Amount,user inputs
+Schedule B,interest,Part I - list of interest payers (name and amount),Interest Payer Name and Amount,user inputs
+Schedule B,inetInterestAmount,Part I - net interest (if applicable),Net Interest Amount,calculated-in-scope
+Schedule B,nomineeDistributionAmount,Part I - nominee distribution amount,Nominee Distribution Amount,calculated-in-scope
+Schedule B,nomineeDistributionText,Part I - nominee/related adjustments (description),Nominee Distribution Text,user inputs
+Schedule B,otherAdjustmentsText,Part I - other adjustments (description),Other Adjustments Text,user inputs
+Schedule B,otherAdjustmentsAmount,Part I - other adjustments amount,Other Adjustments Amount,calculated-in-scope
+Schedule B,subtotalAmount,Part I - subtotal amount (interest),Interest Subtotal Amount,calculated-in-scope
+Schedule B,subtotalText,Part I - subtotal description (interest),Interest Subtotal Text,user inputs
+Schedule B,dividends,Part II - list of ordinary dividend payers (name and amount),Dividends Payer Name and Amount,user inputs
+Schedule B,dividendSubtotalAmount,Part II - subtotal amount (dividends),Dividend Subtotal Amount,calculated-in-scope
+Schedule B,dividendSubtotalText,Part II - subtotal description (dividends),Dividend Subtotal Text,user inputs
+Schedule B,otherForeignCountries,Part III - foreign accounts / countries (detail),Other Foreign Countries,user inputs
+Schedule C,totalGrossReceiptsAmt,Line 1 - gross receipts or sales,Total gross receipts,user inputs
+Schedule C,returnsAndAllowancesAmt,Line 2 - returns and allowances,Returns and Allowances Schedule C,user inputs
+Schedule C,netGrossReceiptsAmt,Line 3 - subtract line 2 from line 1,Gross Receipts Less Returns Allowances Line3,calculated-in-scope
+Schedule C,costOfGoodsSoldAmt,Line 4,Cost of goods sold (Total Cost of Goods Sold),calculated-in-scope
+Schedule C,ln5OtherIncomeAmt,Line 6,Ln 5: Other Income (Other Business Income),user inputs
+Schedule C,grossIncomeAmt,Line 7 - gross income (if no COGS),Gross Income,calculated-in-scope
+Schedule C,grossProfitAmt,Line 7 - gross profit,Gross Profit,calculated-in-scope
+Schedule C,advertisingAmt,Line 8,Advertising Expense (Other Business Expenses),user inputs
+Schedule C,carAndTruckExpensesAmt,Line 9,Car and Truck Expenses (Other Business Expenses),user inputs
+Schedule C,commissionsAndFeesAmt,Line 10,Commissions and Fees Schedule C (Other Business Expenses),user inputs
+Schedule C,contractLaborAmt,Line 11,Contract Labor (Other Business Expenses),user inputs
+Schedule C,depletionAmt,Line 12,Depletion Expense Schedule C (Depletion),user inputs
+Schedule C,deprecAndSect179ExpnsDedAmt,Line 13,Depreciation Expense Schedule C (Section 179 Deduction),calculated-outside-scope
+Schedule C,employeeBenefitProgramAmt,Line 14,Employee benefit programs (Employee Benefit Expense),user inputs
+Schedule C,insuranceAmt,Line 15,Insurance (Other Business Expenses),user inputs
+Schedule C,mortgageInterestExpenseAmt,Line 16a,Mortgage Interest Expense Schedule C (Interest Expense),user inputs
+Schedule C,otherInterestExpenseAmt,Line 16b,Ln 16b: Other Interest (Interest Expense),user inputs
+Schedule C,legalAndProfessionalServiceAmt,Line 17,Legal and Professional Services (Other Business Expenses),user inputs
+Schedule C,officeExpensesAmt,Line 18,Office Expense (Other Business Expenses),user inputs
+Schedule C,pensionProfitSharingPlansAmt,Line 19,Pension and Profit Sharing Schedule C (Other Business Expenses),user inputs
+Schedule C,totalExpensesAmt,Line 20,Total Expenses (Total expenses (lines 5 - 19)),calculated-in-scope
+Schedule C,machineryAndEquipmentRentAmt,Line 20a,Rent on Machinery and Equipment (Other Business Expenses),user inputs
+Schedule C,otherBusinessPropertyRentAmt,Line 20b,Rent on Property (Other Business Expenses),user inputs
+Schedule C,repairsAndMaintenanceAmt,Line 21,Repairs and Maintenance (Other Business Expenses),user inputs
+Schedule C,suppliesAmt,Line 22,Materials and supplies (Other Business Expenses),user inputs
+Schedule C,taxesAndLicensesAmt,Line 23,Taxes and Licenses (Other Business Expenses),user inputs
+Schedule C,travelAmt,Line 24a,Travel (Other Business Expenses),user inputs
+Schedule C,mealsAndEntertainmentAmt,Line 24b,Meals/Entertainment (Other Business Expenses),user inputs
+Schedule C,utilitiesAmt,Line 25,Utilities Amount (Other Business Expenses),user inputs
+Schedule C,wagesLessEmploymentCreditsAmt,Line 26,Wages less Employment Credits (Wages Paid),user inputs
+Schedule C,energyEfficientComBldgsDedAmt,Line 27a,Energy Efficient Commerical Bldgs Deduction (Other Business Expenses),user inputs
+Schedule C,totalOtherExpensesAmt,Line 28,Other expenses (Total Other Expenses),calculated-in-scope
+Schedule C,tentativeProfitOrLossAmt,Line 29 - tentative profit or loss,Tentative Profit/Loss,calculated-in-scope
+Schedule C,homeBusinessExpenseAmt,Line 30,Business Use of Home (Home Office Deduction (Business)),calculated-outside-scope
+Schedule C,totalAreaOfHomeCnt,Line 30a,Total Area of Home (Home Office Deduction (Business)),user inputs
+Schedule C,homeBusinessUseSquareFeetCnt,Line 30b,Area of Home Used for Bus (Home Office Deduction (Business)),user inputs
+Schedule C,netProfitOrLossAmt,Line 31 - net profit or (loss),Net Profit (Loss),calculated-in-scope
+Schedule C,openingAndClosingInventoryChangesInd,Line 34 - inventory change (Yes/No),Opening and Closing Inventory Changes,user inputs
+Schedule C,beginningInventoryAmt,Line 35,Beginning Inventory (Other Business Expenses),user inputs
+Schedule C,purchasesLessPersonalItemsAmt,Line 36 - purchases less personal items,Purchases less cost of items withdrawn for personal use,user inputs
+Schedule C,costOfLaborAmt,Line 37,Cost of labor (Other Business Expenses),user inputs
+Schedule C,materialsAndSuppliesAmt,Line 38 - materials and supplies,Materials and Supplies,user inputs
+Schedule C,otherCostsAmt,Line 39,Other costs (Other Business Expenses),user inputs
+Schedule C,totalCostsAmt,Line 40 - total costs,Total costs,calculated-in-scope
+Schedule C,endOfYearInventoryAmt,Line 41,End of year inventory (Other Business Expenses),user inputs
+Schedule C,costOfGoodsSoldAmt_L42,Line 42 - cost of goods sold,Cost of goods sold from page2,calculated-in-scope
+Schedule C,line48OtherExpenses,Line 48,Line 48  Other Expenses (Other Business Expenses),user inputs
+Schedule C,totalOtherExpensesAmt_L48,Line 48 - total other expenses,Total Other Expenses,calculated-in-scope
+Schedule C,filedForms1099,"Line I - if yes, did you file required 1099",Filed Forms 1099,user inputs
+Schedule C,requiredToFile1099,Line I - if yes to 1099 requirement,Required to File 1099,user inputs
+Schedule C,newBusinessInCurrentYearInd,Line H - if started/acquired business in 2024,Started or Acquired Business in TY Yes/No,user inputs
+Schedule C,businessUSAddress,Header / Line - business address (if applicable),Business US address,user inputs
+Schedule C,businessForeignAddress,Header / Line - foreign business address,Business Foreign address,user inputs
+Schedule C,ssn,Header - SSN,SSN of proprietor,user inputs
+Schedule C,proprietorNm,Header - name of proprietor,Name of proprietor,user inputs
+Schedule C,taxYear,Header - tax year,Tax Tear,user inputs
+Schedule C,principalBusinessActivityDesc,Line A - principal business or profession,Principal Business,user inputs
+Schedule C,principalBusinessActivityCd,Line B - enter code from instructions,Line B-Business Code,user inputs
+Schedule C,businessNameLine1Txt,Line C,Line C-Business Name (Principal Business (Business Name)),user inputs
+Schedule C,ein,Line D,Line D-EIN (Business EIN),user inputs
+Schedule C,inventoryMethodBoxes,Line D - inventory method,Investment at risk boxes,user inputs
+Schedule C,accountingMethod,Line F - accounting method,Accounting Method,user inputs
+Schedule C,methodOfAccountingOtherDesc,Line F - other (specify),,user inputs
+Schedule C,materialParticipationBoxes,Line G,Material Participation Boxes (Subject to SE Tax),user inputs
+Schedule C,investmentAtRiskBoxes,Line J - all investment is at risk,Investment at risk boxes,user inputs
+Schedule C,additionalVehicleInformation,Part IV - additional vehicle information,,user inputs
+Schedule D,shortTermCost,Line 1a,Short Term Cost (Short-Term Capital Gain/Loss),user inputs
+Schedule D,shortTermGainOrLoss,Line 1a,Short Term Gain/Loss (Short-Term Capital Gain/Loss),calculated-in-scope
+Schedule D,shortTermSalesPrice,Line 1a,Short Term Sales Price (Short-Term Capital Gain/Loss),user inputs
+Schedule D,boxAAdjustments,Line 1b,Box A Adjustments,user inputs
+Schedule D,boxACost,Line 1b,Box A Cost,user inputs
+Schedule D,boxAGainOrLoss,Line 1b,Box A Gain/Loss (Short-term gain/loss (Box A; sum with B/C to sTCapGnLoss)),calculated-in-scope
+Schedule D,boxASalesPrice,Line 1b,Box A Sales Price,user inputs
+Schedule D,boxBAdjustments,Line 1b,Box B Adjustments,user inputs
+Schedule D,boxBCost,Line 1b,Box B Cost,user inputs
+Schedule D,boxBGainOrLoss,Line 1b,Box B Gain/Loss (Box B Gain/Loss (sum with A/C to sTCapGnLoss)),calculated-in-scope
+Schedule D,boxBSalesPrice,Line 1b,Box B Sales Price,user inputs
+Schedule D,boxCAdjustments,Line 1b,Box C Adjustments,user inputs
+Schedule D,boxCCost,Line 1b,Box C Cost,user inputs
+Schedule D,boxCGainOrLoss,Line 1b,Box C Gain/Loss (Box C Gain/Loss (sum with A/B to sTCapGnLoss)),calculated-in-scope
+Schedule D,boxCSalesPrice,Line 1b,Box C Sales Price,user inputs
+Schedule D,stOtherFormTotalGL,Line 2,Total Other Form Gain/Loss (Short-Term Gain/Loss Adjustment),calculated-outside-scope
+Schedule D,netShortGainLossFromK1,Line 3,Net Short Term Gain/Loss from K-1s (Short-Term Passthrough Gain/Loss),user inputs
+Schedule D,stCapitalLossCarryover,Line 5,Short Term Capital Loss Carryover (ITA Short-Term Capital Loss Carryover),user inputs
+Schedule D,netSTCapitalGainLoss,Line 6,Net Short Term Capital Gain/Loss (Short-Term Capital Gain/Loss),calculated-in-scope
+Schedule D,longTermCost,Line 8a,Long Term Cost (Long-Term Capital Gain/Loss),user inputs
+Schedule D,longTermGainOrLoss,Line 8a,Long Term Gain/Loss (Long-Term Capital Gain/Loss),calculated-in-scope
+Schedule D,longTermSalesPrice,Line 8a,Long Term Sales Price (Long-Term Capital Gain/Loss),user inputs
+Schedule D,boxDAdjustments,Line 8b,Box D Adjustments,user inputs
+Schedule D,boxDCost,Line 8b,Box D Cost,user inputs
+Schedule D,boxDGainOrLoss,Line 8b,Box D Gain/Loss (Long-term gain/loss (Box D; sum with E/F to lTCapGnloss)),calculated-in-scope
+Schedule D,boxDSalesPrice,Line 8b,Box D Sales Price,user inputs
+Schedule D,boxEAdjustments,Line 8b,Box E Adjustments,user inputs
+Schedule D,boxECost,Line 8b,Box E Cost,user inputs
+Schedule D,boxEGainOrLoss,Line 8b,Box E Gain/Loss (Box E Gain/Loss (sum with D/F to lTCapGnloss)),calculated-in-scope
+Schedule D,boxESalesPrice,Line 8b,Box E Sales Price,user inputs
+Schedule D,boxFAdjustments,Line 8b,Box F Adjustments,user inputs
+Schedule D,boxFCost,Line 8b,Box F Cost,user inputs
+Schedule D,boxFGainOrLoss,Line 8b,Box F Gain/Loss (Box F Gain/Loss (sum with D/E to lTCapGnloss)),calculated-in-scope
+Schedule D,boxFSalesPrice,Line 8b,Box F Sales Price,user inputs
+Schedule D,ltOtherFormTotalGL,Line 9; Line 11,"Total Other Form Gain/Loss (Long-term from other forms (4797 Part I, 2439, 6252, 4684, 6781, 8824))",calculated-outside-scope
+Schedule D,capitalGainDistribution,Line 12,Capital Gain Distribution (Long-Term Capital Gain Distributions),user inputs
+Schedule D,netLongTermGLK1,Line 13,Net Long Term Gain/Loss from K-1s (Long-Term Passthrough Gain/Loss),user inputs
+Schedule D,netLTCapitalGainLoss,Line 14,Net Long Term Capital Gain/Loss (Long-Term Capital Gain/Loss),calculated-in-scope
+Schedule D,netSTLTGainLoss,Line 18,Net Short and Long Term Capital Gain/Loss (28% rate gain (combine 15+16+17)),calculated-in-scope
+Schedule D,bothGains,Line 19,Are Both Gains (Unrecaptured section 1250 gain),calculated-in-scope
+Schedule D,gain28WorksheetAmt,Line 20,28% Gain Worksheet Amount (28% Gain/Loss Adjustment),calculated-in-scope
+Schedule D,allowableCapLossAmt,Line 22,Allowable Capital Loss Amount (Allowable capital loss),calculated-in-scope
+Schedule D,gain1250WorksheetAmt,Schedule D (Unrecaptured Section 1250 Gain Worksheet),Section 1250 Gain worksheet amount (Unrecaptured Section 1250 Gain),calculated-in-scope
+Schedule D,capGainWriteinText,Capital gain distributions - write-in / description,Cap Gain Write in Text,user inputs
+Schedule D,qofDispose,Header / form - QOF disposition question,Did you dispose of any QOF investments,user inputs
+Schedule D,primarySSN,Header - SSN,SSN,user inputs
+Schedule D,primaryAndSpouseName,Header - name(s) shown on return,Name,user inputs
+Schedule D,taxYear,Header - tax year,Tax Tear,user inputs
+Schedule D,qualifiedDividends,Qualified dividends / worksheet indicator (see instructions),Qualified Dividend Worksheet required,user inputs
+Schedule D,capGainForm8814Amt,Schedule D,Cap Gain Write in amount from 8814 (Cap gain from Form 8814),calculated-outside-scope
+Schedule D,ltCapitalLossCarryover,Schedule D,Long Term Capital Loss Carryover (ITA Long-Term Capital Loss Carryover),user inputs
+Schedule D,taxWorksheet,Tax computation worksheet selection (see instructions),Which Tax Worksheet,user inputs
+Schedule E,propertyAddress,Lines 1 - 3 - physical address of each property (cols A/B/C),Address,user inputs
+Schedule E,propertyType,Lines 1 - 3 - type of each property (cols A/B/C),Type of Property,user inputs
+Schedule E,line2Boxes,Line 2 - fair rental days / personal use days (cols A/B/C),,user inputs
+Schedule E,rentsReceivedAmt,Line 3,Rents A+B+C; sum with Line 4 -> royrec,user inputs
+Schedule E,totalRoyaltiesReceivedAmt,Line 4,Royalties A+B+C; sum with Line 3 -> royrec,calculated-in-scope
+Schedule E,advertisingAmt,Line 5,Advertising A+B+C,user inputs
+Schedule E,autoAndTravelAmt,Line 6,Auto and travel A+B+C,user inputs
+Schedule E,cleaningAndMaintenanceAmt,Line 7,Cleaning and maintenance A+B+C,user inputs
+Schedule E,commissionsAmt,Line 8,Commissions A+B+C,user inputs
+Schedule E,insuranceAmt,Line 9,Insurance A+B+C,user inputs
+Schedule E,legalAndOtherProfFeesAmt,Line 10,Legal and other prof fees A+B+C,user inputs
+Schedule E,managementFeesAmt,Line 11,Management fees A+B+C,user inputs
+Schedule E,mortgageInterestPaidAmt,Line 12,Mortgage interest A+B+C -> dirIntExp,user inputs
+Schedule E,otherInterestPaidAmt,Line 13,Other interest A+B+C,user inputs
+Schedule E,repairsAmt,Line 14,Repairs A+B+C,user inputs
+Schedule E,suppliesAmt,Line 15,Supplies A+B+C,user inputs
+Schedule E,taxesAmt,Line 16,Taxes A+B+C -> dirRealEstateTax,user inputs
+Schedule E,utilitiesAmt,Line 17,Utilities A+B+C,user inputs
+Schedule E,deprecExpenseOrDepletionAmt,Line 18,Depreciation or depletion A+B+C,user inputs
+Schedule E,otherExpenses,Line 19,Line 19 Other Expenses (Other A+B+C -> dirExpOthExp),user inputs
+Schedule E,totalExpensesAmt,Line 20,Total expenses (lines 5 - 19),calculated-in-scope
+Schedule E,netRentalIncomeOrLossAmt,Line 21,Net rental/royalty income or loss,calculated-in-scope
+Schedule E,dedRentalRealEstateLossAmt,Line 22,Deductible rental real estate loss (Form 8582),calculated-outside-scope
+Schedule E,paymentRqrFilingForm1099Ind,Line A - payments requiring Form 1099,Make Payments requiring filing of form 1099,user inputs
+Schedule E,requiredForms1099FiledInd,Line B - required Forms 1099 filed,RequiredForms1099FiledInd,user inputs
+Schedule E,ssn,Header - SSN,SSN,user inputs
+Schedule E,nameOnReturn,Header - name(s) shown on return,Name,user inputs
+Schedule E,taxYear,Header - tax year,Tax Tear,user inputs
+Schedule E,totalDepreciationAmt,Totals - depreciation (all properties),Total Depreciation Amt,calculated-in-scope
+Schedule E,totalAllPropTotalExpensesAmt,Totals - expenses (all properties),Total All Properties Total Expenses Amt,calculated-in-scope
+Schedule E,incomeAmt,"Totals - income (Part II / partnership, etc.)",IncomeAmt,calculated-outside-scope
+Schedule E,lossesAmt,"Totals - losses (Part II / partnership, etc.)",LossesAmt,calculated-outside-scope
+Schedule E,totalMortgageInterestPaidAmt,Totals - mortgage interest (all properties),Total Mortgage Interest Paid Amt,calculated-in-scope
+Schedule E,totAllPaymentsAllRentalPropAmt,Totals - rents received (all properties),Total All Payments All Rental Properties Amt,calculated-in-scope
+Schedule E,totAllPaymentsAllRyltyPropAmt,Totals - royalties received (all properties),Total All Payments All Roylty Properties Amt,calculated-in-scope
+Schedule E,totalIncomeOrLossAmt,total,TotalIncomeOrLossAmt (Total income or loss (schedule total)),calculated-in-scope
+Schedule F,salesOfLvstckBghtForResaleAmt,Line 1a,Sales of purchased livestock or other resale items (Farm income - sales of items bought),user inputs
+Schedule F,costOfLvstckBghtForResaleAmt,Line 1b,Cost of livestock bought for resale (Farm income - cost of items bought),user inputs
+Schedule F,purchasedProfitAmt,Line 1c,Purchased Profit Amount (Farm income),calculated-in-scope
+Schedule F,saleOfProductsRaisedAmt,Line 2,"Sales of livestock, produce, grains, and other products raised (Farm income - sales of products raised)",user inputs
+Schedule F,farmIncomeCashMethodGrpCooperativeDistributionsAmt,Line 3a,Cooperative distributions amount (Farm income - cooperative/reserve payments),user inputs
+Schedule F,farmIncomeCashMethodGrpCooperativeDistriTxblAmt,Line 3b,Cooperative distributions taxable amount (Farm income),user inputs
+Schedule F,farmIncomeCashMethodGrpAgriculturalProgramPymtAmt,Line 4a,Agricultural Program payments (Farm income),user inputs
+Schedule F,agriculturalProgramPymtTxblAmt,Line 4b,Agricultural program payments taxable amount (Farm income),user inputs
+Schedule F,cccLoansReported,Line 5a,Commodity Credit Corporation loans statement reported amount (Farm income),user inputs
+Schedule F,farmIncomeCashMethodGrpCCCLoansForfeitedAmt,Line 5b,Commodity Credit corporation loans forfeited amount (Farm income),user inputs
+Schedule F,cccLoansForfeitedTaxableAmount,Line 5c,Commodity Credit corporation loans forfeited taxable amount (Farm income),user inputs
+Schedule F,electionDeferCropInsProcInd,Lines 6a/6b - election to defer crop insurance,Crop proceed deferral checkbox,user inputs
+Schedule F,farmIncomeCashMethodGrpCropInsProcAndDsstrPymtAmt,Line 6a,Crop Insurance Proceeds received in current year (Farm income - crop insurance),user inputs
+Schedule F,cropInsProcAndDsstrPymtTxblAmt,Line 6b,Crop Insurance Proceeds received in current year taxable amount (Farm income - crop insurance taxable),user inputs
+Schedule F,farmIncomeCashMethodGrpCustomHireIncomeAmt,Line 7,Amount (Farm income),user inputs
+Schedule F,otherIncomeAmt,Line 8,Amount (Farm income - other),user inputs
+Schedule F,farmIncomeCashMethodGrpGrossIncomeAmt,Line 9,Amount (Farm gross income (Line 9 - RETAINED)),calculated-in-scope
+Schedule F,carAndTruckExpensesAmt,Line 10,Amount (Farm expenses - car and truck),user inputs
+Schedule F,chemicalExpenseAmt,Line 11,Chemicals Expense Schedule F (Farm expenses),user inputs
+Schedule F,conservationExpenseAmt,Line 12,Conservation Expense Schedule F (Farm expenses),user inputs
+Schedule F,customHireExpenseAmt,Line 13,Custom Hire Expense Schedule F (Farm expenses),user inputs
+Schedule F,deprecAndSect179ExpnsDedAmt,Line 14,Depreciation and 179 expenses (Farm expenses - depreciation and section 179),user inputs
+Schedule F,employeeBenefitProgramAmt,Line 14,Employee Benefit Programs Schedule F (Employee Benefit Expense),user inputs
+Schedule F,employeeHealthInsurance,Line 15,Employee Benefits - Employee Health Insurance (Farm expenses - employee benefits),user inputs
+Schedule F,feedPurchasedExpenseAmt,Line 16,Feed (Farm expenses),user inputs
+Schedule F,fertilizerAndLimeExpenseAmt,Line 17,Fertilizers and lime (Farm expenses),user inputs
+Schedule F,freightAndTruckingExpenseAmt,Line 18,Freight and trucking (Farm expenses),user inputs
+Schedule F,gasolineFuelAndOilExpenseAmt,Line 19,"Gasoline, fuel, and oil (Farm expenses)",user inputs
+Schedule F,insuranceAmt,Line 20,Insurance (Farm expenses),user inputs
+Schedule F,mortgageIntAmount,Line 21,Mortgage interest to banks (Farm expenses),user inputs
+Schedule F,otherInterest,Line 22,Other Interest (Farm expenses),user inputs
+Schedule F,laborHiredExpenseAmt,Line 23,Labor hired less employment credits (Farm expenses - wages paid),user inputs
+Schedule F,pensionProfitSharingPlansAmt,Line 24,Pension and profit sharing plans (Farm expenses),user inputs
+Schedule F,machineryAndEquipmentRentAmt,Line 25,Rent or lease vehicles (Farm expenses),user inputs
+Schedule F,otherBusinessPropertyRentAmt,Line 26,Rent or lease other (Farm expenses),user inputs
+Schedule F,repairsAndMaintenanceAmt,Line 27,Repairs and Maintenance (Farm expenses),user inputs
+Schedule F,seedAndPlantExpenseAmt,Line 28,Seeds and plants (Farm expenses),user inputs
+Schedule F,storageAndWarehousingExpnsAmt,Line 29,Storage and warehousing (Farm expenses),user inputs
+Schedule F,suppliesAmt,Line 30,Supplies (Farm expenses),user inputs
+Schedule F,taxExpenseAmt,Line 31,Taxes (Farm expenses),user inputs
+Schedule F,utilitiesAmt,Line 32,Utilities (Farm expenses),user inputs
+Schedule F,vtrnryBreedingMedicineExpnsAmt,Line 32a,"Veterinary, breeding, and medicine (Farm expenses)",user inputs
+Schedule F,line32OtherExpenses,Line 32b,Other Expenses (Farm expenses - other),user inputs
+Schedule F,totalExpensesAmt,Line 33,Total Expenses (Farm total expenses (Line 33 - RETAINED)),calculated-in-scope
+Schedule F,netFarmProfitLossAmt,Line 34,Net farm profit(loss) (Net farm profit or loss),calculated-in-scope
+Schedule F,someInvestmentIsNotAtRiskInd,Line 35 - all investment is at risk (check if NOT at risk),At risk checkbox,user inputs
+Schedule F,lineFAny1099Payments,Line F - payments requiring Form 1099,Payments that required 1099,user inputs
+Schedule F,lineG1099sFiled,"Line G - if Yes to F, were Forms 1099 filed",Were 1099s filed,user inputs
+Schedule F,employeeHealthInsCr,Credits - employee health insurance credit,Employee Health Insurance Credit Schedule F,user inputs
+Schedule F,cropInsFromPriorYear,Crop insurance - prior-year deferral (see instructions),Amount,user inputs
+Schedule F,otherEmployeeBenefits,Expenses - other employee benefits,Other Employee Benefits Schedule F,user inputs
+Schedule F,totalOtherExpenses,Expenses - total other expenses,Total Other Expenses Schedule F,calculated-in-scope
+Schedule F,ssn,Header - SSN,SSN of proprietor,user inputs
+Schedule F,farmProprietorName,Header - name of proprietor,Name of proprietor,user inputs
+Schedule F,taxYear,Header - tax year,Tax Tear,user inputs
+Schedule F,principalProductDesc,Line A - principal crop or activity,Principal crop or activity,user inputs
+Schedule F,agriculturalActivityCd,Line B - enter code from Part IV,Part IV Code,user inputs
+Schedule F,lineCAccountingMethod,Line C - accounting method,Accounting Method,user inputs
+Schedule F,ein,Line D,EIN (Business EIN),user inputs
+Schedule F,lineEMaterialParticipationBoxes,Line E - material participation,Material Participation Checkbox,user inputs
+Schedule F,farmIncomeAccrualMethodCCCLoansForfeitedTaxableAmount,Part II / accrual - CCC forfeited taxable,Commodity Credit Corporation loans forfeited taxable amount - accrual,user inputs
+Schedule F,cccLoansForfeitedAmt,Part II / accrual - CCC loans forfeited,Commodity Credit Corporation loans forfeited amount - accrual,user inputs
+Schedule F,cccLoansReportedL41A,Part II / accrual - CCC loans reported,Commodity Credit Corporation loans statement reported amount - accrual,user inputs
+Schedule F,agriculturalProgramPymtAmt,Part II / accrual - agricultural program payments,Agricultural program payments amount - accrual,user inputs
+Schedule F,accrualAgriculturalProgramPymtTxblAmt,Part II / accrual - agricultural program payments taxable,Agricultural program payments taxable amount - accrual,user inputs
+Schedule F,cooperativeDistributionsAmt,Part II / accrual - cooperative distributions,Cooperative distributions Amount - accrual,user inputs
+Schedule F,cooperativeDistriTxblAmt,Part II / accrual - cooperative taxable amount,Cooperative distributions taxable amount - accrual,user inputs
+Schedule F,cropInsProcAndDsstrPymtAmt,Part II / accrual - crop insurance and disaster payments,Crop Insurance proceeds amount - accraul,user inputs
+Schedule F,customHireIncomeAmt,Part II / accrual - custom hire income,Custom Hire Income Amount - accrual,user inputs
+Schedule F,accrualOtherIncomeAmt,Part II / accrual - other income,Other Income Amount - accrual,user inputs
+Schedule F,salesLivestockProduceProdAmt,"Part II / accrual - sales of livestock, produce, grains, etc.","Sale of livestock, produce, grains, other products accrual",user inputs
+Schedule F,cccLoansStmt,Part II / statements - CCC loans (text),Commodity Credit Corporation loans statement text,user inputs
+Schedule F,cropInsDeferStmt,Part II / statements - crop insurance deferral (text),Crop Insurance proceeds amount - accraul,user inputs
+Schedule F,grossIncomeAmt,Part III / accrual - gross income,Gross income amount - accrual,calculated-in-scope
+Schedule F,invntryAtBOYPlusCostOfPrchsAmt,Part III - BOY inventory plus purchases,Beginning inventory plus cost of products purchased,calculated-in-scope
+Schedule F,costOfProductsPrchsDuringYrAmt,Part III - cost of products purchased,Cost of products purchased,user inputs
+Schedule F,costOfProductsSoldAmt,Part III - cost of products sold,Cost of products sold,calculated-in-scope
+Schedule F,inventoryOfProductsAtEOYAmt,Part III - inventory at end of year,Ending product inventory,user inputs
+Schedule F,inventoryOfProductsAtBOYAmt,Part III - inventory of products at beginning of year,Beginning product inventory,user inputs
+Schedule F,passiveActivityLossLiteralGrp,Passive activity / limitations (see instructions),Passive Activity Loss Literal Group,user inputs
+Schedule F,cccLoansStmtL41T,Statements - CCC loans (Part II),Commodity Credit Corporation loans statement Schedule F,user inputs
+Schedule F,mortgageInterestStmt,Statements - mortgage interest,Mortgage Interest Statement Schedule F,user inputs
+Schedule F,otherInterestStmt,Statements - other interest,Other Interest Schedule F,user inputs

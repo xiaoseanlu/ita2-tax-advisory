@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_051",
+  "category": "charitable",
+  "strategy_type": "Charitable Contributions",
+  "title": "IRA Qualified Charitable Distribution (QCD)",
+  "implementation_effort_score": 7,
+  "tax_savings_score": 7,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must be age 70\u00bd or older to transfer up to $105,000 (2024) directly from traditional IRA to qualified charity as QCD, satisfying required minimum distributions while excluding amount from taxable income providing tax benefit even for non-itemizers",
+    "criteria": [
+      "Must be age 70\u00bd or older on date of distribution (can do before RMD age of 73/75)",
+      "2024 limit: $105,000 per person per year (indexed for inflation annually)",
+      "Distribution must transfer directly from IRA trustee to qualified 501(c)(3) public charity",
+      "QCD counts toward required minimum distribution but excluded from taxable income",
+      "Provides tax benefit even if take standard deduction (unlike regular charitable contributions requiring itemizing)",
+      "Reduces AGI helping avoid Medicare IRMAA, Social Security taxation, and other income-based thresholds",
+      "Can use traditional IRA, inherited IRA; cannot use SEP-IRA or SIMPLE IRA if currently receiving contributions",
+      "Cannot receive any goods or services in exchange; must be pure charitable contribution"
+    ]
+  },
+  "limitations": {
+    "qcd_strategy_benefits": {
+      "agi_exclusion": "Amount excluded from income; better than deduction as reduces AGI directly",
+      "rmd_satisfaction": "QCD counts toward RMD requirement but not included in income",
+      "standard_deduction_benefit": "Provides tax benefit even taking standard deduction; no need to itemize",
+      "medicare_irmaa": "Lower AGI helps avoid or reduce Medicare premium surcharges (IRMAA)",
+      "social_security": "Reduced AGI may decrease taxation of Social Security benefits",
+      "annual_limit_2024": "$105,000 per person; married couples can each do $105,000 = $210,000 household"
+    },
+    "restrictions": [
+      "Must be age 70\u00bd or older; six-month waiting period strictly enforced (not just turn 70)",
+      "Cannot use to private foundations, donor-advised funds, or supporting organizations",
+      "Cannot receive membership benefits, tickets, or goods/services in exchange for QCD",
+      "Distribution must go directly from IRA to charity; cannot take distribution then contribute",
+      "No charitable deduction allowed for QCD amount (already excluded from income; can't double-dip)",
+      "Must receive contemporaneous written acknowledgment from charity like any charitable contribution",
+      "Cannot make QCD from 401(k), 403(b), or other retirement plans; must be IRA",
+      "If make QCD and also regular IRA contribution, QCD tax benefit reduced by deductible contribution amount"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

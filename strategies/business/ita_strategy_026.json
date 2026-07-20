@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_026",
+  "category": "business",
+  "strategy_type": "Business Deduction",
+  "title": "Section 179 Immediate Expensing Election",
+  "implementation_effort_score": 10,
+  "tax_savings_score": 8,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must elect Section 179 expensing to immediately deduct cost of qualifying business equipment and property up to annual dollar limits subject to business income limitation and phase-out thresholds",
+    "criteria": [
+      "Property must be tangible personal property purchased and placed in service in tax year",
+      "2025 limits: $1,220,000 maximum expense deduction; $3,050,000 total property phase-out threshold (indexed annually)",
+      "Business taxable income limitation: Cannot create loss; limited to taxable income from active trade or business",
+      "Property must be used more than 50% for business purposes to qualify for Section 179",
+      "New or used property qualifies; no original use requirement like bonus depreciation",
+      "Qualified real property eligible: roofing, HVAC, fire protection, alarm systems, security systems (up to $1,220,000 combined)",
+      "Must elect Section 179 on timely filed tax return including extensions",
+      "Carryforward unused Section 179 (due to income limitation) indefinitely to future tax years"
+    ]
+  },
+  "limitations": {
+    "section_179_rules": {
+      "dollar_limit_2025": "$1,220,000 maximum deduction; reduced dollar-for-dollar when total property exceeds $3,050,000",
+      "income_limitation": "Deduction limited to taxable business income; cannot create or increase loss",
+      "carryforward_provision": "Unused Section 179 (due to income limit) carries forward indefinitely",
+      "qualified_property": "Tangible personal property, off-the-shelf software, qualified real property improvements",
+      "business_use_test": "Property must be used more than 50% for business; recapture if use drops below 50%",
+      "coordination_with_bonus": "Section 179 elected first, then bonus depreciation, then regular MACRS"
+    },
+    "restrictions": [
+      "Income limitation often restricts deduction for businesses with limited taxable income",
+      "Property purchased from related parties does not qualify for Section 179 election",
+      "Property converted to personal use or business use drops below 50% triggers recapture as ordinary income",
+      "Real property generally excluded except specific qualified improvement property categories",
+      "Listed property subject to strict substantiation requirements and business use percentage tracking",
+      "S Corporation and partnership Section 179 passes through to owners subject to their individual income limitations",
+      "Phase-out begins when total qualifying property exceeds $3,050,000; dollar-for-dollar reduction",
+      "State tax conformity varies; many states have different Section 179 limits creating state/federal differences"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

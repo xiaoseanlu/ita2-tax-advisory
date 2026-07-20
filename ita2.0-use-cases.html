@@ -1,0 +1,2728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ProConnect Tax · ITA 2.0 — Use Cases</title>
+<style>
+:root {
+  --pt-navy: #0C2340;
+  --pt-teal: #00A3AD;
+  --pt-teal-light: #D6F1F3;
+  --pt-blue-light: #E8F4FD;
+  --pt-blue: #0077C5;
+  --pt-blue-dark: #005A99;
+  --pt-error: #D93025;
+  --pt-black: #000000;
+  --pt-dark-gray: #393A3D;
+  --pt-mid-gray: #6B6C72;
+  --pt-light-gray: #D4D5D9;
+  --pt-off-white: #F4F4F5;
+  --pt-white: #FFFFFF;
+  --pt-teal-cta: #00A3AD;
+
+  /* Segment colors */
+  --color-pro: #0C2340;
+  --color-smb: #1a5c9a;
+  --color-consumer: #7c3aed;
+  --color-agent: #b45309;
+
+  font-family: 'Avenir Next for Intuit', 'Avenir Next', Avenir, Arial, Helvetica, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--pt-off-white);
+  color: var(--pt-dark-gray);
+  min-height: 100vh;
+}
+
+/* ── TOP NAV ── */
+.topbar {
+  background: var(--pt-navy);
+  padding: 0 48px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.topbar-logo {
+  width: 36px;
+  height: 36px;
+  background: var(--pt-teal-cta);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -1px;
+}
+.topbar-title {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+.topbar-subtitle {
+  color: rgba(255,255,255,0.6);
+  font-size: 13px;
+  font-weight: 400;
+}
+.topbar-pills {
+  display: flex;
+  gap: 8px;
+}
+.topbar-pill {
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.8);
+  background: transparent;
+  transition: all 0.15s;
+}
+.topbar-pill.active, .topbar-pill:hover {
+  background: var(--pt-teal);
+  border-color: var(--pt-teal);
+  color: var(--pt-navy);
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, var(--pt-navy) 0%, #0a3560 60%, #0d4a7a 100%);
+  padding: 64px 48px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  right: -80px;
+  top: -80px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(0,163,173,0.08);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.hero-eyebrow {
+  color: var(--pt-teal);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.hero-h1 {
+  color: white;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+.hero-h1 span { color: var(--pt-teal); }
+.hero-desc {
+  color: rgba(255,255,255,0.75);
+  font-size: 17px;
+  font-weight: 400;
+  max-width: 680px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.hero-stat {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 16px 24px;
+  min-width: 140px;
+}
+.hero-stat-num {
+  color: var(--pt-teal);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.hero-stat-label {
+  color: rgba(255,255,255,0.65);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* ── MAIN LAYOUT ── */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 48px 80px;
+}
+
+/* ── SECTION HEADER ── */
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--pt-light-gray);
+}
+.section-header-left {}
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.section-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--pt-navy);
+  letter-spacing: -0.3px;
+}
+.section-count {
+  font-size: 13px;
+  color: var(--pt-mid-gray);
+  font-weight: 500;
+}
+
+/* ── SEGMENT BLOCKS ── */
+/* segment margin handled by accordion */
+
+.segment-intro {
+  background: white;
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  border-left: 4px solid;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.segment-intro-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.segment-intro-text h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.segment-intro-text p {
+  font-size: 14px;
+  color: var(--pt-mid-gray);
+  line-height: 1.5;
+}
+
+/* ── USE CASE GRID ── */
+.uc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+/* ── PHASE SUB-SECTION ── */
+.uc-phase {
+  margin-bottom: 40px;
+}
+.uc-phase-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--pt-light-gray);
+}
+.uc-phase-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.uc-phase-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pt-medium-gray);
+  margin-bottom: 2px;
+}
+.uc-phase-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--pt-navy);
+  line-height: 1.2;
+}
+.uc-phase-desc {
+  font-size: 13px;
+  color: var(--pt-medium-gray);
+  margin-left: auto;
+  max-width: 340px;
+  text-align: right;
+  line-height: 1.4;
+}
+
+/* ── USE CASE CARD ── */
+.uc-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  border: 1.5px solid var(--pt-light-gray);
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+.uc-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+.uc-card.expanded { border-color: transparent; }
+
+.uc-card-top {
+  padding: 20px 20px 16px;
+}
+.uc-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 8px;
+}
+.uc-id {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--pt-off-white);
+  color: var(--pt-mid-gray);
+  flex-shrink: 0;
+}
+.uc-priority {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+.p0 { background: #FEE2E2; color: #991B1B; }
+.p1 { background: #FEF3C7; color: #92400E; }
+.p2 { background: #EDE9FE; color: #5B21B6; }
+
+.uc-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--pt-navy);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.uc-idea {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--pt-mid-gray);
+  margin-bottom: 10px;
+  padding: 6px 10px;
+  background: var(--pt-blue-light);
+  border-radius: 6px;
+  border-left: 3px solid var(--pt-blue);
+  line-height: 1.4;
+}
+.uc-trigger {
+  font-size: 13px;
+  color: var(--pt-mid-gray);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.uc-signal-bar {
+  padding: 12px 20px;
+  background: var(--pt-off-white);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--pt-light-gray);
+}
+.signal-chip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--pt-dark-gray);
+}
+.signal-chip .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+}
+.signal-dot-voc { background: var(--pt-error); }
+.signal-dot-maxdiff { background: #7c3aed; }
+.signal-dot-jtbd { background: var(--pt-blue-dark); }
+.signal-dot-prd { background: var(--pt-teal-cta); }
+
+/* expand section */
+.uc-expand {
+  display: none;
+  padding: 0 20px 20px;
+  border-top: 1px solid var(--pt-light-gray);
+  margin-top: 2px;
+}
+.uc-card.expanded .uc-expand { display: block; }
+.uc-expand-section { margin-top: 16px; }
+.uc-expand-section h5 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--pt-mid-gray);
+  margin-bottom: 8px;
+}
+.uc-expand-section ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.uc-expand-section ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--pt-dark-gray);
+  line-height: 1.4;
+}
+.uc-expand-section ul li::before {
+  content: '→';
+  color: var(--pt-teal-cta);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.uc-evidence {
+  background: var(--pt-teal-light);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 12px;
+  font-size: 12.5px;
+  color: var(--pt-navy);
+  line-height: 1.5;
+}
+.uc-evidence strong { font-weight: 700; }
+.uc-expand-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--pt-teal-cta);
+  cursor: pointer;
+  padding: 10px 20px 0;
+  user-select: none;
+}
+.uc-expand-toggle svg { transition: transform 0.2s; }
+.uc-card.expanded .uc-expand-toggle svg { transform: rotate(180deg); }
+
+/* ── COLORED TOP BORDER per segment ── */
+.seg-pro .uc-card { border-top: 3px solid var(--color-pro); }
+.seg-smb .uc-card { border-top: 3px solid var(--color-smb); }
+.seg-consumer .uc-card { border-top: 3px solid var(--color-consumer); }
+.seg-agent .uc-card { border-top: 3px solid var(--color-agent); }
+
+/* ── AGENT SECTION SPECIAL ── */
+.agent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.agent-card {
+  background: white;
+  border-radius: 16px;
+  border: 1.5px solid var(--pt-light-gray);
+  border-top: 4px solid var(--color-agent);
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+.agent-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--color-agent);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.agent-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--pt-navy);
+  margin-bottom: 8px;
+}
+.agent-subtitle {
+  font-size: 13px;
+  color: var(--pt-mid-gray);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.agent-metric {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--pt-blue-light);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--pt-blue-dark);
+  margin-bottom: 16px;
+}
+.agent-caps { display: flex; flex-direction: column; gap: 6px; }
+.agent-cap {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--pt-dark-gray);
+  line-height: 1.4;
+}
+.agent-cap-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--color-agent);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+/* ── PRIORITY MATRIX ── */
+.matrix-section {
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  margin-bottom: 48px;
+}
+.matrix-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--pt-navy);
+  margin-bottom: 24px;
+}
+.matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.matrix-col-header {
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--pt-light-gray);
+  margin-bottom: 12px;
+}
+.matrix-col { display: flex; flex-direction: column; gap: 8px; }
+.matrix-item {
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+.matrix-item-id {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+  opacity: 0.65;
+}
+.mi-pro { background: #D6F1F3; color: var(--color-pro); }
+.mi-smb { background: #E8F0FA; color: var(--color-smb); }
+.mi-con { background: #F0EBFF; color: var(--color-consumer); }
+.mi-agt { background: #FFF0E0; color: var(--color-agent); }
+
+/* ── LIMITATIONS CALLOUT ── */
+.limits-banner {
+  background: linear-gradient(135deg, #06101f 0%, var(--pt-navy) 100%);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+}
+.limits-banner::before {
+  content: '';
+  position: absolute;
+  right: -40px; top: -40px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: rgba(0,163,173,0.06);
+}
+.limits-banner-title {
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.limits-banner-sub {
+  color: rgba(255,255,255,0.65);
+  font-size: 14px;
+  margin-bottom: 28px;
+  max-width: 560px;
+  line-height: 1.5;
+}
+.limits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.limit-chip {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.limit-chip-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--pt-teal);
+  margin-bottom: 4px;
+}
+.limit-chip-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+.limit-chip-signal {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--pt-navy);
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  padding: 24px 48px;
+  font-size: 12px;
+}
+.footer strong { color: rgba(255,255,255,0.85); }
+
+/* ── FILTERS ── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.filter-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--pt-mid-gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-right: 4px;
+}
+.filter-btn {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1.5px solid var(--pt-light-gray);
+  background: white;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: var(--pt-dark-gray);
+  font-family: inherit;
+}
+.filter-btn:hover { border-color: var(--pt-navy); color: var(--pt-navy); }
+.filter-btn.on { background: var(--pt-navy); color: white; border-color: var(--pt-navy); }
+.filter-btn.pro-on { background: var(--color-pro); color: white; border-color: var(--color-pro); }
+.filter-btn.smb-on { background: var(--color-smb); color: white; border-color: var(--color-smb); }
+.filter-btn.con-on { background: var(--color-consumer); color: white; border-color: var(--color-consumer); }
+.filter-btn.agt-on { background: var(--color-agent); color: white; border-color: var(--color-agent); }
+
+@media (max-width: 768px) {
+  .main { padding: 24px; }
+  .hero { padding: 40px 24px; }
+  .agent-grid { grid-template-columns: 1fr; }
+  .matrix-grid { grid-template-columns: repeat(2,1fr); }
+  .topbar { padding: 0 20px; }
+  .topbar-pills { display: none; }
+}
+
+/* ── LIMITATION MODAL DRAWER ── */
+.lim-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 200;
+  backdrop-filter: blur(2px);
+}
+.lim-overlay.open { display: block; }
+
+.lim-drawer {
+  position: fixed;
+  top: 0; right: 0;
+  width: min(560px, 100vw);
+  height: 100vh;
+  background: #fff;
+  box-shadow: -8px 0 40px rgba(0,0,0,0.18);
+  z-index: 201;
+  transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.4,0,0.2,1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.lim-overlay.open .lim-drawer {
+  transform: translateX(0);
+}
+
+.lim-drawer-header {
+  padding: 28px 32px 20px;
+  border-bottom: 1px solid var(--pt-light-gray, #D4D5D9);
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.lim-drawer-id {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--pt-mid-gray, #6B6C72);
+  margin-bottom: 6px;
+}
+.lim-drawer-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--pt-navy, #0C2340);
+  line-height: 1.2;
+}
+.lim-close {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--pt-light-gray, #D4D5D9);
+  background: transparent;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: var(--pt-mid-gray, #6B6C72);
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.lim-close:hover { background: var(--pt-off-white, #F4F4F5); }
+
+.lim-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.lim-section { display: flex; flex-direction: column; gap: 8px; }
+.lim-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--pt-mid-gray, #6B6C72);
+}
+
+.lim-summary {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--pt-dark-gray, #393A3D);
+}
+
+.lim-quote {
+  background: var(--pt-blue-light, #E8F4FD);
+  border-left: 3px solid var(--pt-blue, #0077C5);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  font-style: italic;
+  color: var(--pt-dark-gray, #393A3D);
+  line-height: 1.5;
+}
+.lim-quote cite {
+  display: block;
+  margin-top: 6px;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--pt-mid-gray, #6B6C72);
+}
+
+.lim-data-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.lim-data-pill {
+  display: flex;
+  flex-direction: column;
+  background: var(--pt-off-white, #F4F4F5);
+  border-radius: 10px;
+  padding: 10px 16px;
+  min-width: 110px;
+  gap: 2px;
+  border: 1px solid var(--pt-light-gray, #D4D5D9);
+}
+.lim-data-pill-val {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--pt-navy, #0C2340);
+  line-height: 1;
+}
+.lim-data-pill-key {
+  font-size: 11px;
+  color: var(--pt-mid-gray, #6B6C72);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.lim-evidence {
+  background: var(--pt-teal-light, #D6F1F3);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: var(--pt-navy, #0C2340);
+  line-height: 1.55;
+}
+.lim-evidence strong { font-weight: 700; }
+
+.lim-uc-links { display: flex; flex-direction: column; gap: 8px; }
+.lim-uc-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--pt-off-white, #F4F4F5);
+  border: 1px solid var(--pt-light-gray, #D4D5D9);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--pt-navy, #0C2340);
+  cursor: pointer;
+  transition: background 0.15s;
+  text-align: left;
+}
+.lim-uc-link:hover { background: var(--pt-teal-light, #D6F1F3); }
+.lim-uc-link-id {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--pt-mid-gray, #6B6C72);
+  flex-shrink: 0;
+  min-width: 40px;
+}
+
+.limit-chip {
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  position: relative;
+}
+.limit-chip:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-1px);
+}
+.limit-chip::after {
+  content: '→';
+  position: absolute;
+  bottom: 8px; right: 10px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  font-weight: 700;
+}
+
+
+/* ── HOW THIS WILL BE DIFFERENT ── */
+.howdiff-section {
+  background: white;
+  border-radius: 20px;
+  padding: 40px 48px;
+  margin-bottom: 40px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  border: 1.5px solid var(--pt-light-gray, #D4D5D9);
+}
+.howdiff-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--pt-teal-cta, #00A3AD);
+  margin-bottom: 10px;
+}
+.howdiff-headline {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--pt-navy, #0C2340);
+  line-height: 1.2;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+.howdiff-subline {
+  font-size: 15px;
+  color: var(--pt-mid-gray, #6B6C72);
+  line-height: 1.6;
+  max-width: 780px;
+  margin-bottom: 36px;
+}
+
+/* ── SHIFT TABLE ── */
+.shift-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 36px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid var(--pt-light-gray, #D4D5D9);
+}
+.shift-table thead tr {
+  background: var(--pt-off-white, #F4F4F5);
+}
+.shift-table th {
+  padding: 12px 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--pt-mid-gray, #6B6C72);
+  text-align: left;
+  border-bottom: 1.5px solid var(--pt-light-gray, #D4D5D9);
+}
+.shift-table th:nth-child(2) { text-align: center; }
+.shift-table td {
+  padding: 14px 20px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  border-bottom: 1px solid var(--pt-light-gray, #D4D5D9);
+  vertical-align: top;
+}
+.shift-table tbody tr:last-child td { border-bottom: none; }
+.shift-table tbody tr:hover { background: var(--pt-off-white, #F4F4F5); }
+.shift-before {
+  color: #6B6C72;
+  text-decoration: line-through;
+  text-decoration-color: rgba(217,48,37,0.4);
+}
+.shift-arrow {
+  text-align: center;
+  font-size: 18px;
+  color: var(--pt-teal, #00A3AD);
+  font-weight: 700;
+  padding: 14px 8px;
+}
+.shift-after {
+  font-weight: 600;
+  color: var(--pt-navy, #0C2340);
+}
+
+/* ── 3 PILLARS ── */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 36px;
+}
+.pillar-card {
+  border-radius: 14px;
+  padding: 24px;
+  border: 1.5px solid var(--pt-light-gray, #D4D5D9);
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+.pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+}
+.pillar-ptg::before { background: var(--pt-navy, #0C2340); }
+.pillar-experts::before { background: #1a5c9a; }
+.pillar-filers::before { background: #7c3aed; }
+.pillar-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.pillar-ptg .pillar-num { color: var(--pt-navy, #0C2340); }
+.pillar-experts .pillar-num { color: #1a5c9a; }
+.pillar-filers .pillar-num { color: #7c3aed; }
+.pillar-icon { font-size: 28px; margin-bottom: 10px; }
+.pillar-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--pt-navy, #0C2340);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.pillar-desc {
+  font-size: 13px;
+  color: var(--pt-mid-gray, #6B6C72);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.pillar-bullets { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.pillar-bullets li {
+  font-size: 12.5px;
+  color: var(--pt-dark-gray, #393A3D);
+  display: flex; align-items: flex-start; gap: 7px;
+  line-height: 1.4;
+}
+.pillar-bullets li::before {
+  content: '→';
+  font-weight: 700;
+  flex-shrink: 0;
+  font-size: 11px;
+  margin-top: 2px;
+}
+.pillar-ptg .pillar-bullets li::before { color: var(--pt-navy, #0C2340); }
+.pillar-experts .pillar-bullets li::before { color: #1a5c9a; }
+.pillar-filers .pillar-bullets li::before { color: #7c3aed; }
+
+/* ── LOFA STRIP ── */
+.lofa-strip {
+  background: var(--pt-blue-light, #E8F4FD);
+  border: 1px solid var(--pt-blue, #0077C5);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.lofa-strip-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--pt-blue-dark, #005A99);
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+.lofa-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.lofa-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--pt-dark-gray, #393A3D);
+  line-height: 1.4;
+}
+.lofa-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: var(--pt-blue, #0077C5);
+  color: var(--pt-blue-dark, #005A99);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── KEY METRICS ROW ── */
+/* diff-metrics removed */
+
+
+/* ── SEGMENT ACCORDION ── */
+.segment-block {
+  margin-bottom: 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid var(--pt-light-gray, #D4D5D9);
+  background: white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  margin-bottom: 0;
+  border-bottom: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+  border-radius: 0;
+  gap: 16px;
+}
+.section-header:hover { background: var(--pt-off-white, #F4F4F5); }
+.segment-block.acc-open > .section-header {
+  border-bottom: 1.5px solid var(--pt-light-gray, #D4D5D9);
+}
+.section-header-left { flex: 1; min-width: 0; }
+.acc-header-right {
+  display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+}
+.section-count { font-size: 12px; color: var(--pt-mid-gray, #6B6C72); font-weight: 500; }
+.acc-chevron {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--pt-off-white, #F4F4F5);
+  border: 1.5px solid var(--pt-light-gray, #D4D5D9);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--pt-mid-gray, #6B6C72);
+  transition: transform 0.25s ease, background 0.15s;
+  flex-shrink: 0;
+}
+.segment-block.acc-open .acc-chevron {
+  transform: rotate(180deg);
+  background: var(--pt-teal-light, #D6F1F3);
+  border-color: var(--pt-teal, #00A3AD);
+  color: var(--pt-teal, #00A3AD);
+}
+.acc-body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.segment-block.acc-open .acc-body { max-height: 12000px; }
+.acc-body-inner { padding: 24px 28px 32px; }
+.acc-body-inner .segment-intro { margin-bottom: 20px; }
+
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topbar">
+  <div class="topbar-brand">
+    <div class="topbar-logo">PT</div>
+    <div>
+      <div class="topbar-title">ProConnect Tax · ITA 2.0</div>
+      <div class="topbar-subtitle">Use Case Catalog · Project AIR</div>
+    </div>
+  </div>
+  <div class="topbar-pills">
+    <button class="topbar-pill" onclick="scrollTo('pros')">Tax Pros</button>
+    <button class="topbar-pill" onclick="scrollTo('smb')">Small Business</button>
+    <button class="topbar-pill" onclick="scrollTo('consumer')">Consumer</button>
+    <button class="topbar-pill" onclick="scrollTo('agents')">Agents</button>
+    <button class="topbar-pill" onclick="scrollTo('matrix')">Priority Matrix</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">ITA 2.0 · Project AIR · Internal Review Draft</div>
+    <h1 class="hero-h1">Tax advisory that <span>scales</span>.<br>For every client, every surface.</h1>
+    <p class="hero-desc">ITA 2.0 removes the eleven structural limitations that cap advisory at 3% of eligible clients — replacing a single-year, single-engine, 50-strategy calculator with an agentic, multi-surface, done-for-you advisory platform.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">2.7%</div>
+        <div class="hero-stat-label">Eligible PTG firms<br>using ITA today</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">$11.3K</div>
+        <div class="hero-stat-label">Median savings<br>per ITA plan</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">7%</div>
+        <div class="hero-stat-label">Users reaching<br>6th plan (engaged)</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3,000+</div>
+        <div class="hero-stat-label">Strategies in scope<br>(vs. 50 today)</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">$180M</div>
+        <div class="hero-stat-label">PTG TAM at<br>$10K/firm WTP</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="main">
+
+
+<!-- LIMITATION DETAIL DRAWER -->
+<div class="lim-overlay" id="limOverlay" onclick="closeLimitation(event)">
+  <div class="lim-drawer" id="limDrawer">
+    <div class="lim-drawer-header">
+      <div>
+        <div class="lim-drawer-id" id="limDrawerId"></div>
+        <div class="lim-drawer-title" id="limDrawerTitle"></div>
+      </div>
+      <button class="lim-close" onclick="closeLim()">✕</button>
+    </div>
+    <div class="lim-drawer-body" id="limDrawerBody"></div>
+  </div>
+</div>
+
+<!-- LIMITATIONS BANNER -->
+<div class="limits-banner" id="limits">
+  <div class="limits-banner-title">11 Structural Limitations · The Case for ITA 2.0</div>
+  <div class="limits-banner-sub">Every use case in this document is the direct translation of a limitation into a product requirement. These are not polish issues — they are architectural ceilings.</div>
+  <div class="limits-grid">
+    <div class="limit-chip" onclick="openLimitation('L1')" role="button" tabindex="0" aria-label="Learn more about L1" title="Click to see research data">
+      <div class="limit-chip-label">L1</div>
+      <div class="limit-chip-title">The Prospect Wall</div>
+      <div class="limit-chip-signal">MaxDiff #1 · VoC 7%</div>
+    </div>
+    <div class="limit-chip" onclick="openLimitation('L2')" role="button" tabindex="0" aria-label="Learn more about L2" title="Click to see research data">
+      <div class="limit-chip-label">L2</div>
+      <div class="limit-chip-title">One Year, No Scenarios</div>
+      <div class="limit-chip-signal">TAB2 I:5.0 / S:2.3</div>
+    </div>
+    <div class="limit-chip" onclick="openLimitation('L3')" role="button" tabindex="0" aria-label="Learn more about L3" title="Click to see research data">
+      <div class="limit-chip-label">L3</div>
+      <div class="limit-chip-title">50 Isolated Strategies</div>
+      <div class="limit-chip-signal">VoC 6% · Advisory framework</div>
+    </div>
+    <div class="limit-chip" onclick="openLimitation('L4')" role="button" tabindex="0" aria-label="Learn more about L4" title="Click to see research data">
+      <div class="limit-chip-label">L4</div>
+      <div class="limit-chip-title">Black Box Math</div>
+      <div class="limit-chip-signal">25% of all VoC feedback</div>
+    </div>
+    <div class="limit-chip" onclick="openLimitation('L5')" role="button" tabindex="0" aria-label="Learn more about L5" title="Click to see research data">
+      <div class="limit-chip-label">L5</div>
+      <div class="limit-chip-title">No Implementation Path</div>
+      <div class="limit-chip-signal">TAB1 O:12.7 (2nd highest)</div>
+    </div>
+    <div class="limit-chip" onclick="openLimitation('L6')" role="button" tabindex="0" aria-label="Learn more about L6" title="Click to see research data">
+      <div class="limit-chip-label">L6</div>
+      <div class="limit-chip-title">Manual Data Entry</div>
+      <div class="limit-chip-signal">10% advisory penetration</div>
+    </div>
+    <div class="limit-chip" onclick="openLimitation('L7')" role="button" tabindex="0" aria-label="Learn more about L7" title="Click to see research data">
+      <div class="limit-chip-label">L7</div>
+      <div class="limit-chip-title">The Intake Gap</div>
+      <div class="limit-chip-signal">TAB1 O:13.4 (highest item)</div>
+    </div>
+    <div class="limit-chip" onclick="openLimitation('L8')" role="button" tabindex="0" aria-label="Learn more about L8" title="Click to see research data">
+      <div class="limit-chip-label">L8</div>
+      <div class="limit-chip-title">Platform Ceiling</div>
+      <div class="limit-chip-signal">ATE engine dependency</div>
+    </div>
+    <div class="limit-chip" onclick="openLimitation('L9')" role="button" tabindex="0" aria-label="Learn more about L9" title="Click to see research data">
+      <div class="limit-chip-label">L9</div>
+      <div class="limit-chip-title">The Jargon Gap</div>
+      <div class="limit-chip-signal">TAB2 S:2.2 (lowest score)</div>
+    </div>
+    <div class="limit-chip" onclick="openLimitation('L10')" role="button" tabindex="0" aria-label="Learn more about L10" title="Click to see research data">
+      <div class="limit-chip-label">L10</div>
+      <div class="limit-chip-title">Regulatory Blindspot</div>
+      <div class="limit-chip-signal">TAB1 O:11.1 · VoC 2025</div>
+    </div>
+    <div class="limit-chip" onclick="openLimitation('L11')" role="button" tabindex="0" aria-label="Learn more about L11" title="Click to see research data">
+      <div class="limit-chip-label">L11</div>
+      <div class="limit-chip-title">The Bandwidth Wall</div>
+      <div class="limit-chip-signal">Qual: 10% advisory cap</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW THIS WILL BE DIFFERENT -->
+<div class="howdiff-section" id="howdiff">
+  <div class="howdiff-eyebrow">ITA 2.0 · Strategic Vision</div>
+  <h2 class="howdiff-headline">How this will be different</h2>
+  <p class="howdiff-subline">ITA 2.0 is not an incremental improvement. It is a foundational replatform — from a standalone advisory calculator to an agentic, AI-first intelligence layer that powers prosperity for every participant across the Intuit ecosystem. A full strategy paper details the architecture; this is the operating summary that frames every use case that follows.</p>
+
+
+
+  <!-- Before → After shift table -->
+  <table class="shift-table">
+    <thead>
+      <tr>
+        <th style="width:38%">ITA 1.0 today</th>
+        <th style="width:7%"></th>
+        <th style="width:35%">ITA 2.0 · How it changes</th>
+        <th style="width:20%;text-align:right;color:var(--pt-teal,#00A3AD)">Target · Jul '27</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="shift-before">Requires a prior-year return to start — locks out every prospect</td>
+        <td class="shift-arrow">→</td>
+        <td class="shift-after">Start from Zero: build a full plan from a handful of data points, with no prior return required</td>
+              <td style="text-align:right;color:var(--pt-mid-gray,#6B6C72);font-size:12px;">—</td>
+      </tr>
+      <tr>
+        <td class="shift-before">One deterministic tax year, one scenario</td>
+        <td class="shift-arrow">→</td>
+        <td class="shift-after">Multi-year projection (up to 5 years, federal), unlimited side-by-side scenario comparison</td>
+              <td style="text-align:right;color:var(--pt-mid-gray,#6B6C72);font-size:12px;">—</td>
+      </tr>
+      <tr>
+        <td class="shift-before">50 isolated strategies named in tax-law jargon</td>
+        <td class="shift-arrow">→</td>
+        <td class="shift-after">Tax <em>Ideas</em>: chained, goal-oriented plans named in client-benefit language — scaling toward 3,000+ credits, deductions &amp; grants</td>
+              <td style="text-align:right;color:var(--pt-mid-gray,#6B6C72);font-size:12px;">—</td>
+      </tr>
+      <tr>
+        <td class="shift-before">Manual data entry across a 543-field PSB screen</td>
+        <td class="shift-arrow">→</td>
+        <td class="shift-after">BYOI (Bring Your Own Ingestion): automated pull from PTO/Lacerte, QBO P&L, 1040/1120S PDFs, paystubs, brokerage statements</td>
+              <td style="text-align:right;color:var(--pt-mid-gray,#6B6C72);font-size:12px;">—</td>
+      </tr>
+      <tr>
+        <td class="shift-before">Black-box dollar estimates with no calculation path</td>
+        <td class="shift-arrow">→</td>
+        <td class="shift-after">Full audit trail with explainable reasoning — advisors can narrate every dollar to clients and charge for it</td>
+              <td style="text-align:right;color:var(--pt-mid-gray,#6B6C72);font-size:12px;">—</td>
+      </tr>
+      <tr>
+        <td class="shift-before">Plans delivered, implementation left to the advisor</td>
+        <td class="shift-arrow">→</td>
+        <td class="shift-after">Implementation Agent: done-for-you execution (EIN creation, S-Corp election, W-2 generation, retirement filings)</td>
+              <td style="text-align:right;color:var(--pt-mid-gray,#6B6C72);font-size:12px;">—</td>
+      </tr>
+      <tr>
+        <td class="shift-before">Advisory data dies in ITA — zero handoff to return prep</td>
+        <td class="shift-arrow">→</td>
+        <td class="shift-after">Tax Plan portability via MCP: structured handoff into PTO/Lacerte, QBO, and client collaboration surfaces</td>
+              <td style="text-align:right;color:var(--pt-mid-gray,#6B6C72);font-size:12px;">—</td>
+      </tr>
+      <tr>
+        <td class="shift-before">Only available inside ProConnect — one surface</td>
+        <td class="shift-arrow">→</td>
+        <td class="shift-after">Agentic advisory across PTG Pros, Intuit Experts (BT360, QB Live), and Tax Filer surfaces (TurboTax, QuickBooks, Credit Karma)</td>
+              <td style="text-align:right;color:var(--pt-mid-gray,#6B6C72);font-size:12px;">—</td>
+      </tr>
+      <tr>
+        <td class="shift-before">ATE engine dependency — 37% PSB field coverage, no S-Corp/Partnership depth</td>
+        <td class="shift-arrow">→</td>
+        <td class="shift-after">Engine-agnostic via Shadow Mode: AIR runs in parallel, takes primary once ≥95% accuracy bar is met</td>
+              <td style="text-align:right;color:var(--pt-mid-gray,#6B6C72);font-size:12px;">—</td>
+      </tr>
+
+
+
+      <tr style="background:var(--pt-teal-light,#D6F1F3);">
+        <td class="shift-before" style="font-weight:600;text-decoration:none;color:var(--pt-dark-gray,#393A3D);">7.1% engaged firms (of 18K target, 6M clients)</td>
+        <td class="shift-arrow">→</td>
+        <td class="shift-after">Remove barriers to adoption — Start from Zero, BYOI, entity depth — to reach full eligible market</td>
+        <td style="text-align:right;font-weight:700;color:var(--pt-navy,#0C2340);font-size:15px;white-space:nowrap;">30% engaged firms</td>
+      </tr>
+      <tr style="background:var(--pt-teal-light,#D6F1F3);">
+        <td class="shift-before" style="font-weight:600;text-decoration:none;color:var(--pt-dark-gray,#393A3D);">47K+ tax plans created (2025, 4× YoY)</td>
+        <td class="shift-arrow">→</td>
+        <td class="shift-after">Scale advisory volume by driving adoption across eligible PTG firms</td>
+        <td style="text-align:right;font-weight:700;color:var(--pt-navy,#0C2340);font-size:15px;white-space:nowrap;">300K+ plans</td>
+      </tr>
+      <tr style="background:var(--pt-teal-light,#D6F1F3);">
+        <td class="shift-before" style="font-weight:600;text-decoration:none;color:var(--pt-dark-gray,#393A3D);">19 clients per engaged firm (avg)</td>
+        <td class="shift-arrow">→</td>
+        <td class="shift-after">Agentic automation eliminates bandwidth ceiling — advisors serve more clients without more hours</td>
+        <td style="text-align:right;font-weight:700;color:var(--pt-navy,#0C2340);font-size:15px;white-space:nowrap;">50 clients / firm</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 3 Strategic Pillars -->
+  <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--pt-mid-gray);margin-bottom:16px;">3 Strategic Audiences</div>
+  <div class="pillars-grid">
+    <div class="pillar-card pillar-ptg">
+      <div class="pillar-num">Pillar 1</div>
+      <div class="pillar-icon">🧑‍💼</div>
+      <div class="pillar-title">PTG Independent Pros</div>
+      <div class="pillar-desc">Done-for-you advisory that eliminates manual work and scales client impact — driving ProConnect Tax acquisition and retention.</div>
+      <ul class="pillar-bullets">
+        <li>Agentic projection from QBO books data</li>
+        <li>Multi-year, multi-scenario planning</li>
+        <li>Implementation Agent autonomous execution</li>
+        <li>Scaled advisory: 50 → 400+ plans/year</li>
+      </ul>
+    </div>
+    <div class="pillar-card pillar-experts">
+      <div class="pillar-num">Pillar 2</div>
+      <div class="pillar-icon">🤝</div>
+      <div class="pillar-title">Intuit Experts</div>
+      <div class="pillar-desc">Advisory capabilities embedded directly in Expert-led offerings — BT360, QB Live AiO, VEP — extending compliance into advisory without context-switching.</div>
+      <ul class="pillar-bullets">
+        <li>1040/1120S PDF import into PTO + ITA</li>
+        <li>QBO P&L direct pull into projections</li>
+        <li>VEP / IEP native integration</li>
+        <li>PTO client assignment at scale</li>
+      </ul>
+    </div>
+    <div class="pillar-card pillar-filers">
+      <div class="pillar-num">Pillar 3</div>
+      <div class="pillar-icon">📱</div>
+      <div class="pillar-title">Tax Filer Ecosystem</div>
+      <div class="pillar-desc">Proactive, year-round guidance for consumers and small business owners — embedded in TurboTax, QuickBooks, and Credit Karma surfaces.</div>
+      <ul class="pillar-bullets">
+        <li>Tax Insights Service from TTO return</li>
+        <li>QBO P&L → advisory insights</li>
+        <li>Credit phase-out alerts, withholding nudges</li>
+        <li>Natural onramp to Assisted/Advisory</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- LOFAs — top learning assumptions -->
+  <div class="lofa-strip">
+    <div>
+      <div class="lofa-label">Top Learning Assumptions (LOFAs)</div>
+      <div style="font-size:12px;color:var(--pt-blue-dark);max-width:200px;line-height:1.4;">What we must prove to validate ITA 2.0 strategy</div>
+    </div>
+    <div class="lofa-items">
+      <div class="lofa-item">
+        <span class="lofa-badge">LOFA 1</span>
+        <span>Manual data entry and projection setup is the #1 reason Pros defer or abandon advisory — automating this is the primary adoption lever</span>
+      </div>
+      <div class="lofa-item">
+        <span class="lofa-badge">LOFA 2</span>
+        <span>Pro's inability to communicate and explain their advisory work is the #1 reason they struggle to charge for it — explainability unlocks monetization</span>
+      </div>
+      <div class="lofa-item">
+        <span class="lofa-badge">LOFA 3</span>
+        <span>Lack of support for complex clients (multi-shareholder S-Corps, multi-entity, multi-year) is the #1 deterrent of ITA usage among target firms</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /HOW THIS WILL BE DIFFERENT -->
+
+<!-- FILTERS -->
+<div class="filter-bar">
+  <span class="filter-label">Filter:</span>
+  <button class="filter-btn on" id="f-all" onclick="filterUC('all')">All Use Cases</button>
+  <button class="filter-btn" id="f-p0" onclick="filterUC('p0')">P0 Only</button>
+  <button class="filter-btn" id="f-p1" onclick="filterUC('p1')">P1 Only</button>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ADVISORY USE CASES (FLAT)
+════════════════════════════════════════════ -->
+<div class="segment-block seg-pro" id="advisory" data-seg="advisory">
+<div class="section-header acc-open" onclick="toggleSegment(this.closest('.segment-block'))">
+    <div class="section-header-left">
+      <div class="section-label" style="color: var(--color-pro)">ProConnect / Lacerte / IEP / VEP · QBO-Connected · TurboTax Live</div>
+      <div class="section-title">Advisory Use Cases</div>
+    </div>
+    <div class="acc-header-right"><div class="section-count">26 Use Cases</div><div class="acc-chevron">▼</div></div>
+  </div>
+<div class="acc-body">
+<div class="acc-body-inner">
+<div class="segment-intro" style="border-left-color: var(--color-pro)">
+    <div class="segment-intro-icon" style="background: #D6F1F3">🧑‍💼</div>
+    <div class="segment-intro-text">
+      <h3 style="color: var(--color-pro)">Tax advisory delivered across any client type</h3>
+      <p>A tax professional might deliver any of these use cases to any client — whether that client is an individual, a small business owner, or a self-employed filer. The use cases below represent the full advisory surface ITA 2.0 enables: projection, planning, implementation, and client communication.</p>
+    </div>
+  </div>
+
+  <!-- ──────────────────────────────────────── -->
+  <!-- PHASE 1: PROJECTION                     -->
+  <!-- ──────────────────────────────────────── -->
+  <div class="uc-phase">
+  <div class="uc-phase-header">
+    <div class="uc-phase-icon" style="background:#D6F1F3;">📊</div>
+    <div>
+      <div class="uc-phase-label">Phase 1</div>
+      <div class="uc-phase-title">Projection</div>
+    </div>
+    <div class="uc-phase-desc">Data in, numbers out — ingesting client data and producing accurate tax forecasts.</div>
+  </div>
+  <div class="uc-grid">
+
+    <!-- UC-P01 -->
+    <div class="uc-card" id="uc-p01" data-seg="pro" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header">
+          <span class="uc-id">UC-P01</span>
+          <span class="uc-priority p0">P0</span>
+        </div>
+        <div class="uc-title">Start a Plan From Any Source</div>
+        <div class="uc-idea">"I have a new client with just a PDF. Let me start planning."</div>
+        <div class="uc-trigger">Triggered when a pro begins a new engagement — new prospect, returning client, or mid-year advisory call — from any data source.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-maxdiff"></span>MaxDiff #1</span>
+        <span class="signal-chip"><span class="dot signal-dot-voc"></span>VoC 7%</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">
+        Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="uc-expand">
+        <div class="uc-expand-section">
+          <h5>Desired Outcomes</h5>
+          <ul>
+            <li>Import from PTO/Lacerte, 1040 PDF, 1120S PDF, 1065 PDF with zero re-entry</li>
+            <li>Start from Zero — blank interview-driven input for any new client</li>
+            <li>Connect QBO books, paystubs, brokerage statements as supplementary sources</li>
+            <li>First plan created in under 5 minutes regardless of client source</li>
+            <li>AI reconciles conflicts between sources and flags discrepancies</li>
+          </ul>
+        </div>
+        <div class="uc-evidence">
+          <strong>Evidence:</strong> MaxDiff #1 for both Customers and Prospects. 7% VoC "Prospect/New Client Enablement." Verbatim: <em>"Please allow for plans built off PDFs. Big miss. If not corrected, I'll change providers."</em> Resolves Limitation L1.
+        </div>
+      </div>
+    </div>
+
+    <!-- UC-P02 -->
+    <div class="uc-card" data-seg="pro" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header">
+          <span class="uc-id">UC-P02</span>
+          <span class="uc-priority p0">P0</span>
+        </div>
+        <div class="uc-title">Multi-Year Tax Projection</div>
+        <div class="uc-idea">"Show me 3 years of tax impact — including if we buy the building."</div>
+        <div class="uc-trigger">Client is planning a decision spanning multiple years: S-Corp conversion, asset purchase, ISO exercise, retirement drawdown, installment sale.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-jtbd"></span>TAB2 I:5.0/S:2.3</span>
+        <span class="signal-chip"><span class="dot signal-dot-voc"></span>VoC gap #3</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">
+        Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="uc-expand">
+        <div class="uc-expand-section">
+          <h5>Desired Outcomes</h5>
+          <ul>
+            <li>Project up to 5 years forward — federal multi-year (state P1)</li>
+            <li>Show year-by-year tax liability, rates, bracket position, cap gains rate</li>
+            <li>Strategy decisions cascade: S-Corp Year 1 W-2 → Year 2 retirement limits → Year 3 QBI</li>
+            <li>Any projection branchable into a named scenario</li>
+            <li>Side-by-side with vs. without strategy across all years</li>
+          </ul>
+        </div>
+        <div class="uc-evidence">
+          <strong>Evidence:</strong> TAB2 scenario cluster: I:5.0 / S:2.3 — maximum importance, near-minimum satisfaction. VoC verbatim: <em>"ISOs require planning 2+ times a year. Without this I continue doing calculations in PTO instead of ITA."</em> Resolves Limitation L2.
+        </div>
+      </div>
+    </div>
+
+    <!-- UC-P06 -->
+    <div class="uc-card" data-seg="pro" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header">
+          <span class="uc-id">UC-P06</span>
+          <span class="uc-priority p0">P0</span>
+        </div>
+        <div class="uc-title">Calculation Transparency & Worksheets</div>
+        <div class="uc-idea">"Show me every step that produced this QBI number."</div>
+        <div class="uc-trigger">Pro or large-firm auditor sees a tax number they don't trust and wants step-by-step verification.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-voc"></span>25% of all VoC</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">
+        Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="uc-expand">
+        <div class="uc-expand-section">
+          <h5>Desired Outcomes</h5>
+          <ul>
+            <li>Every calculated line (QBI, AMT, NIIT, estimated payments, state tax) links to a drill-down worksheet</li>
+            <li>S-Corp basis worksheet: beginning/ending stock + debt basis per entity</li>
+            <li>Federal carryover worksheet: passive losses, AMT, charitable limits, NOL</li>
+            <li>QBI worksheet: W-2 wage limit, SSTB threshold, phase-out range, alert</li>
+            <li>All worksheets editable — pro overrides any input, downstream recalculates instantly</li>
+          </ul>
+        </div>
+        <div class="uc-evidence">
+          <strong>Evidence:</strong> 20% VoC = calculation errors. 5% = transparency. Combined = #1 detractor by volume. VoC verbatim: <em>"I don't think many things in ITA work correctly... I will not use it again."</em> Worksheets Figma shows designed intent. Resolves Limitation L4.
+        </div>
+      </div>
+    </div>
+
+    <!-- UC-P07 -->
+    <div class="uc-card" data-seg="pro" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header">
+          <span class="uc-id">UC-P07</span>
+          <span class="uc-priority p0">P0</span>
+        </div>
+        <div class="uc-title">Auto-Flag Missing & Inconsistent Data</div>
+        <div class="uc-idea">"Tell me what's missing before I present a wrong plan to a client."</div>
+        <div class="uc-trigger">Pro imports a return or uploads a PDF; ITA flags all fields it couldn't extract and logical inconsistencies in the data.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-maxdiff"></span>MaxDiff Top-4</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">
+        Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="uc-expand">
+        <div class="uc-expand-section">
+          <h5>Desired Outcomes</h5>
+          <ul>
+            <li>On plan creation: flag all fields not extractable (blocking / high-impact / informational)</li>
+            <li>Logical inconsistency detection: Schedule C present but no SE tax; S-Corp income but no W-2</li>
+            <li>Pro can accept default, enter a value, or mark not applicable</li>
+            <li>Missing data flag persists in plan header until resolved</li>
+            <li>Carryover continuity check: capital losses, NOLs, QBI loss carryovers from prior year</li>
+          </ul>
+        </div>
+        <div class="uc-evidence">
+          <strong>Evidence:</strong> MaxDiff "Auto-Flagging Missing Data" — top-4, table-stakes category. VoC: carryovers, NOLs, QBI loss carryovers frequently fail to carry forward. Resolves part of Limitation L4 and L6.
+        </div>
+      </div>
+    </div>
+
+    <!-- UC-P08 -->
+    <div class="uc-card" data-seg="pro" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header"><span class="uc-id">UC-P08</span><span class="uc-priority p0">P0</span></div>
+        <div class="uc-title">QuickBooks Financial Insights → Tax Strategy</div>
+        <div class="uc-idea">"Pull my client's QBO data and tell me what their P&L, balance sheet, and bank transactions mean for their tax plan this year."</div>
+        <div class="uc-trigger">Tax pro connects a client's QBO account — ITA ingests P&L, balance sheet, and bank transactions to surface projections, identify deductions, and flag strategy opportunities automatically.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>BYOI: QBO Integration</span>
+        <span class="signal-chip"><span class="dot signal-dot-voc"></span>SMB + Tax Pro P0</span>
+        <span class="signal-chip"><span class="dot signal-dot-jtbd"></span>Books-to-tax gap</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="uc-expand">
+        <div class="uc-expand-section"><h5>What ITA Does With QBO Data</h5><ul>
+          <li><strong>P&amp;L + Balance Sheet:</strong> Accurate income/expense projections, QBI deduction eligibility, entity optimization signals (S-Corp election threshold)</li>
+          <li><strong>Bank Transactions:</strong> Identify deductible business expenses miscategorized or unclaimed — home office, vehicle, meals, software</li>
+          <li><strong>Cash Flow Projection:</strong> Estimate year-end taxable income, quarterly estimated tax payment schedule, safe harbor calculations</li>
+          <li><strong>Strategy Opportunities:</strong> Accelerate deductions (equipment Section 179/bonus depreciation before Dec 31), defer income, retirement plan contributions (SEP-IRA, Solo 401k)</li>
+          <li><strong>Missing Data Flags:</strong> Alert when balance sheet signals depreciation not reflected in P&amp;L, or when meals/travel look incomplete</li>
+        </ul></div>
+        <div class="uc-evidence"><strong>Evidence:</strong> Books-to-tax gap is the #1 SMB pain point — tax pros spend 2–3 hours per engagement re-reconciling QBO data that should flow automatically. QBO has 7M+ small business subscribers — real-time financial data is the highest-signal input for tax projections. BYOI (Bring Your Own Ingestion) architecture supports QBO as a first-class data source. Resolves the "garbage in, garbage out" problem in projection accuracy.</div>
+      </div>
+    </div>
+
+    <!-- UC-P09 -->
+    <div class="uc-card" data-seg="pro" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header"><span class="uc-id">UC-P09</span><span class="uc-priority p0">P0</span></div>
+        <div class="uc-title">Paycheck Upload → W-4 &amp; Year-End Projection</div>
+        <div class="uc-idea">"My client just got a new job. Upload their pay stub and tell me if their W-4 is right and what they'll owe in April."</div>
+        <div class="uc-trigger">Client uploads a pay stub or provides payroll data — ITA calculates current withholding trajectory, projects year-end liability, and generates a corrected W-4 if needed.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>BYOI: Paystub Upload</span>
+        <span class="signal-chip"><span class="dot signal-dot-voc"></span>Tax Pro + Consumer P0</span>
+        <span class="signal-chip"><span class="dot signal-dot-jtbd"></span>Withholding surprise prevention</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="uc-expand">
+        <div class="uc-expand-section"><h5>Desired Outcomes</h5><ul>
+          <li><strong>W-4 Optimization:</strong> Compare current withholding vs. projected liability → generate corrected W-4 worksheet with exact Step 4(c) additional withholding amount</li>
+          <li><strong>Year-End Projection:</strong> Annualized income from YTD earnings, projected federal + state liability, estimated refund or balance due</li>
+          <li><strong>Multi-Income Households:</strong> Combine spouse paycheck data to calculate combined household withholding accuracy</li>
+          <li><strong>Job Change Scenarios:</strong> "You just got a raise — here is how that changes your April liability and what to update on your W-4 today"</li>
+          <li><strong>Safe Harbor Calculation:</strong> Flag if current trajectory triggers underpayment penalty; calculate exact amount needed to avoid it</li>
+        </ul></div>
+        <div class="uc-evidence"><strong>Evidence:</strong> IRS reports ~30M Americans receive unexpected tax bills annually, primarily due to under-withholding. W-4 complexity (added in 2020 redesign) means most clients cannot complete it accurately without help. Paycheck BYOI is already in the ITA 2.0 ingestion roadmap. Projection Agent can produce year-end estimates in real time once payroll data is ingested. High-frequency trigger — job changes, raises, second jobs are year-round events that drive proactive outreach.</div>
+      </div>
+    </div>
+
+    <!-- UC-S02 -->
+    <div class="uc-card" data-seg="smb" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header"><span class="uc-id">UC-S02</span><span class="uc-priority p0">P0</span></div>
+        <div class="uc-title">Books to Tax Plan — Automated QB Projection</div>
+        <div class="uc-idea">"Read my ProConnect Tax and tell me what I'll owe this year."</div>
+        <div class="uc-trigger">Mid-year check-in or QBO month-end close; owner wants current-year tax trajectory without waiting for year-end.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>Automated Projections PRD</span>
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>BT360 Narrative</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="uc-expand">
+        <div class="uc-expand-section"><h5>Desired Outcomes</h5><ul>
+          <li>Read P&L, balance sheet, and transaction categories from QBO automatically</li>
+          <li>Auto-populate projection: business income, expenses, depreciation, payroll</li>
+          <li>Flag QB categorization vs. tax treatment mismatches (meals 100% in QB → 50% deductible)</li>
+          <li>AI forecasts full-year from current quarter + rolling 12 months</li>
+          <li>"Books to Advice": top 3 actions to take before year-end based on current financials</li>
+        </ul></div>
+        <div class="uc-evidence"><strong>Evidence:</strong> Automated Projections PRD (target May 15, 2026). BT360 narrative: QB transaction confirmation feeds directly into tax projection. ITA Strategy: "With just QB data and a paystub, can we create an accurate projection?"</div>
+      </div>
+    </div>
+
+    <!-- UC-C01 -->
+    <div class="uc-card" data-seg="consumer" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header"><span class="uc-id">UC-C01</span><span class="uc-priority p0">P0</span></div>
+        <div class="uc-title">Tax Surprise Prevention</div>
+        <div class="uc-idea">"You will owe $872 in April. Here's what you can do right now."</div>
+        <div class="uc-trigger">A life event occurs — child ages out of credit, new job, income increase — and the system detects an upcoming liability the person doesn't know about.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-maxdiff"></span>MaxDiff #1 Consumer</span>
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>BT360 Narrative</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="uc-expand">
+        <div class="uc-expand-section"><h5>Desired Outcomes</h5><ul>
+          <li>Real-time projected tax liability updated as life events are reported</li>
+          <li>System flags credit/deduction expiry before the taxpayer discovers at filing</li>
+          <li>Suggested actions: adjust W-4 withholding, make estimated payment, contribute to HSA</li>
+          <li>Plain-language: "Your child is turning 17. You lose the $2,000 Child Tax Credit. Here's what to do."</li>
+          <li>Year-round, not just at filing — integrated into QBO/TT/CK surfaces</li>
+        </ul></div>
+        <div class="uc-evidence"><strong>Evidence:</strong> Problem statement image — child tax credit cliff (refund $123 → owes $872). BT360 Joaquin narrative: "No tax surprise in February." 10% of all taxpayers paid $7B+ in underpayment penalties in TY2023. Resolves Limitation L11 at the consumer level.</div>
+      </div>
+    </div>
+
+    <!-- UC-C02 -->
+    <div class="uc-card" data-seg="consumer" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header"><span class="uc-id">UC-C02</span><span class="uc-priority p0">P0</span></div>
+        <div class="uc-title">Tax Bracket Awareness & Marginal Rate Navigation</div>
+        <div class="uc-idea">"You're in the 22% bracket. $41,000 separates you from 24%. Here's what could keep you out."</div>
+        <div class="uc-trigger">Consumer receives a bonus, considers freelance work, or spouse changes employment — wants to understand tax bracket exposure.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>Tax Bracket Figma</span>
+        <span class="signal-chip"><span class="dot signal-dot-voc"></span>Council notes</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="uc-expand">
+        <div class="uc-expand-section"><h5>Desired Outcomes</h5><ul>
+          <li>Visual bracket bar: prior | current | next, with "You are here" marker and dollars to next bracket</li>
+          <li>Federal + State dual view (Brittany's design: 22% federal + 9% CA simultaneously)</li>
+          <li>Capital gains rate tracker alongside ordinary income bracket</li>
+          <li>Marginal rate calculator: "If I earn $X more, I pay $Y more"</li>
+          <li>Notification: "Your projected income is approaching the 24% bracket. Here are 3 actions."</li>
+        </ul></div>
+        <div class="uc-evidence"><strong>Evidence:</strong> Tax Bracket Designs Figma — all edge cases designed (lowest, highest, near-bracket). Council: <em>"How much more until next bracket? What could move income out of the highest bracket?"</em> Worksheets Watch List: federal bracket mini-widget in real-time.</div>
+      </div>
+    </div>
+
+  </div><!-- /uc-grid projection -->
+  </div><!-- /uc-phase projection -->
+
+  <!-- ──────────────────────────────────────── -->
+  <!-- PHASE 2: PLANNING                        -->
+  <!-- ──────────────────────────────────────── -->
+  <div class="uc-phase">
+  <div class="uc-phase-header">
+    <div class="uc-phase-icon" style="background:#E8F4FD;">🧠</div>
+    <div>
+      <div class="uc-phase-label">Phase 2</div>
+      <div class="uc-phase-title">Planning</div>
+    </div>
+    <div class="uc-phase-desc">Strategy, scenarios, and ideas — surfacing the right recommendations for each client's situation.</div>
+  </div>
+  <div class="uc-grid">
+
+    <!-- UC-P03 -->
+    <div class="uc-card" data-seg="pro" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header">
+          <span class="uc-id">UC-P03</span>
+          <span class="uc-priority p0">P0</span>
+        </div>
+        <div class="uc-title">Tax Ideas — Chained, Goal-Oriented Advisory</div>
+        <div class="uc-idea">"Fund your child's education with appreciated stock — no capital gains tax."</div>
+        <div class="uc-trigger">Pro opens a client plan and wants to know what to recommend — named in client-benefit language, not tax-law language.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-maxdiff"></span>MaxDiff Step-by-Step</span>
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>PM Vision</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">
+        Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="uc-expand">
+        <div class="uc-expand-section">
+          <h5>Example Ideas (Chained Strategies)</h5>
+          <ul>
+            <li><strong>Convert to S-Corp:</strong> Entity election + reasonable compensation + QBI optimization + retirement restructure + hire-your-kids recalculation</li>
+            <li><strong>Replace your business vehicle:</strong> Section 179 + bonus depreciation + like-kind exchange + business-use % + basis tracking</li>
+            <li><strong>Maximize retirement before year-end:</strong> Solo 401k + backdoor Roth + mega-backdoor + catch-up (age 50/60)</li>
+            <li><strong>Sell your rental and defer the gain:</strong> 1031 exchange + installment sale + cost-seg recapture + NIIT exposure</li>
+          </ul>
+        </div>
+        <div class="uc-evidence">
+          <strong>Evidence:</strong> PM explicit vision. ITA 1.0's 50 strategies fire in isolation — pros must mentally chain them. Shift from "Appreciated Stock Donation" → "Fund your child's education without capital gains." Resolves Limitation L3.
+        </div>
+      </div>
+    </div>
+
+    <!-- UC-P04 -->
+    <div class="uc-card" data-seg="pro" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header">
+          <span class="uc-id">UC-P04</span>
+          <span class="uc-priority p0">P0</span>
+        </div>
+        <div class="uc-title">Scenario Planning — Side-by-Side Comparison</div>
+        <div class="uc-idea">"Show me Keep LLC vs. Convert to S-Corp vs. Convert + Max 401k."</div>
+        <div class="uc-trigger">Client is facing a major decision. Pro needs to show two or three paths clearly, including all tax dimensions.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-maxdiff"></span>MaxDiff #2</span>
+        <span class="signal-chip"><span class="dot signal-dot-jtbd"></span>TAB2 I:5.0/S:2.3</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">
+        Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="uc-expand">
+        <div class="uc-expand-section">
+          <h5>Desired Outcomes</h5>
+          <ul>
+            <li>Create 2–3 named scenarios; baseline is never modified</li>
+            <li>Side-by-side: AGI / taxable income / federal + state tax / effective rate / marginal rate / cap gains rate / net savings / delta vs. baseline</li>
+            <li>Per-scenario: effort (Low/Med/High), risk level, implementation deadline</li>
+            <li>Column selector: PY Actual | PSB | Scenario A | Scenario B</li>
+            <li>Scenarios persist across sessions; shareable in client report</li>
+          </ul>
+        </div>
+        <div class="uc-evidence">
+          <strong>Evidence:</strong> TAB2 I:5.0 / S:2.3 across all 8 scenario sub-items — the single most uniformly underserved theme in the internal JTBD study. MaxDiff table-stakes category. Resolves Limitation L2.
+        </div>
+      </div>
+    </div>
+
+    <!-- UC-P05 -->
+    <div class="uc-card" data-seg="pro" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header">
+          <span class="uc-id">UC-P05</span>
+          <span class="uc-priority p0">P0</span>
+        </div>
+        <div class="uc-title">Watch List — Phase-Out & Threshold Monitoring</div>
+        <div class="uc-idea">"Alert me when a client's income approaches a cliff or a credit expires."</div>
+        <div class="uc-trigger">Pro reviews a client plan; client's income is near a credit phase-out, bracket threshold, or age-triggered milestone.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>PM Note · All Targets</span>
+        <span class="signal-chip"><span class="dot signal-dot-voc"></span>Advisory Framework</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">
+        Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="uc-expand">
+        <div class="uc-expand-section">
+          <h5>Monitors</h5>
+          <ul>
+            <li><strong>Credit phase-outs:</strong> QBI, child tax credit, EITC, education credits, Roth IRA limits, NIIT cliff ($200K/$250K)</li>
+            <li><strong>Age triggers:</strong> Catch-up at 50, enhanced catch-up at 60–63 (SECURE 2.0), Medicare at 65, RMD at 73</li>
+            <li><strong>Carryovers:</strong> Passive losses, AMT, charitable limits (60%/30%), capital loss, NOL</li>
+            <li><strong>S-Corp basis:</strong> Beginning/ending stock + debt basis per entity</li>
+            <li><strong>Real-time:</strong> Watch List updates as strategies are applied</li>
+          </ul>
+        </div>
+        <div class="uc-evidence">
+          <strong>Evidence:</strong> Worksheets Figma — Watch List panel designed with QBI alert, S-Corp basis, federal carryovers, and bracket mini-widget. Advisory framework: "Always start with credit phase-outs." PM: "Notifications — age, credit phase-outs, deductions, marginal rate changes — useful for ALL targets." Not available in ITA 1.0.
+        </div>
+      </div>
+    </div>
+
+    <!-- UC-S01 -->
+    <div class="uc-card" data-seg="smb" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header"><span class="uc-id">UC-S01</span><span class="uc-priority p0">P0</span></div>
+        <div class="uc-title">Entity Structure Optimization</div>
+        <div class="uc-idea">"Your business earned $94K. Converting to S-Corp could save you $8,200 in self-employment taxes."</div>
+        <div class="uc-trigger">Net profit crosses $60K; owner is paying SE tax on full profit as a sole prop or LLC.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>Advisory Framework</span>
+        <span class="signal-chip"><span class="dot signal-dot-voc"></span>Bizee benchmark</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="uc-expand">
+        <div class="uc-expand-section"><h5>Desired Outcomes</h5><ul>
+          <li>Side-by-side: sole prop/LLC vs. S-Corp tax with reasonable compensation input</li>
+          <li>QBI deduction impact of W-2 wage level changes post-conversion</li>
+          <li>S-Corp election timing: mid-year vs. Jan 1, first-year liability impact</li>
+          <li>Health insurance premium deduction (2%+ shareholder treatment)</li>
+          <li>Implementation checklist: entity formation, payroll, reasonable compensation docs</li>
+        </ul></div>
+        <div class="uc-evidence"><strong>Evidence:</strong> Advisory framework: "S-Corp conversion at >$60K business net profit." Bizee calculator shows $3,825 savings on $70K — ITA should obliterate this with full QBI, state, and implementation support. Calculator library: 9 S-Corp calculators, all tax-impacting.</div>
+      </div>
+    </div>
+
+    <!-- UC-S03 -->
+    <div class="uc-card" data-seg="smb" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header"><span class="uc-id">UC-S03</span><span class="uc-priority p0">P0</span></div>
+        <div class="uc-title">Capital Investment Decision Support</div>
+        <div class="uc-idea">"Should I buy this $80K piece of equipment now or in January? Buy or lease?"</div>
+        <div class="uc-trigger">Owner is considering a major capital purchase — equipment, vehicle, or real estate — and wants to understand the tax timing and structure.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>Fathom HQ benchmark</span>
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>QB Capital deck</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="uc-expand">
+        <div class="uc-expand-section"><h5>Desired Outcomes</h5><ul>
+          <li>Section 179 vs. bonus depreciation vs. MACRS: year-by-year after-tax cost comparison</li>
+          <li>Buy vs. lease: after-tax total cost of ownership</li>
+          <li>Timing: buy before Dec 31 vs. Jan 1 — tax impact of each</li>
+          <li>Vehicle-specific: luxury auto limits, listed property rules, business-use documentation</li>
+          <li>Fathom adds cashflow — ITA adds the tax layer Fathom lacks entirely</li>
+        </ul></div>
+        <div class="uc-evidence"><strong>Evidence:</strong> Fathom HQ "microforecast for an asset purchase" — cashflow only, no tax layer. QB Capital deck: Section 179, Bonus Depreciation, Buy vs. Lease are core strategies. Calculator library: "Equipment Buy vs. Lease" and "Lease vs. Buy" — both tax-impacting.</div>
+      </div>
+    </div>
+
+    <div class="uc-card" data-seg="smb" data-priority="p1" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header"><span class="uc-id">UC-S04</span><span class="uc-priority p1">P1</span></div>
+        <div class="uc-title">Multi-Entity Revenue Optimization</div>
+        <div class="uc-idea">"How do I split revenue across my S-Corp and sole prop to maximize my QBI deduction?"</div>
+        <div class="uc-trigger">Owner has multiple entities and wants to optimize income allocation across them for maximum tax efficiency.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-voc"></span>Council: "+1s from room"</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="uc-expand">
+        <div class="uc-expand-section"><h5>Desired Outcomes</h5><ul>
+          <li>Model income allocation across entities simultaneously</li>
+          <li>Optimize QBI deduction: W-2 wage limits, SSTB thresholds, phase-out ranges per entity</li>
+          <li>Inter-entity strategies: management fees, cost-sharing, income shifting</li>
+          <li>Flag PAL rules and at-risk limitations across entity mix</li>
+        </ul></div>
+        <div class="uc-evidence"><strong>Evidence:</strong> Council notes verbatim: <em>"How do I allocate revenue between different entities to maximize tax savings? — lots of +1s from those who serve multi-entity clients."</em> Calculator library: Partnership vs. S-Corp Tax Comparison, Guaranteed Payments vs. Distributive Share.</div>
+      </div>
+    </div>
+
+    <div class="uc-card" data-seg="smb" data-priority="p1" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header"><span class="uc-id">UC-S05</span><span class="uc-priority p1">P1</span></div>
+        <div class="uc-title">S-Corp & Partnership Basis Tracking</div>
+        <div class="uc-idea">"Can I take this loss deduction? Do I have enough basis?"</div>
+        <div class="uc-trigger">Partner or S-Corp shareholder wants to take a loss or distribution and needs basis verification.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>Worksheets Figma</span>
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>TKE Gap: 30 fields</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="uc-expand">
+        <div class="uc-expand-section"><h5>Desired Outcomes</h5><ul>
+          <li>Track stock basis and debt basis per entity across years</li>
+          <li>Alert when proposed loss exceeds at-risk basis</li>
+          <li>Alert when distribution would create taxable gain (excess over basis)</li>
+          <li>Carryover of suspended losses and when they become deductible</li>
+          <li>Section 754 step-up election analysis for partnership transfers</li>
+        </ul></div>
+        <div class="uc-evidence"><strong>Evidence:</strong> Worksheets Figma: S-Corp Basis panel designed with beginning/ending stock + debt basis per entity. PSB-TKE mapping: 30 unmapped fields per entity type — basis tracking is the core gap TKE cannot support. Calculator library: S-Corp Shareholder Basis Tracker, Partner Outside Basis — both tax-impacting.</div>
+      </div>
+    </div>
+
+    <div class="uc-card" data-seg="smb" data-priority="p1" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header"><span class="uc-id">UC-S06</span><span class="uc-priority p1">P1</span></div>
+        <div class="uc-title">Year-End Tax Savings Checklist</div>
+        <div class="uc-idea">"What can I still do before December 31st to lower my taxes?"</div>
+        <div class="uc-trigger">Business owner in Q4 wants a ranked, actionable list of steps before year-end.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>Advisory Framework</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="uc-expand">
+        <div class="uc-expand-section"><h5>Desired Outcomes</h5><ul>
+          <li>Personalized, ranked action list based on current-year books + return data</li>
+          <li>Each action: estimated savings, effort, deadline, implementation steps</li>
+          <li>Includes: retirement contributions, equipment purchases, income deferral, estimated payment catch-up</li>
+          <li>Shareable checklist with "done" checkboxes for client self-service</li>
+        </ul></div>
+        <div class="uc-evidence"><strong>Evidence:</strong> Advisory framework: "Five strategies with big impact and minimal client effort." VoC: pros want ITA to generate this before the advisory call — currently done manually per client.</div>
+      </div>
+    </div>
+
+    <!-- UC-P10 -->
+    <div class="uc-card" data-seg="pro" data-priority="p1" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header"><span class="uc-id">UC-P10</span><span class="uc-priority p1">P1</span></div>
+        <div class="uc-title">Proactive Advisory — Investment &amp; Portfolio Tax Strategy</div>
+        <div class="uc-idea">"My client has appreciated stock and a brokerage account. What investment tax strategies should I be recommending before year-end?"</div>
+        <div class="uc-trigger">Tax pro is preparing for a proactive advisory conversation with a client who has investment assets — appreciated stock, unrealized gains/losses, or a brokerage account. ITA surfaces the highest-impact investment tax strategies ranked by dollar value, without waiting for the client to ask.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>BYOI: Brokerage / 1099-B</span>
+        <span class="signal-chip"><span class="dot signal-dot-voc"></span>Tax Pro P1</span>
+        <span class="signal-chip"><span class="dot signal-dot-jtbd"></span>Investment strategy applicability</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="uc-expand">
+        <div class="uc-expand-section"><h5>How It Works</h5><ul>
+          <li>Advisor uploads a brokerage statement or 1099-B — or connects the account directly via BYOI ingestion</li>
+          <li>ITA analyzes holdings, cost basis, unrealized gains/losses, and income trajectory</li>
+          <li>Surfaces applicable investment tax strategies ranked by client impact in dollars</li>
+          <li>Each strategy is pre-built into an advisor-ready talking point — not a generic recommendation</li>
+        </ul></div>
+        <div class="uc-expand-section"><h5>Investment Strategies Surfaced</h5><ul>
+          <li><strong>Appreciated Stock Donation:</strong> "You hold $45K in appreciated AAPL (basis $8K). Donating to charity avoids $7,400 in capital gains tax AND generates a $45K charitable deduction — net benefit vs. selling and donating cash: $12,800"</li>
+          <li><strong>Kiddie Tax / Gifts to Children:</strong> Transfer appreciated shares to children in the 0% capital gains bracket (under NIIT threshold) — model exact tax savings</li>
+          <li><strong>Tax-Loss Harvesting:</strong> Match unrealized losses against realized gains; identify wash-sale risks; calculate net after-tax position</li>
+          <li><strong>Capital Gain Timing:</strong> "Sell before Dec 31 vs. Jan 1 — here is the bracket impact and the dollar difference"</li>
+          <li><strong>NIIT Exposure:</strong> Flag clients approaching the $200K/$250K Net Investment Income Tax threshold; model strategies to stay below</li>
+          <li><strong>Qualified Opportunity Zone:</strong> For large gain events, surface QOZ deferral eligibility and holding period requirements</li>
+        </ul></div>
+        <div class="uc-expand-section"><h5>Desired Outcomes</h5><ul>
+          <li>Advisor walks into the client conversation with specific, dollar-sized recommendations — not a blank screen</li>
+          <li>Strategies are ranked by impact so the advisor leads with what matters most</li>
+          <li>Each recommendation links to a scenario comparison so the client can see before/after</li>
+          <li>Proactive outreach: ITA flags clients who have this opportunity but haven't been contacted yet</li>
+        </ul></div>
+        <div class="uc-evidence"><strong>Evidence:</strong> Appreciated stock strategies are among the highest-dollar-value, lowest-utilization strategies in the advisory framework — most clients never hear about them because surfacing them requires reading the brokerage statement. ITA 2.0 BYOI architecture supports 1099-B and brokerage PDF ingestion. The Planning Agent can chain investment strategies with income projections to model true after-tax impact. TAB2 study: "identify strategy applicability" is the #2 unmet need for tax pros with high-net-worth clients. Proactive outreach — advisor-initiated, not client-initiated — is the defining behavior that separates advisory relationships from compliance relationships.</div>
+      </div>
+    </div>
+
+    <div class="uc-card" data-seg="smb" data-priority="p1" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header"><span class="uc-id">UC-S07</span><span class="uc-priority p1">P1</span></div>
+        <div class="uc-title">QB Capital: True After-Tax Cost of a Business Loan</div>
+        <div class="uc-idea">"What does this loan actually cost me after the interest deduction and depreciation on the equipment I'm buying with it?"</div>
+        <div class="uc-trigger">A small business owner is considering a QB Capital loan offer. ITA calculates the effective after-tax cost by factoring in deductible interest and potential Section 179 / bonus depreciation — making it easier to take action.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>QB Capital deck</span>
+        <span class="signal-chip"><span class="dot signal-dot-voc"></span>SMB conversion driver</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="uc-expand">
+        <div class="uc-expand-section"><h5>How It Works</h5>
+          <p style="font-size:13px; color: var(--pt-dark-gray); margin-bottom: 10px; line-height:1.5;">Most business owners compare loans by face rate alone — missing the tax benefit that makes the effective cost materially lower. ITA uses the client's actual marginal rate from their projection to calculate the real number.</p>
+          <div style="background: var(--pt-blue-light); border-radius: 10px; padding: 12px 16px; margin-bottom: 10px; text-align: center;">
+            <span style="font-size:13px; font-weight:700; color: var(--pt-navy);">Loan Interest Paid</span>
+            <span style="font-size:16px; color: var(--pt-teal); margin: 0 8px;">−</span>
+            <span style="font-size:13px; font-weight:700; color: var(--pt-navy);">Tax Deduction Value</span>
+            <span style="font-size:16px; color: var(--pt-teal); margin: 0 8px;">−</span>
+            <span style="font-size:13px; font-weight:700; color: var(--pt-navy);">Depreciation Benefit</span>
+            <span style="font-size:16px; color: var(--pt-teal); margin: 0 8px;">=</span>
+            <span style="font-size:14px; font-weight:700; color: var(--pt-teal); background: var(--pt-teal-light); padding: 3px 12px; border-radius: 20px; border: 1px solid var(--pt-teal);">Effective After-Tax Cost</span>
+          </div>
+          <ul>
+            <li><strong>Interest Deduction:</strong> Business loan interest is fully deductible — at a 28% effective rate, a $10K interest payment costs only $7,200 after tax, calculated using the client's actual marginal rate from the ITA projection</li>
+            <li><strong>Section 179 / Bonus Depreciation:</strong> If the loan finances qualifying equipment or assets, the full purchase price may be deductible in Year 1 — dramatically reducing effective cost in the first year</li>
+            <li><strong>Side-by-Side Comparison:</strong> "Take this loan" vs. "Don't" — projected net liability, cash flow impact, and break-even horizon</li>
+            <li><strong>Integration:</strong> QB Capital loan offer data feeds into the ITA projection; ITA returns the effective cost calculation surfaced at the point of loan decision</li>
+          </ul>
+        </div>
+        <div class="uc-evidence"><strong>Evidence:</strong> QB Capital deck: Section 179, Bonus Depreciation, and Buy vs. Lease are core strategies for SMB capital decisions. Most business owners make financing decisions without a tax lens — the gap between nominal and effective cost is often 25–40% of the stated rate. ITA is the only product in the Intuit ecosystem that can calculate this personalized to the client's actual tax situation.</div>
+      </div>
+    </div>
+
+    <!-- C01 + C02 moved to Projection phase above -->
+    <!-- C03 -->
+    <div class="uc-card" data-seg="consumer" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header"><span class="uc-id">UC-C03</span><span class="uc-priority p0">P0</span></div>
+        <div class="uc-title">S-Corp Optimization for the Self-Employed</div>
+        <div class="uc-idea">"You're paying $14K in self-employment tax. An S-Corp could cut that to $5,800."</div>
+        <div class="uc-trigger">Freelancer or solo consultant with $70K+ in net income is paying full SE tax and doesn't know there's an alternative.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>Bizee benchmark</span>
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>9 S-Corp calculators</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="uc-expand">
+        <div class="uc-expand-section"><h5>Desired Outcomes</h5><ul>
+          <li>Sole prop vs. S-Corp comparison with actual dollar savings using their numbers</li>
+          <li>Reasonable compensation guidance: IRS standard, industry benchmarks, documentation</li>
+          <li>QBI deduction impact of salary vs. distribution split</li>
+          <li>Retirement contribution limit change post-election (Solo 401k, SEP-IRA)</li>
+          <li>Implementation path: formation, payroll, first filing requirements</li>
+        </ul></div>
+        <div class="uc-evidence"><strong>Evidence:</strong> Bizee S-Corp calculator shows $3,825 savings on $70K — ITA should provide the full picture including QBI, state, retirement, and implementation. Calculator library: 9 S-Corp calculators, all tax-impacting.</div>
+      </div>
+    </div>
+
+    <!-- UC-C04 -->
+    <div class="uc-card" data-seg="consumer" data-priority="p1" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header"><span class="uc-id">UC-C04</span><span class="uc-priority p1">P1</span></div>
+        <div class="uc-title">Retirement Tax Optimization</div>
+        <div class="uc-idea">"Should I do a Roth conversion this year? How much to convert to stay in the 22% bracket?"</div>
+        <div class="uc-trigger">Individual approaching retirement, high earner doing retirement planning, or FIRE-oriented individual optimizing drawdown.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>ProjectionLab benchmark</span>
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>20 retirement calcs</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="uc-expand">
+        <div class="uc-expand-section"><h5>Desired Outcomes</h5><ul>
+          <li>Roth conversion optimizer: how much to convert this year to stay in current bracket</li>
+          <li>Traditional vs. Roth: lifetime tax cost comparison across income scenarios</li>
+          <li>RMD projector: starting at 73, mandatory withdrawals + tax impact per year</li>
+          <li>Social Security optimization: when to claim to minimize lifetime tax burden</li>
+          <li>72(t) SEPP analysis for early retirees</li>
+        </ul></div>
+        <div class="uc-evidence"><strong>Evidence:</strong> ProjectionLab (FIRE benchmark) — Roth conversions, 72(t), drawdown sequencing, multi-year marginal rate visualization. Calculator library: 20 retirement calculators, all tax-impacting. Advisory framework Part 4: "maxing out contributions — 401k, Roth, backdoor, mega backdoor."</div>
+      </div>
+    </div>
+
+    <!-- UC-C05 -->
+    <div class="uc-card" data-seg="consumer" data-priority="p1" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header"><span class="uc-id">UC-C05</span><span class="uc-priority p1">P1</span></div>
+        <div class="uc-title">Life Event Tax Impact Planner</div>
+        <div class="uc-idea">"I'm selling my home. Walk me through what's taxable and what I can exclude."</div>
+        <div class="uc-trigger">Consumer faces a major life event — selling a home, marriage, divorce, new child, inheritance — and asks what it means for their taxes.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-jtbd"></span>TAB2 I:5.0/S:2.6</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="uc-expand">
+        <div class="uc-expand-section"><h5>Life Events Covered</h5><ul>
+          <li><strong>Home sale:</strong> $250K/$500K exclusion check, depreciation recapture, installment sale option</li>
+          <li><strong>Marriage/divorce:</strong> MFJ vs. MFS comparison, marriage penalty/bonus, QDRO tax treatment</li>
+          <li><strong>New child:</strong> Child tax credit, dependent care, FSA/HSA, 529 savings</li>
+          <li><strong>Inheritance:</strong> Step-up in basis, inherited IRA 10-year rule, estate tax exposure</li>
+          <li>Plain-language: "Here's what changed, what to do, and the dollar impact"</li>
+        </ul></div>
+        <div class="uc-evidence"><strong>Evidence:</strong> TAB2 I:5.0/S:2.6 — "Understand how life events impact the recommended tax strategy." TAB1 O:11.7 — life events theme. Credit insights doc: 30+ credits with phase-out AGI thresholds relevant to life events.</div>
+      </div>
+    </div>
+
+    <!-- UC-C06 -->
+    <div class="uc-card" data-seg="consumer" data-priority="p1" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header"><span class="uc-id">UC-C06</span><span class="uc-priority p1">P1</span></div>
+        <div class="uc-title">Proactive Notifications & Tax Watch List</div>
+        <div class="uc-idea">"You turn 50 this year. You're now eligible for $7,500 in extra 401k contributions."</div>
+        <div class="uc-trigger">System detects an upcoming age milestone, credit phase-out, or year-end deadline — surfaces an actionable alert.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-prd"></span>PM: "All targets"</span>
+        <span class="signal-chip"><span class="dot signal-dot-voc"></span>Credit insights doc</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+      <div class="uc-expand">
+        <div class="uc-expand-section"><h5>Notification Types</h5><ul>
+          <li>"You're on track to owe $X in April — take action now"</li>
+          <li>"You turn 50 this year — eligible for $7,500 catch-up 401k contributions"</li>
+          <li>"Your income is approaching the EITC phase-out threshold"</li>
+          <li>"You have $2,500 of HSA contribution room remaining this year"</li>
+          <li>"Dec 31 is your last chance for a deductible IRA contribution for 2025"</li>
+        </ul></div>
+        <div class="uc-evidence"><strong>Evidence:</strong> PM note: "Notifications — age, credit phase-outs, deductions, marginal rate changes — useful for ALL targets." Credit insights doc: 30+ credits with specific phase-out AGI thresholds. Advisory framework: "Always start with credit phase-outs." Not available in ITA 1.0.</div>
+      </div>
+    </div>
+
+  </div><!-- /uc-grid planning -->
+  </div><!-- /uc-phase planning -->
+
+  <!-- ──────────────────────────────────────── -->
+  <!-- PHASE 3: IMPLEMENTATION                  -->
+  <!-- ──────────────────────────────────────── -->
+  <div class="uc-phase">
+  <div class="uc-phase-header">
+    <div class="uc-phase-icon" style="background:#FEF3C7;">⚙️</div>
+    <div>
+      <div class="uc-phase-label">Phase 3</div>
+      <div class="uc-phase-title">Implementation</div>
+    </div>
+    <div class="uc-phase-desc">Making strategies happen — autonomous execution, client reports, and completion tracking.</div>
+  </div>
+  <div class="uc-grid">
+
+    <!-- UC-P11 -->
+    <div class="uc-card" data-seg="pro" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header">
+          <span class="uc-id">UC-P11</span>
+          <span class="uc-priority p0">P0</span>
+        </div>
+        <div class="uc-title">Strategy Implementation — Done For You</div>
+        <div class="uc-idea">"My client approved hiring their kids. Now make it happen."</div>
+        <div class="uc-trigger">Client approves a strategy. Pro needs ITA to guide or execute the implementation — including creating legal documents, filing, and tracking completion.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-jtbd"></span>TAB1 O:12.7</span>
+        <span class="signal-chip"><span class="dot signal-dot-jtbd"></span>TAB2 I:4.9/S:2.4</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">
+        Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="uc-expand">
+        <div class="uc-expand-section">
+          <h5>Desired Outcomes (Implementation Agent)</h5>
+          <ul>
+            <li>Step-by-step action checklist per strategy: deadline, responsible party, effort level, documents required</li>
+            <li>Completion tracking with proactive reminders as deadlines approach</li>
+            <li>Autonomous execution: EIN creation on IRS.gov, W-2 generation, S-Corp election (Form 2553), estimated payment scheduling</li>
+            <li>Client Q&A mid-execution: answers grounded in their specific plan</li>
+            <li>VEP/IEP escalation when human judgment is required</li>
+            <li>Full audit trail in client activity record</li>
+          </ul>
+        </div>
+        <div class="uc-evidence">
+          <strong>Evidence:</strong> TAB1 O:12.7 — "Failing to complete required action by deadline" — 2nd highest-scored item in entire JTBD external study. TAB2 I:4.9/S:2.4 — "Effort required to implement is chronically underestimated." Resolves Limitation L5.
+        </div>
+      </div>
+    </div>
+
+    <!-- UC-P13 — Client Report -->
+    <div class="uc-card" data-seg="pro" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header">
+          <span class="uc-id">UC-P13</span>
+          <span class="uc-priority p0">P0</span>
+        </div>
+        <div class="uc-title">Client Report — Plain-Language Explanation & Education</div>
+        <div class="uc-idea">"My client doesn't understand 'QBI Deduction.' Explain it in one sentence using their numbers."</div>
+        <div class="uc-trigger">Client asks "why?" or "what does this mean?" — in session, in a report, or asynchronously.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-jtbd"></span>TAB2 S:2.2 ← Lowest</span>
+        <span class="signal-chip"><span class="dot signal-dot-jtbd"></span>TAB1 O:12.5</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">
+        Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="uc-expand">
+        <div class="uc-expand-section">
+          <h5>Desired Outcomes</h5>
+          <ul>
+            <li>Every strategy and result has: "What this means for you" (1 sentence) + "Why it matters" (1 paragraph) + "What to do" (numbered list)</li>
+            <li>Pro view ↔ Client view toggle (tax detail vs. plain language)</li>
+            <li>Terminology tooltips: hover "QBI Deduction" → plain-language explanation with their numbers</li>
+            <li>Client report defaults to plain English; jargon available on demand</li>
+            <li>Gray-area strategies (Augusta Rule, Accountable Plan): legality + audit risk + court case citations</li>
+          </ul>
+        </div>
+        <div class="uc-evidence">
+          <strong>Evidence:</strong> TAB2 I:4.6/S:2.2 — "Misunderstanding instructions for implementing a strategy" — lowest satisfaction score in the entire internal JTBD study. TAB2 I:4.9/S:2.3 — "Tax expert fails to explain the tax return." TAB1 O:12.5 and O:11.5 — misunderstanding and jargon are in the top-10 highest-opportunity items. Resolves Limitation L9.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /uc-grid implementation -->
+  </div><!-- /uc-phase implementation -->
+
+  <!-- ──────────────────────────────────────── -->
+  <!-- PHASE 4: COLLABORATION                   -->
+  <!-- ──────────────────────────────────────── -->
+  <div class="uc-phase">
+  <div class="uc-phase-header">
+    <div class="uc-phase-icon" style="background:#EDE9FE;">🤝</div>
+    <div>
+      <div class="uc-phase-label">Phase 4</div>
+      <div class="uc-phase-title">Collaboration</div>
+    </div>
+    <div class="uc-phase-desc">Client intake, plan handoff, and two-way data exchange between pro and client.</div>
+  </div>
+  <div class="uc-grid">
+
+    <!-- UC-P12 -->
+    <div class="uc-card" data-seg="pro" data-priority="p0" onclick="toggleCard(this)">
+      <div class="uc-card-top">
+        <div class="uc-card-header">
+          <span class="uc-id">UC-P12</span>
+          <span class="uc-priority p0">P0</span>
+        </div>
+        <div class="uc-title">Client Information Capture & Handoff</div>
+        <div class="uc-idea">"Generate a personalized questionnaire from this return. Client fills it in. Plan updates automatically."</div>
+        <div class="uc-trigger">Pro begins intake with a new or returning client; needs current-year information not in the prior return.</div>
+      </div>
+      <div class="uc-signal-bar">
+        <span class="signal-chip"><span class="dot signal-dot-jtbd"></span>TAB1 O:13.4 ← Highest</span>
+      </div>
+      <div class="uc-expand-toggle" onclick="event.stopPropagation(); toggleCard(this.closest('.uc-card'))">
+        Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="uc-expand">
+        <div class="uc-expand-section">
+          <h5>Desired Outcomes</h5>
+          <ul>
+            <li>ITA generates personalized intake questionnaire from prior return data</li>
+            <li>"I see you added a rental property — any capital improvements?" / "Your child turns 17 — still a dependent?"</li>
+            <li>Client answers via portal flow directly into PSB — zero re-entry by pro</li>
+            <li>YoY change detection: new income source, job change, asset acquisition</li>
+            <li>"3 new items flagged for discussion" — shown to pro before advisory call</li>
+            <li>Mid-year updates: client can report changes anytime, plan updates automatically</li>
+          </ul>
+        </div>
+        <div class="uc-evidence">
+          <strong>Evidence:</strong> TAB1 O:13.4 — "Amount of information gathered cannot be transferred to tax expert" — the SINGLE HIGHEST-SCORED item in the entire JTBD study. TAB2 I:5.0/S:2.6 — overlooking personal/business changes. Resolves Limitation L7.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /uc-grid collaboration -->
+  </div><!-- /uc-phase collaboration -->
+</div><!-- /acc-body-inner -->
+</div><!-- /acc-body -->
+</div><!-- /segment advisory -->
+
+
+<!-- ══════════════════════════════════════════
+     EXPERT SECTION (PLACEHOLDER)
+════════════════════════════════════════════ -->
+<div class="segment-block" id="expert" style="margin-top: 24px;">
+<div class="section-header" onclick="toggleSegment(this.closest('.segment-block'))">
+    <div class="section-header-left">
+      <div class="section-label" style="color: var(--pt-medium-gray)">Coming Soon · IEP / VEP / Expert Network</div>
+      <div class="section-title" style="color: var(--pt-medium-gray)">Expert</div>
+    </div>
+    <div class="acc-header-right"><div class="section-count" style="color: var(--pt-medium-gray)">TBD</div><div class="acc-chevron">▼</div></div>
+  </div>
+<div class="acc-body">
+<div class="acc-body-inner">
+  <div style="padding: 32px; text-align: center; color: var(--pt-medium-gray); font-size: 15px; border: 2px dashed var(--pt-light-gray); border-radius: 12px; background: var(--pt-off-white);">
+    <div style="font-size: 32px; margin-bottom: 12px;">🔬</div>
+    <div style="font-weight: 600; color: var(--pt-navy); margin-bottom: 8px;">Expert Use Cases — Placeholder</div>
+    <div>Use cases specific to IEP / VEP experts and the Expert Network will be defined here.</div>
+  </div>
+</div>
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     CONSUMER FILERS SECTION (PLACEHOLDER)
+════════════════════════════════════════════ -->
+<div class="segment-block" id="consumer-filers" style="margin-top: 24px;">
+<div class="section-header" onclick="toggleSegment(this.closest('.segment-block'))">
+    <div class="section-header-left">
+      <div class="section-label" style="color: var(--pt-medium-gray)">Coming Soon · TurboTax Live · Credit Karma · BT360</div>
+      <div class="section-title" style="color: var(--pt-medium-gray)">Consumer Filers</div>
+    </div>
+    <div class="acc-header-right"><div class="section-count" style="color: var(--pt-medium-gray)">TBD</div><div class="acc-chevron">▼</div></div>
+  </div>
+<div class="acc-body">
+<div class="acc-body-inner">
+  <div style="padding: 32px; text-align: center; color: var(--pt-medium-gray); font-size: 15px; border: 2px dashed var(--pt-light-gray); border-radius: 12px; background: var(--pt-off-white);">
+    <div style="font-size: 32px; margin-bottom: 12px;">👤</div>
+    <div style="font-weight: 600; color: var(--pt-navy); margin-bottom: 8px;">Consumer Filers — Placeholder</div>
+    <div>Use cases for direct-to-consumer surfaces (TurboTax Live, Credit Karma, BT360) will be defined here.</div>
+  </div>
+</div>
+</div>
+</div>
+
+
+<div class="matrix-section" id="matrix">
+  <div class="matrix-title">Priority Matrix — All 26 Advisory Use Cases</div>
+  <div class="matrix-grid">
+    <div>
+      <div class="matrix-col-header" style="color: var(--color-pro)">P0 — Launch Blockers</div>
+      <div class="matrix-col">
+        <div class="matrix-item mi-pro"><span class="matrix-item-id">P01</span>Start from Any Source</div>
+        <div class="matrix-item mi-pro"><span class="matrix-item-id">P02</span>Multi-Year Projection</div>
+        <div class="matrix-item mi-pro"><span class="matrix-item-id">P03</span>Tax Ideas (Chained)</div>
+        <div class="matrix-item mi-pro"><span class="matrix-item-id">P04</span>Scenario Planning</div>
+        <div class="matrix-item mi-pro"><span class="matrix-item-id">P05</span>Watch List</div>
+        <div class="matrix-item mi-pro"><span class="matrix-item-id">P06</span>Calc Transparency</div>
+        <div class="matrix-item mi-pro"><span class="matrix-item-id">P07</span>Auto-Flag Missing Data</div>
+        <div class="matrix-item mi-pro"><span class="matrix-item-id">P08</span>QBO Financial Insights</div>
+        <div class="matrix-item mi-pro"><span class="matrix-item-id">P09</span>Paycheck &amp; W-4 Planning</div>
+        <div class="matrix-item mi-pro" style="opacity:.75"><span class="matrix-item-id">P10</span>Proactive Investment Advisory</div>
+        <div class="matrix-item mi-pro"><span class="matrix-item-id">P11</span>Implementation DFY</div>
+        <div class="matrix-item mi-pro"><span class="matrix-item-id">P12</span>Client Intake &amp; Handoff</div>
+        <div class="matrix-item mi-pro"><span class="matrix-item-id">P13</span>Plain-Language Education</div>
+        <div class="matrix-item mi-smb"><span class="matrix-item-id">S01</span>Entity Optimization</div>
+        <div class="matrix-item mi-smb"><span class="matrix-item-id">S02</span>Books to Tax Plan</div>
+        <div class="matrix-item mi-smb"><span class="matrix-item-id">S03</span>Capital Investment</div>
+        <div class="matrix-item mi-con"><span class="matrix-item-id">C01</span>Tax Surprise Prevention</div>
+        <div class="matrix-item mi-con"><span class="matrix-item-id">C02</span>Bracket Awareness</div>
+        <div class="matrix-item mi-con"><span class="matrix-item-id">C03</span>S-Corp Self-Employed</div>
+      </div>
+    </div>
+    <div>
+      <div class="matrix-col-header" style="color: var(--pt-blue)">P1 — Next Wave</div>
+      <div class="matrix-col">
+        <div class="matrix-item mi-smb" style="opacity:.75"><span class="matrix-item-id">S04</span>Multi-Entity Revenue</div>
+        <div class="matrix-item mi-smb" style="opacity:.75"><span class="matrix-item-id">S05</span>Basis Tracking</div>
+        <div class="matrix-item mi-smb" style="opacity:.75"><span class="matrix-item-id">S06</span>Year-End Checklist</div>
+        <div class="matrix-item mi-smb" style="opacity:.75"><span class="matrix-item-id">S07</span>QB Capital Loan Cost</div>
+        <div class="matrix-item mi-con" style="opacity:.75"><span class="matrix-item-id">C04</span>Retirement Optimization</div>
+        <div class="matrix-item mi-con" style="opacity:.75"><span class="matrix-item-id">C05</span>Life Event Planner</div>
+        <div class="matrix-item mi-con" style="opacity:.75"><span class="matrix-item-id">C06</span>Proactive Notifications</div>
+      </div>
+    </div>
+    <div>
+      <div class="matrix-col-header" style="color: var(--color-agent)">Agents · Priority</div>
+      <div class="matrix-col">
+        <div class="matrix-item mi-agt"><span class="matrix-item-id">A01</span>Projection Agent · P0</div>
+        <div class="matrix-item mi-agt"><span class="matrix-item-id">A02</span>Planning Agent · P0 ✅ Live</div>
+        <div class="matrix-item mi-agt" style="opacity:.75"><span class="matrix-item-id">A03</span>Implementation Agent · P1</div>
+        <div style="background: var(--pt-teal-light); border-radius: 10px; padding: 12px; margin-top: 8px; font-size: 12px; color: var(--pt-navy); font-weight: 600; line-height: 1.5;">
+          P0 = Launch blocker<br>
+          P1 = Next wave<br>
+          Faded = P1 items<br>
+          ✅ = Already live
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main -->
+
+<footer class="footer">
+  <strong>ProConnect Tax · ITA 2.0 · Project AIR</strong> · Internal Review Draft · April 2026 · Confidential — not for external distribution
+</footer>
+
+<script>
+function toggleCard(card) {
+  card.classList.toggle('expanded');
+}
+
+function scrollTo(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+let activeFilter = 'all';
+
+function filterUC(f) {
+  activeFilter = f;
+  // reset all filter buttons
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    b.className = 'filter-btn';
+  });
+  const btn = document.getElementById('f-' + f);
+  if (btn) btn.classList.add('on');
+
+  document.querySelectorAll('.uc-card, .agent-card').forEach(card => {
+    const pri = card.dataset.priority || '';
+    let show = true;
+    if (f === 'p0') show = pri === 'p0';
+    else if (f === 'p1') show = pri === 'p1';
+    card.style.display = show ? '' : 'none';
+  });
+}
+
+const LIMITATIONS = {
+  L1: {
+    id: "L1",
+    title: "The Prospect Wall",
+    summary: "ITA 1.0 requires a prior-year return to generate any tax plan. This single gate locks out every prospect, every mid-year engagement, and every advisor who meets a client before filing season. The product cannot be used until the relationship is already established — the opposite of how advisory value should flow.",
+    quote: { text: "\"Start from Zero was the single most impactful feature our respondents asked for — ranked #1 across all MaxDiff scenarios. Prospects are willing to pay $538 vs. $155 for existing customers.\"", cite: "MaxDiff Research · PTG Advisory Study 2025" },
+    data: [
+      { val: "2.7%", key: "PTG firms using ITA today" },
+      { val: "$538", key: "Prospect WTP (vs $155 for customers)" },
+      { val: "#1", key: "MaxDiff rank: Start from Zero" },
+      { val: "7%", key: "Users reaching 6th plan (engaged)" },
+    ],
+    evidence: "<strong>MaxDiff finding:</strong> \"Start from Zero\" was the highest-ranked feature across all advisory scenarios. Prospects valued it 3.5× more than existing customers — confirming the gate is not just an inconvenience but a fundamental market access problem. Removing it is the single highest-ROI unlock in ITA 2.0.",
+    ucs: [
+      { id: "PRO-01", title: "Prospect Advisory Pitch — No Prior Return Required" },
+      { id: "PRO-02", title: "Mid-Year Client Onboarding" },
+      { id: "CON-01", title: "Consumer Mid-Year Check-In" },
+    ]
+  },
+  L2: {
+    id: "L2",
+    title: "One Year, No Scenarios",
+    summary: "ITA 1.0 projects exactly one tax year using one deterministic scenario. Advisors cannot model what if my client sells the business in 3 years, cannot compare Roth conversion paths across multiple years, and cannot show compounding impact of sequential strategies. Every real advisory conversation requires multi-year, multi-scenario thinking — ITA 1.0 simply cannot support it.",
+    quote: { text: "\"The inability to compare multiple tax scenarios in a single session was the highest importance, near-lowest satisfaction cluster in our entire coding activity study — affecting every segment.\"", cite: "TAB2 Internal JTBD Study · Importance 5.0 / Satisfaction 2.3" },
+    data: [
+      { val: "I:5.0", key: "Importance score (max possible)" },
+      { val: "S:2.3", key: "Satisfaction score (near floor)" },
+      { val: "5 yrs", key: "ITA 2.0 multi-year projection scope" },
+      { val: "25→49%", key: "Clients returning for 2nd plan (Planning Agent)" },
+    ],
+    evidence: "<strong>TAB2 research signal:</strong> Scenario comparison is the most underserved capability in ITA — maximum importance, near-minimum satisfaction. The Planning Agent (live since May 2024) already demonstrated that multi-plan engagement drives return rate from 25% to 49% — proving the demand is real and monetizable.",
+    ucs: [
+      { id: "PRO-03", title: "Multi-Year Projection & Roth Conversion Modeling" },
+      { id: "SMB-02", title: "Business Sale / Exit Strategy Projection" },
+      { id: "PRO-05", title: "Scenario Comparison: S-Corp vs. Partnership" },
+    ]
+  },
+  L3: {
+    id: "L3",
+    title: "50 Isolated Strategies",
+    summary: "ITA 1.0 surfaces 50 hard-coded strategies as independent, disconnected tax-law lookups. Advisors receive a list of single actions — not a coordinated plan. Strategies are named in tax-law jargon, not in client-benefit language. There is no chaining: the system cannot understand that funding a 529 with appreciated stock also eliminates capital gains, affects FAFSA timing, and interacts with the child tax credit. Real advisory is about combining strategies into coherent Ideas — ITA 1.0 cannot do this.",
+    quote: { text: "\"The biggest shift in 2.0 is moving from strategies to Ideas: goal-oriented, chained outcomes named in client-benefit language. Instead of Appreciated Stock Depreciation, you see: Fund your child higher education with appreciated stock, without capital gain.\"", cite: "PM Vision · ITA 2.0 Scope Definition" },
+    data: [
+      { val: "50", key: "Strategies in ITA 1.0" },
+      { val: "3,000+", key: "Credits/deductions in ITA 2.0 scope" },
+      { val: "6%", key: "VoC: lack of chained advice" },
+      { val: "1,454", key: "Credits catalogued (advisory database)" },
+    ],
+    evidence: "<strong>Advisory Conversation Framework:</strong> The 4-part IEP/VEP framework (Ignition → Exploration → Planning → Validation) requires chained, goal-oriented strategy delivery. The current 50-strategy list is incompatible with this framework — it provides ingredients but no recipe.",
+    ucs: [
+      { id: "PRO-04", title: "Tax Ideas Delivery — Chained Strategy Plans" },
+      { id: "SMB-01", title: "Business Tax Ideas — Entity + Retirement + QBI Chain" },
+      { id: "CON-02", title: "Consumer Tax Ideas — Credits + Deductions Chain" },
+    ]
+  },
+  L4: {
+    id: "L4",
+    title: "Black Box Math",
+    summary: "ITA 1.0 shows dollar impact numbers with no visible calculation path. Clients and advisors cannot verify how a $12,000 savings estimate was computed, which inputs drove it, or what assumptions it rests on. When numbers cannot be explained, they cannot be trusted — and advisory value cannot be communicated to the client. 25% of all VoC feedback mentions transparency and explainability as a top pain.",
+    quote: { text: "\"I cannot show my client where the $12,000 comes from. The system gives me a number but no path. If I cannot explain it, I cannot charge for it.\"", cite: "VoC Qualitative · ProConnect Tax Advisor Panel 2024" },
+    data: [
+      { val: "25%", key: "VoC feedback citing explainability gap" },
+      { val: "543", key: "PSB fields feeding calculations" },
+      { val: "$11.3K", key: "Median savings per ITA plan" },
+      { val: "37%", key: "PSB field coverage by TKE engine" },
+    ],
+    evidence: "<strong>PSB–TKE mapping analysis:</strong> The ATE (legacy engine) covers only 37% of PSB fields. S-Corp and Partnership entities each have 30 unmapped fields — meaning up to 63% of the input surface is silently excluded from calculations, with no disclosure to the advisor.",
+    ucs: [
+      { id: "PRO-06", title: "Transparent Calculation Explainer & Audit Trail" },
+      { id: "SMB-04", title: "S-Corp QBI Basis Transparency" },
+    ]
+  },
+  L5: {
+    id: "L5",
+    title: "No Implementation Path",
+    summary: "ITA 1.0 generates a tax plan but provides zero implementation support. The advisor receives a list of recommendations and must manually coordinate every downstream action: opening accounts, filing forms, setting up payroll, coordinating with third parties. Implementation failure is the second-highest pain point in all JTBD research — advisors cannot deliver on the plans they produce.",
+    quote: { text: "\"Failing to complete action required to implement a strategy by deadline\" — ranked 2nd highest opportunity score across all JTBD items. O:12.7.", cite: "TAB1 JTBD Opportunity Map · Opportunity Score 12.7" },
+    data: [
+      { val: "O:12.7", key: "JTBD opportunity score (2nd highest)" },
+      { val: "O:13.4", key: "Highest item: intake data transfer gap" },
+      { val: "EIN", key: "ITA 2.0 can file autonomously" },
+      { val: "W-2", key: "ITA 2.0 can generate autonomously" },
+    ],
+    evidence: "<strong>Implementation Agent capability:</strong> ITA 2.0 Implementation Agent autonomously executes: EIN creation, S-Corp election (Form 2553), payroll setup (W-2/941), retirement account filing, and brokerage coordination — translating every plan into done-for-you action.",
+    ucs: [
+      { id: "PRO-07", title: "Implementation Agent — Done-for-You Tax Actions" },
+      { id: "SMB-03", title: "S-Corp Election + Payroll Setup (Autonomous)" },
+    ]
+  },
+  L6: {
+    id: "L6",
+    title: "Manual Data Entry",
+    summary: "ITA 1.0 requires advisors to manually enter client data into the PSB — a 543-field screen. There is no integration with PTO/Lacerte returns, QBO P&L, brokerage statements, or paystubs. Every engagement requires hours of data preparation before any advisory value is delivered. This is the primary reason advisory penetration stays at ~10% of eligible clients.",
+    quote: { text: "\"Setup time kills advisory. I spend 2 hours entering data before I can show any value. Most clients will not sit through that.\"", cite: "VoC Qualitative · PTG Advisor Interview 2024" },
+    data: [
+      { val: "543", key: "PSB fields (manual today)" },
+      { val: "10%", key: "Advisory penetration rate (PTG)" },
+      { val: "5+", key: "BYOI source types in ITA 2.0" },
+      { val: "2hrs", key: "Typical PSB entry time per client" },
+    ],
+    evidence: "<strong>BYOI (Bring Your Own Ingestion) in ITA 2.0:</strong> Projection Agent ingests PTO/Lacerte returns, 1040/1120S PDFs, QBO P&L statements, paystubs, and brokerage statements — reducing PSB entry from ~2 hours to minutes and removing the primary friction barrier to advisory adoption.",
+    ucs: [
+      { id: "PRO-08", title: "BYOI — Multi-Source Data Ingestion" },
+      { id: "SMB-05", title: "QBO P&L Auto-Ingestion for Business Tax" },
+    ]
+  },
+  L7: {
+    id: "L7",
+    title: "The Intake Gap",
+    summary: "The highest-scoring JTBD opportunity item: client intake data captured during the advisory conversation cannot be transferred to the tax expert or into the tax return workflow. Advisors must re-enter information, clients repeat themselves, and the advisory session creates zero data leverage downstream. ITA 1.0 is a dead end — no handoff, no continuity.",
+    quote: { text: "\"Amount of information gathered during advisory cannot be transferred to the tax expert\" — ranked #1 across all JTBD opportunity items. O:13.4.", cite: "TAB1 JTBD Opportunity Map · Opportunity Score 13.4 (highest)" },
+    data: [
+      { val: "O:13.4", key: "JTBD opportunity score (highest item)" },
+      { val: "0", key: "Fields transferred from ITA to PTO today" },
+      { val: "MCP", key: "ITA 2.0 handoff protocol (Tax Plan MCP)" },
+    ],
+    evidence: "<strong>Tax Plan Portability (ITA 2.0):</strong> The agentic platform exports Tax Plans as structured MCP payloads that feed directly into PTO/Lacerte return preparation, QBO categorization, and client collaboration workflows — closing the highest-scoring JTBD gap in the entire advisory landscape.",
+    ucs: [
+      { id: "PRO-09", title: "Tax Plan → PTO Handoff (Client Continuity)" },
+      { id: "ECO-01", title: "Ecosystem: ITA in PTO Deep-Link" },
+    ]
+  },
+  L8: {
+    id: "L8",
+    title: "Platform Ceiling",
+    summary: "ITA 1.0 depends entirely on the ATE (Automated Tax Engine) — a legacy deterministic calculation engine. ATE covers only 37% of PSB fields. S-Corp entities have 30 unmapped fields including QBI carryover chains and basis calculations. Partnership entities are similarly incomplete. The engine cannot be extended without major ATE engineering investment. ITA 2.0 must be engine-agnostic.",
+    quote: { text: "\"ATE covers 37% of PSB fields. S-Corp and Partnership each have 30 unmapped fields. Every strategy that touches QBI carryover, basis, or multi-entity allocation silently fails.\"", cite: "PSB-TKE Mapping Analysis · PSBbyTKEmapping.json" },
+    data: [
+      { val: "37%", key: "PSB field coverage by ATE/TKE" },
+      { val: "30", key: "S-Corp fields unmapped in engine" },
+      { val: "30", key: "Partnership fields unmapped" },
+      { val: "≥95%", key: "ITA 2.0 accuracy bar for Shadow Mode" },
+    ],
+    evidence: "<strong>Shadow Mode architecture:</strong> ITA 2.0 AIR platform runs in parallel with the deterministic engine. The deterministic result is shown to users until AIR achieves ≥95% accuracy — then AIR becomes primary. This decouples advisory capability from ATE limitations permanently.",
+    ucs: [
+      { id: "PLAT-01", title: "Shadow Mode — Engine-Agnostic Architecture" },
+      { id: "SMB-06", title: "S-Corp QBI Carryover + Basis Calculation" },
+    ]
+  },
+  L9: {
+    id: "L9",
+    title: "The Jargon Gap",
+    summary: "ITA 1.0 names strategies in tax-law terminology. Clients do not understand these names and advisors must translate every recommendation before it can be communicated. The lowest satisfaction score in TAB2 JTBD research is for misunderstanding implementation instructions — jargon is the root cause.",
+    quote: { text: "\"Misunderstanding instructions for implementing a strategy\" — lowest satisfaction score in the entire TAB2 coding activity study. I:4.6, S:2.2.", cite: "TAB2 Internal JTBD · Importance 4.6 / Satisfaction 2.2 (lowest)" },
+    data: [
+      { val: "S:2.2", key: "Lowest satisfaction score (TAB2)" },
+      { val: "I:4.6", key: "Importance score for this item" },
+      { val: "\"Ideas\"", key: "ITA 2.0 rename: jargon → client language" },
+    ],
+    evidence: "<strong>The Ideas framework:</strong> ITA 2.0 renames every strategy into client-benefit language. Appreciated Stock Gifting becomes: Fund your child education with appreciated stock — no capital gains. The name IS the value proposition. Advisors can read it verbatim to clients.",
+    ucs: [
+      { id: "PRO-04", title: "Tax Ideas — Client-Language Strategy Naming" },
+      { id: "CON-03", title: "Consumer: Jargon-Free Credit Guidance" },
+    ]
+  },
+  L10: {
+    id: "L10",
+    title: "Regulatory Blindspot",
+    summary: "ITA 1.0 has no mechanism for monitoring regulatory changes, credit phase-outs, age-triggered benefits, or deadline-sensitive actions. Advisors manually track legislative changes and hope they remember to update client plans. Clients who hit credit cliff edges lose thousands of dollars that a real-time monitoring system would have caught.",
+    quote: { text: "\"Failing to stay current with regulation changes affecting the client tax situation\" — TAB1 Opportunity Score 11.1. Advisors are personally absorbing the compliance monitoring burden.", cite: "TAB1 JTBD Opportunity Map · Opportunity Score 11.1" },
+    data: [
+      { val: "O:11.1", key: "JTBD opportunity score" },
+      { val: "30+", key: "Credits with phase-out thresholds tracked" },
+      { val: "Watch", key: "ITA 2.0 Watch List — real-time monitoring" },
+      { val: "4", key: "Watch List trigger categories" },
+    ],
+    evidence: "<strong>Watch List (ITA 2.0):</strong> Monitors age triggers, credit phase-outs (EITC, CTC, ACA, IRMAA), marginal rate changes, carryovers, and S-Corp basis changes in real time. Updates as strategies are applied. Sends proactive notifications when client circumstances approach phase-out thresholds.",
+    ucs: [
+      { id: "PRO-10", title: "Watch List — Regulatory & Phase-Out Monitoring" },
+      { id: "CON-04", title: "Consumer: Credit Cliff Alert System" },
+      { id: "SMB-07", title: "SMB: Estimated Tax & Deadline Watch" },
+    ]
+  },
+  L11: {
+    id: "L11",
+    title: "The Bandwidth Wall",
+    summary: "Even advisors who master ITA 1.0 face a hard ceiling: advisory is a time-intensive, manual, one-at-a-time process. Each plan takes 2+ hours of setup. The result: only ~10% of eligible clients receive advisory services. 90% never get a tax plan. This is not a demand problem — it is a supply problem. Advisory cannot scale without automation.",
+    quote: { text: "\"I want to offer advisory to every client. But I physically cannot. At 2 hours per plan, I can serve maybe 50 clients a year. I have 400.\"", cite: "VoC Qualitative · PTG Advisory Readiness Study 2024" },
+    data: [
+      { val: "10%", key: "Clients receiving advisory today" },
+      { val: "90%", key: "Eligible clients NOT receiving advisory" },
+      { val: "400", key: "Avg clients per PTG advisor" },
+      { val: "50", key: "Max advisory plans/year (manual)" },
+    ],
+    evidence: "<strong>Agentic automation (ITA 2.0):</strong> The 4-agent architecture (Projection + Planning + Implementation + Collaboration) automates the 80% of advisory work that does not require human judgment — data ingestion, scenario generation, strategy ranking, report drafting — freeing advisors to scale from 50 to 400+ advisory engagements per year.",
+    ucs: [
+      { id: "PRO-11", title: "Scaled Advisory — Agentic Workflow Automation" },
+      { id: "PLAT-02", title: "Client Collaboration Agent" },
+    ]
+  }
+};
+
+function openLimitation(id) {
+  const lim = LIMITATIONS[id];
+  if (!lim) return;
+
+  document.getElementById('limDrawerId').textContent = lim.id + ' · Structural Limitation';
+  document.getElementById('limDrawerTitle').textContent = lim.title;
+
+  const body = document.getElementById('limDrawerBody');
+  body.innerHTML = [
+    // Summary
+    `<div class="lim-section">
+      <div class="lim-section-label">What\'s broken today</div>
+      <div class="lim-summary">${lim.summary}</div>
+    </div>`,
+
+    // Quote
+    `<div class="lim-section">
+      <div class="lim-section-label">Voice of customer</div>
+      <div class="lim-quote">"${lim.quote.text}"<cite>— ${lim.quote.cite}</cite></div>
+    </div>`,
+
+    // Data pills
+    `<div class="lim-section">
+      <div class="lim-section-label">Research signals</div>
+      <div class="lim-data-row">${lim.data.map(d =>
+        `<div class="lim-data-pill">
+          <div class="lim-data-pill-val">${d.val}</div>
+          <div class="lim-data-pill-key">${d.key}</div>
+        </div>`
+      ).join('')}</div>
+    </div>`,
+
+    // Evidence
+    `<div class="lim-section">
+      <div class="lim-section-label">Evidence detail</div>
+      <div class="lim-evidence">${lim.evidence}</div>
+    </div>`,
+
+    // Linked use cases
+    `<div class="lim-section">
+      <div class="lim-section-label">Use cases this unlocks</div>
+      <div class="lim-uc-links">${lim.ucs.map(uc =>
+        `<button class="lim-uc-link" onclick="closeLim(); scrollToUC('${uc.id}')">
+          <span class="lim-uc-link-id">${uc.id}</span>
+          <span>${uc.title}</span>
+          <span style="margin-left:auto;opacity:0.4">→</span>
+        </button>`
+      ).join('')}</div>
+    </div>`,
+  ].join('');
+
+  document.getElementById('limOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLim() {
+  document.getElementById('limOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeLimitation(e) {
+  if (e.target === document.getElementById('limOverlay')) closeLim();
+}
+
+function scrollToUC(ucId) {
+  // Find any element with data-uc-id matching
+  const el = document.querySelector('[data-uc-id="' + ucId + '"]');
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Flash highlight
+    el.style.outline = '2px solid var(--pt-teal, #00A3AD)';
+    setTimeout(() => { el.style.outline = ''; }, 2000);
+  }
+}
+
+// ESC key closes drawer
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLim(); });
+
+// Open all accordion segments on load
+document.querySelectorAll('.segment-block').forEach(b => b.classList.add('acc-open'));
+
+</script>
+<!-- fieldnote:comments:begin -->
+<div id="fieldnote-comments" data-discussion="10" data-service="https://fieldnote-svc-e2e.api.intuit.com"></div>
+<script>
+"use strict";(()=>{var ke=Object.defineProperty;var Se=(t,e,n)=>e in t?ke(t,e,{enumerable:!0,configurable:!0,writable:!0,value:n}):t[e]=n;var x=(t,e,n)=>Se(t,typeof e!="symbol"?e+"":e,n);function F(t){return t.split("").reverse().join("")}function Le(t){return(t|-t)>>31&1}function Re(t,e,n){let o={};for(let r=0;r<t.length;r+=1){let a=t.charCodeAt(r);o[a]||(o[a]=new Uint32Array(e+1));let d=Math.floor(r/n);o[a][d]|=1<<r%n>>>0}return o}function Te(t,e,n,o){let r=t.P[n],a=t.M[n],d=e[n]|0,f=o>>>31,u=Le(o)&~f,m=d|a;d|=f;let v=(d&r)+r^r|d,g=a|~(v|r),L=r&v,C=(g>>>31)-(L>>>31),I=g<<1|u,R=L<<1|f;return t.P[n]=R|~(m|I),t.M[n]=I&m,C}function V(t,e,n){if(e.length===0)return[];let o=[],r=32,a=Math.ceil(e.length/r)-1,d={P:new Uint32Array(a+1),M:new Uint32Array(a+1)},f=new Uint32Array(a+1);for(let g=0;g<=a;g+=1)d.P[g]=-1>>>0,d.M[g]=0,f[g]=(g+1)*r;f[a]=e.length;let u=Re(e,a,r),m=new Uint32Array(a+1),v=n;for(let g=0;g<t.length;g+=1){let L=t.charCodeAt(g),C=0,I=u[L]||m;for(let k=0;k<=a;k+=1)C=Te(d,I,k,C),f[k]+=C;let R=a;f[R]<=v&&(f[R]<v&&(v=f[R],o=o.filter(k=>k.errors<=v)),o.push({start:-1,end:g+1,errors:f[R]}))}return o}function Me(t,e,n){let o=F(e);return n.map(r=>{let a=Math.max(0,r.end-e.length-r.errors),d=F(t.slice(a,r.end)),f=V(d,o,r.errors),u=d.length;for(let v of f)u=Math.min(u,v.end);return{start:r.end-u,end:r.end,errors:r.errors}})}function q(t,e,n){let o=V(t,e,n);return Me(t,e,o)}var X=32,Ie=.5,He=/^<!--\s*fieldnote-anchor\s*([\s\S]*?)\s*-->\s*/;function ee(t,e){return`<!-- fieldnote-anchor ${JSON.stringify(t)} -->
+${e}`}function te(t){let e=t.match(He);if(!e)return{header:null,body:t};let n=null;try{let o=JSON.parse(e[1]);o&&(o.type==="page"||o.type==="anchored")&&(n=o)}catch(o){n=null}return{header:n,body:t.slice(e[0].length)}}var N=()=>!1;function ne(t){N=t}function O(t){if(N(t))return"";if(t.nodeType===3)return t.data;let e="";for(let n=t.firstChild;n;n=n.nextSibling)e+=O(n);return e}function H(t,e,n){let o=0,r=null,a=d=>{if(r==null&&!N(d)){if(d===t){if(t.nodeType===3)r=o+e;else{let f=o;for(let u=0;u<e&&u<d.childNodes.length;u+=1)f+=O(d.childNodes[u]).length;r=f}return}if(d.nodeType===3){o+=d.data.length;return}for(let f=d.firstChild;f;f=f.nextSibling)a(f)}};return a(n),r!=null?r:0}function G(t,e){let n=0,o=null,r=a=>{if(!o&&!N(a))if(a.nodeType===3){let d=a.data.length;if(e<=n+d){o={node:a,offset:e-n};return}n+=d}else for(let d=a.firstChild;d;d=d.nextSibling)r(d)};return r(t),o!=null?o:{node:t,offset:0}}function W(t,e){let n=[],o=t;for(;o&&o!==e&&o.nodeType===1;){let r=o.tagName.toLowerCase(),a=1,d=o.previousElementSibling;for(;d;)d.tagName.toLowerCase()===r&&(a+=1),d=d.previousElementSibling;n.unshift(`${r}[${a}]`),o=o.parentElement}return"/"+n.join("/")}function J(t,e){let n=e,o=t.split("/").filter(Boolean);for(let r of o){let a=r.match(/^([a-z0-9]+)\[(\d+)\]$/i);if(!a)return null;let d=a[1].toLowerCase(),f=parseInt(a[2],10),u=0,m=null;for(let v=0;v<n.children.length;v+=1){let g=n.children[v];if(g.tagName.toLowerCase()===d&&(u+=1,u===f)){m=g;break}}if(!m)return null;n=m}return n}function Q(t){return t.nodeType===3?t.parentElement:t}function Z(t,e){if(e.length===0)return t.length===0?1:0;if(t.length===0)return 0;let n=q(t,e,e.length);return n.length===0?0:1-Math.min(...n.map(r=>r.errors))/e.length}function _e(t,e,n){let o=e.exact;if(!o)return null;let r=[],a=t.indexOf(o);for(;a!==-1;)r.push({start:a,end:a+o.length,errors:0}),a=t.indexOf(o,a+1);if(r.length===0){let m=Math.min(256,Math.floor(o.length/2));r=q(t,o,m)}if(r.length===0)return null;let d=m=>{let v=1-m.errors/o.length,g=e.prefix?Z(t.slice(Math.max(0,m.start-e.prefix.length),m.start),e.prefix):1,L=e.suffix?Z(t.slice(m.end,m.end+e.suffix.length),e.suffix):1,C=1-Math.abs(m.start-n)/t.length;return(50*v+20*g+20*L+2*C)/92},f=r[0],u=d(r[0]);for(let m=1;m<r.length;m+=1){let v=d(r[m]);v>u&&(f=r[m],u=v)}return{start:f.start,end:f.end,score:u}}function oe(t,e){let n=O(e),o=H(t.startContainer,t.startOffset,e),r=H(t.endContainer,t.endOffset,e),a=Q(t.startContainer),d=Q(t.endContainer);return{range:{type:"RangeSelector",startXPath:W(a,e),startOffset:o-H(a,0,e),endXPath:W(d,e),endOffset:r-H(d,0,e)},position:{type:"TextPositionSelector",start:o,end:r},quote:{type:"TextQuoteSelector",exact:n.slice(o,r),prefix:n.slice(Math.max(0,o-X),o),suffix:n.slice(r,Math.min(n.length,r+X))}}}function re(t,e){let n=O(e),o=null,r=t.range;if(r){let u=J(r.startXPath,e),m=J(r.endXPath,e);if(u&&m){let v=H(u,0,e)+r.startOffset,g=H(m,0,e)+r.endOffset;n.slice(v,g)===t.quote.exact&&(o={start:v,end:g})}}if(!o&&t.position){let u=t.position;n.slice(u.start,u.end)===t.quote.exact&&(o={start:u.start,end:u.end})}if(!o){let u=t.position?t.position.start:0,m=_e(n,t.quote,u);m&&m.score>=Ie&&(o={start:m.start,end:m.end})}if(!o)return null;let a=G(e,o.start),d=G(e,o.end),f=e.ownerDocument.createRange();try{f.setStart(a.node,a.offset),f.setEnd(d.node,d.offset)}catch(u){return null}return f}var M={endpoint:"https://logging-e2e.api.intuit.com/v1/log/message",env:"preprod",appId:"fieldnotes-webapp",assetId:"5339034951582703754",apiKey:"preprdakyresPujjLb65m7ewFreYP4qKjeb9VXG8"};function ae(t){var e,n;return{env:M.env,level:t.level,context:{pluginId:`fieldnote-${t.runMode}`,...t.context},appProps:{runMode:t.runMode},msgProps:{event:t.event,...(e=t.props)!=null?e:{}},eventType:"LOGGING",time:(n=t.time)!=null?n:new Date().toISOString(),message:t.event}}function ie(){return!M.appId.startsWith("FILL_ME")&&!M.apiKey.startsWith("FILL_ME")}var $=class{constructor(e){x(this,"base");x(this,"enabled");x(this,"debug");x(this,"sessionId",`${Date.now()}-${Math.random().toString(36).slice(2,10)}`);this.enabled=e.enabled,this.debug=Ne(),this.base={sessionId:this.sessionId,discussion:e.discussion,slug:e.slug,url:Oe(),widgetVersion:e.version,authed:!1}}setAuth(e,n){this.base.authed=e,e&&n?this.base.login=n:delete this.base.login}event(e,n){this.emit("info",e,n)}error(e,n){this.emit("error",e,n)}loaded(e){let n=()=>this.event("widget_loaded",e),o=window.requestIdleCallback;o?o(n):setTimeout(n,0)}emit(e,n,o){if(this.enabled)try{this.debug&&console.debug("[fieldnote telemetry]",e,n,o!=null?o:{});let r=ae({runMode:"widget",level:e,event:n,context:this.base,props:o});this.send(r)}catch(r){}}send(e){let n=Pe();if(n)try{fetch(n.endpoint,{method:"POST",keepalive:!0,headers:{"Content-Type":"application/json","x-appid":n.appId,Authorization:`Intuit_APIKey intuit_apikey=${n.apiKey}, intuit_apikey_version=1.0`},body:JSON.stringify(e)}).catch(()=>{})}catch(o){}}};function Pe(){try{let t=window.__FC_TELEMETRY__;if(t!=null&&t.appId&&(t!=null&&t.apiKey)&&(t!=null&&t.endpoint))return{endpoint:t.endpoint,appId:t.appId,apiKey:t.apiKey}}catch(t){}return ie()?{endpoint:M.endpoint,appId:M.appId,apiKey:M.apiKey}:null}function Ne(){try{return typeof localStorage!="undefined"&&localStorage.getItem("fcDebug")==="1"?!0:typeof location!="undefined"&&location.search.includes("fc_debug")}catch(t){return!1}}function Oe(){try{return location.origin+location.pathname}catch(t){return""}}var se="fieldnote-anchor",ce="fieldnote-anchor-active",$e="1.0.0",le=document.body,D=class{constructor(e){x(this,"mount",e);x(this,"DISCUSSION");x(this,"SERVICE");x(this,"API_KEY","preprdakyresbVr2LAjcBj8R3ohhAcUeNSsm4fgY");x(this,"me",null);x(this,"comments",[]);x(this,"anchored",[]);x(this,"orphans",[]);x(this,"resolved",[]);x(this,"activeId",null);x(this,"pending",null);x(this,"tel");x(this,"subs",new Set);x(this,"excluded",[]);x(this,"hostEl");x(this,"shadow");x(this,"core",{contractVersion:"v1",host:()=>this.shadow,postComment:(e,n)=>this.doPost(e,n?n.__sel:null,void 0),postReply:(e,n)=>this.doPost(n,null,e),toggleReaction:(e,n,o)=>this.doReact(e,n,o),resolve:(e,n)=>this.doResolve(e,n),signIn:e=>this.signIn(e),captureSelection:()=>this.captureSelection(),activate:(e,n)=>this.activate(e,n),track:(e,n)=>this.tel.event(e,n),excludeRoot:e=>{this.excluded.push(e)},state:()=>this.snapshot(),onChange:e=>{this.subs.add(e)}});var o,r;this.DISCUSSION=(o=e.getAttribute("data-discussion"))!=null?o:"",this.SERVICE=((r=e.getAttribute("data-service"))!=null?r:"").replace(/\/$/,"");let n=e.getAttribute("data-telemetry")!=="off";this.tel=new $({discussion:this.DISCUSSION,slug:je(),version:$e,enabled:n})}start(){if(!this.DISCUSSION||!this.SERVICE)return this.mount.textContent="fieldnote-comments: missing data-discussion/data-service",null;this.hostEl=document.createElement("div"),this.hostEl.id="fieldnote-widget-host",this.hostEl.style.cssText="position:absolute;top:0;left:0;width:0;height:0",document.body.appendChild(this.hostEl),this.shadow=this.hostEl.attachShadow({mode:"open"}),this.injectAnchorHighlightStyles(),ne(n=>{let o=n.nodeType===3?n.parentElement:n;return!!o&&this.excluded.some(r=>r.contains(o))}),this.excluded.push(this.mount,this.hostEl);let e=Date.now();return Promise.all([this.loadMe(),this.loadComments()]).then(()=>{var n;this.resolveAnchors(),this.tel.loaded({loadMs:Date.now()-e,commentCount:this.comments.length,anchoredCount:this.anchored.length,orphanedCount:this.orphans.length,pageCount:this.comments.filter(o=>!o.header||o.header.type==="page").length,authed:!!((n=this.me)!=null&&n.authenticated)}),this.notify()}).catch(n=>this.tel.error("widget_exception",{where:"start",message:n.message})),this.core}snapshot(){return{me:this.me,comments:this.comments.filter(e=>!e.resolved),anchored:this.anchored,orphans:this.orphans,resolved:this.resolved,activeId:this.activeId}}notify(){let e=this.snapshot();this.subs.forEach(n=>n(e))}api(e,n={}){var o;return fetch(this.SERVICE+e,{...n,credentials:"include",headers:{Authorization:`Intuit_APIKey intuit_apikey=${this.API_KEY}, intuit_apikey_version=1.0`,...(o=n.headers)!=null?o:{}}})}loadMe(){return this.api("/v1/me").then(e=>{if(!e.ok)throw new Error(`me (${e.status})`);return e.json()}).then(e=>{var n;this.me=e,this.tel.setAuth(!!e.authenticated,(n=e.user)==null?void 0:n.login)}).catch(e=>{this.me={authenticated:!1,user:null},this.tel.error("load_failed",{endpoint:"/v1/me",message:e.message})})}loadComments(){return this.api(`/v1/comments?discussion=${encodeURIComponent(this.DISCUSSION)}`).then(e=>{if(!e.ok)throw new Error(`comments (${e.status})`);return e.json()}).then(e=>{var n;this.comments=((n=e==null?void 0:e.comments)!=null?n:[]).map(o=>de(o,!0))}).catch(e=>{this.comments=[],this.tel.error("load_failed",{endpoint:"/v1/comments",message:e.message})})}doPost(e,n,o){let r=!!o,a=n?{v:1,type:"anchored",selectors:n}:{v:1,type:"page"},d=o?{body:e,reply_to:o}:{body:ee(a,e)};return this.api(`/v1/comments?discussion=${encodeURIComponent(this.DISCUSSION)}`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)}).then(f=>{if(!f.ok)throw B("upstream",f.status,`post failed (${f.status})`);return f.json()}).then(()=>(this.tel.event(r?"reply_added":"comment_added",{type:r?void 0:a.type,bodyLen:e.length}),this.loadComments())).then(()=>{this.resolveAnchors(),this.notify()}).catch(f=>{let u=U(f);throw this.tel.error("comment_failed",{isReply:r,status:u.status,message:u.message}),u})}doReact(e,n,o){var r;return(r=this.me)!=null&&r.authenticated?(this.optimisticReact(e,n,o),this.notify(),this.api("/v1/reactions",{method:o?"POST":"DELETE",headers:{"Content-Type":"application/json"},body:JSON.stringify({subject_id:e,content:n})}).then(a=>{if(!a.ok)throw B("upstream",a.status,`reaction failed (${a.status})`);return a.json()}).then(a=>{var d;this.tel.event(o?"reaction_added":"reaction_removed",{content:n}),this.applyReactions(e,(d=a.reactions)!=null?d:[]),this.notify()}).catch(a=>{let d=U(a);throw this.tel.error("reaction_failed",{content:n,on:o,status:d.status,message:d.message}),this.notify(),d})):(this.signIn("reaction"),Promise.resolve())}optimisticReact(e,n,o){let a=[...this.comments,...this.comments.flatMap(f=>f.replies)].find(f=>f.id===e);if(!a)return;let d=a.reactions.find(f=>f.content===n);d?(d.viewer_has_reacted=o,d.count+=o?1:-1,d.count<=0&&(a.reactions=a.reactions.filter(f=>f!==d))):o&&(a.reactions=[...a.reactions,{content:n,count:1,viewer_has_reacted:!0}])}applyReactions(e,n){for(let o of this.comments){if(o.id===e){o.reactions=n;return}for(let r of o.replies)if(r.id===e){r.reactions=n;return}}}doResolve(e,n){var o;return(o=this.me)!=null&&o.authenticated?this.setResolvedLocal(e,n)?(this.resolveAnchors(),this.notify(),this.api(`/v1/comments/${encodeURIComponent(e)}/resolve`,{method:n?"POST":"DELETE"}).then(r=>{if(!r.ok)throw B("upstream",r.status,`resolve failed (${r.status})`);return r.json()}).then(r=>{this.tel.event(n?"comment_resolved":"comment_reopened",{}),this.setResolvedLocal(e,!!r.resolved),this.resolveAnchors(),this.notify()}).catch(r=>{let a=U(r);throw this.tel.error("resolve_failed",{on:n,status:a.status,message:a.message}),this.setResolvedLocal(e,!n),this.resolveAnchors(),this.notify(),a})):Promise.resolve():(this.signIn("resolve"),Promise.resolve())}setResolvedLocal(e,n){let o=this.comments.find(r=>r.id===e);return o?(o.resolved=n,!0):!1}signIn(e="unknown"){this.tel.event("signin_started",{trigger:e});let n=encodeURIComponent(window.location.href);window.location.href=`${this.SERVICE}/v1/auth/login?intuit_apikey=${this.API_KEY}&return=${n}`}captureSelection(){let e=window.getSelection();if(!e||e.isCollapsed||e.rangeCount===0)return null;let n=e.getRangeAt(0);if((n.toString()||"").trim().length===0)return null;try{this.pending=oe(n,le)}catch(o){this.pending=null,this.tel.error("anchor_generate_failed",{message:o==null?void 0:o.message})}return this.tel.event("highlight_selected",{quoteLen:(n.toString()||"").trim().length,selectorsOk:!!this.pending}),this.pending?{__sel:this.pending}:null}resolveAnchors(){var e,n;this.anchored=[],this.orphans=[],this.resolved=[];for(let o of this.comments){if(o.resolved){this.resolved.push(o);continue}if(!o.header||o.header.type!=="anchored"||!o.header.selectors)continue;let r=re(o.header.selectors,le);r?this.anchored.push({comment:o,range:r}):(this.orphans.push(o),this.tel.error("anchor_orphaned",{quote:(n=(e=o.header.selectors.quote)==null?void 0:e.exact)==null?void 0:n.slice(0,120)}))}this.paintHighlights(null)}paintHighlights(e){let n=window.Highlight,o=CSS.highlights;!n||!o||(o.set(se,new n(...this.anchored.map(r=>r.range))),o.set(ce,e?new n(e):new n))}injectAnchorHighlightStyles(){let e="fieldnote-anchor-highlight-styles";if(document.getElementById(e))return;let n=document.createElement("style");n.id=e,n.textContent=`::highlight(${se}){background:rgba(201,113,78,.18);text-decoration:underline;text-decoration-color:rgba(154,59,27,.32);text-underline-offset:2px}::highlight(${ce}){background:rgba(201,113,78,.42);text-decoration:underline;text-decoration-color:rgba(154,59,27,.6);text-underline-offset:2px}`,document.head.appendChild(n)}activate(e,n){e!==this.activeId&&this.tel.event("comment_activated",{source:n}),this.activeId=e;let o=this.anchored.find(r=>r.comment.id===e);this.paintHighlights(o?o.range:null),this.notify()}};function Y(t){return new D(t).start()}function de(t,e){var o,r;let n=e?te(t.body):{header:null,body:t.body};return{id:t.id,author:t.author,created_at:t.created_at,text:n.body,header:n.header,replies:((o=t.replies)!=null?o:[]).map(a=>de(a,!1)),reactions:(r=t.reactions)!=null?r:[],resolved:!!t.resolved,viewerCanResolve:!!t.viewer_can_resolve}}function je(){try{let t=/\/([^/]+?)(?:\.html?)?$/.exec(location.pathname);return t?t[1]:""}catch(t){return""}}function B(t,e,n){return{kind:t,status:e,message:n}}function U(t){return t&&typeof t=="object"&&"kind"in t?t:{kind:"network",status:0,message:t instanceof Error?t.message:String(t)}}function fe(t){let e=`:host{--fc-ink:#2b2926;--fc-ink-soft:#6b6661;--fc-ink-faint:#9c958c;--fc-line:#e8e3db;--fc-line-strong:#d8d1c6;--fc-surface:#fffdf9;--fc-surface-hi:#fffefb;--fc-rail-bg:transparent;--fc-accent:#9a3b1b;--fc-accent-soft:#b5552e;--fc-accent-wash:#fbf3ee;--fc-font:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;--fc-ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;--fc-shadow:0 1px 2px rgba(43,41,38,.05),0 4px 14px -8px rgba(43,41,38,.16);--fc-shadow-lift:0 2px 4px rgba(43,41,38,.06),0 12px 28px -12px rgba(120,52,24,.30);--fc-ease:cubic-bezier(.22,.68,.32,1)}.fc-rail{position:fixed;top:0;right:max(12px,calc((100vw - 64rem)/2 - 312px));width:296px;height:0;z-index:2147483600;font:14.5px/1.5 var(--fc-ui);color:var(--fc-ink);-webkit-font-smoothing:antialiased}.fc-rail *{box-sizing:border-box}.fc-card{position:relative;width:100%;background:var(--fc-surface);border:1px solid var(--fc-line);border-radius:10px;padding:13px 15px 14px;box-shadow:var(--fc-shadow);transition:top .26s var(--fc-ease),transform .18s var(--fc-ease),box-shadow .2s var(--fc-ease),border-color .2s,background .2s;animation:fc-in .28s var(--fc-ease) both}.fc-card-anchored{position:absolute;right:0;width:296px;cursor:pointer}@keyframes fc-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}.fc-card-anchored:hover{box-shadow:var(--fc-shadow-lift);border-color:var(--fc-line-strong);transform:translateX(-2px)}.fc-card.fc-active{background:var(--fc-surface-hi);border-color:var(--fc-accent-soft);box-shadow:var(--fc-shadow-lift);transform:translateX(-3px)}.fc-card.fc-active::before{content:"";position:absolute;left:-1px;top:11px;bottom:11px;width:3px;border-radius:3px;background:linear-gradient(var(--fc-accent),var(--fc-accent-soft))}.fc-card-orphan{opacity:.78}.fc-quote{font:italic 13px/1.45 var(--fc-font);color:var(--fc-ink-soft);border-left:2px solid var(--fc-accent-soft);padding:1px 0 1px 9px;margin:0 0 9px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.fc-head{display:flex;align-items:center;gap:8px}.fc-avatar{width:22px;height:22px;border-radius:50%;flex:0 0 auto;object-fit:cover;border:1px solid rgba(43,41,38,.08)}.fc-avatar-mono{display:flex;align-items:center;justify-content:center;background:var(--fc-accent-wash);color:var(--fc-accent);font:700 11px/1 var(--fc-ui);border-color:rgba(154,59,27,.18)}.fc-meta{display:flex;align-items:baseline;gap:7px;min-width:0}.fc-who{font:600 13px/1.2 var(--fc-ui);color:var(--fc-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.fc-when{font:400 11.5px/1 var(--fc-ui);color:var(--fc-ink-faint);white-space:nowrap;flex:0 0 auto}.fc-body{margin-top:7px;font:14.5px/1.55 var(--fc-font);color:var(--fc-ink);white-space:pre-wrap;word-wrap:break-word}.fc-orphan-tag{display:inline-block;font:600 10.5px/1 var(--fc-ui);letter-spacing:.03em;text-transform:uppercase;color:var(--fc-accent);background:var(--fc-accent-wash);border-radius:4px;padding:4px 7px;margin-bottom:9px}.fc-reactions{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-top:9px}.fc-rx{display:inline-flex;align-items:center;gap:4px;font:500 12px/1 var(--fc-ui);padding:3px 8px;border:1px solid var(--fc-line-strong);border-radius:11px;background:var(--fc-surface-hi);color:var(--fc-ink-soft);cursor:pointer;transition:background .14s,border-color .14s,color .14s}.fc-rx:hover{border-color:var(--fc-accent-soft)}.fc-rx-emoji{font-size:13px;line-height:1}.fc-rx-n{font-variant-numeric:tabular-nums}.fc-rx-on{background:var(--fc-accent-wash);border-color:var(--fc-accent-soft);color:var(--fc-accent)}.fc-rx-add{position:relative}.fc-rx-addbtn{font:500 12px/1 var(--fc-ui);padding:3px 7px;border:1px dashed var(--fc-line-strong);border-radius:11px;background:transparent;color:var(--fc-ink-faint);cursor:pointer;opacity:.7;transition:opacity .14s,border-color .14s}.fc-card:hover .fc-rx-addbtn,.fc-reply:hover .fc-rx-addbtn{opacity:1}.fc-rx-addbtn:hover{border-color:var(--fc-accent-soft);color:var(--fc-accent)}.fc-rx-plus{font-weight:700;margin-right:1px}.fc-rx-palette{position:absolute;bottom:calc(100% + 6px);left:0;z-index:5;display:none;gap:2px;padding:5px;background:var(--fc-surface);border:1px solid var(--fc-line-strong);border-radius:9px;box-shadow:0 8px 24px -10px rgba(43,41,38,.4)}.fc-rx-open .fc-rx-palette{display:flex}.fc-rx-opt{font-size:17px;line-height:1;padding:4px;border:0;background:transparent;cursor:pointer;border-radius:6px;transition:transform .1s,background .12s}.fc-rx-opt:hover{background:var(--fc-accent-wash);transform:scale(1.18)}.fc-replies:not(:empty){margin-top:11px;padding-top:4px;border-top:1px solid var(--fc-line);display:flex;flex-direction:column;gap:11px}.fc-reply{padding-left:11px;border-left:2px solid var(--fc-line-strong)}.fc-reply .fc-body{font-size:13.5px}.fc-replywrap{margin-top:9px}.fc-cardfoot{display:flex;align-items:center;gap:10px}.fc-reply-link{font:600 12px/1 var(--fc-ui);color:var(--fc-accent);background:transparent;border:0;padding:2px 0;cursor:pointer;border-bottom:1px solid transparent;transition:border-color .14s}.fc-reply-link:hover{border-bottom-color:var(--fc-accent-soft)}.fc-reply-box{margin-top:8px}.fc-reply-box .fc-ta{min-height:2.4rem}.fc-stamp{margin-left:auto;display:inline-flex;align-items:center;gap:5px;font:600 11px/1 var(--fc-ui);letter-spacing:.02em;color:var(--fc-ink-faint);background:transparent;border:0;padding:3px 5px;border-radius:6px;cursor:pointer;opacity:0;transition:opacity .15s,color .15s,background .15s}.fc-card:hover .fc-stamp,.fc-stamp:focus-visible{opacity:1}.fc-stamp svg{display:block}.fc-stamp:hover{color:var(--fc-accent);background:var(--fc-accent-wash)}@keyframes fc-press{40%{transform:scale(.82) rotate(-8deg)}100%{transform:none}}.fc-stamp:active svg{animation:fc-press .24s var(--fc-ease)}@keyframes fc-resolve-out{0%{opacity:1;transform:none}100%{opacity:0;transform:translateY(10px) scale(.97)}}.fc-resolving{animation:fc-resolve-out .24s var(--fc-ease) forwards;pointer-events:none}.fc-pagewrap{position:fixed;right:24px;bottom:24px;z-index:2147483600;font:14.5px/1.5 var(--fc-ui)}.fc-fab{position:relative;display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1px solid var(--fc-line-strong);background:var(--fc-surface);color:var(--fc-ink-soft);cursor:pointer;box-shadow:var(--fc-shadow-lift);transition:transform .16s var(--fc-ease),color .15s,background .15s}.fc-fab:hover{transform:translateY(-2px);color:var(--fc-accent);background:var(--fc-surface-hi)}.fc-open .fc-fab{color:var(--fc-accent)}.fc-fab-count{position:absolute;top:-3px;right:-3px;min-width:18px;height:18px;padding:0 4px;border-radius:9px;background:var(--fc-accent);color:#fff;font:700 10.5px/18px var(--fc-ui);text-align:center;box-shadow:0 0 0 2px var(--fc-surface)}.fc-panel{position:absolute;right:0;bottom:58px;width:320px;max-height:min(70vh,560px);display:flex;flex-direction:column;background:var(--fc-surface);border:1px solid var(--fc-line-strong);border-radius:12px;overflow:hidden;box-shadow:0 12px 48px -12px rgba(43,41,38,.42);opacity:0;transform:translateY(8px) scale(.98);transform-origin:bottom right;pointer-events:none;transition:opacity .18s var(--fc-ease),transform .18s var(--fc-ease)}.fc-open .fc-panel{opacity:1;transform:none;pointer-events:auto}.fc-panel-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--fc-line)}.fc-panel-title{font:600 13px/1 var(--fc-ui);color:var(--fc-ink)}.fc-panel-n{display:inline-block;margin-left:5px;padding:1px 6px;border-radius:8px;background:var(--fc-accent-wash);color:var(--fc-accent);font:700 11px/1.4 var(--fc-ui)}.fc-panel-x{border:0;background:transparent;color:var(--fc-ink-faint);font-size:13px;cursor:pointer;padding:2px 4px;border-radius:5px;transition:color .15s,background .15s}.fc-panel-x:hover{color:var(--fc-ink);background:rgba(43,41,38,.05)}.fc-panel-list{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px}.fc-panel-list .fc-card{cursor:default}.fc-empty{font:italic 13.5px/1.5 var(--fc-font);color:var(--fc-ink-faint);text-align:center;padding:14px 8px}.fc-panel-foot{padding:12px 14px;border-top:1px solid var(--fc-line);background:var(--fc-surface-hi)}.fc-ledger{margin:0 0 11px;border-top:1px dashed var(--fc-line-strong)}.fc-ledger-bar{display:flex;align-items:center;gap:7px;width:100%;background:transparent;border:0;padding:8px 0 6px;cursor:pointer;font:600 10.5px/1 var(--fc-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--fc-ink-faint);transition:color .15s}.fc-ledger-bar:hover{color:var(--fc-ink-soft)}.fc-ledger-mark{font-size:13px;letter-spacing:0;color:var(--fc-accent-soft)}.fc-ledger-n{font-variant-numeric:tabular-nums;color:var(--fc-ink-soft);font-weight:700}.fc-ledger-lbl{margin-right:auto}.fc-ledger-caret{transition:transform .18s var(--fc-ease)}.fc-ledger-open .fc-ledger-caret{transform:rotate(90deg)}.fc-ledger-list{display:grid;grid-template-rows:0fr;transition:grid-template-rows .22s var(--fc-ease)}.fc-ledger-open .fc-ledger-list{grid-template-rows:1fr}.fc-ledger-list>*{overflow:hidden}.fc-resolved-item{display:flex;align-items:baseline;gap:7px;padding:5px 0;font:13px/1.4 var(--fc-font);color:var(--fc-ink-faint);border-top:1px solid var(--fc-line)}.fc-resolved-item:first-child{border-top:0}.fc-resolved-who{font:600 11px/1.4 var(--fc-ui);color:var(--fc-ink-soft);flex:0 0 auto}.fc-resolved-gist{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-decoration:line-through;text-decoration-color:var(--fc-line-strong)}.fc-reopen{flex:0 0 auto;font:600 10.5px/1 var(--fc-ui);letter-spacing:.04em;color:var(--fc-accent);background:transparent;border:0;padding:2px 0;cursor:pointer;border-bottom:1px solid transparent;transition:border-color .14s}.fc-reopen:hover{border-bottom-color:var(--fc-accent-soft)}.fc-foot-row{display:flex;align-items:center;gap:10px}.fc-signedin{font:400 12px/1.3 var(--fc-ui);color:var(--fc-ink-faint)}.fc-signedin b{color:var(--fc-ink-soft);font-weight:600}.fc-ta{width:100%;font:14.5px/1.5 var(--fc-font);color:var(--fc-ink);padding:9px 11px;background:var(--fc-surface);border:1px solid var(--fc-line-strong);border-radius:8px;resize:vertical;min-height:3rem;transition:border-color .15s,box-shadow .15s}.fc-ta::placeholder{color:var(--fc-ink-faint)}.fc-ta:focus{outline:0;border-color:var(--fc-accent-soft);box-shadow:0 0 0 3px var(--fc-accent-wash)}.fc-panel-foot .fc-ta{margin-bottom:9px}.fc-btn{font:600 13px/1 var(--fc-ui);padding:8px 15px;border:1px solid transparent;border-radius:7px;background:var(--fc-accent);color:#fff;cursor:pointer;transition:background .15s,transform .1s}.fc-btn:hover{background:var(--fc-accent-soft)}.fc-btn:active{transform:translateY(1px)}.fc-btn.fc-cancel{background:transparent;color:var(--fc-ink-soft);border-color:var(--fc-line-strong)}.fc-btn.fc-cancel:hover{background:rgba(43,41,38,.04)}.fc-btn:disabled{opacity:.45;cursor:default;transform:none}.fc-link{font:600 13px/1.3 var(--fc-ui);color:var(--fc-accent);cursor:pointer;border-bottom:1px solid transparent;transition:border-color .15s}.fc-link:hover{border-bottom-color:var(--fc-accent-soft)}.fc-err{font:400 12.5px/1.4 var(--fc-ui);color:#a3331a;margin-top:7px}.fc-adder{position:absolute;z-index:2147483646;display:none;align-items:center;gap:6px;background:var(--fc-ink);color:#fdf9f4;font:600 12.5px/1 var(--fc-ui);padding:8px 12px;border-radius:8px;cursor:pointer;box-shadow:0 6px 20px -6px rgba(43,41,38,.5);animation:fc-pop .14s var(--fc-ease) both}@keyframes fc-pop{from{opacity:0;transform:translateY(3px) scale(.97)}to{opacity:1;transform:none}}.fc-adder:hover{background:#1f1d1a}.fc-composer{position:absolute;z-index:2147483647;width:308px;background:var(--fc-surface);border:1px solid var(--fc-line-strong);border-radius:11px;padding:14px;box-shadow:0 10px 40px -10px rgba(43,41,38,.4);font:14.5px/1.5 var(--fc-ui);animation:fc-pop .16s var(--fc-ease) both}.fc-composer .fc-quote{margin-top:0}.fc-row{display:flex;gap:8px;margin-top:0}.fc-row .fc-btn{margin-right:0}`,n=document.createElement("style");n.textContent=e,t.appendChild(n)}var qe=8,pe=[{content:"THUMBS_UP",emoji:"\u{1F44D}",label:"Like"},{content:"HEART",emoji:"\u2764\uFE0F",label:"Love"},{content:"HOORAY",emoji:"\u{1F389}",label:"Hooray"},{content:"ROCKET",emoji:"\u{1F680}",label:"Ship it"},{content:"EYES",emoji:"\u{1F440}",label:"Watching"},{content:"LAUGH",emoji:"\u{1F604}",label:"Laugh"},{content:"CONFUSED",emoji:"\u{1F615}",label:"Confused"},{content:"THUMBS_DOWN",emoji:"\u{1F44E}",label:"Dislike"}],Be=Object.fromEntries(pe.map(t=>[t.content,t.emoji]));function ue(t){let e=t.host();fe(e);let n=document.createElement("div");n.className="fc-rail",e.appendChild(n);let o=[],r=null,a=!1;t.onChange(()=>d()),he(),ye(),we(),Ee(),d();function d(){let c=t.state();n.innerHTML="",o=[];for(let{comment:i,range:s}of c.anchored){let l=f(i,s,!1);l.classList.add("fc-card-anchored"),l.classList.toggle("fc-active",i.id===c.activeId),n.appendChild(l),o.push({comment:i,el:l,range:s,idealTop:s.getBoundingClientRect().top})}C(c),k()}function f(c,i,s){var b,y;let l=document.createElement("div");l.className="fc-card"+(s?" fc-card-orphan":""),l.dataset.id=c.id;let p=(y=(b=c.header)==null?void 0:b.selectors)==null?void 0:y.quote.exact;p&&l.appendChild(K(`<div class="fc-quote">${S(z(p,90))}</div>`)),s&&l.appendChild(K('<div class="fc-orphan-tag">passage no longer found</div>')),l.appendChild(u(c));let h=document.createElement("div");h.className="fc-replies";for(let w of c.replies)h.appendChild(u(w,!0));return l.appendChild(h),l.appendChild(g(c)),i&&l.addEventListener("click",()=>t.activate(c.id,"card")),l}function u(c,i=!1){let s=c.author||{},l=document.createElement("div");return l.className=i?"fc-reply":"fc-comment",l.innerHTML='<div class="fc-head">'+Ye(s)+`<div class="fc-meta"><span class="fc-who">${S(s.login||"unknown")}</span><span class="fc-when">${S(Ue(c.created_at))}</span></div></div><div class="fc-body">${S(c.text)}</div>`,l.appendChild(m(c)),l}function m(c){var s;let i=document.createElement("div");i.className="fc-reactions",i.addEventListener("click",l=>l.stopPropagation());for(let l of c.reactions){let p=document.createElement("button");p.type="button",p.className="fc-rx"+(l.viewer_has_reacted?" fc-rx-on":""),p.title=l.content,p.innerHTML=`<span class="fc-rx-emoji">${(s=Be[l.content])!=null?s:"\u2022"}</span><span class="fc-rx-n">${l.count}</span>`,p.addEventListener("click",()=>{t.toggleReaction(c.id,l.content,!l.viewer_has_reacted)}),i.appendChild(p)}return i.appendChild(v(c)),i}function v(c){let i=document.createElement("div");i.className="fc-rx-add";let s=document.createElement("button");s.type="button",s.className="fc-rx-addbtn",s.title="Add reaction",s.innerHTML='<span class="fc-rx-plus">\uFF0B</span>\u{1F642}';let l=document.createElement("div");l.className="fc-rx-palette";for(let p of pe){let h=document.createElement("button");h.type="button",h.className="fc-rx-opt",h.title=p.label,h.textContent=p.emoji,h.addEventListener("click",()=>{i.classList.remove("fc-rx-open"),t.toggleReaction(c.id,p.content,!0)}),l.appendChild(h)}return s.addEventListener("click",()=>i.classList.toggle("fc-rx-open")),i.append(s,l),i}function g(c){let i=document.createElement("div");i.className="fc-replywrap",i.addEventListener("click",p=>p.stopPropagation());let s=document.createElement("div");s.className="fc-cardfoot";let l=document.createElement("button");if(l.type="button",l.className="fc-reply-link",l.textContent="Reply",l.addEventListener("click",()=>{var p;if(!((p=t.state().me)!=null&&p.authenticated))return t.signIn("reply");i.querySelector(".fc-reply-box")||(l.style.display="none",i.insertBefore(L(c,l),s.nextSibling))}),s.appendChild(l),c.viewerCanResolve){let p=document.createElement("button");p.type="button",p.className="fc-stamp",p.title="Resolve this note",p.setAttribute("aria-label","Resolve this note"),p.innerHTML='<svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><circle cx="10" cy="10" r="8.25" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M6.2 10.4l2.5 2.5 5-5.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="fc-stamp-lbl">Resolve</span>',p.addEventListener("click",()=>{var h,b;if(!((h=t.state().me)!=null&&h.authenticated))return t.signIn("resolve");(b=p.closest(".fc-card"))==null||b.classList.add("fc-resolving"),t.resolve(c.id,!0)}),s.appendChild(p)}return i.appendChild(s),i}function L(c,i){let s=K('<div class="fc-reply-box"><textarea class="fc-ta" placeholder="Reply\u2026"></textarea><div class="fc-foot-row"><button class="fc-btn fc-reply-post" type="button">Reply</button><button class="fc-btn fc-cancel fc-reply-cancel" type="button">Cancel</button></div><div class="fc-err"></div></div>'),l=s.querySelector(".fc-ta"),p=()=>{s.remove(),i.style.display=""};return s.querySelector(".fc-reply-cancel").addEventListener("click",p),s.querySelector(".fc-reply-post").addEventListener("click",()=>{let h=l.value.trim(),b=s.querySelector(".fc-err");if(!h)return;let y=s.querySelector(".fc-reply-post");y.disabled=!0,t.postReply(c.id,h).catch(w=>{b.textContent=w.message,y.disabled=!1})}),setTimeout(()=>l.focus(),0),s}function C(c){let i=c.comments.filter(E=>!E.header||E.header.type==="page"),s=i.length+c.orphans.length,l=document.createElement("div");l.className="fc-pagewrap";let p=document.createElement("button");p.className="fc-fab",p.type="button",p.setAttribute("aria-label","Page comments"),p.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>'+(s?`<span class="fc-fab-count">${s}</span>`:"");let h=document.createElement("div");h.className="fc-panel";let b=document.createElement("div");b.className="fc-panel-head",b.innerHTML=`<span class="fc-panel-title">Page comments${s?` <span class="fc-panel-n">${s}</span>`:""}</span><button class="fc-panel-x" type="button" aria-label="Close">\u2715</button>`;let y=document.createElement("div");y.className="fc-panel-list",s||(y.innerHTML='<div class="fc-empty">No comments on the whole page yet.</div>');for(let E of i)y.appendChild(f(E,null,!1));for(let E of c.orphans)y.appendChild(f(E,null,!0));let w=document.createElement("div");w.className="fc-panel-foot";let T=R(c);T&&w.appendChild(T);let _=document.createElement("div");w.appendChild(_),I(_,c),h.append(b,y,w),l.append(h,p),n.appendChild(l);let P=E=>{l.classList.toggle("fc-open",E)};p.addEventListener("click",()=>P(!l.classList.contains("fc-open"))),b.querySelector(".fc-panel-x").addEventListener("click",()=>P(!1))}function I(c,i){var s,l,p;(s=i.me)!=null&&s.authenticated?(c.innerHTML=`<textarea class="fc-ta" placeholder="Comment on the whole page\u2026"></textarea><div class="fc-foot-row"><button class="fc-btn fc-pagepost" type="button">Post</button><span class="fc-signedin">as <b>${S((p=(l=i.me.user)==null?void 0:l.login)!=null?p:"")}</b></span></div><div class="fc-err"></div>`,c.querySelector(".fc-pagepost").addEventListener("click",()=>{let h=c.querySelector(".fc-ta"),b=c.querySelector(".fc-err"),y=h.value.trim();y&&(c.querySelector(".fc-pagepost").disabled=!0,t.postComment(y,null).catch(w=>{b.textContent=w.message,c.querySelector(".fc-pagepost").disabled=!1}))})):(c.innerHTML='<span class="fc-link fc-signin">Sign in to comment \u2192</span>',c.querySelector(".fc-signin").addEventListener("click",()=>t.signIn("page")))}function R(c){var h,b,y;let i=c.resolved;if(i.length===0)return null;let s=document.createElement("div");s.className="fc-ledger"+(a?" fc-ledger-open":"");let l=document.createElement("button");l.type="button",l.className="fc-ledger-bar",l.innerHTML=`<span class="fc-ledger-mark">\u205D</span><span class="fc-ledger-n">${i.length}</span><span class="fc-ledger-lbl">resolved</span><span class="fc-ledger-caret">\u25B8</span>`,l.addEventListener("click",()=>{a=!a,s.classList.toggle("fc-ledger-open",a)}),s.appendChild(l);let p=document.createElement("div");p.className="fc-ledger-list";for(let w of i){let T=document.createElement("div");T.className="fc-resolved-item";let _=(b=(h=w.header)==null?void 0:h.selectors)==null?void 0:b.quote.exact,P=_?`\u201C${z(_,48)}\u201D`:z(w.text,52);if(T.innerHTML=`<span class="fc-resolved-who">${S(((y=w.author)==null?void 0:y.login)||"unknown")}</span><span class="fc-resolved-gist">${S(P)}</span>`,w.viewerCanResolve){let E=document.createElement("button");E.type="button",E.className="fc-reopen",E.textContent="reopen",E.title="Reopen this note",E.addEventListener("click",()=>{t.resolve(w.id,!1)}),T.appendChild(E)}p.appendChild(T)}return s.appendChild(p),s}function k(){for(let s of o)s.idealTop=s.range.getBoundingClientRect().top;let c=[...o].sort((s,l)=>s.idealTop-l.idealTop),i=-1/0;for(let s of c){let l=Math.max(s.idealTop,i);s.el.style.top=`${l}px`,i=l+s.el.offsetHeight+qe}}function he(){document.addEventListener("mouseup",()=>setTimeout(ge,0)),document.addEventListener("selectionchange",()=>{let c=window.getSelection();(!c||c.isCollapsed)&&A()})}function ge(){let c=window.getSelection();if(!c||c.isCollapsed||c.rangeCount===0)return A();let i=c.getRangeAt(0);if((i.toString()||"").trim().length===0)return A();ve(i)}function ve(c){let i=c.getBoundingClientRect();r||(r=document.createElement("div"),r.className="fc-adder",r.textContent="\u{1F4AC} Comment",r.addEventListener("mousedown",s=>s.preventDefault()),r.addEventListener("click",xe),e.appendChild(r)),r.style.display="block",r.style.top=`${window.scrollY+i.top-38}px`,r.style.left=`${window.scrollX+i.left}px`}function A(){r&&(r.style.display="none")}function xe(){var i;let c=t.captureSelection();if(A(),!!c){if(!((i=t.state().me)!=null&&i.authenticated))return t.signIn("comment");be(c)}}function j(){e.querySelectorAll(".fc-composer").forEach(c=>c.remove())}function be(c){j();let i=document.createElement("div");i.className="fc-composer",i.innerHTML='<div class="fc-quote">Comment on this passage\u2026</div><textarea class="fc-ta" placeholder="Comment on this passage\u2026"></textarea><div class="fc-row"><button class="fc-btn fc-post">Comment</button><button class="fc-btn fc-cancel">Cancel</button></div><div class="fc-err"></div>',e.appendChild(i);let s=window.getSelection(),l=s&&s.rangeCount?s.getRangeAt(0).getBoundingClientRect():{top:100,left:100};i.style.top=`${window.scrollY+l.top+24}px`,i.style.left=`${window.scrollX+l.left}px`;let p=i.querySelector(".fc-ta");p.focus(),i.querySelector(".fc-cancel").addEventListener("click",j),i.querySelector(".fc-post").addEventListener("click",()=>{let h=p.value.trim(),b=i.querySelector(".fc-err");if(!h)return;let y=i.querySelector(".fc-post");y.disabled=!0,t.postComment(h,c).then(()=>j()).catch(w=>{b.textContent=w.message,y.disabled=!1})})}function ye(){let c=0,i=()=>{cancelAnimationFrame(c),c=requestAnimationFrame(k)};window.addEventListener("scroll",i,{passive:!0}),window.addEventListener("resize",i,{passive:!0})}function we(){document.addEventListener("click",c=>{if(Ce(c))return;let i=c,s=t.state().anchored.find(l=>De(l.range,i.clientX,i.clientY));s&&t.activate(s.comment.id,"highlight")})}function Ee(){let c=i=>{e.querySelectorAll(".fc-rx-add.fc-rx-open").forEach(s=>{s!==i&&s.classList.remove("fc-rx-open")})};document.addEventListener("pointerdown",i=>{var l;let s=(l=i.composedPath().find(p=>{var h,b;return(b=(h=p==null?void 0:p.classList)==null?void 0:h.contains)==null?void 0:b.call(h,"fc-rx-open")}))!=null?l:null;c(s)}),document.addEventListener("keydown",i=>{i.key==="Escape"&&c(null)})}function Ce(c){return c.composedPath().some(i=>{var s,l;return i===e||((l=(s=i==null?void 0:i.classList)==null?void 0:s.contains)==null?void 0:l.call(s,"fc-adder"))})}}function S(t){let e=document.createElement("div");return e.textContent=t==null?"":String(t),e.innerHTML}function Ue(t){try{return new Date(t).toLocaleString()}catch(e){return t||""}}function z(t,e){return t.length>e?t.slice(0,e-1)+"\u2026":t}function K(t){let e=document.createElement("template");return e.innerHTML=t.trim(),e.content.firstElementChild}function De(t,e,n){let o=t.getClientRects();for(let r=0;r<o.length;r++){let a=o[r];if(e>=a.left&&e<=a.right&&n>=a.top&&n<=a.bottom)return!0}return!1}function Ye(t){let e=t.login||"?";if(t.avatar_url)return`<img class="fc-avatar" src="${S(t.avatar_url)}" alt="" loading="lazy">`;let n=S(e.charAt(0).toUpperCase()||"?");return`<span class="fc-avatar fc-avatar-mono" data-initial="${n}">${n}</span>`}var me=document.getElementById("fieldnote-comments");if(me){let t=Y(me);t&&ue(t)}})();
+
+</script>
+<!-- fieldnote:comments:end -->
+</body>
+</html>

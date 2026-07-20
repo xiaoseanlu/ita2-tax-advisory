@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_040",
+  "category": "retirement",
+  "strategy_type": "Retirement Plans",
+  "title": "Mega Backdoor Roth 401(k) Contribution Strategy",
+  "implementation_effort_score": 7,
+  "tax_savings_score": 5,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must make after-tax 401(k) contributions beyond regular elective deferrals and convert or rollover to Roth 401(k) or Roth IRA, enabling up to $70,000 annual Roth accumulation for high-income earners with qualifying plans",
+    "criteria": [
+      "Employer 401(k) plan must allow after-tax employee contributions beyond elective deferrals",
+      "Plan must allow in-service distributions or in-plan Roth conversions of after-tax contributions",
+      "2025 total contribution limit: $70,000 (all sources: elective deferrals + employer match + after-tax)",
+      "Maximize regular deferrals ($23,500 or $31,000 with catch-up) and employer match first",
+      "Contribute after-tax amounts up to $70,000 total limit (or $77,500 with catch-up if age 50+)",
+      "Convert after-tax contributions to Roth 401(k) in-plan or rollover to Roth IRA frequently to minimize earnings",
+      "Systematic conversions (even daily/weekly) minimize taxable earnings on after-tax contributions",
+      "Verify plan allows in-service distributions of after-tax amounts; not all plans offer this feature"
+    ]
+  },
+  "limitations": {
+    "mega_backdoor_roth_strategy": {
+      "massive_roth_potential": "Can contribute up to $46,500+ annually to Roth through after-tax contributions and conversions",
+      "calculation_example": "$70,000 limit - $23,500 deferrals - employer match = after-tax room available for mega backdoor",
+      "tax_free_conversion": "After-tax principal converts tax-free; only earnings since contribution taxable",
+      "frequent_conversion": "Immediate or frequent conversions minimize taxable earnings on after-tax amounts",
+      "in_plan_vs_rollover": "In-plan Roth conversion or rollover to Roth IRA both achieve tax-free growth objective",
+      "no_income_limits": "Unlike direct Roth IRA, no income limits on mega backdoor Roth strategy"
+    },
+    "restrictions": [
+      "Plan must specifically allow after-tax contributions and in-service distributions or in-plan conversions",
+      "Many 401(k) plans don't offer after-tax contribution option or in-service distribution provisions",
+      "Earnings on after-tax contributions taxable when converted; systematic conversion minimizes this tax",
+      "Highly compensated employees may face nondiscrimination testing limiting contribution room",
+      "Total contribution limit ($70,000) reduced by employer contributions and employee deferrals",
+      "Must track basis in after-tax contributions for proper tax reporting on conversions and distributions",
+      "Some plans require pro-rata distribution of earnings with after-tax principal complicating tax-free conversion",
+      "Contribution amounts may require significant cash flow; must balance with other financial priorities"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

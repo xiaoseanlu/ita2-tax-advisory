@@ -1,0 +1,57 @@
+{
+  "strategy_id": "ita_016",
+  "category": "business",
+  "strategy_type": "Expense Shifting",
+  "title": "Medical Expense Reimbursement Plan (MERP) for Small Business",
+  "implementation_effort_score": 3,
+  "tax_savings_score": 6,
+  "requires_contribution": true,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must establish employer-funded medical reimbursement plan allowing tax-free reimbursement of employee medical expenses with employer deduction, typically for businesses with few employees or family businesses",
+    "criteria": [
+      "Employer establishes written IRC §105 plan document defining eligible employees and reimbursable expenses",
+      "Typically used by small businesses, family businesses, or businesses with owner-only or owner-spouse arrangements",
+      "Plan reimburses qualified medical expenses under IRC §213(d) including insurance premiums, deductibles, copays, uncovered expenses",
+      "Employer funds plan and deducts reimbursements as ordinary business expense",
+      "Reimbursements tax-free to employees for qualifying medical expenses",
+      "Must comply with nondiscrimination rules if self-insured plan; discriminatory plans tax benefits to highly compensated",
+      "Cannot discriminate in eligibility or benefits in favor of highly compensated employees under §105(h) testing",
+      "Often combined with high-deductible health plan to reimburse amounts below deductible threshold"
+    ]
+  },
+  "limitations": {
+    "merp_plan_design": {
+      "employer_funded": "Employer pays reimbursements; employee salary reduction contributions not permitted for §105 plans",
+      "tax_free_benefit": "Qualified medical expense reimbursements excluded from employee income and not subject to payroll taxes",
+      "employer_deduction": "Employer deducts reimbursements as compensation and ordinary business expense",
+      "qualified_expenses": "IRC §213(d) medical expenses including insurance premiums, medical, dental, vision, prescriptions",
+      "s_corp_2_percent": "Plan cannot cover S Corporation 2%+ shareholders and family members; different rules apply",
+      "nondiscrimination_testing": "Self-insured §105(h) plans must pass eligibility and benefits nondiscrimination testing"
+    },
+    "restrictions": [
+      "S Corporation 2%+ shareholders cannot participate in §105 plan; premiums must be included in W-2 wages",
+      "Sole proprietors and partners cannot benefit from MERP; plan only covers employees, not self-employed owners",
+      "Discriminatory plans cause highly compensated employees to include discriminatory excess benefits in income",
+      "Plan must be employer-funded; cannot allow employee salary reduction elections (that's FSA)",
+      "Reimbursement-only plans cannot be combined with HSA contributions unless structured carefully",
+      "Administrative complexity requires written plan document, claims processing, and compliance testing",
+      "ACA market reforms may affect certain types of reimbursement arrangements and require coordination",
+      "State insurance department regulations may impact plan design and administration requirements"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

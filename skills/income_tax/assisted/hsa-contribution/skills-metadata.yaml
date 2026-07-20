@@ -1,0 +1,6 @@
+skill_id: income_tax.assisted.hsa-contribution
+status: outlined
+fidelity: savings-core
+spe_folder: "HSA Contribution"
+ita_id: "ita_015"
+category: "health"

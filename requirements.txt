@@ -1,0 +1,26 @@
+# Tax calculation (no external deps)
+# deduction.py, ordinary_income_tax.py, calc_total_tax.py
+
+# Load .env for GENOS_* / INTUIT_* (see .env.example)
+python-dotenv>=1.0.0
+
+# HTTP clients
+requests>=2.31.0
+httpx>=0.27.0
+
+# JSON and data handling
+orjson>=3.9.0
+
+# Utilities
+pydantic>=2.5.0
+
+# GenOS Client — hosted on Intuit Artifactory, not PyPI. Configure pip first (see docs/GENOS_PIP_INSTALL.md).
+nocode-execution-genosclient-genosclient>=12.0.0
+
+# Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+pytest-cov>=4.1.0
+
+# Optional: mapping review app
+flask>=3.0.0

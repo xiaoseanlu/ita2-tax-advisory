@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_023",
+  "category": "individual",
+  "strategy_type": "Income Shifting",
+  "title": "Tax Loss Harvesting - Short-Term Capital Losses",
+  "implementation_effort_score": 3,
+  "tax_savings_score": 1,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must strategically sell securities held 12 months or less at a loss to offset short-term capital gains taxed at ordinary income rates, providing greater tax benefit per dollar of loss than long-term loss harvesting",
+    "criteria": [
+      "Identify positions held 12 months or less trading below cost basis with unrealized short-term capital losses",
+      "Sell losing positions before 12-month anniversary to realize short-term character if beneficial",
+      "Short-term capital losses first offset short-term capital gains (taxed at ordinary rates up to 37%)",
+      "After offsetting STCG, STCL offsets long-term capital gains, then up to $3,000 ordinary income",
+      "Excess losses carry forward indefinitely maintaining character as short-term losses",
+      "Avoid wash sale rule by not repurchasing substantially identical security within 61-day window",
+      "Higher tax benefit than LTCL when offsetting STCG taxed at ordinary rates vs preferential LTCG rates",
+      "Coordinate with holding periods to maximize tax benefit of loss character vs gain character"
+    ]
+  },
+  "limitations": {
+    "stcl_harvesting_strategy": {
+      "loss_ordering": "STCL offsets STCG first (ordinary rates), then LTCG (preferential rates), then $3,000 ordinary",
+      "higher_tax_benefit": "STCL saves up to 40.8% (37% + 3.8% NIIT) when offsetting STCG vs 23.8% for LTCG",
+      "carryforward_character": "Unused STCL carries forward indefinitely as short-term maintaining higher benefit potential",
+      "timing_flexibility": "Can harvest STCL anytime; selling before 12 months preserves short-term character",
+      "portfolio_rebalancing": "Use loss harvesting during rebalancing to reduce tax drag on portfolio returns",
+      "strategic_character": "Consider whether to harvest as ST or wait for LT based on expected future gains"
+    },
+    "restrictions": [
+      "Wash sale rule applies same as long-term losses - no repurchase within 61-day window",
+      "Substantially identical security analysis same for short-term and long-term positions",
+      "Holding period calculation exact: 12 months or less = short-term; over 12 months = long-term",
+      "Trade date controls holding period, not settlement date",
+      "STCL may be better used to offset STCG; consider timing of harvesting relative to expected gains",
+      "Loss on sale to related party disallowed under \u00a7267 regardless of holding period",
+      "IRS may challenge if pattern of harvesting losses while gains escape recognition (tax-motivated trading)",
+      "State tax conformity varies; some states don't distinguish ST vs LT requiring state analysis"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

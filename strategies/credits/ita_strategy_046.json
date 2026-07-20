@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_046",
+  "category": "credits",
+  "strategy_type": "Tax Credits",
+  "title": "Research and Development (R&D) Tax Credit",
+  "implementation_effort_score": 2,
+  "tax_savings_score": 8,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must conduct qualified research activities developing or improving products, processes, software, or techniques to claim R&D credit reducing tax liability dollar-for-dollar, with special provisions for startups to offset payroll taxes",
+    "criteria": [
+      "Research must meet four-part test: permitted purpose, technological uncertainty, process of experimentation, technological in nature",
+      "Qualified research expenses (QREs): wages, supplies, contract research, cloud computing costs",
+      "Activities must seek to discover information technological in nature and useful in developing new/improved business components",
+      "Includes software development, product design, process improvement, prototyping, and manufacturing optimization",
+      "Credit generally 20% of current year QREs exceeding base amount (simplified method) or 14% regular credit method",
+      "Small businesses (under $5M gross receipts, first 5 years) can apply up to $500,000 credit against payroll taxes",
+      "Can apply credit against AMT for businesses with gross receipts under $50M average of prior 3 years",
+      "Detailed documentation required: project descriptions, time tracking, financial records, technical uncertainty documentation"
+    ]
+  },
+  "limitations": {
+    "rd_credit_rules": {
+      "credit_rate": "Generally 20% of qualifying research expenses using Alternative Simplified Credit method",
+      "payroll_tax_offset": "Eligible small businesses can apply up to $500,000 credit against FICA taxes",
+      "amt_relief": "Small businesses (under $50M gross receipts) can use credit against AMT",
+      "broad_applicability": "Applies to many industries: manufacturing, software, engineering, food science, agriculture",
+      "carryforward_carryback": "Unused credits can be carried back 1 year and forward 20 years",
+      "state_credits": "Many states offer additional R&D credits doubling or tripling federal benefit"
+    },
+    "restrictions": [
+      "Must reduce deduction for wages and expenses by amount of credit claimed (effective cost)",
+      "Research must be technological in nature; social sciences, humanities generally don't qualify",
+      "Funded research (customer-funded, government grants) generally not qualified unless at-risk",
+      "Must maintain contemporaneous documentation; reconstructing after audit challenging",
+      "Payroll tax offset limited to $500,000 per year and only for qualified small businesses",
+      "Complex calculations and substantiation requirements often require specialized R&D credit study",
+      "IRS audit rates higher for R&D credit claims; adequate documentation essential",
+      "After TCJA: must capitalize and amortize R&D expenses over 5 years (15 if foreign) starting 2022"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

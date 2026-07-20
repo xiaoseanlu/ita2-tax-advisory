@@ -1,0 +1,6 @@
+skill_id: income_tax.assisted.401k-employee
+status: implemented
+spe_folder: "401k Employee Contribution"
+ita_id: ita_034
+category: retirement
+fidelity: spe-faithful

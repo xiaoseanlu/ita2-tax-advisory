@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_043",
+  "category": "retirement",
+  "strategy_type": "Retirement Plans",
+  "title": "Simplified Employee Pension (SEP-IRA) Contributions",
+  "implementation_effort_score": 7,
+  "tax_savings_score": 5,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must establish SEP-IRA as self-employed individual or small business owner to contribute up to 25% of compensation or 20% of self-employment income providing significant tax-deferred retirement savings with minimal administrative burden",
+    "criteria": [
+      "Self-employed individual, sole proprietor, partnership, or business owner can establish SEP-IRA",
+      "2025 contribution limit: Lesser of $70,000 or 25% of compensation (20% of self-employment income after SE tax deduction)",
+      "Employer contributions only; no employee deferrals permitted (unlike Solo 401k)",
+      "Must contribute same percentage for all eligible employees if have employees meeting eligibility requirements",
+      "Minimal paperwork: no annual filing requirements unlike 401(k) requiring Form 5500",
+      "Can establish and contribute up to tax filing deadline including extensions (October 15 for individuals)",
+      "Contributions immediately 100% vested; no vesting schedules permitted",
+      "Easy to establish with most financial institutions using IRS Form 5305-SEP"
+    ]
+  },
+  "limitations": {
+    "sep_ira_rules": {
+      "high_contribution_limit": "Up to $70,000 annually; 25% of compensation or 20% of self-employment income",
+      "simple_administration": "No annual Form 5500 filing; minimal compliance burden compared to 401(k)",
+      "late_establishment": "Can establish and contribute up to tax filing deadline with extensions",
+      "immediate_vesting": "All contributions 100% vested immediately; no forfeiture risk for employees",
+      "flexible_contributions": "Can vary contribution percentage year to year; no fixed commitment",
+      "self_employment_calculation": "20% of net self-employment income after deducting 1/2 SE tax"
+    },
+    "restrictions": [
+      "Employer contributions only; cannot make employee deferrals unlike Solo 401k or 401(k)",
+      "Must contribute same percentage for all eligible employees; cannot discriminate",
+      "Employee eligibility: must cover employees age 21+ with $750+ earnings in 3 of last 5 years",
+      "No loan provisions; cannot borrow from SEP-IRA unlike some 401(k) plans",
+      "No Roth option; all contributions pre-tax and distributions taxed as ordinary income",
+      "Cannot make age 50+ catch-up contributions; fixed percentage-of-compensation limit only",
+      "Lower contribution potential than Solo 401k for same self-employment income due to no employee deferral",
+      "RMDs required starting age 73 (75 if born 1960+); same as traditional IRA rules"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

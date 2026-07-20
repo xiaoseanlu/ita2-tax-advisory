@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_028",
+  "category": "business",
+  "strategy_type": "Business Deduction",
+  "title": "Qualified Business Income (QBI) Deduction - Section 199A",
+  "implementation_effort_score": 10,
+  "tax_savings_score": 6,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must have qualified business income from pass-through entities (sole proprietorship, partnership, S Corp) to claim up to 20% deduction of QBI subject to income thresholds, W-2 wages, and property limitations",
+    "criteria": [
+      "Qualified business income from Schedule C, K-1 (partnership, S Corp), or rental real estate (if trade or business)",
+      "2025 thresholds: Full 20% deduction if taxable income below $197,300 (single) / $394,600 (MFJ)",
+      "Above thresholds, specified service trade or business (SSTB) income phases out; non-SSTB subject to W-2/property limits",
+      "SSTB includes health, law, accounting, actuarial, performing arts, consulting, athletics, financial/brokerage services",
+      "W-2 wage limitation (above threshold): Greater of 50% of W-2 wages OR 25% wages + 2.5% of UBIA of qualified property",
+      "Qualified property includes tangible depreciable property used in business and within depreciation period",
+      "Can aggregate multiple trades or businesses to optimize W-2 wage and property limitations",
+      "Rental real estate can qualify as trade or business if meets safe harbor (250+ hours, maintain records) or facts and circumstances"
+    ]
+  },
+  "limitations": {
+    "qbi_deduction_rules": {
+      "deduction_amount": "Lesser of (1) 20% of QBI, or (2) 20% of taxable income less net capital gain",
+      "income_thresholds_2025": "Full deduction under $197,300/$394,600; phase-out through $247,300/$494,600",
+      "sstb_limitation": "Specified service businesses lose QBI deduction as income exceeds thresholds",
+      "w2_wage_limitation": "Above threshold, deduction limited to greater of 50% W-2 wages or 25% wages + 2.5% UBIA",
+      "aggregation_election": "Can aggregate related businesses to optimize wage/property limitations",
+      "rental_safe_harbor": "Rental real estate qualifies with 250+ hours and contemporaneous records"
+    },
+    "restrictions": [
+      "W-2 wages of S Corporation reduce QBI but provide deduction limitation relief for W-2 wage test",
+      "Reasonable compensation requirement for S Corp affects both QBI amount and W-2 wage limitation",
+      "Capital gains, interest, dividends, and investment income not qualified business income",
+      "Qualified REIT dividends and PTP income receive separate 20% deduction calculation",
+      "SSTB determination based on principal asset being reputation/skill of owners or employees",
+      "Aggregation election binding for current and future years; must meet common ownership and integration tests",
+      "Phase-out calculation complex for taxpayers in threshold ranges requiring detailed computations",
+      "State tax treatment varies; some states don't conform to federal QBI deduction creating state/federal differences"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

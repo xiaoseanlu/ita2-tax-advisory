@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_049",
+  "category": "charitable",
+  "strategy_type": "Charitable Contributions",
+  "title": "Charitable Donation of Appreciated Securities",
+  "implementation_effort_score": 4,
+  "tax_savings_score": 5,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must donate long-term appreciated stocks, bonds, or mutual funds directly to qualified charity to receive fair market value deduction while avoiding capital gains tax on appreciation, providing dual tax benefit",
+    "criteria": [
+      "Securities must be held over 12 months for long-term capital gain treatment and full FMV deduction",
+      "Donate directly to qualified 501(c)(3) public charity (not donor-advised fund for full FMV treatment)",
+      "Deduction based on fair market value on date of transfer, not original cost basis",
+      "Avoids capital gains tax on built-in appreciation that would be owed if sold first then donated cash",
+      "Contribution deduction limited to 30% of AGI for appreciated securities (vs 60% for cash donations)",
+      "Excess contributions carry forward 5 years retaining character as appreciated property donations",
+      "Must obtain qualified appraisal for donations over $5,000 and file Form 8283",
+      "Donor must not receive any goods or services in exchange for contribution"
+    ]
+  },
+  "limitations": {
+    "appreciated_securities_strategy": {
+      "dual_benefit": "Charitable deduction at FMV + avoid capital gains tax on appreciation = enhanced tax benefit",
+      "deduction_calculation": "Deduct full fair market value if held over 12 months and donate to public charity",
+      "capital_gains_avoided": "Never pay 15-20% long-term capital gains tax (plus 3.8% NIIT) on appreciation",
+      "agi_limit": "30% of AGI annual limit for appreciated property; 5-year carryforward for excess",
+      "optimal_candidates": "Low-basis highly-appreciated holdings ideal; maximize appreciation vs basis ratio",
+      "portfolio_rebalancing": "Donate appreciated position and repurchase if want to maintain allocation"
+    },
+    "restrictions": [
+      "Must hold securities over 12 months; short-term capital gain property limited to lesser of FMV or basis",
+      "30% AGI limitation more restrictive than 60% limit for cash contributions",
+      "Private foundations: deduction limited to basis (not FMV) for appreciated property donations",
+      "Donor-advised funds: same 30% AGI limit but provides timing flexibility for grants to charities",
+      "Cannot receive any benefit in return; reduces deduction by value of benefits received",
+      "Related-use rule for tangible personal property: use unrelated to charity's purpose limits deduction to basis",
+      "Must obtain contemporaneous written acknowledgment from charity for donations over $250",
+      "Form 8283 required for non-cash contributions over $500; qualified appraisal required over $5,000"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

@@ -1,0 +1,1439 @@
+{
+    "summary": {
+        "usMain": {
+            "defaultSection": {
+                "mainFilingStatus": 0,
+                "filingStatus": 1,
+                "taxYear": 2026
+            }
+        },
+        "usSummReport": {
+            "defaultSection": {
+                "bigSumQualbusIncDec": 0,
+                "bigSumUSTxSumRegTax": 101659,
+                "bigSumMaxCGRateTx": 101338,
+                "bigSumUSTxSumSchJ": 0,
+                "bigSumUSTxSum8615": 0,
+                "bigSumUSTxSum8814": 0,
+                "bigSumUSTxSumLumpSum": 0,
+                "bigSumUSTxSumOtherTax": 0,
+                "bigSumTaxSumAltMinTax": 0,
+                "bigSumExcessPTCRepay": 0,
+                "bigSumUSTxSumTax": 101338,
+                "bigSumUSChildDepCareCr": 0,
+                "bigSumUSEdCr": 0,
+                "bigSumUSChildTaxCr": 0,
+                "bigSumUSAdoptCr": 0,
+                "bigSumDCandMortIntCr": 0,
+                "bigSumGbC": 0,
+                "bigSumMinTaxCr": 0,
+                "bigSumUSOthCr": 0,
+                "bigSumUSCrTotalCredits": 0,
+                "bigSumSlfEmplTax": 0,
+                "bigSumTotTax": 105592,
+                "bigSumMargTax": 35
+            }
+        },
+        "usITASummary": {
+            "section1": {
+                "years18to20NOL": 1,
+                "pre2018NOL": 1,
+                "incomeTaxNOL": 0,
+                "utilizedNOL": 0,
+                "after2020NOL": 1,
+                "altMinTaxNOL": 0,
+                "addMedTaxNOL": 0,
+                "deductionsNOL": 0,
+                "seTaxNOL": 0
+            },
+            "defaultSection": {
+                "filingStatus": 1,
+                "livedWithSpouse": false,
+                "taxYear": 2026,
+                "totalWages": 296175,
+                "taxExmInterest": 2015,
+                "taxableInterest": 16021,
+                "qualDividends": 1602,
+                "ordDividends": 2202,
+                "taxableIRA": 4000,
+                "taxablePensions": 2000,
+                "taxableSocialSecurity": 264,
+                "totalScheduleCIncome": 65000,
+                "totalScheduleERentalIncome": 0,
+                "totalScheduleFIncome": 0,
+                "totalScheduleParAndScorpIncome": 0,
+                "totalScheduleParIncome": 0,
+                "totalScheduleScorpIncome": 0,
+                "totalScheduleFidIncome": 0,
+                "stCapGains": 0,
+                "ltCapGains": 0,
+                "taxableRefunds": 0,
+                "ordGains": 0,
+                "alimonyReceived": 929,
+                "unempComp": 4123,
+                "gamblingWinnings": 6666,
+                "stateLottery": 0,
+                "educationDistribution": 0,
+                "otherIncomeSETax": 0,
+                "propertyTaxRefunds": 0,
+                "otherIncomeNoSE": 408611,
+                "nOLAbsorbed": 0,
+                "totalIncome": 410699,
+                "adjustedGrossIncome": 408611,
+                "qbiDeduction": 12826,
+                "taxableIncome": 379685,
+                "fedTaxBeforeCredits": 101338,
+                "fedTaxAfterCredits": 105592,
+                "modifiedAgiForChildTaxCredit": 0,
+                "totalItemizedDeductions": 1623,
+                "modifiedAgi": 404611,
+                "refundableChildTaxCredit": 0,
+                "nonrefundableChildTaxCredit": 0,
+                "federalTax": 101338,
+                "altMinTax": 0,
+                "premiumTaxRepayment": 0,
+                "netInvestmentIncomeTax": 692,
+                "selfEmploymentTax": 1773,
+                "additionalSStax": 18,
+                "additionalIRAtax": 400,
+                "householdEmployment": 0,
+                "repayFirstTimeHomeBuyer": 0,
+                "additionalMedicare": 1371,
+                "otherTaxesSch2": 0,
+                "totalOtherTaxes": 4254,
+                "itaOtherTaxes": 1789,
+                "fedBalanceDueOrRefund": 64040,
+                "totalStateWithholding": 6908,
+                "tpStateWHAdj": 0,
+                "spStateWHAdj": 0,
+                "totalStateTax": 14779,
+                "stateBalanceDueOrRefund": 7871,
+                "marginalRate": 35,
+                "stateIndex": 34,
+                "stateMarginalRate": 3.8,
+                "selfOnlyCoverageHSA": 4400,
+                "familyCoverageHSA": 8750,
+                "catchupHSA": 1000,
+                "insurancePremiums": 0,
+                "energyCredits": 0,
+                "ltCapGainRate": 0.15,
+                "marginalRateCorpTax": 0.21,
+                "marginalRateAltMin": 0.28,
+                "marginalNYC": 0,
+                "marginalRateFica": 0.0765,
+                "resEnergyInput": 0,
+                "gain4797": 0,
+                "iRAMagi": 360249,
+                "taxableIncomeBeforeQBI": 392511,
+                "qBIThreshold": 201750,
+                "qBIPhaseInRange": 50000,
+                "maximumAmount": 2560000,
+                "total179Amount": 0,
+                "thresholdAmount": 4090000,
+                "bizLimit179": 361175,
+                "stateMax179Amount": 2560000,
+                "stateThreshold179Amount": 4090000,
+                "itaQBIPhaseOutExcess": 195211,
+                "itaQBIncomeLimit": 78182,
+                "noReturnImpact": 0,
+                "netInvestmentIncome": 18223,
+                "rothMAGILimit": 168000,
+                "rothMAGI": 404611,
+                "rothEarnedInc": 360249,
+                "sTDispoCountJoint": 0,
+                "lTDispoCountJoint": 0,
+                "s1231DispoCountJoint": 0,
+                "stateAdditionAdjustment": 0,
+                "statesubtractionAdjustment": 0,
+                "s475election": 0,
+                "shortTermCapGnLsIgnoringWashSaleRules": 0,
+                "washSaleLossOffset": 0,
+                "subjectMedicareWages": 291220,
+                "subjectMedicareSE": 61138,
+                "subjectMedicareRRTA": 0,
+                "underpaymentPenalty": 0,
+                "iTAPrefixWorksheetPointer": 0,
+                "actualColumnTaxYear": 2025,
+                "planExportDate": 0,
+                "stateStrategyChangeFactor1": 0,
+                "cGFlag": 0,
+                "wageHouseholdEmployee": 1125,
+                "wageTipIncome": 0,
+                "wageMedicaidWaiver": 1129,
+                "wageDependentCare": 450,
+                "wageAdoptionBenefit": 0,
+                "wageUncollectedSSandMedTax": 1220,
+                "wageOtherEarnedIncome": 3455,
+                "wageNontaxableCompatPay": 0,
+                "wage2555": 0,
+                "strategyTaxRate": 0,
+                "federalEffectiveRate": 27.8,
+                "stateEffectiveRate": 3.79,
+                "totalPlanStrategyChangesCalc": 0,
+                "totalPlanStrategyChanges": 0,
+                "marginalCapGainRate": 15,
+                "marginalTaxBracketRemaining": 262517,
+                "incomeTaxinCurrentMarginalTaxBracket": 121858
+            }
+        },
+        "usITAOnlyIncome": [
+            {
+                "prefix": 0,
+                "defaultSection": {
+                    "name": "",
+                    "source": "",
+                    "sourcePrefix": 0,
+                    "taxPayerSpouseOrJoint": 0,
+                    "schfSeIncomeTxp": 0,
+                    "schfSeIncomeSps": 0,
+                    "f4835SeIncomeTxp": 0,
+                    "f4835SeIncomeSps": 0,
+                    "schk1FarmSeIncomeTxp": 0,
+                    "schk1FarmSeIncomeSps": 0,
+                    "schCSeIncomeTxp": 65000,
+                    "schCSeIncomeSps": 0,
+                    "schk1NonFarmSeIncomeTxp": 0,
+                    "schk1NonFarmSeIncomeSps": 0,
+                    "taxpayerSeTax": 0,
+                    "spouseseTax": 0,
+                    "taxpayerFICATax": 0,
+                    "spouseFICATax": 0,
+                    "taxpayerReasonableWages": 0,
+                    "spouseReasonableWages": 0,
+                    "qbiWages": 0,
+                    "qbi": 0,
+                    "qbiUbia": 0
+                }
+            },
+            {
+                "prefix": 1,
+                "defaultSection": {
+                    "name": "The Big Business",
+                    "source": "Schedule C",
+                    "sourcePrefix": 0,
+                    "taxPayerSpouseOrJoint": 0,
+                    "schfSeIncomeTxp": 0,
+                    "schfSeIncomeSps": 0,
+                    "f4835SeIncomeTxp": 0,
+                    "f4835SeIncomeSps": 0,
+                    "schk1FarmSeIncomeTxp": 0,
+                    "schk1FarmSeIncomeSps": 0,
+                    "schCSeIncomeTxp": 65000,
+                    "schCSeIncomeSps": 0,
+                    "schk1NonFarmSeIncomeTxp": 0,
+                    "schk1NonFarmSeIncomeSps": 0,
+                    "taxpayerSeTax": 1741,
+                    "spouseseTax": 0,
+                    "taxpayerFICATax": 0,
+                    "spouseFICATax": 0,
+                    "taxpayerReasonableWages": 0,
+                    "spouseReasonableWages": 0,
+                    "qbiWages": 45000,
+                    "qbi": 64129,
+                    "qbiUbia": 0
+                }
+            }
+        ],
+        "usITADependents": [],
+        "usITATaxpayerItems": {
+            "defaultSection": {
+                "earnedIncome": 360367,
+                "allSEIncome": 66202,
+                "sePremiums": 0,
+                "hasW2FromBusinessOnReturn": 0,
+                "total401kContribution": 0,
+                "max401kContributionAllowed": 24500,
+                "maxSolo401kContributionAllowed": 24500,
+                "maxIRAContributionAllowed": 7500,
+                "iraContribution": 0,
+                "iraContributionInput": 0,
+                "solo401kCatchUp": 0,
+                "nonDeductibleIRA": 0,
+                "solo401kContribution": 0,
+                "hasPlan": 0,
+                "maxSepIRA": 13063,
+                "sepIRA": 0,
+                "maxHSAcontribution": 0,
+                "hsaContribution": 0,
+                "firstName": "Tommy",
+                "lastName": "Tax",
+                "dateOfBirth": "07/12/1988",
+                "primaryResidentState": "IA",
+                "primaryResidentFullStateName": "Iowa",
+                "primaryResidentFullStateNameInInventory": "Iowa",
+                "filingStatus": 1,
+                "yearSpouseDied": "",
+                "age": 38,
+                "age70Half": 0,
+                "dcbContribution": 450,
+                "studentLoanInterestPaid": 0,
+                "rothCont": 0,
+                "schAMedPremsAdjustmentInput": 0,
+                "iRAPhaseOutBegin": 91000,
+                "incomeTaxedBySocSec": 184500,
+                "total457bContribution": 0,
+                "strategyChangeSE": 0,
+                "forceREProfessional": 0,
+                "potentialREProfActivityLoss": 0,
+                "potentialREProfActivityIncome": 0,
+                "rentalAdj": 0,
+                "sENonFarmIncomeAdjust": 0,
+                "sTDispoCount": 0,
+                "lTDispoCount": 0,
+                "s1231DispoCount": 0,
+                "traderDispositionsExists": 0,
+                "shortTermCapGnLsIgnoringWashSaleRules": 0,
+                "washSaleLossOffset": 0,
+                "total403bContribution": 0,
+                "employee401kcontributionlimitabsorbed": 0,
+                "employee457kcontributionlimitabsorbed": 0,
+                "combined401kcontributionlimitabsorbed": 0,
+                "combined457kcontributionlimitabsorbed": 0,
+                "combined401KLimit": 72000,
+                "totalRoth401kContribution": 0,
+                "totalRoth403bContribution": 0,
+                "totalRoth457bContribution": 0
+            }
+        },
+        "usITASpouseItems": {
+            "defaultSection": {
+                "earnedIncome": 0,
+                "allSEIncome": 0,
+                "sePremiums": 0,
+                "hasW2FromBusinessOnReturn": 0,
+                "total401kContribution": 0,
+                "max401kContributionAllowed": 24500,
+                "maxSolo401kContributionAllowed": 24500,
+                "maxIRAContributionAllowed": 7500,
+                "iraContribution": 0,
+                "iraContributionInput": 0,
+                "nonDeductibleIRA": 0,
+                "solo401kContribution": 0,
+                "hasPlan": 0,
+                "maxSepIRA": 0,
+                "sepIRA": 0,
+                "maxHSAcontribution": 0,
+                "hsaContribution": 0,
+                "firstName": "",
+                "lastName": "",
+                "dateOfBirth": "",
+                "age": 0,
+                "age70Half": 0,
+                "dcbContribution": 0,
+                "studentLoanInterestPaid": 0,
+                "rothCont": 0,
+                "schAMedPremsAdjustmentInput": 0,
+                "iRAPhaseOutBegin": 91000,
+                "incomeTaxedBySocSec": 0,
+                "strategyChangeSE": 0,
+                "solo401kCatchUp": 0,
+                "forceREProfessional": 0,
+                "potentialREProfActivityLoss": 0,
+                "potentialREProfActivityIncome": 0,
+                "sENonFarmIncomeAdjustCode": 0,
+                "sTDispoCount": 0,
+                "lTDispoCount": 0,
+                "s1231DispoCount": 0,
+                "traderDispositionsExists": 0,
+                "shortTermCapGnLsIgnoringWashSaleRules": 0,
+                "total457bContribution": 0,
+                "washSaleLossOffset": 0,
+                "total403bContribution": 0,
+                "employee401kcontributionlimitabsorbed": 0,
+                "employee457kcontributionlimitabsorbed": 0,
+                "combined401kcontributionlimitabsorbed": 0,
+                "combined457kcontributionlimitabsorbed": 0,
+                "combined401KLimit": 72000,
+                "totalRoth401kContribution": 0,
+                "totalRoth403bContribution": 0,
+                "totalRoth457bContribution": 0
+            }
+        },
+        "usITADepreciationDirectInput": {
+            "defaultSection": {
+                "form": 0,
+                "activityNumber": 0,
+                "specialDepreciationAllowance": 0,
+                "threeYearDeprecDed": 0,
+                "priorYearAssetDeprec": 0
+            }
+        },
+        "usITADeprecDirectInput179andAuto": [],
+        "usITADepreciationScreen": [],
+        "usITAIndexedAmount": {
+            "defaultSection": {
+                "netEarningRatio": 0.9235,
+                "marginalRateSocialSecurity": 0.062,
+                "marginalRateMedicare": 0.0145,
+                "marginalRateFICA": 0.0765,
+                "marginalRateAddtlMedicare": 0.009,
+                "marginalRateSelfEmployed": 0.153,
+                "rateNetInvestmentIncome": 0.038,
+                "rateCapitalGains1250": 0.25,
+                "rateCapitalGainsCollectibles": 0.28,
+                "rateDependentCareCredit": 0.2,
+                "rateResidentEnergyCredit": 0.3,
+                "dependentCareFSAcontributionLimit": 7500,
+                "maxSSwage": 184500,
+                "addtlMedTaxWithheldThreshold": 200000,
+                "cTcagiLimits": 200000,
+                "perChildTaxCredit": 2200,
+                "maxQCD": 111000,
+                "hcFSAcontributionLimits": 3400,
+                "standardDeductionsingle": 16100,
+                "dependentCareCredit": 3000,
+                "rothPhaseOut": 168000,
+                "giftLimit": 19000,
+                "studentLoanPaidByEmployerLimit": 5250,
+                "rdPayrollTaxCreditLimit": 500000,
+                "startupCostLimit": 5000,
+                "nIITaxthreshold": 200000,
+                "rateLtCapGainLower": 0.15,
+                "rateLtCapGainUpper": 0.2,
+                "ltCapGainLowerThreshold": 49450,
+                "ltCapGainUpperThreshold": 545500,
+                "federalStandardDeduction": 16100,
+                "excessBizLossLimit": 313000
+            }
+        },
+        "usITAEsWorksheet": {
+            "defaultSection": {
+                "nextYearAGI": 406794,
+                "nextYearStandardOrItemized": 16100,
+                "nextYearQBI": 12826,
+                "nextYeardeductionPlusQBI": 28926,
+                "nextYearAGIMinusDeductions": 377868,
+                "nextYearTax": 100702,
+                "nextYearAltMinTax": 0,
+                "nextYearTotalTax": 100702,
+                "nextYearCredits": 0,
+                "nextYearTaxMinusCredits": 100702,
+                "nextYearSelfEmploymentTax": 1773,
+                "nextYearOtherTaxes": 2463,
+                "nextYearNetTaxPlusOtherTaxes": 105592,
+                "nextYearRefundableCredits": 0,
+                "nextYearEstimatedTax": 105592,
+                "nextYearEstimatedTaxTimesPercent": 105592,
+                "nextYearRequiredAnnualPayment": 40740,
+                "nextYearRequiredAnnualPaymentBasedOnPriorYearTax": 40740,
+                "nextYearRequiredAnnualPaymentToAvoidPenalty": 105592,
+                "nextYearWithholding": 33072,
+                "nextYearRequiredAnnualPaymentToAvoidPenaltyMinusWH": 72520,
+                "nextYearRequiredAnnualPaymentFinal": 72520,
+                "nextYearRequiredAnnualPaymentFinalRounded": 72520,
+                "nextYearOverpaymentApplied": 0,
+                "nextYearTotalESMailed": 72520,
+                "nextYearVoucherOne": 18130,
+                "nextYearVoucherOneDueDate": 20260415,
+                "nextYearVoucherTwoDueDate": 20260615,
+                "nextYearVoucherThreeDueDate": 20260915,
+                "nextYearVoucherFourDueDate": 20270115
+            }
+        },
+        "usITAQBI": [
+            {
+                "prefix": 0,
+                "defaultSection": {
+                    "qualifiedBizName": "",
+                    "qualifiedBizIncome": 392511,
+                    "qualifiedBizIncomeTimes20": 197300,
+                    "allocatedWages": 195211,
+                    "allocatedWages50": 50000,
+                    "allocatedWages25": 0,
+                    "uBIA": 0,
+                    "uBIA25": 0,
+                    "uBIA25plusWages25": 0,
+                    "greaterUBIA25plusWages25OrWages50": 0,
+                    "wageAndUBIALimit": 0,
+                    "qBIPhasedInLine19": 0,
+                    "phaseInTaxableIncomeBeforeQBID": 392511,
+                    "taxableIncomeInExcessOfThreshold": 195211,
+                    "phasedInRange": 50000,
+                    "phaseInThreshold": 197300,
+                    "phasedInReduction": 0,
+                    "qBIAfterPhasedInReduction": 0,
+                    "qBIDBeforePatron": 0,
+                    "patronReduction": 0,
+                    "qualfiedBusinessIncomeComponent": 0,
+                    "totalQualfiedBusinessIncomeComponent": 12826,
+                    "qualifiedREITandPTP": 0,
+                    "qualifiedREITandPTPCarryover": 0,
+                    "totalQualifiedREItandPtP": 0,
+                    "qBIDBeforeIncomeLimit": 12826,
+                    "taxableIncomeBeforeQBID": 392511,
+                    "netCapitalGainsAndQualDiv": 1602,
+                    "taxableIncomeMinusnetCapitalGainsAndQualDiv": 390909,
+                    "incomeLimitation": 78182,
+                    "qBIDBeforeDPAD": 12826,
+                    "dPAd": 0,
+                    "totalQBID": 12826,
+                    "totalREItandPtOCO": 0,
+                    "rEITandPTPComponent": 0
+                }
+            },
+            {
+                "prefix": 1,
+                "defaultSection": {
+                    "qualifiedBizName": "The Big Business",
+                    "qualifiedBizIncome": 64129,
+                    "qualifiedBizIncomeTimes20": 12826,
+                    "allocatedWages": 45000,
+                    "allocatedWages50": 22500,
+                    "allocatedWages25": 11250,
+                    "uBIA": 0,
+                    "uBIA25": 0,
+                    "uBIA25plusWages25": 11250,
+                    "greaterUBIA25plusWages25OrWages50": 22500,
+                    "wageAndUBIALimit": 12826,
+                    "qBIPhasedInLine19": 0,
+                    "phaseInTaxableIncomeBeforeQBID": 64129,
+                    "taxableIncomeInExcessOfThreshold": 45000,
+                    "phasedInRange": 22500,
+                    "phaseInThreshold": 12826,
+                    "phasedInReduction": 0,
+                    "qBIAfterPhasedInReduction": 0,
+                    "qBIDBeforePatron": 12826,
+                    "patronReduction": 0,
+                    "qualfiedBusinessIncomeComponent": 12826,
+                    "totalQualfiedBusinessIncomeComponent": 0,
+                    "qualifiedREITandPTP": 0,
+                    "qualifiedREITandPTPCarryover": 0,
+                    "totalQualifiedREItandPtP": 0,
+                    "qBIDBeforeIncomeLimit": 0,
+                    "taxableIncomeBeforeQBID": 0,
+                    "netCapitalGainsAndQualDiv": 0,
+                    "taxableIncomeMinusnetCapitalGainsAndQualDiv": 0,
+                    "incomeLimitation": 0,
+                    "qBIDBeforeDPAD": 0,
+                    "dPAd": 0,
+                    "totalQBID": 0,
+                    "totalREItandPtOCO": 0,
+                    "rEITandPTPComponent": 0
+                }
+            }
+        ]
+    },
+    "income": {
+        "usIncSum": {
+            "usWageSum": {
+                "usWageInp": [
+                    {
+                        "prefix": 1,
+                        "general": {
+                            "namEmp": "My Big Employer",
+                            "eINemp": "",
+                            "wgTpSp": 0,
+                            "wgPensPlanYN": false,
+                            "deleteNextYear": 0
+                        },
+                        "federal": {
+                            "wgFedwages": 290000,
+                            "wgFedTxwH": 25000,
+                            "wgSSwages": 184500,
+                            "wgSSTxwH": 11439,
+                            "wgMedwages": 290000,
+                            "wgMedTxwH": 5015,
+                            "wgDCB": 450,
+                            "wages401kContribution": 0,
+                            "wages403bContribution": 0,
+                            "wg408k6": 0,
+                            "usWageInp408p": 0,
+                            "wg457b": 0,
+                            "wagesdesignated401kRothContribution": 0,
+                            "wagesdesignated403bRothContribution": 0,
+                            "wageshealthSavingsAccount": 0,
+                            "wagesMedicalSavingsAccount": 0,
+                            "wagesadoptionCredit": 0,
+                            "substantiatedEmployeeExp": 0,
+                            "wagesdesignated457bRothContribution": 0,
+                            "wg501c": 0,
+                            "fsaContribution": 0
+                        },
+                        "stateIncomeTaxWithheld": {
+                            "stateWithholdings": 0,
+                            "stateWithholdingsAdjustment": 0
+                        },
+                        "other": {
+                            "wgSCorp2PctShrhldr": 0,
+                            "iTAWgStateWages": 0
+                        }
+                    }
+                ]
+            },
+            "usIntDivSum": {
+                "usIntInp": [
+                    {
+                        "prefix": 1,
+                        "federal": {
+                            "ordInterest": 2004,
+                            "usBond": 1005,
+                            "intTotalMuniBond": 1007,
+                            "intinStateMuniBond": 0,
+                            "intPrvtActBnd": 0
+                        }
+                    },
+                    {
+                        "prefix": 2,
+                        "federal": {
+                            "ordInterest": 2006,
+                            "usBond": 1006,
+                            "intTotalMuniBond": 1008,
+                            "intinStateMuniBond": 0,
+                            "intPrvtActBnd": 0
+                        }
+                    }
+                ],
+                "federalInterest": {
+                    "ordIntSum": 14010,
+                    "ordIntK1Sum": 0
+                },
+                "uSObligations": {
+                    "usOblIntSum": 2011,
+                    "usObIntK1Sum": 0
+                },
+                "totalInterest": {
+                    "totIntIncSum": 16021
+                },
+                "taxableInterest": {
+                    "taxIntSum": 16021
+                },
+                "taxExemptInterest": {
+                    "munBondIntSum": 2015,
+                    "inStMuniSum": 0,
+                    "muniIntK1Sum": 0,
+                    "inStMuniK1Sum": 0
+                }
+            },
+            "usDivSum": {
+                "usDivInp": [
+                    {
+                        "prefix": 1,
+                        "dividendIncome": {
+                            "ordDiv": 1100,
+                            "qualDiv": 800,
+                            "totCapGnDistr": 0,
+                            "gain28Pct": 0,
+                            "unRepSec125Gn": 0,
+                            "sec1202Gn": 0,
+                            "rEITDiv": 0,
+                            "invExp": 0,
+                            "usBonds": 0
+                        },
+                        "taxExemptInterest": {
+                            "totMunBonds": 0,
+                            "inStateMunBonds": 0
+                        },
+                        "federalWithholding": {
+                            "fedIncTaxWithhldDiv": 0
+                        }
+                    },
+                    {
+                        "prefix": 2,
+                        "dividendIncome": {
+                            "ordDiv": 1102,
+                            "qualDiv": 802,
+                            "totCapGnDistr": 0,
+                            "gain28Pct": 0,
+                            "unRepSec125Gn": 0,
+                            "sec1202Gn": 0,
+                            "rEITDiv": 0,
+                            "invExp": 0,
+                            "usBonds": 0
+                        },
+                        "taxExemptInterest": {
+                            "totMunBonds": 0,
+                            "inStateMunBonds": 0
+                        },
+                        "federalWithholding": {
+                            "fedIncTaxWithhldDiv": 0
+                        }
+                    }
+                ],
+                "federalDividend": {
+                    "ordDivSum": 2202,
+                    "ordDivK1Sum": 0,
+                    "totDivIncSum": 2202
+                },
+                "adjustments": {
+                    "adjDivSum": 0
+                },
+                "taxableDividends": {
+                    "taxDivSum": 2202
+                },
+                "qualifiedDividends": {
+                    "qualDivSum": 1602,
+                    "qualDivK1Sum": 0,
+                    "qualDivAdjSum": 0,
+                    "totQualDivSum": 1602
+                },
+                "taxExemptDividends": {
+                    "munBondDivSum": 0,
+                    "inStMunBondDivSum": 0
+                }
+            },
+            "usBusIncSum": {
+                "usBusIncInp": [
+                    {
+                        "prefix": 1,
+                        "generalInformation": {
+                            "princpalBus": "",
+                            "busEIN": "",
+                            "busTpSpJt": 0,
+                            "subjsETax": 0,
+                            "usSchCTrader": 0,
+                            "deleteNextYear": 0
+                        },
+                        "income": {
+                            "busGrossSales": 0,
+                            "iTABusGrossSales": 110000,
+                            "totCGS": 45000,
+                            "grossProfit": 65000,
+                            "othBusInc": 0,
+                            "grossIncome": 65000
+                        },
+                        "expenses": {
+                            "realAssetsTotals": 0,
+                            "intExp": 0,
+                            "depreciation": 0,
+                            "amtDepreciation": 0,
+                            "amortization": 0,
+                            "usBus179": 0,
+                            "empBenExp": 0,
+                            "usBus179Co": 0,
+                            "depletion": 0,
+                            "fedTravelExpense": 0,
+                            "fedStartupCost": 0,
+                            "stateAMTdepreciation": 0,
+                            "stateDepletion": 0,
+                            "iTAHomeOffice": 0,
+                            "remainingExpenses": 0
+                        },
+                        "otherExpenses": {
+                            "othBusExp": 0
+                        },
+                        "totalExpenses": {
+                            "totExp": 0
+                        },
+                        "netProfitorLoss": {
+                            "itaNetProfitLoss": 65000,
+                            "iTASuppress": 0,
+                            "strategyChanges": 0
+                        },
+                        "deductionforQualifiedBusinessIncome20": {
+                            "schCQBIQualify": 0,
+                            "schCspecservBus": 0,
+                            "schCQualBusIncLoss": 0,
+                            "qBICalculated": 64129,
+                            "schCWagesAllocQBI": 0,
+                            "schCBasisQualProp": 0,
+                            "schCDPADPercent": 0,
+                            "schCAllocableToQBI": 0,
+                            "schCW2Coop": 0,
+                            "itaSSTBpercentage": 0,
+                            "schCAggBusNum": 0
+                        },
+                        "priorYearUnallowedpassiveLosses": {
+                            "busOperating": 0
+                        },
+                        "defaultSection": {
+                            "wagesPaid": 0
+                        }
+                    }
+                ],
+                "defaultSection": {
+                    "iTANetProftLoss": 65000
+                }
+            },
+            "usDispSum": {
+                "federalCapital": {
+                    "sTCapGnLoss": 0,
+                    "sTCapGnLossCalculated": 0,
+                    "sTCapGnLossstate": 0,
+                    "sTPasThrGnLoss": 0,
+                    "sTCapLossCaryovr": 0,
+                    "iTALSPasThrGnLoss": 0,
+                    "iTASTCapLosCaryovr": 0,
+                    "sTGainLossAdj": 0,
+                    "netSTCapGnLoss": 0,
+                    "lTCapGnloss": 0,
+                    "lTCapGnlossState": 0,
+                    "cap1231Gn": 0,
+                    "cap1231GnState": 0,
+                    "ordGnLossInput": 0,
+                    "lTPasThrGnloss": 0,
+                    "iTALTPasThrGnLoss": 0,
+                    "lTCapGnDistr": 0,
+                    "lTCaplosCaryovr": 0,
+                    "iTALTCapLosCaryovr": 0,
+                    "lTGainlossAdj": 0,
+                    "netLTCapGnLoss": 0,
+                    "netCapGnLoss": 0,
+                    "usDispSumAlldCapLoss": 0
+                },
+                "netInvestmentIncomeTaxnIIT": {
+                    "usDispSumNIITCarryover": 0,
+                    "usDispCapAdjNIIT": 0,
+                    "usDisp1231AdjNIIT": 0,
+                    "usMedParScoAdjNIIT": 0,
+                    "usMedDispoNotSubjNIIT": 0,
+                    "usMedDispoSubjNIIT": 0
+                },
+                "federalRateInformation": {
+                    "capGainRateQualDivs": 1602,
+                    "gnLoss28PctAdj": 0,
+                    "gnLos28Pct": 0,
+                    "unrecap1250Gain": 0
+                },
+                "federalOther": {
+                    "ord1231GnLoss": 0,
+                    "nonRecap12315th": 0,
+                    "nonRecap12314th": 0,
+                    "nonRecap12313rd": 0,
+                    "nonRecap12312nd": 0,
+                    "nonRecap12311st": 0,
+                    "recap1231Gn": 0,
+                    "nonrecapCasTheifLoss": 0,
+                    "reDetGnLoss": 0
+                }
+            },
+            "usAMTDispSum": {
+                "federalCapital": {
+                    "aMTSTCapGnLoss": 0,
+                    "aMTSTPasThrGnLoss": 0,
+                    "aMTLTCapGnLoss": 0
+                },
+                "federalOther": {
+                    "aMTOrdGnLoss": 0
+                }
+            },
+            "usRetPlnDistrSum": {
+                "usPensInp": [
+                    {
+                        "prefix": 1,
+                        "general": {
+                            "nameOfPensPayer": "My Pension Provider",
+                            "pensionTpSp": 0,
+                            "distCode1": "",
+                            "distCode2": "",
+                            "iraSepSimple": false
+                        },
+                        "taxable": {
+                            "pensGrDist": 6001,
+                            "pensTxblAmt": 2000,
+                            "iTAtaxablePensioniRA": 2000
+                        },
+                        "federalWithholding": {
+                            "pensFedIncTaxWH": 999
+                        },
+                        "stateWithholding": {
+                            "pensStIncTaxWithheld": 0
+                        },
+                        "nontaxableDistributions": {
+                            "pensIRAtoCharity": 0
+                        },
+                        "other": {
+                            "deleteNextYear": 0
+                        }
+                    },
+                    {
+                        "prefix": 2,
+                        "general": {
+                            "nameOfPensPayer": "Her Pension Provider",
+                            "pensionTpSp": 1,
+                            "distCode1": "Q",
+                            "distCode2": "1",
+                            "iraSepSimple": false
+                        },
+                        "taxable": {
+                            "pensGrDist": 8001,
+                            "pensTxblAmt": 4000,
+                            "iTAtaxablePensioniRA": 4000
+                        },
+                        "federalWithholding": {
+                            "pensFedIncTaxWH": 888
+                        },
+                        "stateWithholding": {
+                            "pensStIncTaxWithheld": 0
+                        },
+                        "nontaxableDistributions": {
+                            "pensIRAtoCharity": 0
+                        },
+                        "other": {
+                            "deleteNextYear": 0
+                        }
+                    }
+                ],
+                "defaultSection": {
+                    "tottaxIRA": 0,
+                    "taxablePenDistr": 0,
+                    "tottaxablePen": 0
+                }
+            },
+            "usPassthrSum": {
+                "usPShipInp": [],
+                "usScorpInp": [],
+                "usEstateTrustInp": []
+            },
+            "usRentRoyInp": [],
+            "usFarmIncSum": {
+                "usFarmIncInp": []
+            },
+            "usMiscIncSum": {
+                "usSocSecInp": {
+                    "defaultSection": {
+                        "ssTaxablesocsec": 264
+                    }
+                },
+                "miscellaneousIncome": {
+                    "tpSttxRef": 0,
+                    "tpAlimonyRecd": 415,
+                    "tpUnempl": 0,
+                    "spstTxRef": 0,
+                    "spAlimonyRecd": 514,
+                    "spUnempl": 4123,
+                    "tpSSRRRecd": 99,
+                    "spssRRRecd": 88,
+                    "tPSSWithheld": 31,
+                    "sPssWithheld": 0,
+                    "tpGamblWin": 0,
+                    "tpStLottoWin": 0,
+                    "tpEducDist": 0,
+                    "tpProptaxRefund": 0,
+                    "tpOthIncSubSEtax": 1202,
+                    "tpOthIncNotSubSEtax": 1203,
+                    "txpForeignExclusion": 0,
+                    "spGamblWin": 6666,
+                    "spstLottoWin": 0,
+                    "spEducDist": 0,
+                    "spPropTaxRefund": 0,
+                    "spOthIncsubsETax": 0,
+                    "spOthIncNotsubsETax": 0,
+                    "form46LimitedLosses": 0,
+                    "form461UnlimitedLosses": 65000
+                },
+                "withholding": {
+                    "tpMiscLcltxWh": 0
+                }
+            },
+            "usPassActLossLim": {
+                "partI": {
+                    "usPassActNet": 1126
+                },
+                "partII": {
+                    "usPassPhOutThresh": 0,
+                    "usPassMAGI": 197418,
+                    "usLossAllowPreInc": 0
+                },
+                "partIV": {
+                    "usTotPassIncome": 0,
+                    "usTotAllowLoss": 0
+                }
+            },
+            "usITANetOperatingLoss": []
+        }
+    },
+    "adjustments": {
+        "usAdjSum": {
+            "usEducatorExpenses": {
+                "defaultSection": {
+                    "tpQualEducatorExp": 0,
+                    "spQualEducatorExp": 0,
+                    "tpEducatorExpDeduction": 0,
+                    "spEducatorExpDeduction": 0
+                }
+            },
+            "usIRADedSum": {
+                "taxpayerDeduction": {
+                    "tpIRAContr": 0,
+                    "tpIRAPensPlan": 0
+                },
+                "spouseDeduction": {
+                    "spIRAContr": 0,
+                    "spIRAPensPlan": 0
+                }
+            },
+            "usStuLoanIntSum": {
+                "federal": {
+                    "tpQualStuLoanInt": 0,
+                    "spQualstuLoanInt": 0
+                }
+            },
+            "usAdjIncInp": {
+                "rothIrATaxpayer": {
+                    "tpRothIRAContr": 0
+                },
+                "rothIrASpouse": {
+                    "spRothIRAContr": 0
+                },
+                "sepsimpleQualifiedPlansTaxpayer": {
+                    "tpProfShrContr": 0,
+                    "tpMonPurContr": 0,
+                    "tpDefBenContr": 0,
+                    "tpSEPContr": 0,
+                    "tpSEElectDef": 0,
+                    "tpSEDesigRoth": 0,
+                    "tpSIMPLEContr": 0,
+                    "tpSIMPLEContrEmployerMatch": 0
+                },
+                "sepsimpleQualifiedPlansspouse": {
+                    "spProfshrContr": 0,
+                    "spMonPurContr": 0,
+                    "spDefBenContr": 0,
+                    "spsEPContr": 0,
+                    "spsEElectDef": 0,
+                    "spsEDesigRoth": 0,
+                    "spsIMPLEContr": 0,
+                    "spsIMPLEContrEmployerMatch": 0
+                }
+            },
+            "usAdjIncOthInp": {
+                "defaultSection": {
+                    "tpPremiumNoLtC": 0,
+                    "tpLtCarePremium": 0,
+                    "tpLtCarePremiumSP": 0,
+                    "tp2106Deduction": 0,
+                    "tpAlimonyPaid": 0,
+                    "tpXSDedterm": 0,
+                    "tpOthIncAdj": 0,
+                    "spPremiumNoLTC": 0,
+                    "sp2106Deduction": 0,
+                    "spAlimonyPaid": 0,
+                    "spOthIncAdj": 0,
+                    "hsaContributionTaxpayer": 0,
+                    "hsaContributionSpouse": 0,
+                    "iTAHSATypeOfCoverageTaxpayer": 0,
+                    "iTAHSATypeOfCoverageSpouse": 0
+                }
+            },
+            "defaultSection": {
+                "usAdjSum2106": 0,
+                "seRetPlaDed": 0,
+                "seHlthIns": 0,
+                "stuLoaInt": 0,
+                "othAdj": 0,
+                "adjSumTotadj": 2088,
+                "sETaxAdjCalc": 887
+            }
+        }
+    },
+    "deductionsExemptions": {
+        "usTxblInc": {
+            "usDeductSum": {
+                "usItemDedInp": {
+                    "usSchAContribInp": {
+                        "currentYearcontributions": {
+                            "cash50Lim": 0,
+                            "noncash50PctLim": 0,
+                            "cash50LimIRA": 0,
+                            "cash30Lim": 0,
+                            "noncash30PctLim": 0,
+                            "nonCash30CapGn": 0,
+                            "nonCash20CapGn": 0,
+                            "nonCash50Conservation": 0,
+                            "nonCash100Conservation": 0
+                        },
+                        "electedContributions": {
+                            "contcashStdDed": 0,
+                            "conForDisaster": 0,
+                            "conForDisasterElected": 0
+                        },
+                        "totalContributions": {
+                            "totalAvailCharContSchA": 0
+                        }
+                    },
+                    "generalInformation": {
+                        "optItemSD": 0
+                    },
+                    "medical": {
+                        "medExp": 0,
+                        "schAMedPrems": 0,
+                        "usItemDedSumAGI75": 30646,
+                        "totAllowMedExp": 0
+                    },
+                    "taxes": {
+                        "sALTWithheldEs": 444,
+                        "sALTPaidOthstates": 0,
+                        "realEstTax": 0,
+                        "rETaxFromrentals": 0,
+                        "usItemDedTaxesInv": 0,
+                        "usTaxesTotalStateandLocal": 1623,
+                        "usTaxesLimitation": 1623,
+                        "usItemDedSumOthTax": 0
+                    },
+                    "interest": {
+                        "mtgeIntPts": 0,
+                        "excessMortgageInterestAllowed": 0,
+                        "mortgageInterestCreditAdjustment": 0,
+                        "homeOfficeNonbusinessInterest": 0,
+                        "mortgageInterestNotOn1098": 0,
+                        "amortizationOfDeductiblePoints": 0,
+                        "usItemDedSchEInt": 0,
+                        "mortgageInterestFromOtherSchedules": 0,
+                        "totIntPd": 0
+                    },
+                    "totalContributions": {
+                        "totNonCash": 0,
+                        "totalAvailCharCont": 0,
+                        "totAllContr": 0
+                    },
+                    "casualtyandTheftLosses": {
+                        "csltyTheft": 0
+                    },
+                    "otherMiscellaneousDeduction": {
+                        "othNotSubj2Lim": 0,
+                        "us4684IncProc": 0,
+                        "usDisasterSchAMisc": 0,
+                        "usItemDedTotOth": 0
+                    }
+                },
+                "usITANonCashContribution": {
+                    "defaultSection": {
+                        "nameIOfDonee": "",
+                        "nonCashContTpSlJt": 0,
+                        "deleteNextYear": 0,
+                        "typePropDonated": 0
+                    }
+                },
+                "defaultSection": {
+                    "usDeductStdDed": 16100,
+                    "usDedCharContStdDed": 0,
+                    "dedSubjLim": 1623,
+                    "itemDedAll": 1623,
+                    "allwDed": 16100,
+                    "iTASeniorDed": 0,
+                    "usOtherDed": 0
+                }
+            },
+            "defaultSection": {
+                "usTICharContrStdDed": 0,
+                "usTIExmptn": 0
+            }
+        }
+    },
+    "tax": {
+        "usTaxSum": {
+            "usCapGainsTaxSum": {
+                "defaultSection": {
+                    "usCapGainsQualDiv": 1602,
+                    "usCapGainsInvInc": 0,
+                    "usCapGainsNetQualDiv": 1602,
+                    "usCapGainsLTCG": 0,
+                    "usCapGainsCapInvInc": 0,
+                    "usCapGainsNetLTCG": 0,
+                    "usCapGainsTotalCG": 1602,
+                    "usCapGains28Pct": 0,
+                    "usCapGainsUnrecap1250": 0,
+                    "usCapGainsNonInc": 378083,
+                    "usCapGains0PctInc": 0,
+                    "usCapGains10PctInc": 0,
+                    "usCapGains15PctInc": 1602,
+                    "usCapGains20PctInc": 0,
+                    "usCapGains25PctInc": 0,
+                    "usCapGains28PctInc": 0,
+                    "usCapGainsTaxInc": 379685,
+                    "usCapGainsTaxNonInc": 101098,
+                    "usCapGains0PctTax": 0,
+                    "usCapGains10PctTax": 0,
+                    "usCapGains15PctTax": 240,
+                    "usCapGains20PctTax": 0,
+                    "usCapGains25PctTax": 0,
+                    "usCapGains28PctTax": 0,
+                    "usCapGainsToForeignExcl": 0,
+                    "usCapGainsTotalTax": 101338
+                }
+            },
+            "usTaxAnalSum": {
+                "defaultSection": {
+                    "usTaxAnalSum1stBrack": 12400,
+                    "usTaxAnalSum2ndBrack": 38000,
+                    "usTaxAnalSum3rdBrack": 55300,
+                    "usTaxAnalSum4thBrack": 96075,
+                    "usTaxAnalSum5thBrack": 54450,
+                    "usTaxAnalSum6thBrack": 123460,
+                    "usTaxAnalSum7thBrack": 0,
+                    "usTaxAnalSumTotTaxInc": 379685,
+                    "usTaxAnalSumMidTI": 0,
+                    "usTaxAnalSum1stBrackTax": 1240,
+                    "usTaxAnalSum2ndBrackTax": 4560,
+                    "usTaxAnalSum3rdBrackTax": 12166,
+                    "usTaxAnalSum4thBrackTax": 23058,
+                    "usTaxAnalSum5thBrackTax": 17424,
+                    "usTaxAnalSum6thBrackTax": 43211,
+                    "usTaxAnalSum7thBrackTax": 0,
+                    "usTaxAttribToForeignExclusion": 0,
+                    "usTaxAnalSumTotTax": 101659,
+                    "usTaxRateBracket1": 100,
+                    "usTaxRateBracket2": 120,
+                    "usTaxRateBracket3": 220,
+                    "usTaxRateBracket4": 240,
+                    "usTaxRateBracket5": 320,
+                    "usTaxRateBracket6": 350,
+                    "usTaxRateBracket7": 370
+                }
+            },
+            "defaultSection": {
+                "usTxSumTxbleInc": 379685,
+                "usTxSumRegTax": 101659,
+                "maxCGRateTx": 101338,
+                "usTxSumSchJ": 0,
+                "usTxSum8615": 0,
+                "usTxSum8814": 0,
+                "usTxSumLumpSum": 0,
+                "usTxSumOtherTax": 0,
+                "taxSumAltMintax": 0,
+                "usOthTaxRepaySubsidy": 0,
+                "usTxSumTax": 101338,
+                "iTAOthertaxesinclSEtax": 4254
+            }
+        }
+    },
+    "credits": {
+        "usCrSum": {
+            "usChildCareCrInp": {
+                "defaultSection": {
+                    "depCareExp": 0,
+                    "itaDepCareExpCalculated": 0,
+                    "childDepcarecr": 0,
+                    "iTAChildDepCareCrAllowed": 0,
+                    "usChildCareCrRefundCr": 0,
+                    "totQualExpIncurCurYr": 0,
+                    "excludedBene": 0,
+                    "taxableBene": 450
+                }
+            },
+            "usQualAdoptExpSum": {
+                "defaultSection": {
+                    "totRefAdoptCr": 0,
+                    "qATotAdopCrAllow": 0
+                }
+            },
+            "defaultSection": {
+                "usFrgnTaxCr": 0,
+                "usITAFrgnTaxCr": 0,
+                "usEdCr": 0,
+                "iTAUSChildTaxCredit": 0,
+                "usAdoptionCr": 0,
+                "usDCandMortgageCr": 0,
+                "usGeneralBusinessCrTotal": 0,
+                "usOthCr": 0,
+                "minTaxCr": 0,
+                "usCrTotalCredits": 0,
+                "iTAResidentialEnergyCredit": 0,
+                "iTAResidentialEnergyCreditCalculated": 0,
+                "iTAOtherCreditsCalculated": 0
+            }
+        }
+    },
+    "payments": {
+        "usPmtSum": {
+            "usEstPmtInp": {
+                "defaultSection": {
+                    "prYrOverpmtAppl": 0,
+                    "vou1AmtPd": 0,
+                    "vou1Status": 0,
+                    "vou2AmtPd": 0,
+                    "vou2Status": 0,
+                    "vou3AmtPd": 0,
+                    "vou3Status": 0,
+                    "vou4Status": 0,
+                    "vou4AmtPd": 0,
+                    "amtPaidWithExt": 0,
+                    "totPmts": 8480,
+                    "addPmt1": 0,
+                    "addPmt2": 0,
+                    "addPmt3": 0,
+                    "addPmt4": 0,
+                    "fidK1ES": 0,
+                    "nextYearVoucherOne": 18130,
+                    "remainingTaxPmt": 64040,
+                    "nextYearTotalESMailed": 72520,
+                    "nextYearCalculatedESVoucher1": 18130,
+                    "nextYearCalculatedESVoucher2": 18130,
+                    "nextYearCalculatedESVoucher3": 18130,
+                    "nextYearCalculatedESVoucher4": 18130,
+                    "stNextYearCalculatedESVoucher1": 3484,
+                    "stNextYearCalculatedESVoucher2": 3484,
+                    "stNextYearCalculatedESVoucher3": 3484,
+                    "stNextYearCalculatedESVoucher4": 3484,
+                    "nextYearVoucherOneDueDate": 20260415,
+                    "nextYearVoucherTwoDueDate": 20260615,
+                    "nextYearVoucherThreeDueDate": 20260915,
+                    "nextYearVoucherFourDueDate": 20270115,
+                    "priorYearReturnESVoucher1": 2120,
+                    "priorYearReturnESVoucher2": 2120,
+                    "priorYearReturnESVoucher3": 2120,
+                    "priorYearReturnESVoucher4": 2120,
+                    "overpaymentApplied": 0,
+                    "nextYearResidentStateCalculatedESVoucher1": 3484,
+                    "nextYearResidentStateCalculatedESVoucher2": 3484,
+                    "nextYearResidentStateCalculatedESVoucher3": 3484,
+                    "nextYearResidentStateCalculatedESVoucher4": 3484,
+                    "nextYearResidentStateVoucher1DueDate": 20260430,
+                    "nextYearResidentStateVoucher2DueDate": 20260630,
+                    "nextYearResidentStateVoucher3DueDate": 20260930,
+                    "nextYearResidentStateVoucher4DueDate": 20270131,
+                    "priorYearReturnResidentStateESVoucher1": 1616,
+                    "priorYearReturnResidentStateESVoucher2": 1616,
+                    "priorYearReturnResidentStateESVoucher3": 1616,
+                    "priorYearReturnResidentStateESVoucher4": 1616,
+                    "iTAVoucher1DatePaid": "",
+                    "iTAVoucher2DatePaid": "",
+                    "iTAVoucher3DatePaid": "",
+                    "iTAVoucher4DatePaid": "",
+                    "iTAOtherVoucher1DatePaid": "",
+                    "iTAOtherVoucher2DatePaid": "",
+                    "iTAOtherVoucher3DatePaid": "",
+                    "iTAOtherVoucher4DatePaid": "",
+                    "iTAFedWHAdj": 0
+                }
+            },
+            "defaultSection": {
+                "iTAincTaxWithhld": 33072,
+                "estTaxPmt": 0,
+                "earnIncCr": 0,
+                "addChildTxCr": 0,
+                "iTAAddChildTxCr": 0,
+                "refundHopeCr": 0,
+                "iTARefundHopeCr": 0,
+                "aCaRefundableCredit": 0,
+                "iTAACARefundableCredit": 0,
+                "excSocSecRRTTax": 0,
+                "iTAExcSocSecRRTTax": 0,
+                "usPmtSumRefChildCareCr": 0,
+                "iTAUSPmtSumRefChildCareCr": 0,
+                "iTAOtherpaymentsCalculated": 0,
+                "othPay": 0,
+                "itaOtherPayments": 0,
+                "usPmtTotPmts": 41552,
+                "itaTotRefCr": 0,
+                "itaTotPayment": 41552
+            }
+        }
+    },
+    "constants": {
+        "401k": {
+            "employeeMaxContribution": 23500,
+            "employeeMaxContributionOver50": 31000,
+            "employeeMaxContribution60To63": 34750,
+            "Combined401KLimit": 70000,
+            "Combined401KLimitOver50": 77500,
+            "Combined401KLimit60To63": 81250
+        },
+        "IRA": {
+            "maxContribution": 7000,
+            "maxContributionOver50": 8000,
+            "maxContributionQCD": 108000,
+            "agiLimits": [
+                {
+                    "filingStatuses": "SINGLE,HOH",
+                    "covered": "COVERED",
+                    "full": 66000,
+                    "partial": 76000
+                },
+                {
+                    "filingStatuses": "MFJ,QW",
+                    "covered": "COVERED",
+                    "full": 105000,
+                    "partial": 125000
+                },
+                {
+                    "filingStatuses": "MFS",
+                    "covered": "COVERED",
+                    "full": 0,
+                    "partial": 10000
+                },
+                {
+                    "filingStatuses": "MFJ",
+                    "covered": "SPOUSE_COVERED",
+                    "full": 198000,
+                    "partial": 208000
+                }
+            ]
+        },
+        "HCFSA": {
+            "employeeMaxContribution": 2850,
+            "employeeMaxContribution_2023": 3050,
+            "employeeMaxContribution_2024": 3200,
+            "employeeMaxContribution_2025": 3300
+        },
+        "itemizedDeductions": {
+            "standardDeduction": [
+                {
+                    "filingStatuses": "SINGLE,MFS",
+                    "deduction": 15000
+                },
+                {
+                    "filingStatuses": "MFJ,QW",
+                    "deduction": 30000
+                },
+                {
+                    "filingStatuses": "HOH",
+                    "deduction": 21900
+                }
+            ]
+        },
+        "childTaxCredit": {
+            "agiLimits": [
+                {
+                    "filingStatuses": "MFJ,QW",
+                    "agiThreshold": 400000
+                },
+                {
+                    "filingStatuses": "SINGLE,MFS,HOH",
+                    "agiThreshold": 200000
+                }
+            ],
+            "supplementalAgiLimits": [
+                {
+                    "filingStatuses": "SINGLE,MFS",
+                    "agiThreshold": 75000
+                },
+                {
+                    "filingStatuses": "HOH",
+                    "agiThreshold": 112500
+                },
+                {
+                    "filingStatuses": "MFJ,QW",
+                    "agiThreshold": 150000
+                }
+            ]
+        },
+        "dependentCare": {
+            "maxContribution": [
+                {
+                    "filingStatuses": "SINGLE",
+                    "contributionLimit": 5000
+                },
+                {
+                    "filingStatuses": "MFJ",
+                    "contributionLimit": 5000
+                },
+                {
+                    "filingStatuses": "MFS",
+                    "contributionLimit": 2500
+                }
+            ]
+        },
+        "payrollTaxes": {
+            "maxSocialSecurityWage": 147000,
+            "maxSocialSecurityWage_2023": 160200,
+            "maxSocialSecurityWage_2024": 168600,
+            "maxSocialSecurityWage_2025": 176100,
+            "additionalMedicareTaxWithheldThreshold": 200000
+        },
+        "taxRates": {
+            "MARGINAL_RATE_FICA": 0.0765,
+            "MARGINAL_RATE_MEDICARE": 0.0145,
+            "MARGINAL_RATE_NET_INVESTMENT_INCOME": 0.038,
+            "MARGINAL_RATE_ADDITIONAL_MEDICARE": 0.009,
+            "MARGINAL_RATE_SOCIAL_SECURITY": 0.062,
+            "MARGINAL_RATE_SELF_EMPLOYMENT": 0.153,
+            "MARGINAL_RATE_CAPITAL_GAINS_1250": 0.25,
+            "MARGINAL_RATE_CAPITAL_GAINS_COLLECTIBLES": 0.28,
+            "DEPENDENT_CARE_CREDIT_RATE": 0.2
+        },
+        "preparer": {
+            "id": ""
+        }
+    }
+}

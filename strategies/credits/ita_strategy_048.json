@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_048",
+  "category": "credits",
+  "strategy_type": "Tax Credits",
+  "title": "Residential Energy Efficient Property Credits",
+  "implementation_effort_score": 10,
+  "tax_savings_score": 8,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must install qualifying energy-efficient improvements to principal residence to claim Inflation Reduction Act enhanced credits: 30% for solar/geothermal and up to $3,200 annually for heat pumps, insulation, and efficient HVAC under expanded provisions",
+    "criteria": [
+      "Energy Efficient Home Improvement Credit (25C): Up to $3,200 annually for qualifying improvements",
+      "Eligible improvements: heat pumps, heat pump water heaters, biomass stoves, insulation, windows, doors, electrical panel upgrades",
+      "Annual limits 25C: $1,200 for most items; $2,000 for heat pumps; combined $3,200 maximum per year",
+      "Residential Clean Energy Credit (25D): 30% of cost for solar panels, solar water heaters, geothermal heat pumps, small wind, fuel cells",
+      "No annual or lifetime limit on 25D credit; can carry forward unused credit if exceeds tax liability",
+      "Installation must be at taxpayer's principal residence in the United States",
+      "Must meet specific energy efficiency requirements and obtain Manufacturer Certification Statement",
+      "Credits available through 2032 for solar (30% through 2032); 25C credit permanent but subject to annual limits"
+    ]
+  },
+  "limitations": {
+    "energy_credit_rules": {
+      "25c_annual_limit": "$1,200 general; $2,000 heat pumps; $3,200 combined maximum per year",
+      "25d_no_limit": "30% of solar, geothermal, small wind, fuel cells with no annual cap",
+      "ira_enhancement": "IRA increased 25C limits and extended 25D credit at 30% through 2032",
+      "principal_residence": "Must be installed at main home; vacation homes don't qualify for 25C (may qualify for 25D)",
+      "carryforward_available": "Unused 25D credit carries forward; 25C credit cannot be carried forward",
+      "installation_year": "Credit claimed in year property placed in service, not when paid"
+    },
+    "restrictions": [
+      "25C credit: annual limits apply per taxpayer, not per property or per improvement type",
+      "Cannot exceed tax liability for year (non-refundable credit); 25D carryforward available, 25C does not carry forward",
+      "Must obtain and retain Manufacturer Certification Statement proving efficiency requirements met",
+      "Rental property and business use don't qualify for residential credits; different credits may apply",
+      "Solar panels: must be installed on or in connection with dwelling you use as residence",
+      "Installation labor included in 25D credit; not included in 25C credit (equipment only)",
+      "Cannot claim credit for improvements financed by subsidized energy financing or utility rebates",
+      "State and local incentives may be available in addition to federal credits; coordinate for maximum benefit"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

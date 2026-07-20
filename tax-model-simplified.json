@@ -1,0 +1,4097 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tax Model Simplified",
+  "description": "Simplified tax data model derived from tax-model-input-schema-annotated.json. Strips products, nativeAddress, and internal codes. Retains human_readable, description, valueType for insights.",
+  "source": "tax-model-input-schema-annotated.json",
+  "field_counts": {
+    "summary": 80,
+    "income": 472,
+    "adjustments": 43,
+    "deductionsExemptions": 28,
+    "tax": 5,
+    "credits": 10,
+    "payments": 38,
+    "constants": 1
+  },
+  "total_fields": 677,
+  "sections": {
+    "summary": [
+      {
+        "field": "summary_usMain_mainFilingStatus",
+        "human_readable": "Main Filing Status",
+        "description": "Indicates the primary filing status selected for the tax return, such as Single, Married Filing Jointly, etc.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usSummReport_bigSumQualbusIncDec",
+        "human_readable": "Qualified Business Income Deduction",
+        "description": "Represents the deduction amount for qualified business income under Section 199A.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usSummReport_bigSumUSTxSum8615",
+        "human_readable": "Tax on Certain Children's Unearned Income (Form 8615)",
+        "description": "Amount of tax calculated on a child's unearned income using IRS Form 8615.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usSummReport_bigSumUSTxSumLumpSum",
+        "human_readable": "Lump Sum Tax",
+        "description": "Tax amount related to lump sum distributions, such as Social Security or retirement benefits.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usSummReport_bigSumUSTxSumOtherTax",
+        "human_readable": "Other Federal Taxes",
+        "description": "Represents other miscellaneous federal taxes not categorized elsewhere on the return.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usSummReport_bigSumTaxSumAltMinTax",
+        "human_readable": "Alternative Minimum Tax (AMT)",
+        "description": "The calculated Alternative Minimum Tax (AMT) liability for the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usSummReport_bigSumUSChildDepCareCr",
+        "human_readable": "Child and Dependent Care Credit",
+        "description": "Credit amount for child and dependent care expenses paid to enable the taxpayer to work or look for work.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usSummReport_bigSumUSEdCr",
+        "human_readable": "Education Credits",
+        "description": "Total of education-related credits, such as the American Opportunity and Lifetime Learning credits.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usSummReport_bigSumUSChildTaxCr",
+        "human_readable": "Child Tax Credit",
+        "description": "The total Child Tax Credit claimed for qualifying children on the tax return.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usSummReport_bigSumUSAdoptCr",
+        "human_readable": "Adoption Credit",
+        "description": "Credit amount for qualified adoption expenses paid to adopt an eligible child.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usSummReport_bigSumDCandMortIntCr",
+        "human_readable": "DC and Mortgage Interest Credit",
+        "description": "Credit for mortgage interest paid or for DC first-time homebuyer credit, as applicable.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usSummReport_bigSumMinTaxCr",
+        "human_readable": "Minimum Tax Credit",
+        "description": "Credit for prior year minimum tax that can be used to offset regular tax liability.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usSummReport_bigSumUSOthCr",
+        "human_readable": "Other Credits",
+        "description": "Represents other miscellaneous credits not categorized elsewhere on the return.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usSummReport_bigSumSlfEmplTax",
+        "human_readable": "Self-Employment Tax",
+        "description": "The total self-employment tax calculated for the taxpayer, including Social Security and Medicare taxes.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASummary_incomeTaxNOL",
+        "human_readable": "Income Tax Net Operating Loss (NOL)",
+        "description": "Net Operating Loss (NOL) amount applied to reduce taxable income for the year.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASummary_utilizedNOL",
+        "human_readable": "Utilized Net Operating Loss (NOL)",
+        "description": "The portion of Net Operating Loss (NOL) that was utilized in the current tax year.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASummary_altMinTaxNOL",
+        "human_readable": "Alternative Minimum Tax Net Operating Loss (AMT NOL)",
+        "description": "Net Operating Loss (NOL) amount applied for Alternative Minimum Tax (AMT) purposes.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASummary_addMedTaxNOL",
+        "human_readable": "Additional Medicare Tax Net Operating Loss",
+        "description": "Net Operating Loss (NOL) amount applied to the Additional Medicare Tax calculation.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASummary_deductionsNOL",
+        "human_readable": "Deductions Net Operating Loss (NOL)",
+        "description": "Net Operating Loss (NOL) amount related to deductions carried forward or back.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASummary_seTaxNOL",
+        "human_readable": "Self-Employment Tax Net Operating Loss (NOL)",
+        "description": "Net Operating Loss (NOL) amount applied to self-employment tax calculations.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASummary_livedWithSpouse",
+        "human_readable": "Lived With Spouse Indicator",
+        "description": "Indicates whether the taxpayer lived with their spouse at any time during the tax year.",
+        "type": "boolean"
+      },
+      {
+        "field": "summary_usITASummary_tpStateWHAdj",
+        "human_readable": "Taxpayer State Withholding Adjustment",
+        "description": "Adjustment amount for state tax withholding attributed to the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASummary_spStateWHAdj",
+        "human_readable": "Spouse State Withholding Adjustment",
+        "description": "Adjustment amount for state tax withholding attributed to the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASummary_marginalNYC",
+        "human_readable": "Marginal New York City Tax Rate",
+        "description": "The marginal tax rate applied to income for New York City residents.",
+        "type": "real"
+      },
+      {
+        "field": "summary_usITASummary_resEnergyInput",
+        "human_readable": "Residential Energy Credit Input",
+        "description": "Input value for calculating the residential energy credit for qualified home improvements.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASummary_stateAdditionAdjustment",
+        "human_readable": "State Addition Adjustment",
+        "description": "Adjustment amount added to state taxable income for state tax purposes.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASummary_statesubtractionAdjustment",
+        "human_readable": "State Subtraction Adjustment",
+        "description": "Adjustment amount subtracted from state taxable income for state tax purposes.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASummary_s475election",
+        "human_readable": "Section 475 Election Indicator",
+        "description": "Indicates whether the taxpayer has made a Section 475 election for mark-to-market accounting.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASummary_cGFlag",
+        "human_readable": "Capital Gains Flag",
+        "description": "Indicator or flag related to capital gains treatment or reporting.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASummary_strategyTaxRate",
+        "human_readable": "Strategy Tax Rate",
+        "description": "The tax rate applied to a specific tax planning strategy or scenario.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADependents_socialSecurityNumber",
+        "human_readable": "Social Security Number",
+        "description": "The Social Security Number (SSN) of the dependent, used for identification and tax purposes.",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITADependents_birthDate",
+        "human_readable": "Birth Date",
+        "description": "The date of birth of the dependent.",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITADependents_birthState",
+        "human_readable": "Birth State",
+        "description": "The state in which the dependent was born.",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITADependents_relationship",
+        "human_readable": "Relationship to Taxpayer",
+        "description": "Describes the dependent's relationship to the taxpayer (e.g., child, parent, other).",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITADependents_type",
+        "human_readable": "Dependent Type",
+        "description": "Indicates the type or category of the dependent (e.g., qualifying child, qualifying relative).",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADependents_firstName",
+        "human_readable": "Dependent's First Name",
+        "description": "The first name of the dependent as reported on the tax return.",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITADependents_lastName",
+        "human_readable": "Dependent's Last Name",
+        "description": "The last name (surname) of the dependent as reported on the tax return.",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITADependents_dependentClaimed",
+        "human_readable": "Dependent Claimed Indicator",
+        "description": "Indicates whether the taxpayer is claiming this individual as a dependent on the tax return.",
+        "type": "boolean"
+      },
+      {
+        "field": "summary_usITATaxpayerItems_sePremiums",
+        "human_readable": "Self-Employed Health Insurance Premiums",
+        "description": "The amount of health insurance premiums paid by a self-employed individual, eligible for deduction.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITATaxpayerItems_iraContributionInput",
+        "human_readable": "IRA Contribution Input",
+        "description": "The amount contributed to an Individual Retirement Account (IRA) for the tax year.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITATaxpayerItems_firstName",
+        "human_readable": "Taxpayer's First Name",
+        "description": "The first name of the taxpayer as reported on the tax return.",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITATaxpayerItems_lastName",
+        "human_readable": "Taxpayer's Last Name",
+        "description": "The last name (surname) of the taxpayer as reported on the tax return.",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITATaxpayerItems_dateOfBirth",
+        "human_readable": "Taxpayer's Date of Birth",
+        "description": "The date of birth of the taxpayer.",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITATaxpayerItems_primaryResidentState",
+        "human_readable": "Primary Resident State",
+        "description": "The state in which the taxpayer primarily resided during the tax year.",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITATaxpayerItems_filingStatus",
+        "human_readable": "Filing Status",
+        "description": "The taxpayer's filing status for the tax year (e.g., Single, Married Filing Jointly, etc.).",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITATaxpayerItems_yearSpouseDied",
+        "human_readable": "Year Spouse Died",
+        "description": "The year in which the taxpayer's spouse passed away, if applicable.",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITATaxpayerItems_studentLoanInterestPaid",
+        "human_readable": "Student Loan Interest Paid",
+        "description": "The amount of student loan interest paid by the taxpayer, which may be deductible.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITATaxpayerItems_forceREProfessional",
+        "human_readable": "Force Real Estate Professional Status",
+        "description": "Indicator to force the taxpayer to be treated as a real estate professional for tax purposes.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITATaxpayerItems_rentalAdj",
+        "human_readable": "Rental Adjustment",
+        "description": "Adjustment amount related to rental income or expenses.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITATaxpayerItems_sENonFarmIncomeAdjust",
+        "human_readable": "Self-Employment Non-Farm Income Adjustment",
+        "description": "Adjustment to self-employment income not related to farming activities.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASpouseItems_iraContributionInput",
+        "human_readable": "Spouse IRA Contribution Input",
+        "description": "The amount contributed to an Individual Retirement Account (IRA) by the spouse for the tax year.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASpouseItems_firstName",
+        "human_readable": "Spouse's First Name",
+        "description": "The first name of the spouse as reported on the tax return.",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITASpouseItems_lastName",
+        "human_readable": "Spouse's Last Name",
+        "description": "The last name (surname) of the spouse as reported on the tax return.",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITASpouseItems_dateOfBirth",
+        "human_readable": "Spouse's Date of Birth",
+        "description": "The date of birth of the spouse.",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITASpouseItems_studentLoanInterestPaid",
+        "human_readable": "Spouse Student Loan Interest Paid",
+        "description": "The amount of student loan interest paid by the spouse, which may be deductible.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASpouseItems_forceREProfessional",
+        "human_readable": "Spouse Force Real Estate Professional Status",
+        "description": "Indicator to force the spouse to be treated as a real estate professional for tax purposes.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITASpouseItems_sENonFarmIncomeAdjustCode",
+        "human_readable": "Spouse Self-Employment Non-Farm Income Adjustment Code",
+        "description": "Adjustment code for the spouse's self-employment income not related to farming activities.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADepreciationDirectInput_form",
+        "human_readable": "Depreciation Form Number",
+        "description": "The form number or identifier used for depreciation reporting or calculations.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADepreciationDirectInput_activityNumber",
+        "human_readable": "Depreciation Activity Number",
+        "description": "A unique number identifying the specific activity or asset for depreciation purposes.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADepreciationDirectInput_specialDepreciationAllowance",
+        "human_readable": "Special Depreciation Allowance",
+        "description": "The amount of special depreciation allowance claimed for qualified property.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADepreciationDirectInput_threeYearDeprecDed",
+        "human_readable": "Three-Year Depreciation Deduction",
+        "description": "Depreciation deduction amount for assets with a three-year recovery period.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADepreciationDirectInput_priorYearAssetDeprec",
+        "human_readable": "Prior Year Asset Depreciation",
+        "description": "Depreciation amount for assets placed in service in prior years.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADeprecDirectInput179andAuto_form",
+        "human_readable": "Section 179/Auto Depreciation Form Number",
+        "description": "The form number or identifier used for Section 179 or auto depreciation reporting.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADeprecDirectInput179andAuto_activityNumber",
+        "human_readable": "Section 179/Auto Depreciation Activity Number",
+        "description": "A unique number identifying the specific activity or asset for Section 179 or auto depreciation.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADeprecDirectInput179andAuto_section179Expense",
+        "human_readable": "Section 179 Expense",
+        "description": "The amount of Section 179 expense deduction claimed for qualifying property.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADeprecDirectInput179andAuto_stateSection179Expense",
+        "human_readable": "State Section 179 Expense",
+        "description": "The amount of Section 179 expense deduction claimed for state tax purposes.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADeprecDirectInput179andAuto_datePlacedinService",
+        "human_readable": "Date Placed in Service",
+        "description": "The date on which the asset was placed in service for depreciation purposes.",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITADeprecDirectInput179andAuto_assetCostorBasis",
+        "human_readable": "Asset Cost or Basis",
+        "description": "The original cost or basis of the asset for depreciation calculations.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADeprecDirectInput179andAuto_oneEqualsForceActualtwoEqualsForceStandard",
+        "human_readable": "Depreciation Method Override Indicator",
+        "description": "Indicator to force the use of actual or standard depreciation methods.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADeprecDirectInput179andAuto_totalMiles",
+        "human_readable": "Total Miles Driven",
+        "description": "The total number of miles driven for the asset (e.g., vehicle) during the tax year.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADeprecDirectInput179andAuto_businessMiles",
+        "human_readable": "Business Miles Driven",
+        "description": "The number of miles driven for business purposes during the tax year.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADeprecDirectInput179andAuto_commutingMiles",
+        "human_readable": "Commuting Miles Driven",
+        "description": "The number of miles driven for commuting between home and work.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADeprecDirectInput179andAuto_autoExpenseMisc",
+        "human_readable": "Miscellaneous Auto Expenses",
+        "description": "Other miscellaneous expenses related to the operation of the vehicle.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADeprecDirectInput179andAuto_recoveryPeriod",
+        "human_readable": "Depreciation Recovery Period",
+        "description": "The recovery period (in years) used for depreciating the asset.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADepreciationScreen_depreciableBasis",
+        "human_readable": "Depreciable Basis",
+        "description": "The portion of the asset's cost that is subject to depreciation.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADepreciationScreen_deprecMethod",
+        "human_readable": "Depreciation Method",
+        "description": "The method used to calculate depreciation for the asset (e.g., straight-line, MACRS).",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADepreciationScreen_datePlacedInService",
+        "human_readable": "Date Placed in Service",
+        "description": "The date the asset was placed in service for depreciation purposes.",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITADepreciationScreen_desc",
+        "human_readable": "Asset Description",
+        "description": "A brief description of the asset being depreciated.",
+        "type": "string"
+      },
+      {
+        "field": "summary_usITADepreciationScreen_form",
+        "human_readable": "Depreciation Form Number",
+        "description": "The form or schedule identifier used for depreciation reporting.",
+        "type": "integer"
+      },
+      {
+        "field": "summary_usITADepreciationScreen_activityNumber",
+        "human_readable": "Depreciation Activity Number",
+        "description": "A unique number identifying the specific activity or asset for depreciation.",
+        "type": "integer"
+      }
+    ],
+    "income": [
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_namEmp",
+        "human_readable": "Employer Name",
+        "description": "Name of the employer.",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_eINemp",
+        "human_readable": "Employer EIN",
+        "description": "Employer Identification Number.",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wgPensPlanYN",
+        "human_readable": "Pension Plan Participation (Yes/No)",
+        "description": "Indicates if the taxpayer/spouse participated in a pension plan.",
+        "type": "boolean"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wgFedwages",
+        "human_readable": "Federal Wages",
+        "description": "Total federal wages reported.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wgFedTxwH",
+        "human_readable": "Federal Tax Withheld",
+        "description": "Federal income tax withheld from wages.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wgSSwages",
+        "human_readable": "Social Security Wages",
+        "description": "Wages subject to Social Security tax.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wgSSTxwH",
+        "human_readable": "Social Security Tax Withheld",
+        "description": "Social Security tax withheld from wages.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wgMedwages",
+        "human_readable": "Medicare Wages",
+        "description": "Wages subject to Medicare tax.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wgMedTxwH",
+        "human_readable": "Medicare Tax Withheld",
+        "description": "Medicare tax withheld from wages.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wgDCB",
+        "human_readable": "Dependent Care Benefits",
+        "description": "Dependent care benefits provided by the employer.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wages401kContribution",
+        "human_readable": "401(k) Contribution",
+        "description": "Employee contributions to a 401(k) retirement plan.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wages403bContribution",
+        "human_readable": "403(b) Contribution",
+        "description": "Employee contributions to a 403(b) retirement plan.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wg408k6",
+        "human_readable": "408(k)(6) SEP Contribution",
+        "description": "Contributions to a 408(k)(6) SEP retirement plan.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_usWageInp408p",
+        "human_readable": "408(p) SIMPLE Contribution",
+        "description": "Contributions to a 408(p) SIMPLE retirement plan.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wg457b",
+        "human_readable": "457(b) Contribution",
+        "description": "Employee contributions to a 457(b) deferred compensation plan.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wagesdesignated401kRothContribution",
+        "human_readable": "Designated Roth 401(k) Contribution",
+        "description": "Employee contributions to a designated Roth 401(k) plan.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wagesdesignated403bRothContribution",
+        "human_readable": "Designated Roth 403(b) Contribution",
+        "description": "Employee contributions to a designated Roth 403(b) plan.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wageshealthSavingsAccount",
+        "human_readable": "Health Savings Account Contribution",
+        "description": "Employee contributions to a Health Savings Account (HSA).",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wagesMedicalSavingsAccount",
+        "human_readable": "Medical Savings Account Contribution",
+        "description": "Employee contributions to a Medical Savings Account (MSA).",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wagesadoptionCredit",
+        "human_readable": "Adoption Credit",
+        "description": "Qualified adoption expenses paid by the employer.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_substantiatedEmployeeExp",
+        "human_readable": "Substantiated Employee Expenses",
+        "description": "Employee expenses substantiated for tax purposes.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wagesdesignated457bRothContribution",
+        "human_readable": "Designated Roth 457(b) Contribution",
+        "description": "Employee contributions to a designated Roth 457(b) plan.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wg501c",
+        "human_readable": "501(c) Retirement Plan Contribution",
+        "description": "Employee contributions to a 501(c) retirement plan.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_fsaContribution",
+        "human_readable": "Flexible Spending Account Contribution",
+        "description": "Employee contributions to a Flexible Spending Account (FSA).",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_stateIncomeTaxWithheld_stateWithholdings",
+        "human_readable": "State Tax Withholdings",
+        "description": "Total state income tax withheld from wages as reported on W-2 forms.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_stateIncomeTaxWithheld_stateWithholdingsAdjustment",
+        "human_readable": "State Withholding Adjustment",
+        "description": "Adjustments to state income tax withholdings for reconciliation or corrections.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_wgSCorp2PctShrhldr",
+        "human_readable": "S-Corp 2% Shareholder Wages",
+        "description": "Wages or compensation attributed to a 2% S-corporation shareholder.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usWageSum_usWageInp_iTAWgStateWages",
+        "human_readable": "State Wages",
+        "description": "Total state taxable wages reported for W-2 income.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usIntDivSum_usIntInp_ordInterest",
+        "human_readable": "Ordinary Interest",
+        "description": "Ordinary interest income.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usIntDivSum_usIntInp_usBond",
+        "human_readable": "U.S. Bond Interest",
+        "description": "Interest income from U.S. bonds.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usIntDivSum_usIntInp_intTotalMuniBond",
+        "human_readable": "Total Municipal Bond Interest",
+        "description": "Total interest from municipal bonds.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usIntDivSum_usIntInp_intinStateMuniBond",
+        "human_readable": "In-State Municipal Bond Interest",
+        "description": "Interest from in-state municipal bonds.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usIntDivSum_usIntInp_intPrvtActBnd",
+        "human_readable": "Private Activity Bond Interest",
+        "description": "Interest from private activity bonds.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usIntDivSum_federalInterest_ordIntSum",
+        "human_readable": "Ordinary Interest Income",
+        "description": "Total ordinary (taxable) interest income received during the year.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usIntDivSum_federalInterest_ordIntK1Sum",
+        "human_readable": "K-1 Ordinary Interest Income",
+        "description": "Ordinary interest income reported via Schedule K-1 from pass-through entities.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usIntDivSum_uSObligations_usOblIntSum",
+        "human_readable": "U.S. Obligations Interest",
+        "description": "Interest income from U.S. obligations (e.g., Treasury securities).",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usIntDivSum_uSObligations_usObIntK1Sum",
+        "human_readable": "K-1 U.S. Obligations Interest",
+        "description": "Interest from U.S. obligations reported on Schedule K-1.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usIntDivSum_taxExemptInterest_munBondIntSum",
+        "human_readable": "Municipal Bond Interest",
+        "description": "Tax-exempt interest income from municipal bonds.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usIntDivSum_taxExemptInterest_inStMuniSum",
+        "human_readable": "In-State Municipal Interest",
+        "description": "Tax-exempt interest from municipal bonds issued within the taxpayer's resident state.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usIntDivSum_taxExemptInterest_muniIntK1Sum",
+        "human_readable": "K-1 Municipal Bond Interest",
+        "description": "Tax-exempt municipal bond interest reported via Schedule K-1.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usIntDivSum_taxExemptInterest_inStMuniK1Sum",
+        "human_readable": "K-1 In-State Municipal Interest",
+        "description": "In-state tax-exempt municipal bond interest reported via Schedule K-1.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_usDivInp_dividendIncome_ordDiv",
+        "human_readable": "Ordinary Dividends",
+        "description": "Ordinary dividend income.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_usDivInp_dividendIncome_qualDiv",
+        "human_readable": "Qualified Dividends",
+        "description": "Qualified dividend income.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_usDivInp_dividendIncome_totCapGnDistr",
+        "human_readable": "Total Capital Gain Distributions",
+        "description": "Total capital gain distributions received.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_usDivInp_dividendIncome_gain28Pct",
+        "human_readable": "28% Rate Gain",
+        "description": "Capital gains taxed at the 28% rate.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_usDivInp_dividendIncome_unRepSec125Gn",
+        "human_readable": "Unrecaptured Section 1250 Gain",
+        "description": "Unrecaptured Section 1250 gain from real property.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_usDivInp_dividendIncome_sec1202Gn",
+        "human_readable": "Section 1202 Gain",
+        "description": "Gain from qualified small business stock (Section 1202).",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_usDivInp_dividendIncome_rEITDiv",
+        "human_readable": "REIT Dividends",
+        "description": "Dividends from Real Estate Investment Trusts (REITs).",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_usDivInp_dividendIncome_invExp",
+        "human_readable": "Investment Expenses",
+        "description": "Expenses related to investment income.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_usDivInp_dividendIncome_usBonds",
+        "human_readable": "U.S. Bonds",
+        "description": "Income from U.S. bonds.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_usDivInp_taxExemptInterest_totMunBonds",
+        "human_readable": "Total Municipal Bonds",
+        "description": "Total income from municipal bonds.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_usDivInp_taxExemptInterest_inStateMunBonds",
+        "human_readable": "In-State Municipal Bonds",
+        "description": "Income from in-state municipal bonds.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_usDivInp_federalWithholding_fedIncTaxWithhldDiv",
+        "human_readable": "Federal Income Tax Withheld (Dividends)",
+        "description": "Federal income tax withheld from dividends.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_federalDividend_ordDivSum",
+        "human_readable": "Ordinary Dividends",
+        "description": "Total ordinary (non-qualified) dividend income received.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_federalDividend_ordDivK1Sum",
+        "human_readable": "K-1 Ordinary Dividends",
+        "description": "Ordinary dividend income reported via Schedule K-1 from pass-through entities.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_adjustments_adjDivSum",
+        "human_readable": "Adjusted Dividends",
+        "description": "Adjustments applied to dividend income (e.g., for allocation or exclusions).",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_qualifiedDividends_qualDivSum",
+        "human_readable": "Qualified Dividends",
+        "description": "Dividend income eligible for preferential capital gains tax rates.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_qualifiedDividends_qualDivK1Sum",
+        "human_readable": "K-1 Qualified Dividends",
+        "description": "Qualified dividend income reported via Schedule K-1.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_qualifiedDividends_qualDivAdjSum",
+        "human_readable": "Qualified Dividend Adjustments",
+        "description": "Adjustments to qualified dividend amounts for tax reporting.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_taxExemptDividends_munBondDivSum",
+        "human_readable": "Tax-Exempt Dividend Income",
+        "description": "Dividends from mutual funds or ETFs attributable to tax-exempt municipal bond interest.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDivSum_taxExemptDividends_inStMunBondDivSum",
+        "human_readable": "In-State Tax-Exempt Dividends",
+        "description": "Tax-exempt dividends attributable to in-state municipal bond interest.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_generalInformation_princpalBus",
+        "human_readable": "Principal Business",
+        "description": "Principal business or profession.",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_generalInformation_busEIN",
+        "human_readable": "Business EIN",
+        "description": "Employer Identification Number for the business.",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_generalInformation_subjsETax",
+        "human_readable": "Subject to SE Tax",
+        "description": "Indicates if the business income is subject to self-employment tax.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_generalInformation_usSchCTrader",
+        "human_readable": "Schedule C Trader",
+        "description": "Indicates if the business is a Schedule C trader.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_income_busGrossSales",
+        "human_readable": "Business Gross Sales",
+        "description": "Total gross sales for the business.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_income_iTABusGrossSales",
+        "human_readable": "ITA Business Gross Sales",
+        "description": "Gross sales for the business as reported in ITA.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_income_totCGS",
+        "human_readable": "Total Cost of Goods Sold",
+        "description": "Total cost of goods sold for the business.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_income_othBusInc",
+        "human_readable": "Other Business Income",
+        "description": "Other income for the business.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_expenses_realAssetsTotals",
+        "human_readable": "Real Assets Totals",
+        "description": "Total value of real assets for the business.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_expenses_intExp",
+        "human_readable": "Interest Expense",
+        "description": "Interest expenses for the business.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_expenses_depreciation",
+        "human_readable": "Depreciation",
+        "description": "Depreciation expenses for the business.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_expenses_amtDepreciation",
+        "human_readable": "AMT Depreciation",
+        "description": "Alternative Minimum Tax (AMT) depreciation expenses.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_expenses_amortization",
+        "human_readable": "Amortization",
+        "description": "Amortization expenses for the business.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_expenses_usBus179",
+        "human_readable": "Section 179 Deduction",
+        "description": "Section 179 deduction for the business.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_expenses_empBenExp",
+        "human_readable": "Employee Benefit Expense",
+        "description": "Employee benefit expenses for the business.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_expenses_usBus179Co",
+        "human_readable": "Section 179 Carryover",
+        "description": "Section 179 deduction carryover for the business.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_expenses_depletion",
+        "human_readable": "Depletion",
+        "description": "Depletion expenses for the business.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_expenses_fedTravelExpense",
+        "human_readable": "Federal Travel Expense",
+        "description": "Travel expenses for the business (federal).",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_expenses_fedStartupCost",
+        "human_readable": "Federal Startup Costs",
+        "description": "Startup costs deductible at the federal level for a business activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_expenses_stateAMTdepreciation",
+        "human_readable": "State AMT Depreciation",
+        "description": "Depreciation adjustments for state Alternative Minimum Tax purposes.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_expenses_stateDepletion",
+        "human_readable": "State Depletion",
+        "description": "Depletion deduction adjustments specific to state taxation.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_expenses_iTAHomeOffice",
+        "human_readable": "Home Office Deduction (Business)",
+        "description": "Deduction related to qualified home office expenses for a business activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_otherExpenses_othBusExp",
+        "human_readable": "Other Business Expenses",
+        "description": "Other business expenses not categorized elsewhere. This could include advertising, car and truck expenses, commissions and fees, contract labor, employee benefit programs, insurance, legal and professional services, office expense, pension and profit-sharing plans, rent or lease expenses, repairs and maintenance, supplies, taxes and licenses, utilities, meals and entertainment, and other miscellaneous business costs.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_deductionforQualifiedBusinessIncome20_schCQBIQualify",
+        "human_readable": "Schedule C QBI Qualify",
+        "description": "Schedule C qualified business income qualification.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_deductionforQualifiedBusinessIncome20_schCspecservBus",
+        "human_readable": "Schedule C Specified Service Business",
+        "description": "Schedule C specified service business indicator.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_deductionforQualifiedBusinessIncome20_schCQualBusIncLoss",
+        "human_readable": "Schedule C Qualified Business Income Loss",
+        "description": "Qualified business income loss for Schedule C.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_deductionforQualifiedBusinessIncome20_schCWagesAllocQBI",
+        "human_readable": "Schedule C Wages Allocable to QBI",
+        "description": "Wages allocable to qualified business income for Schedule C.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_deductionforQualifiedBusinessIncome20_schCBasisQualProp",
+        "human_readable": "Schedule C Basis in Qualified Property",
+        "description": "Basis in qualified property for Schedule C.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_deductionforQualifiedBusinessIncome20_schCDPADPercent",
+        "human_readable": "Schedule C DPAD Percent",
+        "description": "Domestic production activities deduction percent for Schedule C.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_deductionforQualifiedBusinessIncome20_schCAllocableToQBI",
+        "human_readable": "Schedule C Allocable to QBI",
+        "description": "Amount allocable to qualified business income for Schedule C.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_deductionforQualifiedBusinessIncome20_schCW2Coop",
+        "human_readable": "Schedule C W-2 Cooperative Wages",
+        "description": "W-2 cooperative wages for Schedule C.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_deductionforQualifiedBusinessIncome20_itaSSTBpercentage",
+        "human_readable": "ITA SSTB Percentage",
+        "description": "Specified service trade or business percentage for ITA.",
+        "type": "real"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_deductionforQualifiedBusinessIncome20_schCAggBusNum",
+        "human_readable": "Schedule C Aggregated Business Number",
+        "description": "Aggregated business number for Schedule C.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_priorYearUnallowedpassiveLosses_busOperating",
+        "human_readable": "Business Operating Loss",
+        "description": "Operating loss from prior years not allowed.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usBusIncSum_usBusIncInp_wagesPaid",
+        "human_readable": "Wages Paid",
+        "description": "Total wages paid by the business.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalCapital_sTCapGnLoss",
+        "human_readable": "Short-Term Capital Gain/Loss",
+        "description": "Short-term capital gain or loss.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalCapital_sTCapGnLossstate",
+        "human_readable": "Short-Term Capital Gain/Loss (State)",
+        "description": "Short-term capital gain or loss (state).",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalCapital_sTPasThrGnLoss",
+        "human_readable": "Short-Term Passthrough Gain/Loss",
+        "description": "Short-term passthrough gain or loss.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalCapital_sTCapLossCaryovr",
+        "human_readable": "Short-Term Capital Loss Carryover",
+        "description": "Short-term capital loss carryover.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalCapital_iTASTCapLosCaryovr",
+        "human_readable": "ITA Short-Term Capital Loss Carryover",
+        "description": "ITA short-term capital loss carryover.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalCapital_sTGainLossAdj",
+        "human_readable": "Short-Term Gain/Loss Adjustment",
+        "description": "Adjustment to short-term capital gain or loss.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalCapital_lTCapGnloss",
+        "human_readable": "Long-Term Capital Gain/Loss",
+        "description": "Long-term capital gain or loss.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalCapital_lTCapGnlossState",
+        "human_readable": "Long-Term Capital Gain/Loss (State)",
+        "description": "Long-term capital gain or loss (state).",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalCapital_cap1231Gn",
+        "human_readable": "Section 1231 Gain",
+        "description": "Gain from Section 1231 property.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalCapital_cap1231GnState",
+        "human_readable": "Section 1231 Gain (State)",
+        "description": "Gain from Section 1231 property (state).",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalCapital_ordGnLossInput",
+        "human_readable": "Ordinary Gain/Loss Input",
+        "description": "Input for ordinary gain or loss.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalCapital_lTPasThrGnloss",
+        "human_readable": "Long-Term Passthrough Gain/Loss",
+        "description": "Long-term passthrough gain or loss.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalCapital_lTCapGnDistr",
+        "human_readable": "Long-Term Capital Gain Distributions",
+        "description": "Distributions of long-term capital gains.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalCapital_lTCaplosCaryovr",
+        "human_readable": "Long-Term Capital Loss Carryover",
+        "description": "Long-term capital loss carryover.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalCapital_iTALTCapLosCaryovr",
+        "human_readable": "ITA Long-Term Capital Loss Carryover",
+        "description": "ITA long-term capital loss carryover.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalCapital_lTGainlossAdj",
+        "human_readable": "Long-Term Gain/Loss Adjustment",
+        "description": "Adjustment to long-term capital gain or loss.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_netInvestmentIncomeTaxnIIT_usDispSumNIITCarryover",
+        "human_readable": "NIIT Carryover",
+        "description": "Net investment income tax carryover.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_netInvestmentIncomeTaxnIIT_usDispCapAdjNIIT",
+        "human_readable": "Capital Adjustment for NIIT",
+        "description": "Capital adjustment for net investment income tax.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_netInvestmentIncomeTaxnIIT_usDisp1231AdjNIIT",
+        "human_readable": "Section 1231 Adjustment for NIIT",
+        "description": "Section 1231 adjustment for net investment income tax.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_netInvestmentIncomeTaxnIIT_usMedParScoAdjNIIT",
+        "human_readable": "MedParSco Adjustment for NIIT",
+        "description": "MedParSco adjustment for net investment income tax.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalRateInformation_gnLoss28PctAdj",
+        "human_readable": "28% Gain/Loss Adjustment",
+        "description": "Adjustment for gains/losses taxed at 28%.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalRateInformation_gnLos28Pct",
+        "human_readable": "28% Gain/Loss",
+        "description": "Gains or losses taxed at 28%.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalRateInformation_unrecap1250Gain",
+        "human_readable": "Unrecaptured Section 1250 Gain",
+        "description": "Unrecaptured Section 1250 gain.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalOther_ord1231GnLoss",
+        "human_readable": "Ordinary Section 1231 Gain/Loss",
+        "description": "Ordinary gain or loss from Section 1231 property.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalOther_nonRecap12315th",
+        "human_readable": "Nonrecaptured Section 1231 5th Year",
+        "description": "Nonrecaptured Section 1231 gain/loss for the 5th year.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalOther_nonRecap12314th",
+        "human_readable": "Nonrecaptured Section 1231 4th Year",
+        "description": "Nonrecaptured Section 1231 gain/loss for the 4th year.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalOther_nonRecap12313rd",
+        "human_readable": "Nonrecaptured Section 1231 3rd Year",
+        "description": "Nonrecaptured Section 1231 gain/loss for the 3rd year.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalOther_nonRecap12312nd",
+        "human_readable": "Nonrecaptured Section 1231 2nd Year",
+        "description": "Nonrecaptured Section 1231 gain/loss for the 2nd year.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalOther_nonRecap12311st",
+        "human_readable": "Nonrecaptured Section 1231 1st Year",
+        "description": "Nonrecaptured Section 1231 gain/loss for the 1st year.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usDispSum_federalOther_nonrecapCasTheifLoss",
+        "human_readable": "Nonrecaptured Casualty/Theft Loss",
+        "description": "Nonrecaptured casualty or theft loss.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usAMTDispSum_federalCapital_aMTSTCapGnLoss",
+        "human_readable": "AMT Short-Term Capital Gain/Loss",
+        "description": "Alternative Minimum Tax short-term capital gain or loss.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usAMTDispSum_federalCapital_aMTSTPasThrGnLoss",
+        "human_readable": "AMT Short-Term Passthrough Gain/Loss",
+        "description": "Alternative Minimum Tax short-term passthrough gain or loss.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usAMTDispSum_federalCapital_aMTLTCapGnLoss",
+        "human_readable": "AMT Long-Term Capital Gain/Loss",
+        "description": "Alternative Minimum Tax long-term capital gain or loss.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usAMTDispSum_federalOther_aMTOrdGnLoss",
+        "human_readable": "AMT Ordinary Gain/Loss",
+        "description": "Alternative Minimum Tax ordinary gain or loss.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRetPlnDistrSum_usPensInp_nameOfPensPayer",
+        "human_readable": "Pension Payer Name",
+        "description": "The name of the payer issuing the pension or annuity distribution (Form 1099-R).",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usRetPlnDistrSum_usPensInp_pensionTpSp",
+        "human_readable": "Pension Recipient Indicator",
+        "description": "Indicates whether the pension pertains to the taxpayer, spouse, or joint.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRetPlnDistrSum_usPensInp_distCode1",
+        "human_readable": "Distribution Code 1",
+        "description": "Primary distribution code describing the type of retirement distribution (e.g., early, normal, rollover).",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usRetPlnDistrSum_usPensInp_distCode2",
+        "human_readable": "Distribution Code 2",
+        "description": "Secondary distribution code providing additional context for the retirement distribution.",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usRetPlnDistrSum_usPensInp_iraSepSimple",
+        "human_readable": "IRA/SEP/SIMPLE Indicator",
+        "description": "Indicates whether the distribution is from an IRA, SEP, or SIMPLE plan.",
+        "type": "boolean"
+      },
+      {
+        "field": "income_usIncSum_usRetPlnDistrSum_usPensInp_taxable_pensGrDist",
+        "human_readable": "Pension Gross Distribution",
+        "description": "Total gross amount of pension or annuity distributions received.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRetPlnDistrSum_usPensInp_taxable_pensTxblAmt",
+        "human_readable": "Taxable Pension Amount",
+        "description": "The portion of the pension distribution that is taxable.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRetPlnDistrSum_usPensInp_nontaxableDistributions_pensIRAtoCharity",
+        "human_readable": "Qualified Charitable Distribution (QCD)",
+        "description": "Amount of IRA distributions directly transferred to charity (potentially nontaxable).",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRetPlnDistrSum_tottaxIRA",
+        "human_readable": "Total Taxable IRA",
+        "description": "Total amount of IRA distributions subject to income tax.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRetPlnDistrSum_taxablePenDistr",
+        "human_readable": "Taxable Pension Distributions",
+        "description": "Total taxable amount of pension distributions.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRetPlnDistrSum_tottaxablePen",
+        "human_readable": "Total Taxable Pensions",
+        "description": "Aggregate taxable pension amounts reported on the return.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_generalInformation_prtnrshipName",
+        "human_readable": "prtnrshipName",
+        "description": "",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_generalInformation_prtnrshipEIN",
+        "human_readable": "prtnrshipEIN",
+        "description": "",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_generalInformation_pshipTpSpJt",
+        "human_readable": "pshipTpSpJt",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_generalInformation_ownershipPct",
+        "human_readable": "ownershipPct",
+        "description": "",
+        "type": "real"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_generalInformation_pubTrapar",
+        "human_readable": "pubTrapar",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_generalInformation_pshippassiveActivity",
+        "human_readable": "pshippassiveActivity",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_generalInformation_farmPrtnrship",
+        "human_readable": "farmPrtnrship",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_generalInformation_usPshipSubjNIIT",
+        "human_readable": "usPshipSubjNIIT",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_generalInformation_actPrticiptnRE",
+        "human_readable": "actPrticiptnRE",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_generalInformation_realEstPro",
+        "human_readable": "realEstPro",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_generalInformation_pshipSigprticiptnHours",
+        "human_readable": "pshipSigprticiptnHours",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipOrdOthRenIncLos",
+        "human_readable": "pshipOrdOthRenIncLos",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipRenReaEstIncLos",
+        "human_readable": "pshipRenReaEstIncLos",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipOtherRentIncLos",
+        "human_readable": "pshipOtherRentIncLos",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_usPshipTypeOfRental",
+        "human_readable": "usPshipTypeOfRental",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipRoyalties",
+        "human_readable": "pshipRoyalties",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipBankInterest",
+        "human_readable": "pshipBankInterest",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipUSObs",
+        "human_readable": "pshipUSObs",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipMunBondIntTotal",
+        "human_readable": "pshipMunBondIntTotal",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipInStateMunBondInt",
+        "human_readable": "pshipInStateMunBondInt",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipOrdDivs",
+        "human_readable": "pshipOrdDivs",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshpQualDividends",
+        "human_readable": "pshpQualDividends",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipprtfolioSTCapGaiLos",
+        "human_readable": "pshipprtfolioSTCapGaiLos",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshippassSTCapGaiLos",
+        "human_readable": "pshippassSTCapGaiLos",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipprtfolioLTCapGaiLosTot",
+        "human_readable": "pshipprtfolioLTCapGaiLosTot",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshippassLTCapGaiLosTot",
+        "human_readable": "pshippassLTCapGaiLosTot",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipprtfolioLTCapGaiLos28",
+        "human_readable": "pshipprtfolioLTCapGaiLos28",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshippassLTCapGaiLos28",
+        "human_readable": "pshippassLTCapGaiLos28",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipUnrecap1250gn",
+        "human_readable": "pshipUnrecap1250gn",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipUnRacp12501099",
+        "human_readable": "pshipUnRacp12501099",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipGaiLosNonpass1231",
+        "human_readable": "pshipGaiLosNonpass1231",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipGainLospass",
+        "human_readable": "pshipGainLospass",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pship1256GnLs",
+        "human_readable": "pship1256GnLs",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pship4797Ln10",
+        "human_readable": "pship4797Ln10",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pship4797Ln10pass",
+        "human_readable": "pship4797Ln10pass",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipGrnteedpmt",
+        "human_readable": "pshipGrnteedpmt",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipOthNonpsvInc",
+        "human_readable": "pshipOthNonpsvInc",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_pshipOthNonpsvLoss",
+        "human_readable": "pshipOthNonpsvLoss",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_firstPassiveItem",
+        "human_readable": "firstPassiveItem",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_income_secondPassiveItem",
+        "human_readable": "secondPassiveItem",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_stateIncome_stateOrdOthRenIncLos",
+        "human_readable": "stateOrdOthRenIncLos",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductions_realAssetsTotals",
+        "human_readable": "realAssetsTotals",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductions_iTAHomeOffice",
+        "human_readable": "iTAHomeOffice",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductions_fedTravelExpense",
+        "human_readable": "fedTravelExpense",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductions_pshipInvIntExp",
+        "human_readable": "pshipInvIntExp",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductions_pshipInvIntExpToE",
+        "human_readable": "pshipInvIntExpToE",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductions_pshippassiveInterestExp",
+        "human_readable": "pshippassiveInterestExp",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductions_usPShipDedPortInc",
+        "human_readable": "usPShipDedPortInc",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductions_usPShipDedPortIncOth",
+        "human_readable": "usPShipDedPortIncOth",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductions_pshipSec179Ded",
+        "human_readable": "pshipSec179Ded",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductions_pshipSec179Caryovr",
+        "human_readable": "pshipSec179Caryovr",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductions_pshipAMTSec179Caryovr",
+        "human_readable": "pshipAMTSec179Caryovr",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductions_costDepletion",
+        "human_readable": "costDepletion",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductions_costDepletionState",
+        "human_readable": "costDepletionState",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductions_percentageDepletion",
+        "human_readable": "percentageDepletion",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductions_percentageDepletionState",
+        "human_readable": "percentageDepletionState",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductions_unreimbursedExpenses",
+        "human_readable": "unreimbursedExpenses",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductionforQualifiedBusinessIncome_pshippTpInc",
+        "human_readable": "pshippTpInc",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductionforQualifiedBusinessIncome_pshipSpecServBus",
+        "human_readable": "pshipSpecServBus",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductionforQualifiedBusinessIncome_pshipQualBusIncLoss",
+        "human_readable": "pshipQualBusIncLoss",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductionforQualifiedBusinessIncome_pshipWagesAllocToQBI",
+        "human_readable": "pshipWagesAllocToQBI",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductionforQualifiedBusinessIncome_pshipUnadjBasisQualprop",
+        "human_readable": "pshipUnadjBasisQualprop",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductionforQualifiedBusinessIncome_pshipQBIToCoop",
+        "human_readable": "pshipQBIToCoop",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductionforQualifiedBusinessIncome_pshipQBIWageToCoop",
+        "human_readable": "pshipQBIWageToCoop",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductionforQualifiedBusinessIncome_pshipQBIAggBus",
+        "human_readable": "pshipQBIAggBus",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductionforQualifiedBusinessIncome_pshipREITDiv",
+        "human_readable": "pshipREITDiv",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_deductionforQualifiedBusinessIncome_pshipDpAD199A",
+        "human_readable": "pshipDpAD199A",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_stateCredits_pTETstateCredit",
+        "human_readable": "pTETstateCredit",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_stateCredits_pTETcityCredit",
+        "human_readable": "pTETcityCredit",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_selfEmployment_pshipNetEarngSE",
+        "human_readable": "pshipNetEarngSE",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_selfEmployment_pshipGroFarmInc",
+        "human_readable": "pshipGroFarmInc",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_selfEmployment_usPshipGuarNotSubj",
+        "human_readable": "usPshipGuarNotSubj",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_netIncomeLoss_pshipNetIncLoss",
+        "human_readable": "pshipNetIncLoss",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_priorYearUnallowedpassiveLosses_pshipOrdRentLos",
+        "human_readable": "pshipOrdRentLos",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_iTAForceBasis",
+        "human_readable": "iTAForceBasis",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_pshipBasis",
+        "human_readable": "pshipBasis",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_pshipAdditInvested",
+        "human_readable": "pshipAdditInvested",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_pshipDistributions",
+        "human_readable": "pshipDistributions",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_itaPshipDistributionsMoney",
+        "human_readable": "itaPshipDistributionsMoney",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_itaPshipDistributionsProperty",
+        "human_readable": "itaPshipDistributionsProperty",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_itaOtherTaxExemptIncome",
+        "human_readable": "itaOtherTaxExemptIncome",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_pshipBasisOtherAdj",
+        "human_readable": "pshipBasisOtherAdj",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_pshipEndingBasis",
+        "human_readable": "pshipEndingBasis",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_pshipOtherDecreases",
+        "human_readable": "pshipOtherDecreases",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_itaRecaptureBusinessCredits",
+        "human_readable": "itaRecaptureBusinessCredits",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_itaExcessDepletionAdjustment",
+        "human_readable": "itaExcessDepletionAdjustment",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_itaBeginNonRecourse",
+        "human_readable": "itaBeginNonRecourse",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_itaBeginQualifiedNonRecourseFinancing",
+        "human_readable": "itaBeginQualifiedNonRecourseFinancing",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_itaBeginRecourse",
+        "human_readable": "itaBeginRecourse",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_itaEndingNonRecourse",
+        "human_readable": "itaEndingNonRecourse",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_itaEndingQualifiedNonRecourseFinancing",
+        "human_readable": "itaEndingQualifiedNonRecourseFinancing",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_basisLimitation_itaEndingRecourse",
+        "human_readable": "itaEndingRecourse",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usPShipInp_wagesPaid",
+        "human_readable": "wagesPaid",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_generalInformation_scorpName",
+        "human_readable": "scorpName",
+        "description": "",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_generalInformation_ownershipPct",
+        "human_readable": "ownershipPct",
+        "description": "",
+        "type": "real"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_generalInformation_scorpEIN",
+        "human_readable": "scorpEIN",
+        "description": "",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_generalInformation_scorpTpspJt",
+        "human_readable": "scorpTpspJt",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_generalInformation_scorpFarmActivity",
+        "human_readable": "scorpFarmActivity",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_generalInformation_scorpPassiveActivity",
+        "human_readable": "scorpPassiveActivity",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_generalInformation_usScoSubjNIIT",
+        "human_readable": "usScoSubjNIIT",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_generalInformation_scorpActPrticiptnRE",
+        "human_readable": "scorpActPrticiptnRE",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_generalInformation_scorpRealEstPro",
+        "human_readable": "scorpRealEstPro",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_generalInformation_scorpsigPrticiptnHours",
+        "human_readable": "scorpsigPrticiptnHours",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_generalInformation_scorpCompleteDisp",
+        "human_readable": "scorpCompleteDisp",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpOrdOthRenIncLos",
+        "human_readable": "scorpOrdOthRenIncLos",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpRenReaEstIncLos",
+        "human_readable": "scorpRenReaEstIncLos",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpOthRentIncLoss",
+        "human_readable": "scorpOthRentIncLoss",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_usscoTypeProp",
+        "human_readable": "usscoTypeProp",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpRoyalties",
+        "human_readable": "scorpRoyalties",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpBankInt",
+        "human_readable": "scorpBankInt",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_sCorpUsObs",
+        "human_readable": "sCorpUsObs",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpOrdDivs",
+        "human_readable": "scorpOrdDivs",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpQualDivs",
+        "human_readable": "scorpQualDivs",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpMunBondIntTotal",
+        "human_readable": "scorpMunBondIntTotal",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpInstateMunBondInt",
+        "human_readable": "scorpInstateMunBondInt",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpPrtfoliosTCapGaiLos",
+        "human_readable": "scorpPrtfoliosTCapGaiLos",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpPasssTCapGaiLos",
+        "human_readable": "scorpPasssTCapGaiLos",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpPrtfolioLTCapGaiLosTot",
+        "human_readable": "scorpPrtfolioLTCapGaiLosTot",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpPassLTCapGaiLosTot",
+        "human_readable": "scorpPassLTCapGaiLosTot",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpPrtfolioLTCapGaiLos28",
+        "human_readable": "scorpPrtfolioLTCapGaiLos28",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpPassLTCapGaiLos28",
+        "human_readable": "scorpPassLTCapGaiLos28",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpUnrecap1250Gn",
+        "human_readable": "scorpUnrecap1250Gn",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpUnRec1250GN1099",
+        "human_readable": "scorpUnRec1250GN1099",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpGaiLosNonPass1231",
+        "human_readable": "scorpGaiLosNonPass1231",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpGainLosPass",
+        "human_readable": "scorpGainLosPass",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorp1256GnLs",
+        "human_readable": "scorp1256GnLs",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorp4797Ln10",
+        "human_readable": "scorp4797Ln10",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorp4797Ln10Pass",
+        "human_readable": "scorp4797Ln10Pass",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpOthNonPsvInc",
+        "human_readable": "scorpOthNonPsvInc",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpOthNonPsvLoss",
+        "human_readable": "scorpOthNonPsvLoss",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_income_scorpsec951AaIncInclusion",
+        "human_readable": "scorpsec951AaIncInclusion",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_stateIncome_stateOrdOthRenIncLos",
+        "human_readable": "stateOrdOthRenIncLos",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_netInestmentIncomeTaxnIIT_usScoOrdNotSubj",
+        "human_readable": "usScoOrdNotSubj",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductions_realAssetsTotals",
+        "human_readable": "realAssetsTotals",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductions_scorpInvIntExp",
+        "human_readable": "scorpInvIntExp",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductions_scorpInvIntExpToschE",
+        "human_readable": "scorpInvIntExpToschE",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductions_usScorpDedPortInc",
+        "human_readable": "usScorpDedPortInc",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductions_usScorpDedPortIncOth",
+        "human_readable": "usScorpDedPortIncOth",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductions_scorpsec179Caryovr",
+        "human_readable": "scorpsec179Caryovr",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductions_scorpsec179Ded",
+        "human_readable": "scorpsec179Ded",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductions_scorpAMTsec179Caryovr",
+        "human_readable": "scorpAMTsec179Caryovr",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductions_costDepletion",
+        "human_readable": "costDepletion",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductions_costDepletionState",
+        "human_readable": "costDepletionState",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductions_percentageDepletion",
+        "human_readable": "percentageDepletion",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductions_percentageDepletionState",
+        "human_readable": "percentageDepletionState",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductionforQualifiedBusinessIncome_scorpQBIPTP",
+        "human_readable": "scorpQBIPTP",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductionforQualifiedBusinessIncome_scorpspecservBus",
+        "human_readable": "scorpspecservBus",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductionforQualifiedBusinessIncome_scorpQualBusIncLoss",
+        "human_readable": "scorpQualBusIncLoss",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductionforQualifiedBusinessIncome_scorpWagesAllocToQBI",
+        "human_readable": "scorpWagesAllocToQBI",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductionforQualifiedBusinessIncome_scorpUnadjBasisQualProp",
+        "human_readable": "scorpUnadjBasisQualProp",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductionforQualifiedBusinessIncome_scorpQBItoCoop",
+        "human_readable": "scorpQBItoCoop",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductionforQualifiedBusinessIncome_scorpQBIWagesToCoop",
+        "human_readable": "scorpQBIWagesToCoop",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductionforQualifiedBusinessIncome_scorpQBIAggBusNum",
+        "human_readable": "scorpQBIAggBusNum",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductionforQualifiedBusinessIncome_scorpQBIREIT",
+        "human_readable": "scorpQBIREIT",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_deductionforQualifiedBusinessIncome_scorpQBIDPAD",
+        "human_readable": "scorpQBIDPAD",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_stateCredits_pTETstateCredit",
+        "human_readable": "pTETstateCredit",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_stateCredits_pTETcityCredit",
+        "human_readable": "pTETcityCredit",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_selfEmployment_itaSEHealthInsurance",
+        "human_readable": "itaSEHealthInsurance",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_selfEmployment_scorpNetEarngsE",
+        "human_readable": "scorpNetEarngsE",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_selfEmployment_scorpGroFarmInc",
+        "human_readable": "scorpGroFarmInc",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_netIncomeLossOverride_scorpNetIncLoss",
+        "human_readable": "scorpNetIncLoss",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_priorYearUnallowedpassiveLosses_scorpOrdRentLos",
+        "human_readable": "scorpOrdRentLos",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_iTAForceBasis",
+        "human_readable": "iTAForceBasis",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_scorpBasisLossesFirst",
+        "human_readable": "scorpBasisLossesFirst",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_scorpBasisBegBasis",
+        "human_readable": "scorpBasisBegBasis",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_scorpBasisAdditAmtInvested",
+        "human_readable": "scorpBasisAdditAmtInvested",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_scorpBasisOtherAdj",
+        "human_readable": "scorpBasisOtherAdj",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_scorpBasisDistributions",
+        "human_readable": "scorpBasisDistributions",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_scorpBasisOthDecreases",
+        "human_readable": "scorpBasisOthDecreases",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_iTABusinessCreditsReducingBasis",
+        "human_readable": "iTABusinessCreditsReducingBasis",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_scorpBasisDebtPrincipal",
+        "human_readable": "scorpBasisDebtPrincipal",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_scorpBasisDebtType",
+        "human_readable": "scorpBasisDebtType",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_scorpBasisLoanMade",
+        "human_readable": "scorpBasisLoanMade",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_scorpBasisLoanRepayments",
+        "human_readable": "scorpBasisLoanRepayments",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_scorpBasisDebtBasis",
+        "human_readable": "scorpBasisDebtBasis",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_scorpBasisCYAdj",
+        "human_readable": "scorpBasisCYAdj",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_scorpDebtBasisRest",
+        "human_readable": "scorpDebtBasisRest",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_scorpNontaxDebtRepay",
+        "human_readable": "scorpNontaxDebtRepay",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_basisLimitation_scorpDebtBasisForLimit",
+        "human_readable": "scorpDebtBasisForLimit",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usScorpInp_wagesPaid",
+        "human_readable": "wagesPaid",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_generalInformation_estateTrustName",
+        "human_readable": "estateTrustName",
+        "description": "",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_generalInformation_estateTrusteIN",
+        "human_readable": "estateTrusteIN",
+        "description": "",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_generalInformation_trusttpSpJt",
+        "human_readable": "trusttpSpJt",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_generalInformation_trustPassActivity",
+        "human_readable": "trustPassActivity",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_generalInformation_actPrticipateInRE",
+        "human_readable": "actPrticipateInRE",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_income_trustBankInt",
+        "human_readable": "trustBankInt",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_income_trustUSObs",
+        "human_readable": "trustUSObs",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_income_trusttotMuni",
+        "human_readable": "trusttotMuni",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_income_trustInStMuni",
+        "human_readable": "trustInStMuni",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_income_trustOrdDivs",
+        "human_readable": "trustOrdDivs",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_income_trustQualDiv",
+        "human_readable": "trustQualDiv",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_income_trustStCapGaiLos",
+        "human_readable": "trustStCapGaiLos",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_income_trustLtCapGaiLostot",
+        "human_readable": "trustLtCapGaiLostot",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_income_trustLtCapGaiLos28",
+        "human_readable": "trustLtCapGaiLos28",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_income_trustUnrecap1250",
+        "human_readable": "trustUnrecap1250",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_income_trustOthPortNonBusInc",
+        "human_readable": "trustOthPortNonBusInc",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_income_trustNonPassInc",
+        "human_readable": "trustNonPassInc",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_income_trustBusandOtherRentalInc",
+        "human_readable": "trustBusandOtherRentalInc",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_income_trustRentalRealEstate",
+        "human_readable": "trustRentalRealEstate",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_income_usFidPropType",
+        "human_readable": "usFidPropType",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_deductionforQualifiedBusinessIncome_fidQBIPTP",
+        "human_readable": "fidQBIPTP",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_deductionforQualifiedBusinessIncome_fidSpecServBus",
+        "human_readable": "fidSpecServBus",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_deductionforQualifiedBusinessIncome_fidQualBusIncLoss",
+        "human_readable": "fidQualBusIncLoss",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_deductionforQualifiedBusinessIncome_fidWagesAllocToQBI",
+        "human_readable": "fidWagesAllocToQBI",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_deductionforQualifiedBusinessIncome_fidUnadjBasisQualProp",
+        "human_readable": "fidUnadjBasisQualProp",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_deductionforQualifiedBusinessIncome_fidQBIToCoop",
+        "human_readable": "fidQBIToCoop",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_deductionforQualifiedBusinessIncome_fidQBIWagesToCoop",
+        "human_readable": "fidQBIWagesToCoop",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_deductionforQualifiedBusinessIncome_fidQBIAggBusNum",
+        "human_readable": "fidQBIAggBusNum",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_deductionforQualifiedBusinessIncome_fidQBIREIT",
+        "human_readable": "fidQBIREIT",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_deductionforQualifiedBusinessIncome_fidQBIDPAD",
+        "human_readable": "fidQBIDPAD",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_priorYearUnallowedpassiveLosses_trustPrYrLoss",
+        "human_readable": "trustPrYrLoss",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_costDepletion",
+        "human_readable": "costDepletion",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_costDepletionState",
+        "human_readable": "costDepletionState",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_percentageDepletion",
+        "human_readable": "percentageDepletion",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_percentageDepletionState",
+        "human_readable": "percentageDepletionState",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_netIncomeLossOverride_trustIncLoss",
+        "human_readable": "trustIncLoss",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usPassthrSum_usEstateTrustInp_wagesPaid",
+        "human_readable": "wagesPaid",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_generalInformation_rntlPropDesc",
+        "human_readable": "Rental Property Description",
+        "description": "A brief description of the rental or royalty property.",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_generalInformation_txpSpJnt",
+        "human_readable": "Ownership: Taxpayer/Spouse/Joint (Rental/Royalty)",
+        "description": "Indicates whether the activity is owned by the taxpayer, spouse, or jointly.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_generalInformation_nonpassPassRoyal",
+        "human_readable": "Nonpassive/Passive Royalty Indicator",
+        "description": "Identifies whether royalty income is treated as passive or nonpassive.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_generalInformation_didNotActParticipate",
+        "human_readable": "Did Not Actively Participate (Rental)",
+        "description": "Indicates the taxpayer did not actively participate in the rental activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_generalInformation_schEREPro",
+        "human_readable": "Real Estate Professional (Schedule E)",
+        "description": "Indicates whether the taxpayer qualifies as a real estate professional.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_generalInformation_numSigParHours",
+        "human_readable": "Significant Participation Hours (Rental)",
+        "description": "Total hours of significant participation in the rental activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_income_royrec",
+        "human_readable": "Royalty Income Received",
+        "description": "Total royalty income received for the period.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_realAssetsTotals",
+        "human_readable": "Real Assets Totals (Rental/Royalty)",
+        "description": "Aggregate amounts related to real assets used in the activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_dirIntExp",
+        "human_readable": "Direct Interest Expense (Rental/Royalty)",
+        "description": "Interest directly attributable to the rental or royalty activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_dirRealEstateTax",
+        "human_readable": "Direct Real Estate Taxes (Rental)",
+        "description": "Property taxes paid directly associated with the rental property.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_dirPMI",
+        "human_readable": "Direct PMI (Rental)",
+        "description": "Private mortgage insurance premiums directly associated with the rental property.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_dirExpOthExp",
+        "human_readable": "Direct Other Expenses (Rental/Royalty)",
+        "description": "Other direct expenses incurred for the rental or royalty activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_indintExp",
+        "human_readable": "Indirect Interest Expense (Rental/Royalty)",
+        "description": "Interest expense indirectly attributable to the activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_indirRealEstateTaxes",
+        "human_readable": "Indirect Real Estate Taxes (Rental)",
+        "description": "Property taxes indirectly associated with the rental activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_indDirPMi",
+        "human_readable": "Indirect PMI (Rental)",
+        "description": "Private mortgage insurance premiums indirectly associated with the rental activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_indExpOthExp",
+        "human_readable": "Indirect Other Expenses (Rental/Royalty)",
+        "description": "Other indirect expenses attributable to the activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_depreciation",
+        "human_readable": "Depreciation (Rental/Royalty)",
+        "description": "Depreciation expense for assets used in the rental or royalty activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_amortization",
+        "human_readable": "Amortization (Rental/Royalty)",
+        "description": "Amortization of intangible assets related to the rental or royalty activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_sec179Rent",
+        "human_readable": "Section 179 Expense (Rental)",
+        "description": "Section 179 deduction claimed for eligible rental assets.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_wagesDirect",
+        "human_readable": "Direct Wages (Rental/Royalty)",
+        "description": "Wages directly related to managing or operating the rental/royalty activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_wagesIndirect",
+        "human_readable": "Indirect Wages (Rental/Royalty)",
+        "description": "Wages indirectly related to the rental/royalty activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_iTATravelExpense",
+        "human_readable": "Travel Expenses (Rental/Royalty)",
+        "description": "Travel expenses incurred in connection with the activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_sec179RentCO",
+        "human_readable": "Section 179 Carryover (Rental)",
+        "description": "Carryover amount of Section 179 deduction related to rental assets.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_costDepletion",
+        "human_readable": "Cost Depletion (Rental/Royalty)",
+        "description": "Depletion deduction based on cost for mineral, oil, gas, or timber interests.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_stateCostDepletion",
+        "human_readable": "State Cost Depletion (Rental/Royalty)",
+        "description": "State-level cost depletion deduction.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_percentageDepletion",
+        "human_readable": "Percentage Depletion (Rental/Royalty)",
+        "description": "Depletion based on a statutory percentage of gross income from resource properties.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_iTAHomeOffice",
+        "human_readable": "Home Office Deduction (Rental/Royalty)",
+        "description": "Home office expenses allocated to the rental or royalty activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_rentNetIncLoss",
+        "human_readable": "Net Rental Income (Loss)",
+        "description": "Net income or loss from the rental activity after expenses.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_amtDepreciation",
+        "human_readable": "AMT Depreciation (Rental/Royalty)",
+        "description": "Depreciation calculated for Alternative Minimum Tax purposes.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_stateAMTdepreciation",
+        "human_readable": "State AMT Depreciation (Rental/Royalty)",
+        "description": "State Alternative Minimum Tax depreciation adjustments.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_expenses_percentageDepletionState",
+        "human_readable": "State Percentage Depletion (Rental/Royalty)",
+        "description": "State-level percentage depletion deduction for resource properties.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_deductionforQualifiedBusinessIncome_schEQaulBus",
+        "human_readable": "QBI \u2014 Qualified Business (Schedule E)",
+        "description": "Indicates the activity qualifies as a trade or business for Section 199A.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_deductionforQualifiedBusinessIncome_schEsafeHarbor",
+        "human_readable": "QBI \u2014 Safe Harbor Election (Rental)",
+        "description": "Indicates that the safe harbor for rental real estate enterprises is elected for QBI.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_deductionforQualifiedBusinessIncome_schEspecservBus",
+        "human_readable": "QBI \u2014 Specified Service Business (Rental/Royalty)",
+        "description": "Indicates the activity is a specified service trade or business for QBI.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_deductionforQualifiedBusinessIncome_schEQualBusIncLoss",
+        "human_readable": "QBI \u2014 Qualified Business Income (Loss) (Rental/Royalty)",
+        "description": "Qualified business income or loss calculated for QBI under Section 199A.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_deductionforQualifiedBusinessIncome_schEWagesAllocToQBI",
+        "human_readable": "QBI \u2014 W-2 Wages Allocated (Rental/Royalty)",
+        "description": "W-2 wages allocable to the rental/royalty activity for QBI calculations.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_deductionforQualifiedBusinessIncome_itaSSTBpercentage",
+        "human_readable": "QBI \u2014 SSTB Percentage (Rental/Royalty)",
+        "description": "Percentage of income treated as a specified service trade or business for QBI purposes.",
+        "type": "real"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_deductionforQualifiedBusinessIncome_schEAggBusNum",
+        "human_readable": "QBI \u2014 Aggregated Business Number (Rental/Royalty)",
+        "description": "Identifier for an aggregated business grouping under the QBI rules.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_deductionforQualifiedBusinessIncome_schEUnadjBasisQualProp",
+        "human_readable": "QBI \u2014 UBIA of Qualified Property (Rental/Royalty)",
+        "description": "Unadjusted basis of qualified property used in the activity for QBI limits.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usRentRoyInp_priorYearUnallowedpassiveLosses_rentOperating",
+        "human_readable": "Prior Year Unallowed Passive Losses \u2014 Rental Operating",
+        "description": "Operating losses from prior years carried forward for the rental activity.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_generalInformation_prinproduct",
+        "human_readable": "prinproduct",
+        "description": "",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_generalInformation_txSpJtFarm",
+        "human_readable": "txSpJtFarm",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_generalInformation_farmEIN",
+        "human_readable": "farmEIN",
+        "description": "",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_generalInformation_farmRentform4835",
+        "human_readable": "farmRentform4835",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_income_cashMethSaleItemBought",
+        "human_readable": "cashMethSaleItemBought",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_income_cashMethcostItemBought",
+        "human_readable": "cashMethcostItemBought",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_income_cashMethSaleItemRaised",
+        "human_readable": "cashMethSaleItemRaised",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_income_accrMethSaleItemBought",
+        "human_readable": "accrMethSaleItemBought",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_income_begYrInvFarm",
+        "human_readable": "begYrInvFarm",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_income_farmPurchases",
+        "human_readable": "farmPurchases",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_income_endYrInvFarm",
+        "human_readable": "endYrInvFarm",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_income_consResvPmts",
+        "human_readable": "consResvPmts",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_income_cRPnoSE",
+        "human_readable": "cRPnoSE",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_income_ttLCropIns",
+        "human_readable": "ttLCropIns",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_income_tAXCropIns",
+        "human_readable": "tAXCropIns",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_income_deferredCropIns",
+        "human_readable": "deferredCropIns",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_income_othInc",
+        "human_readable": "othInc",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_expenses_realAssetsTotals",
+        "human_readable": "realAssetsTotals",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_expenses_depreciation",
+        "human_readable": "depreciation",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_expenses_amortization",
+        "human_readable": "amortization",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_expenses_farmSec179",
+        "human_readable": "farmSec179",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_expenses_iTAHomeOffice",
+        "human_readable": "iTAHomeOffice",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_expenses_fedTravelExpense",
+        "human_readable": "fedTravelExpense",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_expenses_farmSec179CO",
+        "human_readable": "farmSec179CO",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_expenses_wagesPaid",
+        "human_readable": "wagesPaid",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_expenses_fedStartupCost",
+        "human_readable": "fedStartupCost",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_expenses_amtDepreciation",
+        "human_readable": "amtDepreciation",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_expenses_stateAMTdepreciation",
+        "human_readable": "stateAMTdepreciation",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_expenses_empBenExp",
+        "human_readable": "empBenExp",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_expenses_othFarmExp",
+        "human_readable": "othFarmExp",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_deductionforQualifiedBusinessIncome_schFQBIBus",
+        "human_readable": "schFQBIBus",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_deductionforQualifiedBusinessIncome_schFspecservBus",
+        "human_readable": "schFspecservBus",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_deductionforQualifiedBusinessIncome_sCHFAggBusNum",
+        "human_readable": "sCHFAggBusNum",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_deductionforQualifiedBusinessIncome_schFQualBusIncLoss",
+        "human_readable": "schFQualBusIncLoss",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_deductionforQualifiedBusinessIncome_schFWagesAllocToQBI",
+        "human_readable": "schFWagesAllocToQBI",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_deductionforQualifiedBusinessIncome_schFUnadjBasisOfQualProp",
+        "human_readable": "schFUnadjBasisOfQualProp",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_deductionforQualifiedBusinessIncome_schFQBIDPAD",
+        "human_readable": "schFQBIDPAD",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_deductionforQualifiedBusinessIncome_itaSSTBpercentage",
+        "human_readable": "itaSSTBpercentage",
+        "description": "",
+        "type": "real"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_deductionforQualifiedBusinessIncome_schFQBItoCoop",
+        "human_readable": "schFQBItoCoop",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_deductionforQualifiedBusinessIncome_sCHFWagesToCoop",
+        "human_readable": "sCHFWagesToCoop",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usFarmIncSum_usFarmIncInp_priorYearUnallowedpassiveLosses_farmOper",
+        "human_readable": "farmOper",
+        "description": "",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_tpSttxRef",
+        "human_readable": "Taxpayer State Tax Refund",
+        "description": "State income tax refund received by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_tpAlimonyRecd",
+        "human_readable": "Taxpayer Alimony Received",
+        "description": "Alimony payments received by the taxpayer (per current tax law applicability).",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_tpUnempl",
+        "human_readable": "Taxpayer Unemployment Compensation",
+        "description": "Unemployment benefits received by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_spstTxRef",
+        "human_readable": "Spouse State Tax Refund",
+        "description": "State income tax refund received by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_spAlimonyRecd",
+        "human_readable": "Spouse Alimony Received",
+        "description": "Alimony payments received by the spouse (per current tax law applicability).",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_spUnempl",
+        "human_readable": "Spouse Unemployment Compensation",
+        "description": "Unemployment benefits received by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_tpSSRRRecd",
+        "human_readable": "Taxpayer Social Security/Railroad Benefits",
+        "description": "Social Security or Railroad Retirement benefits received by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_spssRRRecd",
+        "human_readable": "Spouse Social Security/Railroad Benefits",
+        "description": "Social Security or Railroad Retirement benefits received by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_tPSSWithheld",
+        "human_readable": "Taxpayer Social Security Withholding",
+        "description": "Federal income tax withheld from the taxpayer\u2019s Social Security benefits.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_sPssWithheld",
+        "human_readable": "Spouse Social Security Withholding",
+        "description": "Federal income tax withheld from the spouse\u2019s Social Security benefits.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_tpGamblWin",
+        "human_readable": "Taxpayer Gambling Winnings",
+        "description": "Total gambling winnings received by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_tpStLottoWin",
+        "human_readable": "Taxpayer State Lottery Winnings",
+        "description": "Lottery winnings received by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_tpEducDist",
+        "human_readable": "Taxpayer Education Distributions",
+        "description": "Distributions from education accounts (e.g., 529, Coverdell) received by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_tpProptaxRefund",
+        "human_readable": "Taxpayer Property Tax Refund",
+        "description": "Refund of property taxes paid by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_tpOthIncSubSEtax",
+        "human_readable": "Taxpayer Other Income Subject to SE Tax",
+        "description": "Other income items for the taxpayer that are subject to self-employment tax.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_tpOthIncNotSubSEtax",
+        "human_readable": "Taxpayer Other Income Not Subject to SE Tax",
+        "description": "Other income items for the taxpayer that are not subject to self-employment tax.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_txpForeignExclusion",
+        "human_readable": "Foreign Income Exclusion",
+        "description": "Excludable foreign earned income under Section 911 or related provisions.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_spGamblWin",
+        "human_readable": "Spouse Gambling Winnings",
+        "description": "Total gambling winnings received by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_spstLottoWin",
+        "human_readable": "Spouse State Lottery Winnings",
+        "description": "Lottery winnings received by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_spEducDist",
+        "human_readable": "Spouse Education Distributions",
+        "description": "Distributions from education accounts (e.g., 529, Coverdell) received by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_spPropTaxRefund",
+        "human_readable": "Spouse Property Tax Refund",
+        "description": "Refund of property taxes paid by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_spOthIncsubsETax",
+        "human_readable": "Spouse Other Income Subject to SE Tax",
+        "description": "Other income items for the spouse that are subject to self-employment tax.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_miscellaneousIncome_spOthIncNotsubsETax",
+        "human_readable": "Spouse Other Income Not Subject to SE Tax",
+        "description": "Other income items for the spouse that are not subject to self-employment tax.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usMiscIncSum_withholding_tpMiscLcltxWh",
+        "human_readable": "Taxpayer Miscellaneous/Local Tax Withholding",
+        "description": "Local or miscellaneous tax withholding amounts for the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usITANetOperatingLoss_yearOfLoss",
+        "human_readable": "Year of Loss",
+        "description": "Tax year in which the net operating loss was incurred.",
+        "type": "string"
+      },
+      {
+        "field": "income_usIncSum_usITANetOperatingLoss_initialLoss",
+        "human_readable": "Initial Loss Amount (NOL)",
+        "description": "Original net operating loss amount for the specified loss year.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usITANetOperatingLoss_aMTInitialLoss",
+        "human_readable": "AMT Initial Loss (NOL)",
+        "description": "Initial net operating loss amount considered for Alternative Minimum Tax.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usITANetOperatingLoss_section1411InitialLoss",
+        "human_readable": "Section 1411 Initial Loss",
+        "description": "Initial loss amount relevant to Net Investment Income Tax (Section 1411).",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usITANetOperatingLoss_carryoveravailableTP",
+        "human_readable": "NOL Carryover Available (Taxpayer)",
+        "description": "Remaining net operating loss carryover available to the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usITANetOperatingLoss_carryoveravailableSP",
+        "human_readable": "NOL Carryover Available (Spouse)",
+        "description": "Remaining net operating loss carryover available to the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usITANetOperatingLoss_aMTCarryoveravailableTP",
+        "human_readable": "AMT NOL Carryover Available (Taxpayer)",
+        "description": "Remaining Alternative Minimum Tax net operating loss carryover available to the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usITANetOperatingLoss_aMTCarryoveravailableSP",
+        "human_readable": "AMT NOL Carryover Available (Spouse)",
+        "description": "Remaining Alternative Minimum Tax net operating loss carryover available to the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "income_usIncSum_usITANetOperatingLoss_qBIDisallowedExcessBusinessLoss",
+        "human_readable": "QBI Disallowed Excess Business Loss",
+        "description": "Excess business loss disallowed for the QBI calculation and tracked for carryover.",
+        "type": "integer"
+      }
+    ],
+    "adjustments": [
+      {
+        "field": "adjustments_usAdjSum_usEducatorExpenses_tpQualEducatorExp",
+        "human_readable": "Taxpayer Qualified Educator Expenses",
+        "description": "Qualified educator expenses for the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usEducatorExpenses_spQualEducatorExp",
+        "human_readable": "Spouse Qualified Educator Expenses",
+        "description": "Qualified educator expenses for the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usIRADedSum_taxpayerDeduction_tpIRAContr",
+        "human_readable": "Taxpayer IRA Contribution",
+        "description": "IRA contribution made by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usIRADedSum_taxpayerDeduction_tpIRAPensPlan",
+        "human_readable": "Taxpayer IRA Pension Plan",
+        "description": "Pension plan status for taxpayer's IRA.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usIRADedSum_spouseDeduction_spIRAContr",
+        "human_readable": "Spouse IRA Contribution",
+        "description": "IRA contribution made by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usIRADedSum_spouseDeduction_spIRAPensPlan",
+        "human_readable": "Spouse IRA Pension Plan",
+        "description": "Pension plan status for spouse's IRA.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usStuLoanIntSum_tpQualStuLoanInt",
+        "human_readable": "Taxpayer Qualified Student Loan Interest",
+        "description": "Qualified student loan interest paid by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usStuLoanIntSum_spQualstuLoanInt",
+        "human_readable": "Spouse Qualified Student Loan Interest",
+        "description": "Qualified student loan interest paid by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncInp_rothIrATaxpayer_tpRothIRAContr",
+        "human_readable": "Taxpayer Roth IRA Contribution",
+        "description": "Roth IRA contribution made by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncInp_rothIrASpouse_spRothIRAContr",
+        "human_readable": "Spouse Roth IRA Contribution",
+        "description": "Roth IRA contribution made by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncInp_sepsimpleQualifiedPlansTaxpayer_tpProfShrContr",
+        "human_readable": "Taxpayer Profit Sharing Contribution",
+        "description": "Profit sharing contribution made by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncInp_sepsimpleQualifiedPlansTaxpayer_tpMonPurContr",
+        "human_readable": "Taxpayer Money Purchase Contribution",
+        "description": "Money purchase pension plan contribution made by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncInp_sepsimpleQualifiedPlansTaxpayer_tpDefBenContr",
+        "human_readable": "Taxpayer Defined Benefit Contribution",
+        "description": "Defined benefit plan contribution made by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncInp_sepsimpleQualifiedPlansTaxpayer_tpSEPContr",
+        "human_readable": "Taxpayer SEP Contribution",
+        "description": "Simplified Employee Pension (SEP) contribution made by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncInp_sepsimpleQualifiedPlansTaxpayer_tpSEElectDef",
+        "human_readable": "Taxpayer SE Elective Deferral",
+        "description": "Self-employed elective deferral made by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncInp_sepsimpleQualifiedPlansTaxpayer_tpSEDesigRoth",
+        "human_readable": "Taxpayer SE Designated Roth Contribution",
+        "description": "Self-employed designated Roth contribution made by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncInp_sepsimpleQualifiedPlansTaxpayer_tpSIMPLEContr",
+        "human_readable": "Taxpayer SIMPLE IRA Contribution",
+        "description": "SIMPLE IRA contribution made by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncInp_sepsimpleQualifiedPlansspouse_spProfshrContr",
+        "human_readable": "Spouse Profit Sharing Contribution",
+        "description": "Profit sharing contribution made by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncInp_sepsimpleQualifiedPlansspouse_spMonPurContr",
+        "human_readable": "Spouse Money Purchase Contribution",
+        "description": "Money purchase pension plan contribution made by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncInp_sepsimpleQualifiedPlansspouse_spDefBenContr",
+        "human_readable": "Spouse Defined Benefit Contribution",
+        "description": "Defined benefit plan contribution made by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncInp_sepsimpleQualifiedPlansspouse_spsEPContr",
+        "human_readable": "Spouse SEP Contribution",
+        "description": "Simplified Employee Pension (SEP) contribution made by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncInp_sepsimpleQualifiedPlansspouse_spsEElectDef",
+        "human_readable": "Spouse SE Elective Deferral",
+        "description": "Self-employed elective deferral made by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncInp_sepsimpleQualifiedPlansspouse_spsEDesigRoth",
+        "human_readable": "Spouse SE Designated Roth Contribution",
+        "description": "Self-employed designated Roth contribution made by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncInp_sepsimpleQualifiedPlansspouse_spsIMPLEContr",
+        "human_readable": "Spouse SIMPLE IRA Contribution",
+        "description": "SIMPLE IRA contribution made by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncOthInp_tpPremiumNoLtC",
+        "human_readable": "Taxpayer Premiums (Non-Long-Term Care)",
+        "description": "Premiums paid by the taxpayer (not for long-term care).",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncOthInp_tpLtCarePremium",
+        "human_readable": "Taxpayer Long-Term Care Premium",
+        "description": "Long-term care insurance premium paid by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncOthInp_tpLtCarePremiumSP",
+        "human_readable": "Spouse Long-Term Care Premium",
+        "description": "Long-term care insurance premium paid by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncOthInp_tp2106Deduction",
+        "human_readable": "Taxpayer Form 2106 Deduction",
+        "description": "Deduction for employee business expenses (Form 2106) for the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncOthInp_tpAlimonyPaid",
+        "human_readable": "Taxpayer Alimony Paid",
+        "description": "Alimony paid by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncOthInp_tpOthIncAdj",
+        "human_readable": "Taxpayer Other Income Adjustment",
+        "description": "Other income adjustments for the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncOthInp_spPremiumNoLTC",
+        "human_readable": "Spouse Premiums (Non-Long-Term Care)",
+        "description": "Premiums paid by the spouse (not for long-term care).",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncOthInp_sp2106Deduction",
+        "human_readable": "Spouse Form 2106 Deduction",
+        "description": "Deduction for employee business expenses (Form 2106) for the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncOthInp_spAlimonyPaid",
+        "human_readable": "Spouse Alimony Paid",
+        "description": "Alimony paid by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncOthInp_spOthIncAdj",
+        "human_readable": "Spouse Other Income Adjustment",
+        "description": "Other income adjustments for the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncOthInp_hsaContributionTaxpayer",
+        "human_readable": "Taxpayer HSA Contribution",
+        "description": "Health Savings Account (HSA) contribution made by the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncOthInp_hsaContributionSpouse",
+        "human_readable": "Spouse HSA Contribution",
+        "description": "Health Savings Account (HSA) contribution made by the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncOthInp_iTAHSATypeOfCoverageTaxpayer",
+        "human_readable": "Taxpayer HSA Type of Coverage",
+        "description": "Type of HSA coverage for the taxpayer.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjIncOthInp_iTAHSATypeOfCoverageSpouse",
+        "human_readable": "Spouse HSA Type of Coverage",
+        "description": "Type of HSA coverage for the spouse.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_usAdjSum2106",
+        "human_readable": "Adjustment Summary (Form 2106)",
+        "description": "Summary of adjustments related to Form 2106.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_seRetPlaDed",
+        "human_readable": "Self-Employed Retirement Plan Deduction",
+        "description": "Deduction for contributions to a self-employed retirement plan.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_seHlthIns",
+        "human_readable": "Self-Employed Health Insurance Deduction",
+        "description": "Deduction for self-employed health insurance premiums.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_stuLoaInt",
+        "human_readable": "Student Loan Interest Deduction",
+        "description": "Deduction for student loan interest paid.",
+        "type": "integer"
+      },
+      {
+        "field": "adjustments_usAdjSum_othAdj",
+        "human_readable": "Other Adjustments",
+        "description": "Other adjustments to income.",
+        "type": "integer"
+      }
+    ],
+    "deductionsExemptions": [
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_usSchAContribInp_currentYearcontributions_cash50Lim",
+        "human_readable": "Cash Contributions (50% Limit)",
+        "description": "Cash charitable contributions subject to the 50% AGI limit.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_usSchAContribInp_currentYearcontributions_noncash50PctLim",
+        "human_readable": "Noncash Contributions (50% Limit)",
+        "description": "Noncash charitable contributions subject to the 50% AGI limit.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_usSchAContribInp_currentYearcontributions_cash30Lim",
+        "human_readable": "Cash Contributions (30% Limit)",
+        "description": "Cash charitable contributions subject to the 30% AGI limit.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_usSchAContribInp_currentYearcontributions_noncash30PctLim",
+        "human_readable": "Noncash Contributions (30% Limit)",
+        "description": "Noncash charitable contributions subject to the 30% AGI limit.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_usSchAContribInp_currentYearcontributions_nonCash30CapGn",
+        "human_readable": "Noncash Capital Gain Property (30% Limit)",
+        "description": "Noncash capital gain property contributions subject to the 30% AGI limit.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_usSchAContribInp_currentYearcontributions_nonCash20CapGn",
+        "human_readable": "Noncash Capital Gain Property (20% Limit)",
+        "description": "Noncash capital gain property contributions subject to the 20% AGI limit.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_usSchAContribInp_currentYearcontributions_nonCash50Conservation",
+        "human_readable": "Noncash Conservation Contributions (50% Limit)",
+        "description": "Noncash conservation contributions subject to the 50% AGI limit.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_usSchAContribInp_currentYearcontributions_nonCash100Conservation",
+        "human_readable": "Noncash Conservation Contributions (100% Limit)",
+        "description": "Noncash conservation contributions subject to the 100% AGI limit.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_usSchAContribInp_electedContributions_contcashStdDed",
+        "human_readable": "Cash Contributions (Standard Deduction)",
+        "description": "Cash charitable contributions included in the standard deduction.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_usSchAContribInp_electedContributions_conForDisaster",
+        "human_readable": "Contributions for Disaster Relief",
+        "description": "Charitable contributions for disaster relief.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_usSchAContribInp_electedContributions_conForDisasterElected",
+        "human_readable": "Elected Disaster Relief Contributions",
+        "description": "Elected charitable contributions for disaster relief.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_generalInformation_optItemSD",
+        "human_readable": "Optional Itemized Deduction",
+        "description": "Optional itemized deduction selection.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_medical_medExp",
+        "human_readable": "Medical Expenses",
+        "description": "Total medical expenses paid.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_medical_schAMedPrems",
+        "human_readable": "Medical Premiums (Schedule A)",
+        "description": "Medical insurance premiums reported on Schedule A.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_taxes_sALTWithheldEs",
+        "human_readable": "SALT Withheld/Estimated",
+        "description": "State and local taxes withheld or estimated.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_taxes_sALTPaidOthstates",
+        "human_readable": "SALT Paid to Other States",
+        "description": "State and local taxes paid to other states.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_taxes_realEstTax",
+        "human_readable": "Real Estate Tax",
+        "description": "Real estate taxes paid.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_taxes_usItemDedTaxesInv",
+        "human_readable": "Investment Taxes (Itemized Deduction)",
+        "description": "Investment taxes included in itemized deductions.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_taxes_usItemDedSumOthTax",
+        "human_readable": "Other Taxes (Itemized Deduction)",
+        "description": "Other taxes included in itemized deductions.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_interest_mtgeIntPts",
+        "human_readable": "Mortgage Interest and Points",
+        "description": "Mortgage interest and points paid.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_interest_amortizationOfDeductiblePoints",
+        "human_readable": "Amortization of Deductible Points",
+        "description": "Amortization of points paid for a mortgage.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_interest_mortgageInterestFromOtherSchedules",
+        "human_readable": "Mortgage Interest from Other Schedules",
+        "description": "Mortgage interest from other schedules included in itemized deductions.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_casualtyandTheftLosses_csltyTheft",
+        "human_readable": "Casualty and Theft Loss",
+        "description": "Qualified casualty and theft loss amount claimed as an itemized deduction.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usItemDedInp_otherMiscellaneousDeduction_othNotSubj2Lim",
+        "human_readable": "Other Miscellaneous Deductions (Not Subject to 2%)",
+        "description": "Miscellaneous deductions not subject to the 2% AGI floor.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usITANonCashContribution_nameIOfDonee",
+        "human_readable": "Name of Donee",
+        "description": "The legal name of the charitable organization receiving the noncash donation.",
+        "type": "string"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usITANonCashContribution_nonCashContTpSlJt",
+        "human_readable": "Ownership: Taxpayer/Spouse/Joint (Noncash)",
+        "description": "Indicates whether the noncash contribution is attributed to the taxpayer, spouse, or jointly.",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usDeductSum_usITANonCashContribution_typePropDonated",
+        "human_readable": "Type of Property Donated",
+        "description": "Specifies the type of noncash property donated (e.g., clothing, household items, securities).",
+        "type": "integer"
+      },
+      {
+        "field": "deductionsExemptions_usTxblInc_usTIExmptn",
+        "human_readable": "Exemptions (Taxable Income)",
+        "description": "Exemptions included in taxable income.",
+        "type": "integer"
+      }
+    ],
+    "tax": [
+      {
+        "field": "tax_usTaxSum_usTxSum8615",
+        "human_readable": "Tax on Child\u2019s Unearned Income (Form 8615)",
+        "description": "Tax computed on a child\u2019s unearned income as required by Form 8615.",
+        "type": "integer"
+      },
+      {
+        "field": "tax_usTaxSum_usTxSumLumpSum",
+        "human_readable": "Lump-Sum Tax",
+        "description": "Tax amount related to lump-sum distributions such as Social Security or retirement benefits.",
+        "type": "integer"
+      },
+      {
+        "field": "tax_usTaxSum_usTxSumOtherTax",
+        "human_readable": "Other Federal Taxes",
+        "description": "Miscellaneous federal tax amounts not categorized elsewhere.",
+        "type": "integer"
+      },
+      {
+        "field": "tax_usTaxSum_taxSumAltMintax",
+        "human_readable": "Alternative Minimum Tax Summary",
+        "description": "Total Alternative Minimum Tax (AMT) computed for the return.",
+        "type": "integer"
+      },
+      {
+        "field": "tax_usTaxSum_usOthTaxRepaySubsidy",
+        "human_readable": "Other Taxes \u2014 Premium Tax Credit Repayment",
+        "description": "Repayment amount for excess advance payments of the Premium Tax Credit.",
+        "type": "integer"
+      }
+    ],
+    "credits": [
+      {
+        "field": "credits_usCrSum_usChildCareCrInp_depCareExp",
+        "human_readable": "Dependent Care Expenses",
+        "description": "Qualified expenses paid for the care of dependents to enable work or job search.",
+        "type": "integer"
+      },
+      {
+        "field": "credits_usCrSum_usChildCareCrInp_childDepcarecr",
+        "human_readable": "Child and Dependent Care Credit",
+        "description": "Calculated credit amount for dependent care expenses.",
+        "type": "integer"
+      },
+      {
+        "field": "credits_usCrSum_usQualAdoptExpSum_qATotAdopCrAllow",
+        "human_readable": "Qualified Adoption Expenses Credit Allowed",
+        "description": "Credit amount allowed for qualified adoption expenses.",
+        "type": "integer"
+      },
+      {
+        "field": "credits_usCrSum_usFrgnTaxCr",
+        "human_readable": "Foreign Tax Credit",
+        "description": "Credit for foreign taxes paid or accrued on foreign-source income.",
+        "type": "integer"
+      },
+      {
+        "field": "credits_usCrSum_usEdCr",
+        "human_readable": "Education Credits",
+        "description": "Total of education-related credits (e.g., American Opportunity, Lifetime Learning).",
+        "type": "integer"
+      },
+      {
+        "field": "credits_usCrSum_usAdoptionCr",
+        "human_readable": "Adoption Credit",
+        "description": "Credit amount for qualified adoption expenses.",
+        "type": "integer"
+      },
+      {
+        "field": "credits_usCrSum_usDCandMortgageCr",
+        "human_readable": "District of Columbia and Mortgage Credit",
+        "description": "Credits including DC first-time homebuyer and mortgage interest credit, where applicable.",
+        "type": "integer"
+      },
+      {
+        "field": "credits_usCrSum_usOthCr",
+        "human_readable": "Other Credits",
+        "description": "Miscellaneous nonrefundable credits not categorized elsewhere.",
+        "type": "integer"
+      },
+      {
+        "field": "credits_usCrSum_minTaxCr",
+        "human_readable": "Minimum Tax Credit",
+        "description": "Credit for prior year minimum tax that offsets current tax liability.",
+        "type": "integer"
+      },
+      {
+        "field": "credits_usCrSum_iTAResidentialEnergyCredit",
+        "human_readable": "Residential Energy Credits",
+        "description": "Credit for qualified energy-efficient home improvements or property.",
+        "type": "integer"
+      }
+    ],
+    "payments": [
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_prYrOverpmtAppl",
+        "human_readable": "Prior Year Overpayment Applied",
+        "description": "Amount of last year\u2019s overpayment applied to current year estimated tax.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_vou1AmtPd",
+        "human_readable": "Estimated Payment \u2014 Voucher 1 Amount",
+        "description": "Amount paid with the first estimated tax voucher.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_vou1Status",
+        "human_readable": "Estimated Payment \u2014 Voucher 1 Status",
+        "description": "Status indicator for the first estimated tax payment (e.g., paid, pending).",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_vou2AmtPd",
+        "human_readable": "Estimated Payment \u2014 Voucher 2 Amount",
+        "description": "Amount paid with the second estimated tax voucher.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_vou2Status",
+        "human_readable": "Estimated Payment \u2014 Voucher 2 Status",
+        "description": "Status indicator for the second estimated tax payment.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_vou3AmtPd",
+        "human_readable": "Estimated Payment \u2014 Voucher 3 Amount",
+        "description": "Amount paid with the third estimated tax voucher.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_vou3Status",
+        "human_readable": "Estimated Payment \u2014 Voucher 3 Status",
+        "description": "Status indicator for the third estimated tax payment.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_vou4Status",
+        "human_readable": "Estimated Payment \u2014 Voucher 4 Status",
+        "description": "Status indicator for the fourth estimated tax payment.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_vou4AmtPd",
+        "human_readable": "Estimated Payment \u2014 Voucher 4 Amount",
+        "description": "Amount paid with the fourth estimated tax voucher.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_amtPaidWithExt",
+        "human_readable": "Amount Paid with Extension",
+        "description": "Payment remitted when filing an extension of time to file.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_addPmt1",
+        "human_readable": "Additional Payment 1",
+        "description": "Additional estimated or miscellaneous payment recorded for the year.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_addPmt2",
+        "human_readable": "Additional Payment 2",
+        "description": "Second additional estimated or miscellaneous payment.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_addPmt3",
+        "human_readable": "Additional Payment 3",
+        "description": "Third additional estimated or miscellaneous payment.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_addPmt4",
+        "human_readable": "Additional Payment 4",
+        "description": "Fourth additional estimated or miscellaneous payment.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_priorYearReturnESVoucher1",
+        "human_readable": "Prior-Year ES Voucher 1",
+        "description": "Amount recorded for prior-year return\u2019s first estimated tax voucher.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_priorYearReturnESVoucher2",
+        "human_readable": "Prior-Year ES Voucher 2",
+        "description": "Amount recorded for prior-year return\u2019s second estimated tax voucher.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_priorYearReturnESVoucher3",
+        "human_readable": "Prior-Year ES Voucher 3",
+        "description": "Amount recorded for prior-year return\u2019s third estimated tax voucher.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_priorYearReturnESVoucher4",
+        "human_readable": "Prior-Year ES Voucher 4",
+        "description": "Amount recorded for prior-year return\u2019s fourth estimated tax voucher.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_priorYearReturnResidentStateESVoucher1",
+        "human_readable": "Prior-Year Resident State ES Voucher 1",
+        "description": "Amount for the first resident state estimated tax voucher from prior year.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_priorYearReturnResidentStateESVoucher2",
+        "human_readable": "Prior-Year Resident State ES Voucher 2",
+        "description": "Amount for the second resident state estimated tax voucher from prior year.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_priorYearReturnResidentStateESVoucher3",
+        "human_readable": "Prior-Year Resident State ES Voucher 3",
+        "description": "Amount for the third resident state estimated tax voucher from prior year.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_priorYearReturnResidentStateESVoucher4",
+        "human_readable": "Prior-Year Resident State ES Voucher 4",
+        "description": "Amount for the fourth resident state estimated tax voucher from prior year.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_iTAVoucher1DatePaid",
+        "human_readable": "Voucher 1 Date Paid",
+        "description": "Payment date for the first estimated tax voucher.",
+        "type": "string"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_iTAVoucher2DatePaid",
+        "human_readable": "Voucher 2 Date Paid",
+        "description": "Payment date for the second estimated tax voucher.",
+        "type": "string"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_iTAVoucher3DatePaid",
+        "human_readable": "Voucher 3 Date Paid",
+        "description": "Payment date for the third estimated tax voucher.",
+        "type": "string"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_iTAVoucher4DatePaid",
+        "human_readable": "Voucher 4 Date Paid",
+        "description": "Payment date for the fourth estimated tax voucher.",
+        "type": "string"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_iTAOtherVoucher1DatePaid",
+        "human_readable": "Other Voucher 1 Date Paid",
+        "description": "Payment date for another first voucher applied outside standard ES vouchers.",
+        "type": "string"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_iTAOtherVoucher2DatePaid",
+        "human_readable": "Other Voucher 2 Date Paid",
+        "description": "Payment date for another second voucher applied outside standard ES vouchers.",
+        "type": "string"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_iTAOtherVoucher3DatePaid",
+        "human_readable": "Other Voucher 3 Date Paid",
+        "description": "Payment date for another third voucher applied outside standard ES vouchers.",
+        "type": "string"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_iTAOtherVoucher4DatePaid",
+        "human_readable": "Other Voucher 4 Date Paid",
+        "description": "Payment date for another fourth voucher applied outside standard ES vouchers.",
+        "type": "string"
+      },
+      {
+        "field": "payments_usPmtSum_usEstPmtInp_iTAFedWHAdj",
+        "human_readable": "Federal Withholding Adjustment",
+        "description": "Adjustments to federal tax withholding totals.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_estTaxPmt",
+        "human_readable": "Estimated Tax Payments",
+        "description": "Total estimated tax payments made for the year.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_earnIncCr",
+        "human_readable": "Earned Income Credit (EIC)",
+        "description": "Refundable credit for low-to-moderate income workers and families.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_addChildTxCr",
+        "human_readable": "Additional Child Tax Credit",
+        "description": "Refundable portion of the Child Tax Credit.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_aCaRefundableCredit",
+        "human_readable": "Premium Tax Credit (Refundable Portion)",
+        "description": "Refundable portion of the health insurance Premium Tax Credit.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_excSocSecRRTTax",
+        "human_readable": "Excess Social Security/Railroad Tax",
+        "description": "Refundable credit for excess Social Security or Railroad Retirement tax withheld.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_othPay",
+        "human_readable": "Other Payments",
+        "description": "Other payments and refundable credits applied to the return.",
+        "type": "integer"
+      },
+      {
+        "field": "payments_usPmtSum_itaOtherPayments",
+        "human_readable": "Other Payments (Additional)",
+        "description": "Additional other payments not categorized elsewhere.",
+        "type": "integer"
+      }
+    ],
+    "constants": [
+      {
+        "field": "constants_preparer_id",
+        "human_readable": "Preparer ID",
+        "description": "Identifier for the return preparer or preparer record.",
+        "type": "string"
+      }
+    ]
+  }
+}

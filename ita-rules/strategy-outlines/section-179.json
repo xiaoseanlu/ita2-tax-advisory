@@ -1,0 +1,620 @@
+{
+  "strategy": "Section 179",
+  "content_repo": "/Users/rraman2/Documents/GitHub/tax-strategy-content",
+  "summary": {
+    "calculated": 28,
+    "user-data": 10
+  },
+  "include_tree": [
+    {
+      "rel_path": "strategies/Section 179/section179.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/Section 179/section179.spe",
+      "depth": 0,
+      "included_from": null,
+      "is_entry": true
+    },
+    {
+      "rel_path": "strategies/common/compute_SETaxDeduction.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/compute_SETaxDeduction.spe",
+      "depth": 1,
+      "included_from": "strategies/Section 179/section179.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/create_deprec_asset.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/create_deprec_asset.spe",
+      "depth": 1,
+      "included_from": "strategies/Section 179/section179.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/rate_calculations.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/rate_calculations.spe",
+      "depth": 1,
+      "included_from": "strategies/Section 179/section179.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/rate_global.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/rate_global.spe",
+      "depth": 1,
+      "included_from": "strategies/Section 179/section179.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/readStrategyChangeFromModel.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/readStrategyChangeFromModel.spe",
+      "depth": 1,
+      "included_from": "strategies/Section 179/section179.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/setup_business_activities.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/setup_business_activities.spe",
+      "depth": 1,
+      "included_from": "strategies/Section 179/section179.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/setup_global.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/setup_global.spe",
+      "depth": 1,
+      "included_from": "strategies/Section 179/section179.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/updateModel.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/updateModel.spe",
+      "depth": 1,
+      "included_from": "strategies/Section 179/section179.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/updateModelTotalSEIncome.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/updateModelTotalSEIncome.spe",
+      "depth": 1,
+      "included_from": "strategies/Section 179/section179.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/updateModelTotalSEIncome_removed.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/updateModelTotalSEIncome_removed.spe",
+      "depth": 1,
+      "included_from": "strategies/Section 179/section179.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/updateModel_removed.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/updateModel_removed.spe",
+      "depth": 1,
+      "included_from": "strategies/Section 179/section179.spe",
+      "is_entry": false
+    }
+  ],
+  "missing_includes": [],
+  "fields": [
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.addtlMedTaxWithheldThreshold",
+      "leaf": "addtlMedTaxWithheldThreshold",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Section 179/section179.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateAddtlMedicare",
+      "leaf": "marginalRateAddtlMedicare",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Section 179/section179.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateFICA",
+      "leaf": "marginalRateFICA",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateMedicare",
+      "leaf": "marginalRateMedicare",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Section 179/section179.spe",
+      "also_defined_in": [
+        "strategies/common/compute_SETaxDeduction.spe",
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateSelfEmployed",
+      "leaf": "marginalRateSelfEmployed",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateSocialSecurity",
+      "leaf": "marginalRateSocialSecurity",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Section 179/section179.spe",
+      "also_defined_in": [
+        "strategies/common/compute_SETaxDeduction.spe",
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.maxSSwage",
+      "leaf": "maxSSwage",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/compute_SETaxDeduction.spe",
+      "also_defined_in": [
+        "strategies/common/setup_business_activities.spe",
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.netEarningRatio",
+      "leaf": "netEarningRatio",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection.allSEIncome",
+      "leaf": "allSEIncome",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/compute_SETaxDeduction.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection.incomeTaxedBySocSec",
+      "leaf": "incomeTaxedBySocSec",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/compute_SETaxDeduction.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection.strategyChangeSE",
+      "leaf": "strategyChangeSE",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Section 179/section179.spe",
+      "also_defined_in": [
+        "strategies/common/updateModelTotalSEIncome.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.bizLimit179",
+      "leaf": "bizLimit179",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": false,
+      "defined_in": "strategies/Section 179/section179.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.marginalNYC",
+      "leaf": "marginalNYC",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_calculations.spe",
+      "also_defined_in": [
+        "strategies/common/rate_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.marginalRate",
+      "leaf": "marginalRate",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.maximumAmount",
+      "leaf": "maximumAmount",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": false,
+      "defined_in": "strategies/Section 179/section179.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.stateMarginalRate",
+      "leaf": "stateMarginalRate",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.stateMax179Amount",
+      "leaf": "stateMax179Amount",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": false,
+      "defined_in": "strategies/Section 179/section179.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.stateThreshold179Amount",
+      "leaf": "stateThreshold179Amount",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": false,
+      "defined_in": "strategies/Section 179/section179.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareRRTA",
+      "leaf": "subjectMedicareRRTA",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareSE",
+      "leaf": "subjectMedicareSE",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Section 179/section179.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareWages",
+      "leaf": "subjectMedicareWages",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Section 179/section179.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.thresholdAmount",
+      "leaf": "thresholdAmount",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": false,
+      "defined_in": "strategies/Section 179/section179.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.allSEIncome",
+      "leaf": "allSEIncome",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/compute_SETaxDeduction.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.incomeTaxedBySocSec",
+      "leaf": "incomeTaxedBySocSec",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/compute_SETaxDeduction.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.strategyChangeSE",
+      "leaf": "strategyChangeSE",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Section 179/section179.spe",
+      "also_defined_in": [
+        "strategies/common/updateModelTotalSEIncome.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.income.usIncSum.usBusIncSum.usBusIncInp",
+      "leaf": "usBusIncInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Sole-prop books",
+      "likely_source_note": "Schedule C line detail."
+    },
+    {
+      "path": "return.income.usIncSum.usFarmIncSum.usFarmIncInp",
+      "leaf": "usFarmIncInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Farm records",
+      "likely_source_note": "Schedule F detail."
+    },
+    {
+      "path": "return.income.usIncSum.usPassthrSum.usEstateTrustInp",
+      "leaf": "usEstateTrustInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    },
+    {
+      "path": "return.income.usIncSum.usPassthrSum.usPShipInp",
+      "leaf": "usPShipInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Schedule K-1 (1065)",
+      "likely_source_note": "Partnership K-1 detail."
+    },
+    {
+      "path": "return.income.usIncSum.usPassthrSum.usPShipInp.selfEmployment",
+      "leaf": "selfEmployment",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Schedule K-1 (1065)",
+      "likely_source_note": "Partnership K-1 detail."
+    },
+    {
+      "path": "return.income.usIncSum.usPassthrSum.usScorpInp",
+      "leaf": "usScorpInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Schedule K-1 (1120-S)",
+      "likely_source_note": "S-corp K-1 detail."
+    },
+    {
+      "path": "return.income.usIncSum.usRentRoyInp",
+      "leaf": "usRentRoyInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Rental records",
+      "likely_source_note": "Schedule E per-property detail."
+    },
+    {
+      "path": "return.summary.usITADepreciationScreen",
+      "leaf": "usITADepreciationScreen",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/create_deprec_asset.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.filingStatus",
+      "leaf": "filingStatus",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "Taxpayer selection (single/MFJ/MFS/HOH/QW).",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.primaryResidentState",
+      "leaf": "primaryResidentState",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Section 179/section179.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "Entered/selected home state.",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    }
+  ]
+}

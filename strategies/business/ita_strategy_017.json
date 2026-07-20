@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_017",
+  "category": "business",
+  "strategy_type": "Income Shifting",
+  "title": "Like-Kind Exchange (IRC §1031) for Real Property",
+  "implementation_effort_score": 1,
+  "tax_savings_score": 6,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must exchange qualifying real property held for business or investment purposes for like-kind real property to defer capital gain recognition and preserve investment basis through qualified intermediary facilitated exchange",
+    "criteria": [
+      "After TCJA, §1031 exchanges limited to real property only; personal property no longer qualifies",
+      "Both relinquished and replacement property must be held for productive use in business or for investment",
+      "Properties must be like-kind - generally, all U.S. real estate considered like-kind regardless of type or quality",
+      "Must use qualified intermediary to facilitate exchange; cannot take direct receipt of proceeds",
+      "45-day identification period to identify potential replacement properties (strict deadline, no extensions)",
+      "180-day exchange period to complete acquisition of replacement property from identification date",
+      "Can identify up to 3 properties regardless of value, OR unlimited properties if total value ≤200% relinquished property",
+      "Boot (cash or non-like-kind property) received triggers recognized gain to extent of boot received"
+    ]
+  },
+  "limitations": {
+    "section_1031_requirements": {
+      "gain_deferral": "Defers capital gain and depreciation recapture; does not eliminate tax but postpones recognition",
+      "basis_carryover": "Replacement property takes carryover basis adjusted for gain recognized and boot received",
+      "depreciation_preservation": "Can continue depreciation schedule on replacement property based on carryover basis",
+      "real_property_only": "Post-TCJA limited to real property; no longer available for equipment, vehicles, personal property",
+      "qualified_intermediary": "Must use QI to avoid constructive receipt; direct exchange or receipt of proceeds disqualifies",
+      "strict_deadlines": "45-day identification and 180-day completion deadlines strictly enforced; no extensions allowed"
+    },
+    "restrictions": [
+      "Primary residence, property held primarily for sale, and inventory do not qualify for §1031 treatment",
+      "Related party exchanges subject to 2-year holding period to prevent basis step-up planning abuse",
+      "Cannot exchange U.S. real property for foreign real property; must be like-kind and same jurisdiction",
+      "Debt structure must be maintained or increased; debt reduction treated as boot triggering gain recognition",
+      "Reverse exchanges (acquire replacement before selling relinquished) require Exchange Accommodation Titleholder",
+      "Improvement/construction exchanges complex; must complete improvements within 180-day period",
+      "State tax treatment varies; some states don't recognize §1031 exchanges requiring state gain recognition",
+      "Estate planning consideration: stepped-up basis at death eliminates deferred gain creating permanent exclusion"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

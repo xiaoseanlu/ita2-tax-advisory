@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_003",
+  "category": "entity",
+  "strategy_type": "Entity Selection",
+  "title": "S Corporation Reasonable Compensation Analysis and Optimization",
+  "implementation_effort_score": 7,
+  "tax_savings_score": 9,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must determine and pay reasonable compensation to shareholder-employees based on industry standards, duties performed, and multiple factors to optimize tax savings while maintaining IRS audit defense",
+    "criteria": [
+      "Must be an S Corporation shareholder who performs services for the corporation",
+      "Shareholder-employee must receive W-2 wages before taking distributions or earnings",
+      "Compensation must be reasonable based on duties, qualifications, time spent, and comparable industry standards",
+      "Consider multi-factor analysis: training and experience, duties and responsibilities, time and effort, business complexity, market comparisons",
+      "Use industry compensation data, salary surveys, and comparable position analysis to support compensation level",
+      "Document compensation determination process and rationale for IRS audit protection",
+      "Balance between adequate compensation and distribution optimization to maximize overall tax efficiency",
+      "Review and adjust compensation annually based on business performance and changing market conditions"
+    ]
+  },
+  "limitations": {
+    "reasonable_compensation_factors": {
+      "irs_scrutiny": "IRS actively audits S Corp compensation; inadequate salary leads to reclassification and penalties",
+      "safe_harbor_guidance": "No bright-line rule; generally 40-60% of net income considered reasonable depending on industry and role",
+      "payroll_tax_impact": "Higher salary increases payroll taxes but may increase QBI deduction and retirement plan contributions",
+      "distribution_optimization": "Lower salary increases distribution amount avoiding 15.3% self-employment tax on distributions",
+      "multi_factor_test": "IRS uses multiple factors including training, duties, time, comparable salaries, and business conditions",
+      "industry_benchmarks": "Use BLS data, salary surveys, and industry reports to support reasonable compensation determination"
+    },
+    "restrictions": [
+      "Unreasonably low compensation subject to reclassification as wages with back payroll taxes, penalties, and interest",
+      "Cannot pay zero salary and take only distributions if shareholder provides substantial services",
+      "Higher compensation reduces QBI deduction potential (wages reduce qualified business income)",
+      "Social Security wage base cap ($168,600 for 2024, $176,100 for 2025) limits Social Security tax on higher salaries",
+      "Officer compensation must be reported on Form 1120-S Line 7 and reconciled with W-2 wages",
+      "Compensation must be paid through proper payroll with timely tax deposits and quarterly filings",
+      "Excessive compensation (opposite extreme) could trigger audit if attempting to maximize corporate deduction",
+      "Court cases emphasize reasonable compensation analysis and documentation critical for successful IRS defense"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

@@ -1,0 +1,441 @@
+{
+  "strategy": "HSA Contribution",
+  "content_repo": "/Users/rraman2/Documents/GitHub/tax-strategy-content",
+  "summary": {
+    "calculated": 21,
+    "undeterminable-template": 1,
+    "user-data": 6
+  },
+  "include_tree": [
+    {
+      "rel_path": "strategies/HSA Contribution/hsa-contribution.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/HSA Contribution/hsa-contribution.spe",
+      "depth": 0,
+      "included_from": null,
+      "is_entry": true
+    },
+    {
+      "rel_path": "strategies/common/rate_calculations.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/rate_calculations.spe",
+      "depth": 1,
+      "included_from": "strategies/HSA Contribution/hsa-contribution.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/rate_global.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/rate_global.spe",
+      "depth": 1,
+      "included_from": "strategies/HSA Contribution/hsa-contribution.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/setup_global.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/setup_global.spe",
+      "depth": 1,
+      "included_from": "strategies/HSA Contribution/hsa-contribution.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/test/add_recommendation.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/test/add_recommendation.spe",
+      "depth": 1,
+      "included_from": "strategies/HSA Contribution/hsa-contribution.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/test/existing_vs_new_test.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/test/existing_vs_new_test.spe",
+      "depth": 1,
+      "included_from": "strategies/HSA Contribution/hsa-contribution.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/test/plan_strategy_transitions_test.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/test/plan_strategy_transitions_test.spe",
+      "depth": 1,
+      "included_from": "strategies/HSA Contribution/hsa-contribution.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/test/test_cash_outlay.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/test/test_cash_outlay.spe",
+      "depth": 1,
+      "included_from": "strategies/HSA Contribution/hsa-contribution.spe",
+      "is_entry": false
+    }
+  ],
+  "missing_includes": [],
+  "fields": [
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.addtlMedTaxWithheldThreshold",
+      "leaf": "addtlMedTaxWithheldThreshold",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateAddtlMedicare",
+      "leaf": "marginalRateAddtlMedicare",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateFICA",
+      "leaf": "marginalRateFICA",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateMedicare",
+      "leaf": "marginalRateMedicare",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateSelfEmployed",
+      "leaf": "marginalRateSelfEmployed",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateSocialSecurity",
+      "leaf": "marginalRateSocialSecurity",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.maxSSwage",
+      "leaf": "maxSSwage",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.netEarningRatio",
+      "leaf": "netEarningRatio",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/HSA Contribution/hsa-contribution.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection.hsaContribution",
+      "leaf": "hsaContribution",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": false,
+      "defined_in": "strategies/HSA Contribution/hsa-contribution.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection.maxHSAcontribution",
+      "leaf": "maxHSAcontribution",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": false,
+      "defined_in": "strategies/HSA Contribution/hsa-contribution.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.marginalNYC",
+      "leaf": "marginalNYC",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_calculations.spe",
+      "also_defined_in": [
+        "strategies/common/rate_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.marginalRate",
+      "leaf": "marginalRate",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.stateMarginalRate",
+      "leaf": "stateMarginalRate",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareRRTA",
+      "leaf": "subjectMedicareRRTA",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareSE",
+      "leaf": "subjectMedicareSE",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareWages",
+      "leaf": "subjectMedicareWages",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/HSA Contribution/hsa-contribution.spe",
+      "also_defined_in": [
+        "strategies/common/rate_global.spe",
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.hsaContribution",
+      "leaf": "hsaContribution",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": false,
+      "defined_in": "strategies/HSA Contribution/hsa-contribution.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.maxHSAcontribution",
+      "leaf": "maxHSAcontribution",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": false,
+      "defined_in": "strategies/HSA Contribution/hsa-contribution.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "$.base.${whichIndividualPriorContribution}",
+      "leaf": "${whichIndividualPriorContribution}",
+      "source_kind": "template",
+      "category": "undeterminable-template",
+      "shared": false,
+      "defined_in": "strategies/HSA Contribution/hsa-contribution.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.adjustments.usAdjSum.usAdjIncOthInp.defaultSection.iTAHSATypeOfCoverageSpouse",
+      "leaf": "iTAHSATypeOfCoverageSpouse",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/HSA Contribution/hsa-contribution.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    },
+    {
+      "path": "return.adjustments.usAdjSum.usAdjIncOthInp.defaultSection.iTAHSATypeOfCoverageTaxpayer",
+      "leaf": "iTAHSATypeOfCoverageTaxpayer",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/HSA Contribution/hsa-contribution.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    },
+    {
+      "path": "return.income.usIncSum.usWageSum.usWageInp",
+      "leaf": "usWageInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/HSA Contribution/hsa-contribution.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.familyCoverageHSA",
+      "leaf": "familyCoverageHSA",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/HSA Contribution/hsa-contribution.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "HSA coverage type (family) \u2014 plan fact.",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.selfOnlyCoverageHSA",
+      "leaf": "selfOnlyCoverageHSA",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/HSA Contribution/hsa-contribution.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "HSA coverage type (self-only) \u2014 plan fact.",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.filingStatus",
+      "leaf": "filingStatus",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "Taxpayer selection (single/MFJ/MFS/HOH/QW).",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    }
+  ]
+}

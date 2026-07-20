@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_022",
+  "category": "individual",
+  "strategy_type": "Income Shifting",
+  "title": "Tax Loss Harvesting - Long-Term Capital Losses",
+  "implementation_effort_score": 7,
+  "tax_savings_score": 2,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must strategically sell securities held over 12 months at a loss to offset long-term capital gains and up to $3,000 ordinary income while maintaining desired portfolio allocation and avoiding wash sale rules",
+    "criteria": [
+      "Identify positions held over 12 months trading below cost basis with unrealized long-term capital losses",
+      "Sell losing positions to realize losses for current tax year deduction",
+      "Long-term capital losses first offset long-term capital gains, then short-term gains, then up to $3,000 ordinary income",
+      "Excess losses carry forward indefinitely to future tax years maintaining character as long-term losses",
+      "Avoid wash sale rule by not repurchasing substantially identical security within 61-day window (30 days before/after)",
+      "Can immediately repurchase similar but not substantially identical security to maintain market exposure",
+      "Harvest losses annually, especially in years with large capital gains or year-end portfolio rebalancing",
+      "Document cost basis, holding periods, and wash sale analysis for accurate tax reporting"
+    ]
+  },
+  "limitations": {
+    "ltcl_harvesting_strategy": {
+      "loss_ordering": "LTCL offsets LTCG first, then STCG, then $3,000 ordinary income; excess carries forward",
+      "carryforward_unlimited": "Unused losses carry forward indefinitely maintaining long-term character",
+      "portfolio_maintenance": "Replace with similar ETF or mutual fund to maintain allocation without triggering wash sale",
+      "tax_bracket_benefit": "Saves 0-20% on offset LTCG plus 3.8% NIIT if applicable, or marginal rate on $3,000 ordinary",
+      "basis_reset": "Repurchasing similar position resets basis lower potentially creating future gains",
+      "annual_strategy": "Year-end review identifies harvest opportunities; can harvest throughout year"
+    },
+    "restrictions": [
+      "Wash sale rule disallows loss if repurchase substantially identical security within 61-day window",
+      "Wash sale applies to purchases in IRAs, spouse's accounts, and controlled entities",
+      "Substantially identical securities include same issuer stock, not typically different companies even in same sector",
+      "ETF swap opportunities exist (SPY to VOO) but must analyze substantial identity risk",
+      "Options, short sales, and futures on same security within wash window trigger wash sale rule",
+      "Cannot deduct losses on sales to related parties under \u00a7267 related party loss disallowance",
+      "State tax treatment generally follows federal but verify state conformity to federal loss rules",
+      "Must track basis, wash sales, and holding periods accurately; brokers report but taxpayer ultimately responsible"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

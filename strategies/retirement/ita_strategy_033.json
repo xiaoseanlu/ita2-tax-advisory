@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_033",
+  "category": "retirement",
+  "strategy_type": "Retirement Plans",
+  "title": "401(k) Employee Contributions with Age 60+ Optimization",
+  "implementation_effort_score": 10,
+  "tax_savings_score": 5,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must maximize 401(k) employee salary deferral contributions including catch-up contributions when age 50+ and additional super catch-up when age 60-63 to reduce taxable income and build tax-deferred retirement savings",
+    "criteria": [
+      "Must be eligible employee in employer's 401(k) plan meeting plan participation requirements",
+      "2025 regular employee deferral limit: $23,500 (indexed annually)",
+      "Age 50+ catch-up contribution: Additional $7,500 (total $31,000 if age 50-59 or 64+)",
+      "NEW: Age 60-63 super catch-up: Additional $11,250 for 2025 (total $34,750 for ages 60-63)",
+      "Contributions reduce current taxable income dollar-for-dollar (traditional 401(k)) or grow tax-free (Roth 401(k))",
+      "Can split contributions between traditional (pre-tax) and Roth (after-tax) 401(k) within aggregate limits",
+      "Catch-up contributions available starting year employee turns 50 (super catch-up starts at age 60)",
+      "Consider contribution timing, investment allocation, and traditional vs Roth strategy based on tax situation"
+    ]
+  },
+  "limitations": {
+    "401k_contribution_rules": {
+      "age_60_63_advantage": "Enhanced super catch-up $11,250 (vs regular $7,500) for ages 60-63 only",
+      "traditional_deduction": "Pre-tax contributions reduce current taxable income and FICA wages",
+      "roth_option": "After-tax Roth contributions provide tax-free growth and distributions in retirement",
+      "immediate_tax_savings_score": "Traditional contributions save at marginal rate (up to 37%) plus 3.8% NIIT if applicable",
+      "employer_match": "Employer matching contributions additional (not counted toward employee deferral limits)",
+      "combined_limit": "Total contributions (employee + employer) limited to lesser of $70,000 (2025) or 100% compensation"
+    },
+    "restrictions": [
+      "Super catch-up only available ages 60-63; reverts to regular $7,500 catch-up at age 64+",
+      "High earners may face nondiscrimination testing potentially limiting contributions",
+      "Highly compensated employees ($155,000+ for 2024) may have additional restrictions under ADP testing",
+      "Roth 401(k) contributions don't reduce current taxable income but grow tax-free",
+      "Cannot access funds before age 59½ without 10% early withdrawal penalty (with exceptions)",
+      "Required minimum distributions (RMDs) begin at age 73 (75 if born 1960+)",
+      "Roth 401(k) subject to RMDs unlike Roth IRA; consider in-service conversion to Roth IRA if available",
+      "State tax treatment varies; some states don't provide deduction for pre-tax contributions"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

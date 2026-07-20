@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_045",
+  "category": "retirement",
+  "strategy_type": "Retirement Plans",
+  "title": "Traditional IRA Deductible Contributions",
+  "implementation_effort_score": 1,
+  "tax_savings_score": 5,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must have earned income and meet deductibility requirements based on employer retirement plan coverage and income limits to make tax-deductible traditional IRA contributions reducing current taxable income while building retirement savings",
+    "criteria": [
+      "Must have earned income (wages, self-employment, alimony from pre-2019 divorces)",
+      "2024 contribution limit: $7,000 under age 50; $8,000 age 50+ (catch-up contribution)",
+      "Full deduction if not covered by employer retirement plan regardless of income",
+      "If covered by employer plan: 2024 phase-out $77,000-$87,000 (single); $123,000-$143,000 (MFJ)",
+      "Spousal IRA: non-working spouse can contribute based on working spouse's income",
+      "Can contribute until tax filing deadline (typically April 15) for prior tax year",
+      "Deduction reduces AGI providing above-the-line tax benefit",
+      "Distributions in retirement taxed as ordinary income"
+    ]
+  },
+  "limitations": {
+    "traditional_ira_rules": {
+      "contribution_limit": "$7,000 ($8,000 if age 50+) for 2024; combined limit with Roth IRA",
+      "deductibility_full": "Fully deductible if not covered by employer plan or income below phase-out",
+      "above_the_line": "Deduction reduces AGI benefiting other AGI-based calculations",
+      "spousal_contribution": "Working spouse's income enables non-working spouse contribution and deduction",
+      "flexibility_timing": "Can contribute through tax filing deadline for prior year",
+      "tax_deferred_growth": "Contributions and earnings grow tax-deferred until distributed"
+    },
+    "restrictions": [
+      "Deductibility phases out if covered by employer plan and income exceeds thresholds",
+      "Combined $7,000/$8,000 limit applies to total of traditional and Roth IRA contributions",
+      "Cannot contribute more than earned income for the year",
+      "Early withdrawal before age 59½ subject to 10% penalty plus ordinary income tax (exceptions apply)",
+      "Required minimum distributions begin at age 73 (age 75 if born 1960+)",
+      "Excess contributions subject to 6% excise tax annually until corrected",
+      "Spousal IRA deductibility subject to separate phase-out ranges if spouse covered by employer plan",
+      "Pro-rata rule applies to distributions if mix of deductible and non-deductible contributions exists"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

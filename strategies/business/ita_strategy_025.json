@@ -1,0 +1,61 @@
+{
+  "strategy_id": "ita_025",
+  "category": "business",
+  "strategy_type": "Business Deduction",
+  "title": "Bonus Depreciation for Qualified Property (Including Heavy Vehicles 6,000+ lbs GVWR)",
+  "implementation_effort_score": 2,
+  "tax_savings_score": 8,
+  "requires_contribution": true,
+  "last_updated": "2025-01-20",
+  "requirements_for_qualification": {
+    "summary": "Must acquire and place in service qualified property to claim bonus depreciation allowing immediate deduction of percentage of property basis in first year before regular depreciation calculations. OBBB Act 2025 restored 100% bonus depreciation for vehicles placed in service after January 20, 2025. Heavy vehicles (6,000+ lbs GVWR) not subject to luxury auto caps - full purchase price may be deductible.",
+    "criteria": [
+      "Property must have recovery period of 20 years or less (most equipment, machinery, vehicles, computers)",
+      "HEAVY VEHICLES SPECIAL RULE: Trucks, SUVs, vans with 6,000+ lbs GVWR qualify for 100% bonus depreciation with NO luxury auto caps (e.g., Chevy Silverado, Suburban, Ford F-250)",
+      "Original use must begin with taxpayer OR used property acquired after September 27, 2017 meeting specific requirements",
+      "Property must be placed in service during tax year to qualify for that year's bonus depreciation",
+      "OBBB Act 2025: 100% bonus depreciation RESTORED for property placed in service after January 20, 2025",
+      "Prior phase-out: 2024: 60%; 2025: 40%; 2026: 20%; 2027: 0% (now reversed by OBBB Act)",
+      "Can elect out of bonus depreciation for specific asset class if prefer regular depreciation",
+      "Bonus depreciation applies before Section 179 election in depreciation calculation waterfall",
+      "Qualified property includes new and used tangible property with recovery period of 20 years or less",
+      "Special rules for longer production period property and certain aircraft with extended phase-out"
+    ]
+  },
+  "limitations": {
+    "bonus_depreciation_rules": {
+      "obbb_act_2025": "100% bonus depreciation RESTORED for property placed in service after January 20, 2025 (One Big Beautiful Bill Act)",
+      "heavy_vehicle_benefit": "Vehicles 6,000+ lbs GVWR: Full $70K+ truck deductible in year one (no luxury auto $12,200 cap). Examples: Chevy Silverado 2500/3500, Ford F-250+, Suburban, Escalade, Transit van",
+      "phase_out_schedule_old": "100% through 2022; 80% 2023; 60% 2024; 40% 2025; 20% 2026; 0% 2027+ (NOW REVERSED)",
+      "qualified_property": "Tangible property with recovery period ≤20 years, qualified improvement property, some software",
+      "used_property_qualification": "Used property qualifies if not used by taxpayer or related party previously; acquisition rules apply",
+      "immediate_deduction": "Bonus percentage deductible in first year; remaining basis depreciated under regular MACRS",
+      "election_out": "Can elect out of bonus for entire asset class; may prefer regular depreciation for various reasons",
+      "no_dollar_limit": "Unlike Section 179, bonus depreciation has no dollar cap on qualifying property"
+    },
+    "restrictions": [
+      "Property used 50% or more for personal use does not qualify; business use percentage required",
+      "Listed property (vehicles, computers, etc.) subject to substantiation and business use requirements",
+      "Real property (buildings, structural components) generally not eligible except qualified improvement property",
+      "Election out applies to entire asset class for tax year; cannot pick and choose individual assets",
+      "AMT adjustment eliminated after TCJA; bonus depreciation now allowed for AMT purposes",
+      "Declining bonus percentage through phase-out reduces benefit requiring consideration of timing",
+      "Must reduce basis for bonus depreciation before calculating Section 179 and regular depreciation",
+      "State tax treatment varies widely; many states decoupled from federal bonus depreciation creating permanent differences"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

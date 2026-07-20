@@ -1,0 +1,46 @@
+# Platform metadata — not sent to the LLM as Skill body.
+# CG Skills & Tools: skills/income_tax/<subdomain>/<skill-name>/
+
+fqn: income_tax.assisted.scorp-conversion
+name: scorp-conversion
+semver: 0.1.0
+taxonomy: income_tax
+subdomain: assisted
+strategy_ids:
+  - ita_002
+devportal_asset_id: TBD  # fill on registration
+tenant_visibility:
+  - intuit_internal
+alert_channel: TBD
+
+tool_dependencies:
+  - mcp_asset_alias: tax-mcp
+    tool_name: assess_scorp_applicability
+    skill_part: 1
+    local_impl: tools/scorp_conversion.py::assess_applicability
+  - mcp_asset_alias: tax-mcp
+    tool_name: estimate_scorp_savings
+    skill_part: 2
+    local_impl: tools/scorp_conversion.py::estimate_scorp_savings
+
+# Core path is fully deterministic. LLM is not a dependency.
+
+# Skill change class for stewards:
+# - patch: prose only
+# - minor: new Tool dependency / additive inputs
+# - major: remove behavior or narrow routing description
+change_policy: steward_review_on_minor_major
+
+evaluations:
+  - name: applicable_sch_c_positive
+    description: Schedule C net > 0 and is_se_biz → applicable + recommended at 100% ownership
+  - name: rejects_zero_earnings
+    description: net_earnings <= 0 → not applicable
+  - name: requires_wage
+    description: apply without reasonable_wage fails closed
+  - name: mutation_paths
+    description: apply emits W-2 + S-Corp + zero-original mutations
+
+references:
+  - skills/income_tax/assisted/scorp-conversion/STRATEGY.md
+  - tax-strategy-content/IndUS/strategies/Scorp/

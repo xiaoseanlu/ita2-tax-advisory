@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_009",
+  "category": "business",
+  "strategy_type": "Expense Shifting",
+  "title": "Business Use of Home Deduction",
+  "implementation_effort_score": 4,
+  "tax_savings_score": 8,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must use portion of home regularly and exclusively for business as principal place of business or for meeting clients, patients, or customers to deduct allocable home expenses",
+    "criteria": [
+      "Must use specific area of home exclusively and regularly for business purposes (strict exclusive use test)",
+      "Principal place of business - where administrative or management activities conducted and no other fixed location for these activities",
+      "Separate structure exception allows deduction for detached garage, studio, or barn used in connection with business",
+      "Place to meet patients, clients, or customers in normal course of business (even if not principal place)",
+      "Daycare facility exception allows personal use but must meet specific licensing and regulatory requirements",
+      "Choose between simplified method ($5/sq ft up to 300 sq ft = $1,500 max) or actual expense method",
+      "Actual method requires allocation of expenses based on percentage of home used for business",
+      "Deduction limited to gross income from business use of home less business expenses (no loss creation)"
+    ]
+  },
+  "limitations": {
+    "home_office_requirements": {
+      "exclusive_use_test": "Area must be used exclusively for business; mixed personal/business use disqualifies entire space",
+      "regular_use_test": "Must use space on continuing, ongoing basis; occasional or incidental use insufficient",
+      "principal_place_test": "Either conduct administrative/management activities there or meet clients/customers regularly",
+      "simplified_method": "$5 per square foot for up to 300 square feet (maximum $1,500 deduction annually)",
+      "actual_expense_method": "Deduct allocable portion of mortgage interest, property taxes, utilities, repairs, depreciation, insurance",
+      "employee_restrictions": "Employees must use home office for employer's convenience, not merely appropriate or helpful"
+    },
+    "restrictions": [
+      "W-2 employees generally cannot claim home office deduction (suspended through 2025 as miscellaneous itemized deduction)",
+      "Deduction cannot exceed gross income from business use after deducting business portion of mortgage interest and property taxes",
+      "Excess deduction carries forward to future years subject to same income limitation",
+      "Depreciation recapture applies when selling home if claimed home office depreciation under actual expense method",
+      "Simplified method does not allow separate depreciation deduction and does not reduce home sale exclusion basis",
+      "Exclusive use test strictly enforced; personal use of space (even minimal) disqualifies entire deduction",
+      "Daycare exception requires state licensing, regular business use, and careful tracking of business vs personal hours",
+      "Allocation methods (square footage most common) must be reasonable and consistent year-over-year"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

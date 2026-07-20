@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tax Model Core",
+  "description": "Minimal insight-ready subset of the full tax model. Best fields from tax-model-input-schema-annotated.json and biztax-savings tax-model-schema.json, aligned with tax-situation-and-1040-schema. Sufficient for LLM extraction, calculation, and insights.",
+  "type": "object",
+  "properties": {
+    "filing_info": {
+      "type": "object",
+      "description": "Return-level identifiers.",
+      "properties": {
+        "filing_status": {
+          "type": "string",
+          "description": "Single, Married Filing Jointly, Married Filing Separately, Head of Household, Qualifying Surviving Spouse."
+        },
+        "tax_year": { "type": "integer", "description": "Tax year (e.g. 2024)." },
+        "primary_resident_state": { "type": "string", "description": "State of primary residence." }
+      }
+    },
+    "people": {
+      "type": "object",
+      "description": "Taxpayer, spouse, dependents.",
+      "properties": {
+        "taxpayer": {
+          "type": "object",
+          "properties": {
+            "first_name": { "type": "string" },
+            "last_name": { "type": "string" },
+            "date_of_birth": { "type": "string" },
+            "ira_contribution": { "type": "number", "description": "IRA contribution." },
+            "student_loan_interest_paid": { "type": "number" },
+            "self_employed_health_insurance_premiums": { "type": "number" }
+          }
+        },
+        "spouse": {
+          "type": "object",
+          "properties": {
+            "first_name": { "type": "string" },
+            "last_name": { "type": "string" },
+            "date_of_birth": { "type": "string" },
+            "ira_contribution": { "type": "number" },
+            "student_loan_interest_paid": { "type": "number" }
+          }
+        },
+        "dependents": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "first_name": { "type": "string" },
+              "last_name": { "type": "string" },
+              "relationship": { "type": "string" },
+              "birth_date": { "type": "string" },
+              "qualifying_child_under_17": { "type": "boolean" },
+              "claimed": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "income": {
+      "type": "object",
+      "description": "Income items. Amounts in dollars.",
+      "properties": {
+        "wages": {
+          "type": "object",
+          "description": "W-2 income. Can be array for multiple employers.",
+          "properties": {
+            "federal_wages": { "type": "number", "description": "Box 1 wages." },
+            "federal_withholding": { "type": "number", "description": "Box 2." },
+            "social_security_wages": { "type": "number" },
+            "social_security_withheld": { "type": "number" },
+            "medicare_wages": { "type": "number" },
+            "medicare_withheld": { "type": "number" },
+            "state_withholding": { "type": "number" },
+            "retirement_contributions": { "type": "number", "description": "401k, 403b, 457b, etc." }
+          }
+        },
+        "interest": {
+          "type": "object",
+          "properties": {
+            "ordinary_interest": { "type": "number" },
+            "us_bond_interest": { "type": "number" },
+            "tax_exempt_interest": { "type": "number", "description": "Municipal bond interest." }
+          }
+        },
+        "dividends": {
+          "type": "object",
+          "properties": {
+            "ordinary_dividends": { "type": "number" },
+            "qualified_dividends": { "type": "number" },
+            "federal_withholding": { "type": "number" }
+          }
+        },
+        "business": {
+          "type": "object",
+          "description": "Schedule C or similar.",
+          "properties": {
+            "gross_receipts": { "type": "number" },
+            "cost_of_goods_sold": { "type": "number" },
+            "expenses": { "type": "number" },
+            "depreciation": { "type": "number" },
+            "section_179": { "type": "number" },
+            "qbi_qualifies": { "type": "boolean" },
+            "material_participation": { "type": "boolean" }
+          }
+        },
+        "capital_gains": {
+          "type": "object",
+          "properties": {
+            "short_term_gain_loss": { "type": "number" },
+            "long_term_gain_loss": { "type": "number" },
+            "wash_sale_disallowed": { "type": "number" },
+            "qualified_dividends": { "type": "number", "description": "Often reported with cap gains." }
+          }
+        },
+        "rental": {
+          "type": "object",
+          "properties": {
+            "income": { "type": "number", "description": "Net rental income or loss." },
+            "real_estate_professional": { "type": "boolean" }
+          }
+        },
+        "pensions_social_security": {
+          "type": "object",
+          "properties": {
+            "taxable_pensions": { "type": "number" },
+            "social_security_benefits": { "type": "number" },
+            "taxable_social_security": { "type": "number" }
+          }
+        },
+        "other": {
+          "type": "object",
+          "properties": {
+            "other_income": { "type": "number" },
+            "depreciable_assets": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "basis": { "type": "number" },
+                  "recovery_period_years": { "type": "number" },
+                  "placed_in_service_date": { "type": "string" },
+                  "section_179_expense": { "type": "number" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "adjustments": {
+      "type": "object",
+      "description": "Above-the-line deductions (Schedule 1).",
+      "properties": {
+        "ira_deduction": { "type": "number" },
+        "student_loan_interest": { "type": "number" },
+        "self_employed_health_insurance": { "type": "number" },
+        "sept_contributions": { "type": "number" },
+        "other_adjustments": { "type": "number" }
+      }
+    },
+    "deductions": {
+      "type": "object",
+      "description": "Standard or itemized.",
+      "properties": {
+        "standard_or_itemized": { "type": "string", "enum": ["standard", "itemized"] },
+        "itemized": {
+          "type": "object",
+          "properties": {
+            "state_and_local_taxes": { "type": "number", "description": "SALT cap applies." },
+            "mortgage_interest": { "type": "number" },
+            "charitable_contributions": { "type": "number" },
+            "medical_expenses": { "type": "number" }
+          }
+        }
+      }
+    },
+    "credits": {
+      "type": "object",
+      "properties": {
+        "child_tax_credit": { "type": "number" },
+        "child_dependent_care_credit": { "type": "number" },
+        "education_credits": { "type": "number" },
+        "residential_energy_credit": { "type": "number" },
+        "other_credits": { "type": "number" }
+      }
+    },
+    "tax_summary": {
+      "type": "object",
+      "description": "Calculated 1040-style totals.",
+      "properties": {
+        "adjusted_gross_income": { "type": "number" },
+        "magi": { "type": "number" },
+        "qbi_deduction": { "type": "number" },
+        "taxable_income": { "type": "number" },
+        "tax_on_ordinary_income": { "type": "number" },
+        "tax_on_preferential_income": { "type": "number" },
+        "regular_income_tax": { "type": "number" },
+        "net_investment_income_tax": { "type": "number" },
+        "amt": { "type": "number" },
+        "self_employment_tax": { "type": "number" },
+        "additional_medicare_tax": { "type": "number" },
+        "total_tax": { "type": "number" },
+        "total_payments": { "type": "number" },
+        "refundable_credits": { "type": "number" },
+        "amount_owed_or_refund": { "type": "number" }
+      }
+    },
+    "payments": {
+      "type": "object",
+      "properties": {
+        "federal_withholding": { "type": "number" },
+        "estimated_tax_payments": { "type": "number" },
+        "other_payments": { "type": "number" }
+      }
+    }
+  }
+}

@@ -1,0 +1,616 @@
+{
+  "strategy": "business use of home",
+  "content_repo": "/Users/rraman2/Documents/GitHub/tax-strategy-content",
+  "summary": {
+    "calculated": 24,
+    "undeterminable-template": 3,
+    "user-data": 9
+  },
+  "include_tree": [
+    {
+      "rel_path": "strategies/business use of home/business_use_of_home.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/business use of home/business_use_of_home.spe",
+      "depth": 0,
+      "included_from": null,
+      "is_entry": true
+    },
+    {
+      "rel_path": "strategies/business use of home/home_office_expense_calculator.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/business use of home/home_office_expense_calculator.spe",
+      "depth": 1,
+      "included_from": "strategies/business use of home/business_use_of_home.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/business use of home/unitTests.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/business use of home/unitTests.spe",
+      "depth": 1,
+      "included_from": "strategies/business use of home/business_use_of_home.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/compute_SETaxDeduction.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/compute_SETaxDeduction.spe",
+      "depth": 1,
+      "included_from": "strategies/business use of home/business_use_of_home.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/rate_global.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/rate_global.spe",
+      "depth": 1,
+      "included_from": "strategies/business use of home/business_use_of_home.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/readStrategyChangeFromModel.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/readStrategyChangeFromModel.spe",
+      "depth": 1,
+      "included_from": "strategies/business use of home/business_use_of_home.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/refresh_isSEBiz.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/refresh_isSEBiz.spe",
+      "depth": 1,
+      "included_from": "strategies/business use of home/business_use_of_home.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/setup_business_activities.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/setup_business_activities.spe",
+      "depth": 1,
+      "included_from": "strategies/business use of home/business_use_of_home.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/setup_global.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/setup_global.spe",
+      "depth": 1,
+      "included_from": "strategies/business use of home/business_use_of_home.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/updateModelTotalSEIncome.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/updateModelTotalSEIncome.spe",
+      "depth": 1,
+      "included_from": "strategies/business use of home/business_use_of_home.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/updateModelTotalSEIncome_removed.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/updateModelTotalSEIncome_removed.spe",
+      "depth": 1,
+      "included_from": "strategies/business use of home/business_use_of_home.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/update_parameters.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/update_parameters.spe",
+      "depth": 1,
+      "included_from": "strategies/business use of home/business_use_of_home.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/updateModel.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/updateModel.spe",
+      "depth": 2,
+      "included_from": "strategies/business use of home/home_office_expense_calculator.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/updateModel_removed.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/updateModel_removed.spe",
+      "depth": 2,
+      "included_from": "strategies/business use of home/home_office_expense_calculator.spe",
+      "is_entry": false
+    }
+  ],
+  "missing_includes": [],
+  "fields": [
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.addtlMedTaxWithheldThreshold",
+      "leaf": "addtlMedTaxWithheldThreshold",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/business use of home/business_use_of_home.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateAddtlMedicare",
+      "leaf": "marginalRateAddtlMedicare",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/business use of home/business_use_of_home.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateFICA",
+      "leaf": "marginalRateFICA",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateMedicare",
+      "leaf": "marginalRateMedicare",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/business use of home/business_use_of_home.spe",
+      "also_defined_in": [
+        "strategies/common/compute_SETaxDeduction.spe",
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateSelfEmployed",
+      "leaf": "marginalRateSelfEmployed",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateSocialSecurity",
+      "leaf": "marginalRateSocialSecurity",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/business use of home/business_use_of_home.spe",
+      "also_defined_in": [
+        "strategies/common/compute_SETaxDeduction.spe",
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.maxSSwage",
+      "leaf": "maxSSwage",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/compute_SETaxDeduction.spe",
+      "also_defined_in": [
+        "strategies/common/setup_business_activities.spe",
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.netEarningRatio",
+      "leaf": "netEarningRatio",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection.allSEIncome",
+      "leaf": "allSEIncome",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/compute_SETaxDeduction.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection.incomeTaxedBySocSec",
+      "leaf": "incomeTaxedBySocSec",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/compute_SETaxDeduction.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection.strategyChangeSE",
+      "leaf": "strategyChangeSE",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/business use of home/business_use_of_home.spe",
+      "also_defined_in": [
+        "strategies/common/updateModelTotalSEIncome.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/business use of home/home_office_expense_calculator.spe",
+      "also_defined_in": [
+        "strategies/common/rate_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.marginalNYC",
+      "leaf": "marginalNYC",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/business use of home/business_use_of_home.spe",
+      "also_defined_in": [
+        "strategies/business use of home/home_office_expense_calculator.spe",
+        "strategies/common/rate_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.marginalRate",
+      "leaf": "marginalRate",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/business use of home/home_office_expense_calculator.spe",
+      "also_defined_in": [
+        "strategies/common/rate_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.selfEmploymentTax",
+      "leaf": "selfEmploymentTax",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": false,
+      "defined_in": "strategies/business use of home/business_use_of_home.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.stateMarginalRate",
+      "leaf": "stateMarginalRate",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/business use of home/home_office_expense_calculator.spe",
+      "also_defined_in": [
+        "strategies/common/rate_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareRRTA",
+      "leaf": "subjectMedicareRRTA",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareSE",
+      "leaf": "subjectMedicareSE",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/business use of home/business_use_of_home.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareWages",
+      "leaf": "subjectMedicareWages",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/business use of home/business_use_of_home.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.allSEIncome",
+      "leaf": "allSEIncome",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/compute_SETaxDeduction.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.incomeTaxedBySocSec",
+      "leaf": "incomeTaxedBySocSec",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/compute_SETaxDeduction.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.strategyChangeSE",
+      "leaf": "strategyChangeSE",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/business use of home/business_use_of_home.spe",
+      "also_defined_in": [
+        "strategies/common/updateModelTotalSEIncome.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "$.base.${parameters.RELATIVE_MODEL_PATH_ID.value}.${parameters.STRATEGY_CHANGE_NODE.value}",
+      "leaf": "value}",
+      "source_kind": "template",
+      "category": "undeterminable-template",
+      "shared": true,
+      "defined_in": "strategies/business use of home/home_office_expense_calculator.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "$.base.{parameters.RELATIVE_MODEL_PATH_ID.value}",
+      "leaf": "value}",
+      "source_kind": "template",
+      "category": "undeterminable-template",
+      "shared": false,
+      "defined_in": "strategies/business use of home/business_use_of_home.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "$.projection.${parameters.RELATIVE_MODEL_PATH_ID.value}.${parameters.STRATEGY_CHANGE_NODE.value}",
+      "leaf": "value}",
+      "source_kind": "template",
+      "category": "undeterminable-template",
+      "shared": false,
+      "defined_in": "strategies/business use of home/business_use_of_home.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.adjustments.usAdjSum.defaultSection.sETaxAdjCalc",
+      "leaf": "sETaxAdjCalc",
+      "source_kind": "jsonpath",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/business use of home/business_use_of_home.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    },
+    {
+      "path": "return.income.usIncSum.usBusIncSum.usBusIncInp",
+      "leaf": "usBusIncInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Sole-prop books",
+      "likely_source_note": "Schedule C line detail."
+    },
+    {
+      "path": "return.income.usIncSum.usFarmIncSum.usFarmIncInp",
+      "leaf": "usFarmIncInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Farm records",
+      "likely_source_note": "Schedule F detail."
+    },
+    {
+      "path": "return.income.usIncSum.usPassthrSum.usEstateTrustInp",
+      "leaf": "usEstateTrustInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    },
+    {
+      "path": "return.income.usIncSum.usPassthrSum.usPShipInp",
+      "leaf": "usPShipInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Schedule K-1 (1065)",
+      "likely_source_note": "Partnership K-1 detail."
+    },
+    {
+      "path": "return.income.usIncSum.usPassthrSum.usPShipInp.selfEmployment",
+      "leaf": "selfEmployment",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Schedule K-1 (1065)",
+      "likely_source_note": "Partnership K-1 detail."
+    },
+    {
+      "path": "return.income.usIncSum.usPassthrSum.usScorpInp",
+      "leaf": "usScorpInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Schedule K-1 (1120-S)",
+      "likely_source_note": "S-corp K-1 detail."
+    },
+    {
+      "path": "return.income.usIncSum.usRentRoyInp",
+      "leaf": "usRentRoyInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Rental records",
+      "likely_source_note": "Schedule E per-property detail."
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.filingStatus",
+      "leaf": "filingStatus",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "Taxpayer selection (single/MFJ/MFS/HOH/QW).",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    }
+  ]
+}

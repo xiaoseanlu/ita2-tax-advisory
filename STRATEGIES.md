@@ -1,0 +1,94 @@
+# ITA Strategy Reference — Key Items for Matching
+
+*Extremely tight descriptions. Team maintains this file. Used for insights without sending raw LLM output.*
+
+---
+
+## Entity
+
+| ID | Title | Key signals |
+|----|-------|-------------|
+| ita_001 | Real Estate Professional Status | 50%+ time in real property; 750+ hours in RE activities |
+| ita_002 | S-Corp Election | Schedule C net $60K+ **profit**; **exclude if Schedule C net ≤ 0**; domestic corp/LLC; reasonable comp required |
+| ita_003 | S-Corp Reasonable Comp | S-Corp shareholder performing services; W-2 before distributions |
+| ita_004 | Pass-Through Entity Selection | When pass-through **net profit > 0**; **exclude if sole Schedule C is a loss-only pattern**; LLC/partnership/S-Corp comparison |
+
+---
+
+## Business
+
+| ID | Title | Key signals |
+|----|-------|-------------|
+| ita_006 | Employee Accountable Reimbursement | Employee biz expenses; receipts, documentation |
+| ita_007 | Employer Accountable Plan | Written plan; eligible biz expenses; employer design |
+| ita_009 | Home Office Deduction | Exclusive, regular biz use; principal place of business |
+| ita_010 | Business Travel Optimization | Primary purpose business; domestic travel; business days |
+| ita_016 | MERP (Medical Reimbursement Plan) | Small biz; IRC §105; **exclude if Schedule C net ≤ 0** (no profit to fund reimbursements) unless other business profit |
+| ita_017 | §1031 Like-Kind Exchange | Real property only (post-TCJA); business or investment |
+| ita_018 | Augusta Rule (14-Day Rental) | Rent personal residence; max 14 days; tax-free to owner |
+| ita_020 | Hiring Children | Legitimate work; reasonable comp; **exclude if Schedule C net ≤ 0** (no profit to pay wages from) |
+| ita_021 | Hiring Spouse | Bona fide services; reasonable comp; **exclude if Schedule C net ≤ 0** unless other facts justify |
+| ita_024 | Installment Sale | Capital gain; payment in year after sale |
+| ita_025 | Bonus Depreciation | Equipment/vehicles 20yr or less; heavy vehicles 6000+ lb GVWR; **can apply even if Schedule C has a loss** (not S-Corp/QBI) |
+| ita_026 | Section 179 | Tangible personal property; placed in service; $1.22M limit (2025); **can apply when Schedule C has a loss** (not S-Corp/QBI) |
+| ita_027 | Cost Segregation | Commercial/rental real estate; $500K+ cost; specialist study |
+| ita_028 | QBI Deduction (§199A) | **Positive QBI** from Schedule C/K-1/rental; **exclude if modeled Schedule C net ≤ 0** and no other positive QBI; taxable income threshold |
+| ita_029 | QBI Phase-Out Planning | Taxable income near QBI phase-out; **exclude if no positive QBI** (e.g. Schedule C net ≤ 0 and no other pass-through profit) |
+| ita_030 | Startup Cost Amortization | Costs before biz begins; 180-month amortization |
+| ita_031 | Startup Expense Deduction | $5K immediate; investigation, creation, organizational costs |
+
+---
+
+## Retirement
+
+| ID | Title | Key signals |
+|----|-------|-------------|
+| ita_033 | 401(k) Age 60+ Catch-Up | Employee 60+; additional catch-up limits |
+| ita_034 | 401(k) Employee Deferral | W-2 employee; $23.5K limit (2025) |
+| ita_035 | 401(k) Employer Match | Maximize match; 3–6% typical; vesting |
+| ita_036 | 403(b) Deferral | School, 501(c)(3), church; same limits as 401(k) |
+| ita_037 | 403(b) Employer Match | Nonprofit employer; match optimization |
+| ita_039 | Backdoor Roth IRA | Income above phase-out; traditional implies Roth conversion |
+| ita_040 | Mega Backdoor Roth | Plan allows after-tax; in-service conversion |
+| ita_041 | Direct Roth IRA | Earned income; under phase-out limits |
+| ita_042 | Roth Conversion | Traditional/SEP/SIMPLE IRA; no income limit on conversion |
+| ita_043 | SEP-IRA | Self-employed; 25% comp or $70K (2025); **exclude if Schedule C net ≤ 0** unless other positive SE net |
+| ita_044 | Solo 401(k) | Self-employed, no employees; **exclude if Schedule C net ≤ 0** unless other positive SE net |
+| ita_045 | Traditional IRA | Earned income; deductibility based on coverage/income |
+
+---
+
+## Credits
+
+| ID | Title | Key signals |
+|----|-------|-------------|
+| ita_046 | R&D Tax Credit | Four-part test; QREs; wages, supplies, contract research |
+| ita_047 | Child Tax Credit | Child under 17; dependent; phase-out by MAGI |
+| ita_048 | Residential Energy Credits | Heat pumps, insulation, windows; $3,200/yr (25C) |
+
+---
+
+## Charitable
+
+| ID | Title | Key signals |
+|----|-------|-------------|
+| ita_049 | Donate Appreciated Securities | Held 12+ months; FMV deduction; no capital gain |
+| ita_050 | Donor-Advised Fund | Cash/securities to DAF; immediate deduction |
+| ita_051 | IRA Qualified Charitable Distribution | Age 70.5+; $105K/person; satisfies RMD |
+
+---
+
+## Individual
+
+| ID | Title | Key signals |
+|----|-------|-------------|
+| ita_005 | HSA + FSA Coordination | HDHP; cannot have both general FSA and HSA |
+| ita_008 | Bunching Itemized | Itemized near standard; timing charitable/SALT |
+| ita_011 | Student Loan Repayment | Employer §127 plan; educational assistance |
+| ita_012 | Dependent Care FSA | Employer cafeteria; care for work; $5K limit |
+| ita_013 | Health Care FSA | §125 plan; $3,200 max (2025) |
+| ita_014 | Pre-Tax Health Premiums | Section 125 or self-employed above-the-line |
+| ita_015 | HSA Maximization | HDHP; max contribution; catch-up 55+ |
+| ita_019 | Capital Gain Timing | LTCG rates; bracket management |
+| ita_022 | Tax Loss Harvesting (LTCG) | LT losses; offset gains; $3K ordinary |
+| ita_023 | Tax Loss Harvesting (STCG) | ST losses; before 12-month anniversary |

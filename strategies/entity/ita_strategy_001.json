@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_001",
+  "category": "entity",
+  "strategy_type": "Entity Selection",
+  "title": "Real Estate Professional Status Election",
+  "implementation_effort_score": 7,
+  "tax_savings_score": 9,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must meet material participation and time requirements to qualify as a real estate professional, allowing passive rental losses to offset active income",
+    "criteria": [
+      "More than 50% of personal services performed during the year must be in real property trades or businesses",
+      "Must perform more than 750 hours of services in real property trades or businesses during the tax year",
+      "Real property trades or businesses include development, redevelopment, construction, reconstruction, acquisition, conversion, rental, operation, management, leasing, or brokerage",
+      "Must materially participate in each rental real estate activity to deduct losses against non-passive income",
+      "Maintain contemporaneous time logs and detailed records of all real estate activities and hours",
+      "Cannot be an employee in a real property business unless you own 5% or more of the business",
+      "Spouse can qualify if either spouse separately meets both requirements and files joint return",
+      "Must elect to aggregate all rental real estate activities to meet material participation tests"
+    ]
+  },
+  "limitations": {
+    "real_estate_professional_requirements": {
+      "hours_requirement": "Must exceed 750 hours in real property trades or businesses annually",
+      "percentage_requirement": "More than 50% of total personal services must be in real property activities",
+      "material_participation": "Must materially participate in rental activities under IRC §469(c)(7) tests",
+      "aggregation_election": "Can elect to treat all rental real estate as single activity for material participation",
+      "documentation_critical": "Contemporaneous records essential for IRS audit defense and qualification proof",
+      "employee_restriction": "W-2 employees in real estate generally cannot qualify unless 5%+ owner"
+    },
+    "restrictions": [
+      "Status must be met each tax year; prior year qualification does not carry forward automatically",
+      "Cannot qualify if employed full-time in non-real estate trade or business exceeding 50% of services",
+      "Passive activity loss limitations apply to rental activities where material participation not established",
+      "Time spent as investor (reviewing financials, arranging financing) generally does not count toward 750 hours",
+      "Aggregation election is binding for current and future years unless material change in circumstances",
+      "Losses may still be limited by at-risk rules and basis limitations even if qualifying as real estate professional",
+      "State tax treatment may differ from federal qualification creating additional compliance complexity",
+      "Short-term rental activities (average stay 7 days or less) subject to different rules and may not qualify"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

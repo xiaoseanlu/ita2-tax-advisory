@@ -1,0 +1,57 @@
+{
+  "strategy_id": "ita_027",
+  "category": "business",
+  "strategy_type": "Business Deduction",
+  "title": "Cost Segregation Study for Accelerated Depreciation",
+  "implementation_effort_score": 8,
+  "tax_savings_score": 6,
+  "requires_contribution": true,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must conduct engineering-based cost segregation study on commercial or rental real estate to reclassify building components into shorter recovery periods, accelerate depreciation deductions, and improve cash flow",
+    "criteria": [
+      "Own commercial real estate, rental property, or building with construction, renovation, or acquisition cost over $500,000",
+      "Engage qualified cost segregation specialist or engineering firm to conduct detailed property analysis",
+      "Identify and reclassify components from 39-year (commercial) or 27.5-year (residential) to 5, 7, or 15-year property",
+      "Typical reclassifications: carpeting, wall coverings, specialized electrical, dedicated HVAC, signage, site improvements",
+      "Personal property (5-7 year) and land improvements (15-year) eligible for bonus depreciation and Section 179",
+      "Study can be performed on recently acquired property or properties owned for several years (catch-up depreciation)",
+      "File Form 3115 (Change in Accounting Method) if performing catch-up study on previously owned property",
+      "Typically beneficial when property cost exceeds $500,000 and owner has taxable income to offset"
+    ]
+  },
+  "limitations": {
+    "cost_segregation_benefits": {
+      "accelerated_depreciation": "Shift 20-40% of building basis from 27.5/39 year to 5/7/15 year recovery periods",
+      "immediate_deductions": "Reclassified 5-7 year property eligible for bonus depreciation and Section 179 expensing",
+      "cash_flow_improvement": "Front-loading depreciation reduces current taxes improving cash flow for investment",
+      "catch_up_opportunity": "Can perform study on property owned for years; claim catch-up depreciation via Form 3115",
+      "bonus_depreciation_eligible": "Short-life assets qualify for bonus depreciation providing immediate deduction",
+      "roi_analysis": "Study costs $5,000-$25,000+ but NPV of tax savings typically 5-20x study cost"
+    },
+    "restrictions": [
+      "Study costs significant ($5,000-$25,000+); cost-benefit analysis important for smaller properties",
+      "IRS audit scrutiny if study not prepared by qualified engineer or lacks adequate support",
+      "Recapture risk if property sold before full depreciation; excess depreciation recaptured as ordinary income",
+      "State tax treatment may differ from federal; some states don't conform to bonus depreciation or Section 179",
+      "Residential rental property (27.5 years) has less potential than commercial (39 years) but still beneficial",
+      "Lower benefit in low-income years; optimal when business has taxable income to offset",
+      "Form 3115 filing required for catch-up depreciation on existing properties; automatic consent procedure applies",
+      "Must maintain adequate documentation and engineering support for reclassifications to defend in audit"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

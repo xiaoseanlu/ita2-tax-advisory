@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_030",
+  "category": "business",
+  "strategy_type": "Business Deduction",
+  "title": "Startup Cost Amortization Election",
+  "implementation_effort_score": 9,
+  "tax_savings_score": 6,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must elect to amortize startup and organizational costs exceeding immediate expense limit over 180 months beginning with month business begins, allowing systematic recovery of startup investments",
+    "criteria": [
+      "Startup costs incurred before business begins active operations",
+      "Qualified startup costs: investigation expenses, creation costs, organizational expenses for entity formation",
+      "Can immediately expense up to $5,000 startup costs; $5,000 organizational costs (separate limits)",
+      "Dollar-for-dollar reduction in $5,000 limit when total startup costs exceed $50,000",
+      "Costs exceeding immediate expense limit amortized over 180 months (15 years) starting when business begins",
+      "Must affirmatively elect amortization on timely filed return (including extensions) for first year business active",
+      "Examples: market surveys, consultant fees, legal/accounting for setup, temporary director fees, training costs",
+      "Election applies separately to startup costs and organizational costs"
+    ]
+  },
+  "limitations": {
+    "startup_cost_rules": {
+      "immediate_expense": "Up to $5,000 startup costs + $5,000 organizational costs deductible immediately",
+      "phase_out": "Dollar-for-dollar reduction when total costs exceed $50,000; eliminated at $55,000+",
+      "amortization_period": "180 months (15 years) for costs exceeding immediate expense limit",
+      "qualified_costs": "Investigation, creation, organizational expenses; not acquisition or long-term asset costs",
+      "election_required": "Must elect on timely filed return or automatic election applies via Reg §1.195-1(b)",
+      "separate_tracking": "Startup costs and organizational costs tracked and elected separately"
+    },
+    "restrictions": [
+      "Costs incurred before business begins; cannot amortize costs after business starts operating",
+      "Failed to elect on timely return: costs not deductible until business sold or abandoned",
+      "Research and experimentation costs subject to separate rules under IRC §174 (must capitalize and amortize over 5 years)",
+      "Acquisition costs for specific business or assets not qualified startup costs",
+      "Interest, taxes, and costs that would be deductible anyway not eligible for startup election",
+      "Partnership organizational costs include formation, legal fees, accounting fees; not syndication costs",
+      "If business never begins, startup costs may be deductible as loss if qualified investigation expenses",
+      "State tax treatment varies; some states don't conform to federal immediate expense or amortization rules"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_015",
+  "category": "individual",
+  "strategy_type": "Expense Shifting",
+  "title": "Health Savings Account (HSA) Maximization Strategy",
+  "implementation_effort_score": 8,
+  "tax_savings_score": 2,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must maintain High Deductible Health Plan (HDHP) coverage without disqualifying coverage to maximize HSA contributions and leverage triple tax advantage for current and future medical expenses",
+    "criteria": [
+      "Must be covered under qualifying HDHP with minimum deductibles and maximum out-of-pocket limits",
+      "2025 HDHP requirements: Minimum deductible $1,650 self-only/$3,300 family; maximum OOP $8,300/$16,600",
+      "Cannot have other health coverage except permitted insurance (dental, vision, specific disease, accident insurance)",
+      "Cannot be enrolled in Medicare (Part A, B, C, or D) or claimed as dependent on another's tax return",
+      "2025 contribution limits: $4,300 self-only, $8,550 family coverage, plus $1,000 catch-up (age 55+)",
+      "Contributions can be made by individual, employer, or family members through tax year filing deadline",
+      "Last-month rule allows full annual contribution if covered December 1 and maintain HDHP following 12 months",
+      "Triple tax benefit: Tax-deductible contributions, tax-free earnings growth, tax-free qualified medical withdrawals"
+    ]
+  },
+  "limitations": {
+    "hsa_maximization_strategy": {
+      "triple_tax_advantage": "Deductible contributions, tax-free growth, tax-free withdrawals for qualified medical expenses",
+      "investment_opportunity": "Can invest HSA funds for long-term growth; no required distribution or use-it-or-lose-it rule",
+      "portable_account": "Owned by individual, not employer; remains with you regardless of employment changes",
+      "retirement_planning": "After age 65, can withdraw for non-medical expenses penalty-free (taxable like traditional IRA)",
+      "no_rmds": "No required minimum distributions unlike retirement accounts; can preserve for legacy planning",
+      "family_coverage_advantage": "One HSA per individual but family coverage allows higher contribution limit regardless of actual expenses"
+    },
+    "restrictions": [
+      "General purpose health FSA disqualifies HSA contributions; must use limited purpose FSA if needed",
+      "Spouse's non-HDHP family coverage that covers you disqualifies your HSA contributions",
+      "Medicare enrollment (even Part A only) permanently ends HSA contribution eligibility",
+      "Excess contributions subject to 6% excise tax annually until corrected; must withdraw excess plus earnings",
+      "Last-month rule failure causes income inclusion of improper contributions plus 10% penalty",
+      "Non-qualified withdrawals subject to income tax plus 20% penalty (10% penalty after age 65)",
+      "California and New Jersey don't conform to federal HSA tax treatment; contributions taxable at state level",
+      "Contribution limits reduced if HDHP coverage not maintained all 12 months (unless last-month rule applied)"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

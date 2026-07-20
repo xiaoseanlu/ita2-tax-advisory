@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S-Corp conversion calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0b1f33;
+      --ink-muted: #4a6073;
+      --paper: #f7f9fc;
+      --panel: rgba(255, 255, 255, 0.88);
+      --line: #d5dee8;
+      --blue: #236cff;
+      --blue-deep: #0b4fd6;
+      --blue-soft: rgba(35, 108, 255, 0.1);
+      --green: #0a7a45;
+      --green-soft: rgba(10, 122, 69, 0.1);
+      --amber: #9a6700;
+      --amber-soft: rgba(154, 103, 0, 0.12);
+      --red: #b42318;
+      --red-soft: rgba(180, 35, 24, 0.1);
+      --radius: 12px;
+      --shadow: 0 18px 40px rgba(11, 31, 51, 0.08);
+      --font: "DM Sans", "Avenir Next", "Segoe UI", sans-serif;
+      --display: "Instrument Serif", Georgia, serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: var(--font);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(35, 108, 255, 0.16), transparent 55%),
+        radial-gradient(900px 500px at 100% 0%, rgba(11, 79, 214, 0.1), transparent 50%),
+        linear-gradient(180deg, #eef3f9 0%, var(--paper) 48%, #e8eef6 100%);
+    }
+
+    .shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    header {
+      margin-bottom: 1.75rem;
+      animation: rise 0.55s ease both;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue-deep);
+    }
+
+    h1 {
+      margin: 0 0 0.45rem;
+      font-family: var(--display);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 42rem;
+      color: var(--ink-muted);
+      font-size: 1.02rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid rgba(213, 222, 232, 0.9);
+      border-radius: calc(var(--radius) + 2px);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      animation: rise 0.65s ease both;
+    }
+
+    .panel-form { animation-delay: 0.05s; }
+    .panel-results { animation-delay: 0.12s; min-height: 28rem; }
+
+    .panel-inner { padding: 1.35rem 1.4rem 1.5rem; }
+
+    .section-title {
+      margin: 0 0 1rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem 0.9rem;
+    }
+
+    @media (max-width: 560px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    .field { display: flex; flex-direction: column; gap: 0.35rem; }
+    .field.span-2 { grid-column: 1 / -1; }
+
+    label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+    }
+
+    .hint {
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      opacity: 0.9;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px var(--blue-soft);
+    }
+
+    .divider {
+      margin: 1.15rem 0 1rem;
+      border: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.15rem;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      padding: 0.7rem 1rem;
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+
+    button:active { transform: translateY(1px); }
+    button:disabled { opacity: 0.55; cursor: wait; }
+
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+    }
+    .btn-primary:hover:not(:disabled) { background: var(--blue-deep); }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .btn-secondary:hover:not(:disabled) { border-color: #b8c5d4; }
+
+    .status {
+      margin-top: 0.85rem;
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      min-height: 1.2em;
+    }
+    .status.error { color: var(--red); }
+
+    .empty {
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      padding: 0.25rem 0;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .badge.yes { background: var(--green-soft); color: var(--green); }
+    .badge.no { background: var(--red-soft); color: var(--red); }
+    .badge.warn { background: var(--amber-soft); color: var(--amber); }
+    .badge.neutral { background: var(--blue-soft); color: var(--blue-deep); }
+
+    .hero-savings {
+      margin: 0 0 1.1rem;
+      padding: 1rem 1.1rem;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(35, 108, 255, 0.12), rgba(11, 79, 214, 0.05));
+      border: 1px solid rgba(35, 108, 255, 0.18);
+    }
+
+    .hero-savings .label {
+      margin: 0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-savings .amount {
+      margin: 0.2rem 0 0;
+      font-family: var(--display);
+      font-size: 2.35rem;
+      line-height: 1.1;
+      color: var(--ink);
+      animation: pop 0.45s ease both;
+    }
+
+    .hero-savings .amount.negative { color: var(--red); }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+      margin-bottom: 1rem;
+    }
+
+    .stat {
+      padding: 0.75rem 0.85rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+    }
+    .stat .k {
+      margin: 0;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+    }
+    .stat .v {
+      margin: 0.15rem 0 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .breakdown {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .breakdown th {
+      text-align: left;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-muted);
+      padding: 0 0 0.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .breakdown td {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid #eef2f7;
+      vertical-align: top;
+    }
+    .breakdown td.num {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .breakdown tr.total td {
+      border-bottom: 0;
+      padding-top: 0.75rem;
+      font-weight: 700;
+    }
+
+    .list {
+      margin: 0.75rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--ink-muted);
+      font-size: 0.86rem;
+    }
+    .list li { margin: 0.25rem 0; }
+
+    .footer-note {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      text-align: center;
+    }
+    .footer-note a { color: var(--blue-deep); }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: none; }
+    }
+    @keyframes pop {
+      from { opacity: 0; transform: translateY(6px) scale(0.98); }
+      to { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <p class="eyebrow">ITA · S-Corp conversion</p>
+      <h1>Estimate SE-tax savings</h1>
+      <p class="lede">
+        Enter Schedule C (or other SE) facts, confirm a reasonable wage, and see the
+        deterministic SPE-faithful savings estimate — including Social Security headroom for taxpayer or spouse.
+      </p>
+    </header>
+
+    <div class="layout">
+      <section class="panel panel-form" aria-labelledby="inputs-title">
+        <div class="panel-inner">
+          <h2 id="inputs-title" class="section-title">Activity inputs</h2>
+          <form id="scorp-form" novalidate>
+            <div class="grid-2">
+              <div class="field span-2">
+                <label for="name">Business name</label>
+                <input id="name" name="name" type="text" value="Consulting LLC" required />
+              </div>
+
+              <div class="field">
+                <label for="source">Source</label>
+                <select id="source" name="source">
+                  <option value="Schedule C" selected>Schedule C</option>
+                  <option value="Schedule F">Schedule F</option>
+                  <option value="Partnership">Partnership</option>
+                  <option value="Schedule E">Schedule E</option>
+                  <option value="SCorp">SCorp</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="owner">Owned by</label>
+                <select id="owner" name="owner">
+                  <option value="taxpayer" selected>Taxpayer</option>
+                  <option value="spouse">Spouse</option>
+                  <option value="joint">Joint</option>
+                </select>
+                <span class="hint">Whose SS wage base to use</span>
+              </div>
+
+              <div class="field">
+                <label for="net_income">Net income ($)</label>
+                <input id="net_income" name="net_income" type="number" step="1" value="120000" required />
+              </div>
+
+              <div class="field">
+                <label for="ownership_pct">Ownership %</label>
+                <input id="ownership_pct" name="ownership_pct" type="number" step="1" min="0" max="100" value="100" />
+              </div>
+
+              <div class="field">
+                <label for="is_se_biz">Subject to SE tax?</label>
+                <select id="is_se_biz" name="is_se_biz">
+                  <option value="true" selected>Yes</option>
+                  <option value="false">No</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="reasonable_wage">Reasonable wage ($)</label>
+                <input id="reasonable_wage" name="reasonable_wage" type="number" step="1" min="0" value="70000" />
+                <span class="hint">Advisor-confirmed — not invented by the tool</span>
+              </div>
+            </div>
+
+            <hr class="divider" />
+            <h2 class="section-title">Rates &amp; SS headroom</h2>
+            <div class="grid-2">
+              <div class="field">
+                <label for="fed_rate">Federal marginal %</label>
+                <input id="fed_rate" type="number" step="0.1" value="24" />
+              </div>
+              <div class="field">
+                <label for="state_rate">State marginal %</label>
+                <input id="state_rate" type="number" step="0.1" value="0" />
+              </div>
+              <div class="field">
+                <label for="ss_wage_base">SS wage base ($)</label>
+                <input id="ss_wage_base" type="number" step="1" value="176100" />
+              </div>
+              <div class="field">
+                <label for="ss_already">Owner’s wages already toward SS ($)</label>
+                <input id="ss_already" type="number" step="1" value="0" />
+                <span class="hint">Other W-2 for the same person as “Owned by”</span>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="btn-primary" id="btn-estimate">Estimate savings</button>
+              <button type="button" class="btn-secondary" id="btn-assess">Check applicability only</button>
+            </div>
+            <p class="status" id="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="panel panel-results" aria-labelledby="results-title">
+        <div class="panel-inner">
+          <h2 id="results-title" class="section-title">Results</h2>
+          <div id="results">
+            <p class="empty">Enter details and run an estimate. Applicability runs first; savings need a reasonable wage.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <p class="footer-note">
+      Deterministic tool from
+      <a href="/">Tax Advisory</a>
+      · estimate only, not a full return recalc ·
+      <code>income_tax.assisted.scorp-conversion</code>
+    </p>
+  </div>
+
+  <script>
+    const money = (n) => {
+      if (n == null || Number.isNaN(Number(n))) return "—";
+      return Number(n).toLocaleString(undefined, {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0,
+      });
+    };
+
+    const money2 = (n) => {
+      if (n == null || Number.isNaN(Number(n))) return "—";
+      return Number(n).toLocaleString(undefined, {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+    };
+
+    function payloadFromForm() {
+      const wageRaw = document.getElementById("reasonable_wage").value;
+      return {
+        activity: {
+          activity_id: "ui-schc-1",
+          source: document.getElementById("source").value,
+          name: document.getElementById("name").value.trim() || "SE business",
+          net_income: Number(document.getElementById("net_income").value),
+          is_se_biz: document.getElementById("is_se_biz").value === "true",
+          ownership_pct: Number(document.getElementById("ownership_pct").value || 100),
+          taxpayer_spouse_or_joint: document.getElementById("owner").value,
+          prefix: 1,
+        },
+        reasonable_wage: wageRaw === "" ? null : Number(wageRaw),
+        rates: {
+          federal_marginal_rate_pct: Number(document.getElementById("fed_rate").value || 24),
+          state_marginal_rate_pct: Number(document.getElementById("state_rate").value || 0),
+          ss_wage_base: Number(document.getElementById("ss_wage_base").value || 176100),
+          income_already_taxed_by_ss: Number(document.getElementById("ss_already").value || 0),
+        },
+        tax_year: 2026,
+      };
+    }
+
+    function setBusy(busy, msg) {
+      document.getElementById("btn-estimate").disabled = busy;
+      document.getElementById("btn-assess").disabled = busy;
+      const status = document.getElementById("status");
+      status.classList.toggle("error", false);
+      status.textContent = msg || "";
+    }
+
+    function setError(msg) {
+      const status = document.getElementById("status");
+      status.classList.add("error");
+      status.textContent = msg;
+    }
+
+    function renderApplicability(appl) {
+      if (!appl) return "";
+      const a = appl.applicable
+        ? `<span class="badge yes">Applicable</span>`
+        : `<span class="badge no">Not applicable</span>`;
+      const r = appl.recommended
+        ? `<span class="badge yes">Recommended</span>`
+        : `<span class="badge warn">Not recommended</span>`;
+      const owner = `<span class="badge neutral">${escapeHtml(appl.taxpayer_spouse_or_joint || "taxpayer")}</span>`;
+      const reasons = (appl.reasons || [])
+        .map((x) => `<li>${escapeHtml(x)}</li>`)
+        .join("");
+      return `
+        <div class="badge-row">${a}${r}${owner}</div>
+        <div class="split">
+          <div class="stat"><p class="k">Net income</p><p class="v">${money(appl.net_income)}</p></div>
+          <div class="stat"><p class="k">Net earnings (SE)</p><p class="v">${money(appl.net_earnings)}</p></div>
+        </div>
+        ${reasons ? `<ul class="list">${reasons}</ul>` : ""}
+      `;
+    }
+
+    function renderEstimate(data) {
+      const root = document.getElementById("results");
+      if (!data.ok) {
+        root.innerHTML = `
+          ${renderApplicability(data.applicability)}
+          <p class="empty" style="color:var(--red)">${escapeHtml((data.errors || ["Estimate failed."]).join(" "))}</p>
+        `;
+        return;
+      }
+
+      const s = data.savings || {};
+      const projected = Number(s.projected_tax_savings || 0);
+      const rows = [
+        ["Step 1 — Sch C income backed out (tax)", s.se_income_back_out_tax_savings],
+        ["Step 2 — SE tax reduction", s.se_tax_reduction],
+        ["Step 3 — ½ SE deduction lost (cost)", -Math.abs(Number(s.se_deduction_lost_tax_cost || 0))],
+        ["Step 4 — Wages income tax (cost)", -Math.abs(Number(s.wages_income_tax_cost || 0))],
+        ["Step 5 — Wages payroll tax / FICA (cost)", -Math.abs(Number(s.wages_fica || 0))],
+        ["Step 6 — S-Corp ordinary income tax (cost)", -Math.abs(Number(s.scorp_ordinary_income_tax_cost || 0))],
+        ["Step 7 — Employer payroll tax deduction savings", s.employer_fica_half_tax_savings],
+      ];
+
+      const warnings = (data.warnings || [])
+        .map((w) => `<li>${escapeHtml(w)}</li>`)
+        .join("");
+
+      root.innerHTML = `
+        ${renderApplicability(data.applicability)}
+        <div class="hero-savings">
+          <p class="label">Projected tax savings</p>
+          <p class="amount ${projected < 0 ? "negative" : ""}">${money2(projected)}</p>
+        </div>
+        <div class="split">
+          <div class="stat"><p class="k">Reasonable wage</p><p class="v">${money(data.wages_allocated)}</p></div>
+          <div class="stat"><p class="k">S-Corp ordinary</p><p class="v">${money(data.scorp_ordinary_income)}</p></div>
+          <div class="stat"><p class="k">SS headroom</p><p class="v">${money(s.ss_headroom)}</p></div>
+          <div class="stat"><p class="k">Already toward SS</p><p class="v">${money(s.income_already_taxed_by_ss)}</p></div>
+        </div>
+        <table class="breakdown">
+          <thead><tr><th>Component</th><th style="text-align:right">Amount</th></tr></thead>
+          <tbody>
+            ${rows
+              .map(
+                ([label, val]) =>
+                  `<tr><td>${escapeHtml(label)}</td><td class="num">${money2(val)}</td></tr>`
+              )
+              .join("")}
+            <tr class="total"><td>Projected tax savings</td><td class="num">${money2(projected)}</td></tr>
+          </tbody>
+        </table>
+        ${warnings ? `<ul class="list">${warnings}</ul>` : ""}
+      `;
+    }
+
+    function renderAssessOnly(appl) {
+      document.getElementById("results").innerHTML =
+        renderApplicability(appl) +
+        `<p class="empty" style="margin-top:1rem">Applicability only — enter a reasonable wage and estimate to see savings.</p>`;
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    async function postJson(url, body) {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.error || `Request failed (${res.status})`);
+      }
+      return data;
+    }
+
+    document.getElementById("scorp-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const payload = payloadFromForm();
+      if (payload.reasonable_wage == null || Number.isNaN(payload.reasonable_wage)) {
+        setError("Enter a confirmed reasonable wage to estimate savings.");
+        return;
+      }
+      if (Number.isNaN(payload.activity.net_income)) {
+        setError("Net income is required.");
+        return;
+      }
+      try {
+        setBusy(true, "Calculating…");
+        const data = await postJson("/api/scorp-conversion/estimate", payload);
+        renderEstimate(data);
+        setBusy(false, data.ok ? "Done." : "Estimate returned with errors.");
+      } catch (err) {
+        setBusy(false, "");
+        setError(err.message || String(err));
+      }
+    });
+
+    document.getElementById("btn-assess").addEventListener("click", async () => {
+      const payload = payloadFromForm();
+      if (Number.isNaN(payload.activity.net_income)) {
+        setError("Net income is required.");
+        return;
+      }
+      try {
+        setBusy(true, "Checking applicability…");
+        const data = await postJson("/api/scorp-conversion/assess", payload);
+        renderAssessOnly(data);
+        setBusy(false, "Done.");
+      } catch (err) {
+        setBusy(false, "");
+        setError(err.message || String(err));
+      }
+    });
+  </script>
+</body>
+</html>

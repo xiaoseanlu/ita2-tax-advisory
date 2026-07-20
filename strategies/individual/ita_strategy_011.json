@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_011",
+  "category": "individual",
+  "strategy_type": "Expense Shifting",
+  "title": "Employer Student Loan Repayment Assistance Programs",
+  "implementation_effort_score": 10,
+  "tax_savings_score": 8,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must establish and maintain qualified educational assistance program allowing employer to provide tax-free student loan repayment benefits up to annual limits as employee compensation alternative",
+    "criteria": [
+      "Employer must establish written educational assistance program under IRC \u00a7127 requirements",
+      "Program must not discriminate in favor of highly compensated employees under nondiscrimination testing",
+      "Student loan repayment assistance treated as educational assistance under expanded \u00a7127 definition",
+      "Annual limit: $5,250 per employee for combined educational assistance and student loan repayments",
+      "Benefits paid directly to loan servicer or reimbursed to employee for qualified student loan payments",
+      "Qualified student loans include loans incurred for employee's own qualified higher education expenses",
+      "Program must provide reasonable notification to eligible employees about availability and terms",
+      "Provision currently effective through 2025; sunset provisions may require congressional extension for future years"
+    ]
+  },
+  "limitations": {
+    "student_loan_assistance_rules": {
+      "annual_limit": "$5,250 maximum per employee per year tax-free; combined with tuition assistance if applicable",
+      "tax_free_to_employee": "Qualified payments excluded from employee wages and not subject to income or payroll taxes",
+      "employer_deduction": "Employer deducts payments as ordinary and necessary business expense (compensation equivalent)",
+      "direct_payment_method": "Payment to loan servicer or reimbursement to employee for documented student loan payments",
+      "nondiscrimination_testing": "Plan must not favor highly compensated employees; testing required annually",
+      "temporary_provision": "Current tax-free treatment under CARES Act and extensions; scheduled to expire after 2025"
+    },
+    "restrictions": [
+      "Benefits exceeding $5,250 annual limit taxable as wages subject to income and payroll taxes",
+      "Cannot reimburse loan payments made by employee's relative; must be employee's own qualified education loans",
+      "Refinanced student loans qualify only to extent original loans were for qualified higher education expenses",
+      "Plan must be written, separate, and meet formal program requirements; informal payments don't qualify",
+      "Program cannot provide choice between taxable benefit and educational assistance (cash vs benefit test)",
+      "Graduate and undergraduate education loans qualify; no educational level or timing restrictions",
+      "Shareholder-employee ownership exceeding 5% triggers special nondiscrimination testing requirements",
+      "Post-2025 tax treatment uncertain without congressional extension; planning requires monitoring legislation"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

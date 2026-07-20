@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_012",
+  "category": "individual",
+  "strategy_type": "Expense Shifting",
+  "title": "Dependent Care Flexible Spending Account (FSA)",
+  "implementation_effort_score": 2,
+  "tax_savings_score": 10,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must elect participation in employer's dependent care FSA to pay child and dependent care expenses with pre-tax dollars, coordinating with dependent care tax credit for optimal tax benefit",
+    "criteria": [
+      "Employer must offer dependent care FSA as part of cafeteria plan under IRC \u00a7129",
+      "Dependent care expenses must be incurred to allow employee (and spouse if married) to work or seek employment",
+      "Qualifying dependents: children under age 13, or dependents of any age unable to care for themselves",
+      "Maximum annual contribution: $5,000 ($2,500 if married filing separately)",
+      "Care provided by day care centers, in-home providers, summer day camps, before/after school programs",
+      "Cannot reimburse care provided by spouse, child under age 19, or someone claimed as dependent",
+      "Contributions made pre-tax through salary reduction elections at annual enrollment or qualifying event",
+      "Compare FSA benefit against dependent care credit (20-35% of up to $3,000/$6,000 expenses) for optimal choice"
+    ]
+  },
+  "limitations": {
+    "dependent_care_fsa_rules": {
+      "annual_limit": "$5,000 maximum per household ($2,500 MFS); both spouses' plans combined toward limit",
+      "use_or_lose": "Must incur and claim expenses by plan year end plus grace period/runout; unused amounts forfeited",
+      "pre_tax_benefit": "Contributions reduce taxable wages saving income tax and 7.65% FICA on reimbursed amounts",
+      "credit_coordination": "Cannot claim dependent care credit for expenses reimbursed through FSA; must choose optimal benefit",
+      "earned_income_limit": "Reimbursements cannot exceed lesser of employee's or spouse's earned income",
+      "provider_documentation": "Must provide care provider name, address, and tax ID on Form 2441"
+    },
+    "restrictions": [
+      "Use-or-lose rule requires careful estimation; over-contribution results in forfeiture of unused balance",
+      "Cannot reimburse expenses for care provider who is dependent or child under age 19",
+      "Expenses must be incurred while enrolled in plan; cannot reimburse prior-year expenses",
+      "Married couples must file jointly to use $5,000 limit (MFS limited to $2,500 each)",
+      "Dependent care credit often more beneficial for lower-income taxpayers due to 35% credit rate and AGI phase-down",
+      "FSA more beneficial for higher-income taxpayers (marginal rate above 20% plus FICA savings)",
+      "Election changes permitted only at annual enrollment or qualifying life events (birth, marriage, divorce, employment change)",
+      "State tax treatment varies; some states don't recognize pre-tax treatment requiring state income tax adjustment"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

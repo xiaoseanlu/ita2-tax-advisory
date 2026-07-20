@@ -1,0 +1,113 @@
+{
+  "mcp_asset_alias": "tax-mcp",
+  "tools": [
+    {
+      "name": "assess_scorp_applicability",
+      "skill_part": 1,
+      "description": "Deterministic S-Corp applicability and recommend gates. No reasonable_wage. No LLM.",
+      "input_schema": {
+        "type": "object",
+        "required": ["activity"],
+        "properties": {
+          "activity": {
+            "type": "object",
+            "required": [
+              "activity_id",
+              "source",
+              "name",
+              "net_income",
+              "is_se_biz",
+              "taxpayer_spouse_or_joint"
+            ],
+            "properties": {
+              "activity_id": { "type": "string" },
+              "source": {
+                "type": "string",
+                "enum": ["Schedule C", "Schedule F", "Partnership", "Schedule E", "SCorp"]
+              },
+              "name": { "type": "string" },
+              "net_income": { "type": "number" },
+              "is_se_biz": { "type": "boolean" },
+              "ownership_pct": { "type": "number", "default": 100 },
+              "prefix": { "type": "integer", "default": 1 },
+              "net_earnings": { "type": "number" },
+              "taxpayer_spouse_or_joint": {
+                "type": "string",
+                "enum": ["taxpayer", "spouse", "joint"],
+                "description": "Who owns this SE activity; drives whose SS wage base is used in Part 2."
+              }
+            }
+          },
+          "rates": {
+            "type": "object",
+            "properties": {
+              "net_earnings_ratio": { "type": "number", "default": 0.9235 }
+            }
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "applicable": { "type": "boolean" },
+          "recommended": { "type": "boolean" },
+          "reasons": { "type": "array", "items": { "type": "string" } },
+          "net_earnings": { "type": "number" },
+          "ownership_pct": { "type": "number" },
+          "taxpayer_spouse_or_joint": { "type": "string" }
+        }
+      }
+    },
+    {
+      "name": "estimate_scorp_savings",
+      "skill_part": 2,
+      "description": "Deterministic SPE-faithful savings given confirmed reasonable_wage. No LLM. Caps SS using owner's income_already_taxed_by_ss.",
+      "input_schema": {
+        "type": "object",
+        "required": ["activity", "reasonable_wage"],
+        "properties": {
+          "activity": { "$ref": "#/tools/0/input_schema/properties/activity" },
+          "reasonable_wage": { "type": "number", "minimum": 0 },
+          "rates": {
+            "type": "object",
+            "properties": {
+              "net_earnings_ratio": { "type": "number" },
+              "ss_rate": { "type": "number" },
+              "med_rate": { "type": "number" },
+              "ss_wage_base": { "type": "number" },
+              "federal_marginal_rate_pct": { "type": "number" },
+              "state_marginal_rate_pct": { "type": "number" },
+              "nyc_marginal_rate_pct": { "type": "number" },
+              "income_already_taxed_by_ss": {
+                "type": "number",
+                "description": "That owner's wages already counting toward the SS wage base (match taxpayer_spouse_or_joint)."
+              }
+            }
+          },
+          "tax_year": { "type": "integer" },
+          "filing_status": { "type": "string" },
+          "scenario_id": { "type": "string" }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "ok": { "type": "boolean" },
+          "savings": {
+            "type": "object",
+            "properties": {
+              "projected_tax_savings": { "type": "number" },
+              "ss_headroom": { "type": "number" },
+              "income_already_taxed_by_ss": { "type": "number" },
+              "taxpayer_spouse_or_joint": { "type": "string" }
+            }
+          },
+          "wages_allocated": { "type": "number" },
+          "scorp_ordinary_income": { "type": "number" },
+          "mutations": { "type": "array" },
+          "warnings": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  ]
+}

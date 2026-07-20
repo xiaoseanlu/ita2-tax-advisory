@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITA 2.0 — Product Requirements Document</title>
+<style>
+  :root {
+    --navy:       #0D1D44;
+    --navy-soft:  #1a2f5e;
+    --teal:       #00B388;
+    --teal-mid:   #00997A;
+    --teal-light: #E0F7F2;
+    --yellow:     #F9C741;
+    --yellow-lt:  #FFF8E1;
+    --yellow-dk:  #AC6500;
+    --red:        #D92B2B;
+    --red-light:  #FDECEA;
+    --green:      #2CA01C;
+    --green-lt:   #E7FDC8;
+    --dark-gray:  #393A3D;
+    --mid-gray:   #6B6C72;
+    --lt-gray:    #D4D5D9;
+    --off-white:  #F7F8F5;
+    --paper:      #FDFDFA;
+    --white:      #FFFFFF;
+    --font: 'Avenir Next for Intuit','Avenir Next','Avenir','Helvetica Neue',Arial,sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; font-family: var(--font); color: var(--dark-gray);
+    background: var(--off-white); font-size: 15px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased; }
+
+  /* ── SHELL ── */
+  .shell { max-width: 1080px; margin: 0 auto; background: var(--paper);
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 32px rgba(13,29,68,.08); }
+
+  /* ── COVER ── */
+  .cover {
+    background:
+      radial-gradient(ellipse 900px 500px at 10% 5%, rgba(0,179,136,.15), transparent 60%),
+      radial-gradient(ellipse 700px 400px at 95% 95%, rgba(249,199,65,.08), transparent 60%),
+      var(--navy);
+    color: var(--white); padding: 52px 64px 60px;
+  }
+  .cover-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 20px; }
+  .cover h1 { font-size: 46px; line-height: 1.08; font-weight: 700; margin: 0 0 16px;
+    letter-spacing: -.015em; }
+  .cover h1 .accent { color: var(--teal); }
+  .cover-sub { font-size: 17px; line-height: 1.55; color: rgba(255,255,255,.8);
+    max-width: 680px; margin: 0 0 52px; }
+  .cover-meta { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
+    border-top: 1px solid rgba(255,255,255,.15); padding-top: 24px; }
+  .meta-item { display: flex; flex-direction: column; }
+  .meta-label { font-size: 10px; text-transform: uppercase; letter-spacing: .14em;
+    color: rgba(255,255,255,.45); margin-bottom: 5px; font-weight: 700; }
+  .meta-value { font-size: 13px; color: var(--white); font-weight: 500; line-height: 1.4; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px;
+    font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  .badge.draft { background: rgba(249,199,65,.2); color: var(--yellow); }
+  .badge.review { background: rgba(0,179,136,.2); color: var(--teal); }
+  .badge.approved { background: rgba(44,160,28,.2); color: #6ee860; }
+
+  /* ── TAB NAV ── */
+  .tab-nav { display: flex; background: var(--navy-soft); padding: 0 64px;
+    border-bottom: 1px solid rgba(255,255,255,.1); overflow-x: auto; }
+  .tab-btn { padding: 16px 20px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.55);
+    cursor: pointer; border: none; background: none; border-bottom: 3px solid transparent;
+    white-space: nowrap; transition: color .15s, border-color .15s; font-family: var(--font);
+    letter-spacing: .02em; }
+  .tab-btn:hover { color: rgba(255,255,255,.85); }
+  .tab-btn.active { color: var(--teal); border-bottom-color: var(--teal); }
+
+  /* ── TAB PANELS ── */
+  .tab-panel { display: none; padding: 56px 64px; }
+  .tab-panel.active { display: block; }
+
+  /* ── SECTION HEADERS ── */
+  .section { margin-bottom: 56px; }
+  .section-tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+  h2 { font-size: 28px; color: var(--navy); margin: 0 0 8px; font-weight: 700; line-height: 1.2; }
+  h3 { font-size: 17px; color: var(--navy); margin: 32px 0 10px; font-weight: 700; }
+  h4 { font-size: 14px; color: var(--navy); margin: 24px 0 8px; font-weight: 700; }
+  .section-lede { font-size: 16px; color: var(--mid-gray); margin: 0 0 28px;
+    max-width: 760px; line-height: 1.55; }
+  p { margin: 0 0 14px; }
+  strong { color: var(--navy); font-weight: 600; }
+  .rule { border: none; border-top: 1px solid var(--lt-gray); margin: 40px 0; }
+
+  /* ── BLUF ── */
+  .bluf { background: var(--teal-light); border-left: 4px solid var(--teal);
+    padding: 22px 28px; border-radius: 0 8px 8px 0; margin-bottom: 40px; }
+  .bluf-label { font-size: 10px; font-weight: 700; color: var(--navy);
+    letter-spacing: .22em; text-transform: uppercase; margin-bottom: 10px; }
+  .bluf p { font-size: 15px; line-height: 1.65; color: var(--navy); margin: 0 0 10px; }
+  .bluf p:last-child { margin: 0; }
+
+  /* ── DACE TABLE ── */
+  .dace-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px;
+    font-size: 14px; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 0 0 1px var(--lt-gray); }
+  .dace-table th { background: var(--navy); color: var(--white); text-align: left;
+    font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    padding: 11px 16px; }
+  .dace-table td { padding: 12px 16px; border-bottom: 1px solid var(--lt-gray);
+    vertical-align: top; line-height: 1.45; }
+  .dace-table tr:last-child td { border-bottom: none; }
+  .dace-table tr:nth-child(even) { background: var(--off-white); }
+  .dace-table td.role { font-weight: 700; color: var(--navy); font-size: 13px; width: 22%; }
+  .dace-table td.note { font-size: 12px; color: var(--mid-gray); font-style: italic; }
+  .status-pill { display: inline-block; padding: 2px 9px; border-radius: 12px;
+    font-size: 11px; font-weight: 700; }
+  .status-pill.ns { background: var(--off-white); color: var(--mid-gray); border: 1px solid var(--lt-gray); }
+  .status-pill.ip { background: var(--yellow-lt); color: var(--yellow-dk); border: 1px solid var(--yellow); }
+  .status-pill.done { background: var(--green-lt); color: var(--green); border: 1px solid #a8e8a0; }
+
+  /* ── STAT ROW ── */
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0 32px; }
+  .stat { background: var(--navy); color: var(--white); padding: 22px 18px;
+    border-radius: 10px; text-align: center; }
+  .stat-number { font-size: 38px; font-weight: 700; color: var(--teal);
+    line-height: 1; margin-bottom: 8px; letter-spacing: -.02em; }
+  .stat-label { font-size: 13px; color: rgba(255,255,255,.75); line-height: 1.4; }
+
+  /* ── TABLES (standard) ── */
+  table { width: 100%; border-collapse: collapse; margin: 14px 0 22px; font-size: 14px;
+    background: var(--white); border-radius: 8px; overflow: hidden;
+    box-shadow: 0 0 0 1px var(--lt-gray); }
+  thead th { background: var(--navy); color: var(--white); text-align: left;
+    font-weight: 600; font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    padding: 11px 16px; }
+  tbody td { padding: 11px 16px; border-bottom: 1px solid var(--lt-gray);
+    vertical-align: top; line-height: 1.45; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--off-white); }
+  td.label { font-weight: 600; color: var(--navy); }
+  td.mono { font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 12px; }
+
+  /* ── PRIORITY PILLS ── */
+  .p0 { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px;
+    font-weight: 700; background: var(--red-light); color: var(--red); }
+  .p1 { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px;
+    font-weight: 700; background: var(--yellow-lt); color: var(--yellow-dk); }
+  .p2 { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px;
+    font-weight: 700; background: var(--green-lt); color: var(--green); }
+
+  /* ── CALLOUT ── */
+  .callout { border-left: 3px solid var(--yellow); padding: 14px 18px;
+    border-radius: 0 6px 6px 0; margin: 16px 0;
+    font-size: 14px; color: var(--dark-gray); line-height: 1.55; }
+  .callout .cl { display: block; font-size: 10px; font-weight: 700;
+    letter-spacing: .18em; text-transform: uppercase; margin-bottom: 4px; }
+  .callout.yellow { background: var(--yellow-lt); border-left-color: var(--yellow); }
+  .callout.yellow .cl { color: var(--yellow-dk); }
+  .callout.red { background: var(--red-light); border-left-color: var(--red); }
+  .callout.red .cl { color: var(--red); }
+  .callout.green { background: var(--green-lt); border-left-color: var(--green); }
+  .callout.green .cl { color: #1a6e12; }
+  .callout.blue { background: #EBF2FF; border-left-color: #3B82F6; }
+  .callout.blue .cl { color: #1D4ED8; }
+
+  /* ── PERSONA CARDS ── */
+  .persona-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0 32px; }
+  .persona-card { background: var(--white); border: 1px solid var(--lt-gray);
+    border-top: 4px solid var(--teal); border-radius: 0 0 10px 10px; padding: 20px; }
+  .persona-card.secondary { border-top-color: var(--yellow); }
+  .persona-card.tertiary { border-top-color: #8B5CF6; }
+  .persona-icon { font-size: 28px; margin-bottom: 10px; }
+  .persona-name { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .persona-role { font-size: 12px; color: var(--mid-gray); margin-bottom: 10px; }
+  .persona-need { font-size: 13px; color: var(--dark-gray); line-height: 1.45; }
+
+  /* ── JOURNEY LANE ── */
+  .journey { margin: 20px 0 32px; }
+  .journey-step { display: flex; gap: 16px; margin-bottom: 0; }
+  .journey-left { display: flex; flex-direction: column; align-items: center; width: 40px; flex-shrink: 0; }
+  .journey-dot { width: 32px; height: 32px; border-radius: 50%; background: var(--teal);
+    color: white; display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; flex-shrink: 0; }
+  .journey-dot.future { background: var(--lt-gray); color: var(--mid-gray); }
+  .journey-line { width: 2px; flex: 1; background: var(--lt-gray); margin: 4px 0; min-height: 24px; }
+  .journey-content { padding: 4px 0 24px; flex: 1; }
+  .journey-content h4 { margin: 0 0 4px; font-size: 14px; color: var(--navy); font-weight: 700; }
+  .journey-content p { margin: 0; font-size: 13px; color: var(--mid-gray); line-height: 1.45; }
+
+  /* ── FEATURE GRID ── */
+  .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0 32px; }
+  .feature-card { background: var(--white); border: 1px solid var(--lt-gray);
+    border-radius: 10px; padding: 22px; }
+  .feature-num { font-size: 10px; font-weight: 700; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+  .feature-name { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .feature-desc { font-size: 13px; color: var(--mid-gray); line-height: 1.5; }
+
+  /* ── COMPARE ── */
+  .compare-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px;
+    align-items: stretch; margin: 20px 0 32px; }
+  .compare-col { border-radius: 10px; padding: 22px; border: 1px solid var(--lt-gray); }
+  .compare-col.before { background: var(--off-white); }
+  .compare-col.after { background: linear-gradient(135deg, var(--teal-light) 0%, #f0fff9 100%);
+    border-color: var(--teal); }
+  .compare-head { font-size: 10px; font-weight: 700; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--mid-gray); margin-bottom: 14px; }
+  .compare-col.after .compare-head { color: var(--teal-mid); }
+  .compare-row { font-size: 13px; padding: 9px 12px; background: var(--white);
+    border: 1px solid var(--lt-gray); border-radius: 6px; margin-bottom: 8px; line-height: 1.35; }
+  .compare-row.gone { border-color: #f5b8b8; background: #fff5f5;
+    color: var(--red); text-decoration: line-through; opacity: .7; }
+  .compare-row.new { border-color: var(--teal); color: var(--navy); font-weight: 600; }
+  .compare-arrow { display: flex; align-items: center; justify-content: center;
+    font-size: 22px; color: var(--lt-gray); }
+
+  /* ── D4D PROBLEM STATEMENT ── */
+  .d4d { background: var(--white); border: 1px solid var(--lt-gray);
+    border-radius: 10px; padding: 24px 28px; margin: 16px 0; }
+  .d4d-label { font-size: 10px; font-weight: 700; letter-spacing: .2em;
+    text-transform: uppercase; margin-bottom: 14px; }
+  .d4d-label.cust { color: var(--teal); }
+  .d4d-label.biz { color: var(--yellow-dk); }
+  .d4d-row { font-size: 14px; line-height: 1.65; color: var(--dark-gray);
+    margin-bottom: 6px; }
+  .d4d-row strong { font-weight: 700; color: var(--navy); margin-right: 4px; }
+
+  /* ── GOALS / METRICS TABLE ── */
+  .goal-tier { font-size: 10px; font-weight: 700; letter-spacing: .14em;
+    text-transform: uppercase; padding: 2px 8px; border-radius: 4px; }
+  .goal-tier.north { background: var(--navy); color: var(--teal); }
+  .goal-tier.input { background: var(--teal-light); color: var(--teal-mid); }
+  .goal-tier.guardrail { background: var(--yellow-lt); color: var(--yellow-dk); }
+
+  /* ── SCOPE CARDS ── */
+  .scope-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 28px; }
+  .scope-card { border-radius: 10px; padding: 20px; }
+  .scope-card.in { background: var(--green-lt); border: 1px solid #a8e8a0; }
+  .scope-card.out { background: var(--red-light); border: 1px solid #f5b8b8; }
+  .scope-card h4 { margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: .18em;
+    text-transform: uppercase; }
+  .scope-card.in h4 { color: var(--green); }
+  .scope-card.out h4 { color: var(--red); }
+  .scope-list { list-style: none; padding: 0; margin: 0; font-size: 13px; }
+  .scope-list li { padding: 5px 0; border-bottom: 1px solid rgba(0,0,0,.07);
+    display: flex; gap: 8px; align-items: flex-start; line-height: 1.4; }
+  .scope-list li:last-child { border-bottom: none; }
+  .scope-list li::before { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+  .scope-card.in .scope-list li::before { content: "✓"; color: var(--green); font-weight: 700; }
+  .scope-card.out .scope-list li::before { content: "✗"; color: var(--red); font-weight: 700; }
+
+  /* ── TIMELINE ── */
+  .timeline { margin: 20px 0 32px; position: relative; }
+  .timeline::before { content: ''; position: absolute; left: 79px; top: 16px;
+    bottom: 16px; width: 2px; background: var(--lt-gray); }
+  .tl-row { display: flex; gap: 24px; margin-bottom: 20px; align-items: flex-start;
+    position: relative; }
+  .tl-date { width: 72px; flex-shrink: 0; font-size: 12px; font-weight: 700;
+    color: var(--mid-gray); text-align: right; padding-top: 6px; }
+  .tl-dot-wrap { width: 16px; flex-shrink: 0; display: flex; justify-content: center;
+    padding-top: 6px; }
+  .tl-dot { width: 16px; height: 16px; border-radius: 50%; border: 3px solid var(--teal);
+    background: var(--white); position: relative; z-index: 1; }
+  .tl-dot.active { background: var(--teal); }
+  .tl-content { flex: 1; }
+  .tl-milestone { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+  .tl-desc { font-size: 13px; color: var(--mid-gray); line-height: 1.4; }
+
+  /* ── DECISION REGISTRY ── */
+  .decision-status { font-size: 11px; font-weight: 700; padding: 2px 8px;
+    border-radius: 4px; }
+  .decision-status.open { background: var(--yellow-lt); color: var(--yellow-dk); }
+  .decision-status.decided { background: var(--green-lt); color: var(--green); }
+  .decision-status.blocked { background: var(--red-light); color: var(--red); }
+
+  /* ── NFR LIST ── */
+  .nfr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0 28px; }
+  .nfr-card { background: var(--white); border: 1px solid var(--lt-gray);
+    border-radius: 8px; padding: 16px; }
+  .nfr-type { font-size: 10px; font-weight: 700; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+  .nfr-name { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .nfr-req { font-size: 13px; color: var(--mid-gray); line-height: 1.45; }
+
+  /* ── FOOTER ── */
+  .doc-footer { background: var(--navy); color: rgba(255,255,255,.6);
+    padding: 28px 64px; font-size: 12px; text-align: center; letter-spacing: .04em; }
+  .doc-footer strong { color: var(--teal); }
+
+  @media print {
+    body { background: white; }
+    .shell { box-shadow: none; max-width: none; }
+    .tab-panel { display: block !important; }
+    .tab-nav { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <div class="cover-eyebrow">Product Requirements Document · Project AIR · May 2026</div>
+  <h1>Intuit Tax Advisor <span class="accent">2.0</span></h1>
+  <p class="cover-sub">From snapshot to strategic advisor — rebuilding the ITA platform on an LLM tax engine, natural language inputs, and multi-year planning.</p>
+  <div class="cover-meta">
+    <div class="meta-item">
+      <div class="meta-label">Status</div>
+      <div class="meta-value"><span class="badge draft">🚧 Draft</span></div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Initiative</div>
+      <div class="meta-value">Project AIR</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Team</div>
+      <div class="meta-value">ITA Product &amp; Engineering</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">PM Owner</div>
+      <div class="meta-value">Ramesh Raman</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Last Updated</div>
+      <div class="meta-value">May 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TAB NAV ══ -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+  <button class="tab-btn" onclick="showTab('personas')">Personas &amp; Use Cases</button>
+  <button class="tab-btn" onclick="showTab('features')">Features &amp; Requirements</button>
+  <button class="tab-btn" onclick="showTab('architecture')">Architecture &amp; AI</button>
+  <button class="tab-btn" onclick="showTab('metrics')">Goals &amp; Metrics</button>
+  <button class="tab-btn" onclick="showTab('scope')">Scope &amp; Decisions</button>
+  <button class="tab-btn" onclick="showTab('milestones')">Milestones</button>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!--  TAB 1 · OVERVIEW                              -->
+<!-- ══════════════════════════════════════════════ -->
+<div id="tab-overview" class="tab-panel active">
+
+  <!-- DACE(R) -->
+  <div class="section">
+    <div class="section-tag">Governance</div>
+    <h2>DACE(R) Table</h2>
+    <table class="dace-table">
+      <thead>
+        <tr><th>Role</th><th>Names</th><th>Notes</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="role">Driver<br><span style="font-weight:400;font-size:12px;color:var(--mid-gray)">Drive decision process</span></td>
+          <td>PD: TBD<br>PE: TBD<br>XD: TBD</td>
+          <td class="note">Primary owners accountable for PRD completion and alignment</td>
+          <td><span class="status-pill ip">In Progress</span></td>
+        </tr>
+        <tr>
+          <td class="role">Approver<br><span style="font-weight:400;font-size:12px;color:var(--mid-gray)">Ultimate authority</span></td>
+          <td>Advisory Product Lead</td>
+          <td class="note">Final sign-off required before engineering kickoff</td>
+          <td><span class="status-pill ns">Not Started</span></td>
+        </tr>
+        <tr>
+          <td class="role">Consulted<br><span style="font-weight:400;font-size:12px;color:var(--mid-gray)">Contribute input</span></td>
+          <td>PTG Tax Expert Panel<br>ProConnect Engineering<br>Legal &amp; Compliance<br>Lacerte Platform Team<br>ITA 1.0 Core Engineers</td>
+          <td class="note">Domain accuracy, API surface, regulatory review, Lacerte MCP feasibility</td>
+          <td><span class="status-pill ns">Not Started</span></td>
+        </tr>
+        <tr>
+          <td class="role">Escalation Path</td>
+          <td>ITA Business Unit GM</td>
+          <td class="note">For unresolved scope, resource, or risk decisions</td>
+          <td><span class="status-pill ns">Not Started</span></td>
+        </tr>
+        <tr>
+          <td class="role">Reviewers</td>
+          <td>TBD</td>
+          <td class="note">Optional reviewers for cross-platform alignment</td>
+          <td><span class="status-pill ns">Not Started</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="rule">
+
+  <!-- BLUF -->
+  <div class="bluf">
+    <div class="bluf-label">Bottom Line Up Front</div>
+    <p>ITA 1.0 is a snapshot system. It gives precise recommendations based on a fixed point-in-time view of a client's return, cannot accept new inputs outside its data model, runs on a planner written in a domain-specific language that only two engineers at Intuit can read, and incorrectly triggers (or fails to trigger) AMT — a failure that has caused a real client to pay $20,000 in excess advance tax.</p>
+    <p>ITA 2.0 replaces the computational core with an LLM tax engine tested to dollar-exact accuracy against ProConnect. It accepts natural language inputs — with a smaller intentional data model (that potentially supports MCP access into Intuit's existing tax engines where required). RAG retrieves the right rates and thresholds for the right tax year. Strategy-specific guardrails prevent hallucination. Multi-year projections, state returns, and entity modeling route to Lacerte via MCP. The platform shift allows ITA to become what it was always meant to be: the advisor tool that sees the whole return, models the interactions between strategies, and tells the professional what a client would actually save — not what each strategy would save in isolation.</p>
+  </div>
+
+  <!-- BACKGROUND -->
+  <div class="section">
+    <div class="section-tag">Background</div>
+    <h2>Current State &amp; Strategic Context</h2>
+    <p class="section-lede">ITA 1.0 has reached the limits of its architecture. The failure modes are not bugs — they are properties of a rules-based system built on a deprecated DSL, evaluated independently per strategy, with no natural language input layer and no multi-year modeling path.</p>
+
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-number">75%</div>
+        <div class="stat-label">of ITA 1.0 VOC is about inputs — missing, stale, bundled, or non-overridable</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">2</div>
+        <div class="stat-label">engineers at Intuit who understand the DSL the ITA planner is written in</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">$20K</div>
+        <div class="stat-label">in excess advance tax advised to a client due to incorrect AMT triggering</div>
+      </div>
+    </div>
+
+    <h3>Why the architecture is the problem</h3>
+    <p>ITA 1.0 evaluates strategies <strong>independently</strong>. Real tax returns do not work this way. An S-corp conversion reduces SE tax — but simultaneously reduces QBI, costing up to 20% of the deduction. A retirement contribution may save far more than its face-value tax reduction by crossing an IRMAA threshold or unlocking a QBI deduction that the phaseout was suppressing. A Roth conversion pushes AGI up and may make Social Security more taxable, phase out other deductions, or trigger NIIT — raising the real marginal cost to 2–3× the stated rate.</p>
+    <p>Rules-based systems that evaluate in isolation will overstate benefits when interactions reduce savings, and miss value entirely when interactions amplify savings. In both cases the client is harmed — once by a bad recommendation, once by an opportunity never surfaced.</p>
+
+    <div class="compare-grid">
+      <div class="compare-col before">
+        <div class="compare-head">ITA 1.0 — Today</div>
+        <div class="compare-row gone">Evaluates strategies independently</div>
+        <div class="compare-row gone">DSL planner (2 engineers can read)</div>
+        <div class="compare-row gone">Static field-by-field input model</div>
+        <div class="compare-row gone">Bundled inputs, no drill-down</div>
+        <div class="compare-row gone">AMT wrong (PTO-dependency gap)</div>
+        <div class="compare-row gone">No multi-year projections</div>
+        <div class="compare-row gone">No S-corp / C-corp / partnership</div>
+        <div class="compare-row gone">State conformity defects compound</div>
+        <div class="compare-row gone">Cannot accept conversational context</div>
+      </div>
+      <div class="compare-arrow">→</div>
+      <div class="compare-col after">
+        <div class="compare-head">ITA 2.0 — Target</div>
+        <div class="compare-row new">Full-return LLM engine; interactions modeled</div>
+        <div class="compare-row new">LLM + strategy skill guardrails</div>
+        <div class="compare-row new">Natural language input; with a smaller intentional data model (that potentially supports MCP access into Intuit's existing tax engines where required)</div>
+        <div class="compare-row new">Chat-driven context mutation</div>
+        <div class="compare-row new">AMT correct (parallel calculation)</div>
+        <div class="compare-row new">Multi-year projections via Lacerte MCP</div>
+        <div class="compare-row new">S-corp, C-corp, partnerships via Lacerte</div>
+        <div class="compare-row new">LLM + RAG: state-level accuracy by tax year</div>
+        <div class="compare-row new">Session memory: save &amp; retrieve context</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- D4D PROBLEM STATEMENTS -->
+  <div class="section">
+    <div class="section-tag">Problem Statements</div>
+    <h2>D4D Framework</h2>
+
+    <div class="d4d">
+      <div class="d4d-label cust">Customer Problem — Independent Tax Professional (PTG)</div>
+      <div class="d4d-row"><strong>I am</strong> an independent tax professional managing 200+ clients with complex returns — self-employed income, S-corps, real estate, retirement accounts.</div>
+      <div class="d4d-row"><strong>I am trying to</strong> give each client a credible, quantified tax plan that accurately reflects what they will actually save — not what each strategy saves in isolation.</div>
+      <div class="d4d-row"><strong>But</strong> the tool I use evaluates strategies one at a time, surfaces numbers I cannot explain when clients ask where they came from, and rejects inputs that don't fit its model.</div>
+      <div class="d4d-row"><strong>Because</strong> the calculation engine does not model interactions between strategies, and the input layer assumes the current tax return is complete and correct.</div>
+      <div class="d4d-row"><strong>Which makes me feel</strong> exposed — I am recommending numbers the tool can't justify, and I know the client's actual outcome may differ materially from what I showed them.</div>
+    </div>
+
+    <div class="d4d" style="margin-top:16px;">
+      <div class="d4d-label cust" style="color:#8B5CF6;">Customer Problem — QBL Tax Expert</div>
+      <div class="d4d-row"><strong>I am</strong> a QuickBooks Live tax expert delivering advice to SMB owners who have never worked with a tax professional before.</div>
+      <div class="d4d-row"><strong>I am trying to</strong> quickly produce a tax plan grounded in the client's actual financial situation, explained in language they understand.</div>
+      <div class="d4d-row"><strong>But</strong> the tool requires me to manually locate and enter financial details from documents the client shares, and gives me numbers without explaining the logic or flagging interactions.</div>
+      <div class="d4d-row"><strong>Because</strong> the input model is form-based and expert-dependent — it was designed for CPAs who already know what fields mean, not for a consultative expert conversation.</div>
+      <div class="d4d-row"><strong>Which makes me feel</strong> like the software is working against the conversation, not inside it.</div>
+    </div>
+
+    <div class="d4d" style="margin-top:16px;">
+      <div class="d4d-label biz">Business Problem — ITA Product &amp; Intuit</div>
+      <div class="d4d-row"><strong>I am</strong> the ITA product team responsible for making ITA the leading tax planning tool for professionals across PTG and QBL.</div>
+      <div class="d4d-row"><strong>I am trying to</strong> grow ITA's attach rate, NPS, and revenue contribution by making it the most trusted source of tax planning quantification.</div>
+      <div class="d4d-row"><strong>But</strong> the current engine cannot model strategy interactions, cannot accept natural language inputs, cannot be extended to multi-year or entity modeling, and cannot be safely maintained by the team that now owns it.</div>
+      <div class="d4d-row"><strong>Because</strong> the architecture is irreparably constrained — the DSL is vendor-unsupported, AMT is dependent on PTO state that ITA cannot read, and the input model is a static approximation of what clients' returns actually contain.</div>
+      <div class="d4d-row"><strong>Which makes me feel</strong> that every roadmap item we ship on top of ITA 1.0 is adding debt to a foundation that cannot hold the weight of what the market now requires.</div>
+    </div>
+  </div>
+
+  <!-- IDEAL STATE -->
+  <div class="section">
+    <div class="section-tag">Ideal State</div>
+    <h2>In a Perfect World</h2>
+    <div class="callout blue">
+      <span class="cl">Vision</span>
+      A tax professional describes their client's situation in plain language — income, entity structure, goals, recent changes — and ITA produces a complete, accurate, multi-strategy plan showing exactly what the client will net after all interactions are accounted for. The professional can iterate by asking "what if they delay the Roth conversion to next year?" and ITA updates every number instantly, flagging all the downstream effects. Plans can be projected three years forward, include state tax, and handle S-corps and C-corps without switching to a different tool. Every number on the plan can be traced back to a specific section of the return — and every recommendation comes with an explanation the professional can share with their client in confidence.
+    </div>
+    <p><strong>The biggest benefit to the professional:</strong> they can stop presenting approximate numbers based on isolated strategies and start presenting verified, interaction-aware plans they can defend to clients, to the IRS, and to themselves.</p>
+    <p><strong>The biggest benefit to Intuit:</strong> a feedback loop — every plan produced in ITA against a PTO return teaches the engine something new. The accuracy validates itself in production, and every validation makes the moat wider.</p>
+  </div>
+
+</div><!-- /tab-overview -->
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!--  TAB 2 · PERSONAS & USE CASES                  -->
+<!-- ══════════════════════════════════════════════ -->
+<div id="tab-personas" class="tab-panel">
+
+  <div class="section">
+    <div class="section-tag">Personas</div>
+    <h2>Who We're Building For</h2>
+    <p class="section-lede">ITA 2.0 serves three primary personas with different contexts, skill levels, and jobs-to-be-done. All three share a common need: accurate, interaction-aware tax planning grounded in the client's actual return data.</p>
+
+    <div class="persona-grid">
+      <div class="persona-card">
+        <div class="persona-icon">🧑‍💼</div>
+        <div class="persona-name">Alex — Independent Tax Pro</div>
+        <div class="persona-role">CPA / EA · ProConnect Tax Group (PTG)</div>
+        <div class="persona-need">Manages 200–400 clients. Needs strategy quantification that survives client Q&A. Wants to produce plans faster during the planning season without sacrificing defensibility. Primary reviewer of AI-generated output — will not trust numbers he can't trace.</div>
+      </div>
+      <div class="persona-card secondary">
+        <div class="persona-icon">🧑‍🏫</div>
+        <div class="persona-name">Maya — QBL Tax Expert</div>
+        <div class="persona-role">Enrolled Agent · QuickBooks Live</div>
+        <div class="persona-need">Supports SMB owners in real-time advisory conversations. Needs a tool that works inside a conversation — accepts what the client just said, updates the plan, and explains the change. Less familiar with all ITA fields than Alex; needs the interface to do more guiding.</div>
+      </div>
+      <div class="persona-card tertiary">
+        <div class="persona-icon">🏢</div>
+        <div class="persona-name">Sam — SMB Owner</div>
+        <div class="persona-role">Self-employed · S-corp or sole prop</div>
+        <div class="persona-need">The client — sees the output Maya or Alex produces. Needs plans explained in plain language, not tax jargon. Wants to understand tradeoffs, not just headlines. Does not use ITA directly but is the end beneficiary of everything ITA produces.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- USE CASES -->
+  <div class="section">
+    <div class="section-tag">Use Cases</div>
+    <h2>Primary Use Cases — PTG Professional (Alex)</h2>
+    <p class="section-lede">These are the core planning scenarios ITA 2.0 must handle accurately. Each maps to a real tax planning engagement type. All require interaction-aware calculation; most have failed in ITA 1.0.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:6%">ID</th>
+          <th style="width:8%">Priority</th>
+          <th style="width:20%">Use Case</th>
+          <th style="width:35%">Description &amp; Interaction Risk</th>
+          <th>Acceptance Criteria</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="mono">UC-1</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">S-Corp Conversion Analysis</td>
+          <td>Professional asks: "Should my client convert their sole proprietorship to an S-corp?" ITA must model SE tax reduction, QBI reduction from lower SE income, reasonable salary requirement, payroll tax, and net benefit. Must flag if net benefit is negative below ~$80K net profit.</td>
+          <td>Output shows: gross SE savings, QBI delta, payroll overhead, net saving. Flags breakeven threshold. Verified against ProConnect baseline.</td>
+        </tr>
+        <tr>
+          <td class="mono">UC-2</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Retirement Contribution Optimization</td>
+          <td>"What's the right SEP-IRA or Solo 401(k) contribution?" ITA must model QBI interaction (~20¢ lost per $1), IRMAA tier cross-check (does contribution drop below a surcharge threshold?), AGI phaseout unlock, and contribution limits by entity type.</td>
+          <td>Output shows: after-tax cost per dollar contributed, IRMAA impact, QBI impact, net effective savings. Handles SEP, Solo 401(k), and Defined Benefit differences.</td>
+        </tr>
+        <tr>
+          <td class="mono">UC-3</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Roth Conversion Modeling</td>
+          <td>"How much should my client convert to Roth this year?" ITA must model: tax on conversion amount at correct marginal rate, Social Security taxability increase, IRMAA impact, NIIT threshold proximity, QBI phaseout, ACA subsidy cliff (if applicable). True marginal cost may be 2–3× stated rate.</td>
+          <td>Output shows marginal cost of each dollar converted including all cascade effects. Recommends optimal conversion band given thresholds. Multi-year projection available via Lacerte MCP.</td>
+        </tr>
+        <tr>
+          <td class="mono">UC-4</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Depreciation &amp; Equipment Purchase</td>
+          <td>"My client is buying $120K of equipment — should they use §179, bonus, or MACRS?" ITA must model: QBI reduction from depreciation, future ordinary-rate recapture, passive loss suspension risk, and impact on total tax picture vs. spreading over asset life.</td>
+          <td>Output compares three depreciation strategies with NPV of tax benefit, recapture risk, and net recommendation. MACRS year-in-service percentage computed correctly (not first-year copy).</td>
+        </tr>
+        <tr>
+          <td class="mono">UC-5</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Home Office Deduction</td>
+          <td>"Should my client take the home office deduction?" Must model QBI reduction, §121 exclusion interaction (home office depreciation excluded from gain exclusion at sale), and disclosure of the future recapture liability at ordinary rates.</td>
+          <td>Shows net annual saving, cumulative recapture liability at sale, and net lifetime benefit. Flags §121 exclusion impact with sale price assumption.</td>
+        </tr>
+        <tr>
+          <td class="mono">UC-6</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Backdoor Roth with Pre-Tax IRA</td>
+          <td>"My client wants to do a backdoor Roth but has a traditional IRA with pre-tax money." ITA must apply the Pro-Rata Rule and show that the strategy's tax benefit is reduced (or eliminated) by the existing pre-tax balance.</td>
+          <td>Applies Pro-Rata Rule correctly. Shows taxable portion of conversion, net tax cost, and alternative (conversion of pre-tax first) with comparison.</td>
+        </tr>
+        <tr>
+          <td class="mono">UC-7</td>
+          <td><span class="p1">P1</span></td>
+          <td class="label">IRMAA Threshold Management</td>
+          <td>"My client's MAGI is $135K — how close are they to the next Medicare surcharge tier?" ITA must know IRMAA tier boundaries by year, quantify the surcharge jump, and model which strategies would drop them below or pull them above.</td>
+          <td>Shows current tier, next tier threshold, surcharge delta, and which strategies (retirement contributions, charitable giving) could reduce MAGI below threshold.</td>
+        </tr>
+        <tr>
+          <td class="mono">UC-8</td>
+          <td><span class="p1">P1</span></td>
+          <td class="label">Real Estate &amp; Passive Activity</td>
+          <td>"My client has a rental property with a suspended passive loss — when does it release?" ITA must model passive activity loss rules, carryforward, material participation status, and the year the loss becomes deductible against active income.</td>
+          <td>Shows suspended loss balance, projected deduction year, trigger conditions (disposition, material participation change), and interaction with NIIT.</td>
+        </tr>
+        <tr>
+          <td class="mono">UC-9</td>
+          <td><span class="p1">P1</span></td>
+          <td class="label">Entity Structure Comparison</td>
+          <td>"Should my client operate as sole prop, S-corp, or LLC taxed as partnership?" ITA must model complete tax picture under each structure including SE tax, QBI, state tax, complexity cost, and distribution rules.</td>
+          <td>Three-way comparison table showing after-tax income under each structure. Routing to Lacerte MCP for multi-year projection. Flags state-specific rules where relevant.</td>
+        </tr>
+        <tr>
+          <td class="mono">UC-10</td>
+          <td><span class="p1">P1</span></td>
+          <td class="label">NOL Carryforward Utilization</td>
+          <td>"My client has a $95K NOL from 2022 — how does it interact with their current year income?" ITA must apply the 80% cap (post-TCJA), model remaining carryforward, and show multi-year utilization schedule.</td>
+          <td>Shows 80% cap correctly applied, current-year utilization, remaining carryforward balance by year, and net tax benefit timeline.</td>
+        </tr>
+        <tr>
+          <td class="mono">UC-11</td>
+          <td><span class="p1">P1</span></td>
+          <td class="label">Charitable Giving Strategies</td>
+          <td>"My client wants to maximize their charitable impact." ITA must compare cash donation, QCDs (if 70½+), DAF contributions, appreciated stock, and CRAT/CRUT options — showing which is most tax-efficient given current AGI and itemization status.</td>
+          <td>Comparison matrix showing after-tax cost of $1 of charity under each vehicle. QCD correctly modeled as AGI reduction vs. below-the-line itemized deduction.</td>
+        </tr>
+        <tr>
+          <td class="mono">UC-12</td>
+          <td><span class="p2">P2</span></td>
+          <td class="label">QSBS §1202 Exclusion</td>
+          <td>"My client has QSBS stock in a startup — what's their potential exclusion if they sell?" ITA must model holding period (5-year minimum), exclusion caps ($10M or 10× basis), AMT preference item interaction, and state conformity (California does not conform).</td>
+          <td>Shows federal exclusion amount, AMT add-back, state tax on excluded amount, and net effective tax rate at sale.</td>
+        </tr>
+        <tr>
+          <td class="mono">UC-13</td>
+          <td><span class="p2">P2</span></td>
+          <td class="label">1031 Exchange &amp; OZ Investment</td>
+          <td>"My client is selling a rental property — should they do a 1031 or invest in an Opportunity Zone?" ITA must model 1031 carryover basis, boot calculation, QOZ deferral rules, step-up at 10 years, and recapture implications.</td>
+          <td>Side-by-side comparison of 1031 vs. OZ showing deferral amount, basis step-up schedule, permanent exclusion potential, and carryover liability.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="rule">
+
+  <div class="section">
+    <div class="section-tag">Use Cases · QBL</div>
+    <h2>Use Cases — QBL Expert (Maya)</h2>
+    <p class="section-lede">QBL use cases share the same tax accuracy requirement but have different interaction patterns — conversational, real-time, with less pre-loaded client data. The key additional requirement is natural language input fluency and in-context explanation generation.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:6%">ID</th>
+          <th style="width:8%">Priority</th>
+          <th style="width:20%">Use Case</th>
+          <th style="width:35%">Description</th>
+          <th>Acceptance Criteria</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="mono">UC-Q1</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Natural Language Input Intake</td>
+          <td>Expert says: "My client made about $180K this year from their freelance design business, paid $24K estimated taxes, and has a SEP-IRA they haven't contributed to yet." ITA extracts structured tax inputs, confirms with expert, and initializes the planning session.</td>
+          <td>Key fields (income, entity type, estimated payments, retirement eligibility) extracted with &gt;95% accuracy. Ambiguous inputs flagged for confirmation. Session initialized without manual form-filling.</td>
+        </tr>
+        <tr>
+          <td class="mono">UC-Q2</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Context Mutation via Chat</td>
+          <td>"Actually, she also has about $40K in rental income from a condo she bought in 2021." Expert updates the session mid-conversation. ITA recalculates affected outputs: passive activity status, NIIT threshold, QBI, overall tax liability.</td>
+          <td>Delta between old and new calculation surfaced clearly. Affected strategies re-evaluated. No manual re-entry of prior inputs. Response time &lt;5 seconds.</td>
+        </tr>
+        <tr>
+          <td class="mono">UC-Q3</td>
+          <td><span class="p1">P1</span></td>
+          <td class="label">Client-Ready Explanation Generation</td>
+          <td>"Generate something I can share with the client that explains the SEP-IRA recommendation." ITA produces a plain-language summary of the recommendation, the dollar saving, and the key tradeoff (QBI interaction), formatted for a non-expert reader.</td>
+          <td>Output in plain English, no tax jargon without definition, correct numbers, auditable by the expert before sharing. Suitable for email or PSB summary.</td>
+        </tr>
+        <tr>
+          <td class="mono">UC-Q4</td>
+          <td><span class="p1">P1</span></td>
+          <td class="label">Session Save &amp; Retrieve</td>
+          <td>Expert completes an intake session but the client meeting runs over. They save the session and return three days later. ITA restores full context — all inputs, assumptions, and calculated state — and allows the session to continue where it left off.</td>
+          <td>Full context persisted and retrieved. Expert confirms nothing was lost. Session can be resumed on a different device. Client sessions isolated (no context bleed).</td>
+        </tr>
+        <tr>
+          <td class="mono">UC-Q5</td>
+          <td><span class="p2">P2</span></td>
+          <td class="label">1040 PDF Intake</td>
+          <td>Client emails their prior year 1040 PDF. Expert uploads to ITA. ITA extracts all relevant inputs — AGI, business income, deductions, credits, estimated payments — and pre-populates the planning session. Expert reviews and confirms before calculation runs.</td>
+          <td>Extraction accuracy &gt;90% on digital PDFs; &gt;80% on scanned. Every extracted value confirmed by expert before use. Ambiguous or unreadable fields flagged with manual fallback.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- /tab-personas -->
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!--  TAB 3 · FEATURES & REQUIREMENTS               -->
+<!-- ══════════════════════════════════════════════ -->
+<div id="tab-features" class="tab-panel">
+
+  <div class="section">
+    <div class="section-tag">Feature Areas</div>
+    <h2>Six Feature Areas</h2>
+    <p class="section-lede">ITA 2.0 is built around six capability areas. The first two form the platform foundation. The remaining four are built on top and depend on the foundation being correct.</p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-num">Feature Area 01</div>
+        <div class="feature-name">LLM Tax Engine (Core)</div>
+        <div class="feature-desc">The calculation foundation. An LLM-based engine that accepts structured or natural language inputs, computes the full 1040 including all interactions (QBI, AMT, NIIT, IRMAA, Social Security), and produces a dollar-exact output validated against ProConnect. Shadow mode enables safe production rollout with fallback to the deterministic system.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">Feature Area 02</div>
+        <div class="feature-name">Natural Language Input Layer</div>
+        <div class="feature-desc">Replaces the static field-based input model with a conversational interface. Professionals describe client situations in plain language; ITA extracts structured inputs, flags ambiguities, and mutates the session context when new information is provided. Includes PDF intake (1040 and supporting docs) and PTO data pull.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">Feature Area 03</div>
+        <div class="feature-name">Strategy Skills &amp; Guardrails</div>
+        <div class="feature-desc">Per-strategy guardrails that define the complete set of return items each strategy must affect. Prevents hallucination by specifying required outputs. Human-approved skill files updated when validation loop detects a delta; makes every new strategy a structured, auditable addition to the platform.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">Feature Area 04</div>
+        <div class="feature-name">Multi-Year &amp; Entity Modeling (Lacerte MCP)</div>
+        <div class="feature-desc">Routes multi-year projections, state returns, S-corp, C-corp, and partnership scenarios to Lacerte via MCP. ITA orchestrates the request and surfaces results in its own interface. Solves in one integration what would take years to rebuild natively.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">Feature Area 05</div>
+        <div class="feature-name">RAG: Rates, Limits &amp; Thresholds</div>
+        <div class="feature-desc">A retrieval layer that provides the engine with correct rates, contribution limits, phaseout ranges, and IRMAA tiers for the relevant tax year. Eliminates the LLM's known failure mode of confusing parameters across years. Updated annually; internally maintained by the ITA tax content team.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">Feature Area 06</div>
+        <div class="feature-name">Plan Summary Builder (PSB) 2.0</div>
+        <div class="feature-desc">The advisor-facing output surface. Shows the full tax picture, strategy interactions, net savings (not isolated headline savings), and Safe Harbor lines. Strategies can be toggled on/off with instant recalculation. Client-ready summaries generated in plain language. Sessions saved and retrievable.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- FUNCTIONAL REQUIREMENTS -->
+  <div class="section">
+    <div class="section-tag">Functional Requirements</div>
+    <h2>FA-01 · LLM Tax Engine</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:8%">ID</th>
+          <th style="width:8%">Priority</th>
+          <th style="width:32%">Requirement</th>
+          <th>Definition of Done</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="mono">1.1</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Dollar-exact 1040 federal accuracy</td>
+          <td>LLM tax engine output matches ProConnect Tax on 1040 Federal within ±$1 on tax liability for a benchmark suite of ≥200 anonymized returns covering: W-2 + self-employment + S-corp K-1 + rental income scenarios. AMT, QBI, NIIT, and SE tax all within tolerance.</td>
+        </tr>
+        <tr>
+          <td class="mono">1.2</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Strategy interaction modeling</td>
+          <td>When multiple strategies are selected, the engine computes a unified tax liability — not the sum of individual strategy savings. Net saving = baseline liability − combined-strategy liability. Each interaction effect (QBI reduction, IRMAA tier, Social Security taxability) is surfaced separately in the output.</td>
+        </tr>
+        <tr>
+          <td class="mono">1.3</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">AMT correct triggering</td>
+          <td>AMT computation uses parallel calculation path. AMT is triggered if and only if AMT exceeds regular tax. Does not depend on PTO state. Validated against ≥25 AMT-applicable returns in benchmark suite. Conforms to current-year exemption amounts and phaseout ranges via RAG.</td>
+        </tr>
+        <tr>
+          <td class="mono">1.4</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Shadow mode with fallback</td>
+          <td>LLM engine runs in parallel with ITA 1.0 deterministic system. User sees deterministic output until accuracy threshold (≥98% match on benchmark suite) is met and shadow mode is disabled by product decision. Delta logging captures every disagreement for review.</td>
+        </tr>
+        <tr>
+          <td class="mono">1.5</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">PTO return data ingestion</td>
+          <td>Engine accepts structured data from ProConnect Tax via ProConnect Data Service API. All relevant line items (income, deductions, credits, carryforwards) parsed and mapped to engine input schema. Round-trip accuracy tested: PTO data → engine → liability matches PTO-computed liability.</td>
+        </tr>
+        <tr>
+          <td class="mono">1.6</td>
+          <td><span class="p1">P1</span></td>
+          <td class="label">Validation feedback loop</td>
+          <td>When engine output disagrees with PTO return, delta is logged and surfaced to the tax content team. Learning captured as a candidate update to the relevant strategy skill file. Human approval gate required before skill file update is deployed to production. Feedback cycle target: &lt;5 business days per reviewed delta.</td>
+        </tr>
+        <tr>
+          <td class="mono">1.7</td>
+          <td><span class="p1">P1</span></td>
+          <td class="label">Latency SLA</td>
+          <td>Single-strategy tax calculation: p95 ≤ 4 seconds. Full multi-strategy interaction recalculation: p95 ≤ 8 seconds. Measured end-to-end from input submission to displayed output. Lacerte MCP calls excluded from ITA latency SLA (shown as async).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>FA-02 · Natural Language Input Layer</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:8%">ID</th>
+          <th style="width:8%">Priority</th>
+          <th style="width:32%">Requirement</th>
+          <th>Definition of Done</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="mono">2.1</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Natural language → structured input extraction</td>
+          <td>Given a professional's description of a client situation in free text, ITA extracts: income by type, entity structure, filing status, known deductions, retirement accounts, carryforwards, and estimated tax payments. Extraction accuracy ≥95% on a labeled test set of 100 advisor-written descriptions.</td>
+        </tr>
+        <tr>
+          <td class="mono">2.2</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Ambiguity detection and confirmation</td>
+          <td>When extracted values are ambiguous or potentially inconsistent (e.g., "about $180K" or conflicting entity signals), ITA flags the specific field and asks for confirmation before using the value in calculation. No silent assumption for any value with material impact on tax liability (&gt;$500 swing).</td>
+        </tr>
+        <tr>
+          <td class="mono">2.3</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Chat-driven context mutation</td>
+          <td>Mid-session additions or corrections from the professional ("actually she also has rental income") update the active session context. Engine recalculates all affected outputs. Delta between prior and updated calculation is surfaced. Prior inputs preserved and auditable. Response time ≤5 seconds.</td>
+        </tr>
+        <tr>
+          <td class="mono">2.4</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">PTO data pull (LG-1.1a)</td>
+          <td>ITA pulls structured return data from ProConnect Tax via the ProConnect Data Service API for the connected client. All available line items pre-populate the session. Professional reviews and confirms populated values before calculation. Audit trail shows which values came from PTO vs. manual override.</td>
+        </tr>
+        <tr>
+          <td class="mono">2.5</td>
+          <td><span class="p1">P1</span></td>
+          <td class="label">1040 PDF intake (LG-1.1b)</td>
+          <td>Professional uploads a prior year 1040 PDF (digital or scanned). ITA extracts all relevant inputs. Accuracy target: ≥90% on digital PDFs, ≥80% on scanned. Every extracted value surfaced for professional confirmation before use. Failed extractions flagged with manual entry fallback — no silent gap.</td>
+        </tr>
+        <tr>
+          <td class="mono">2.6</td>
+          <td><span class="p1">P1</span></td>
+          <td class="label">TTO data pull (LG-1.1c)</td>
+          <td>For clients who file via TurboTax Online, ITA pulls return data via the authorized TTO API (subject to privacy and legal gate). Consent flow required. Data presented for professional confirmation. Legal and privacy review completed before implementation begins.</td>
+        </tr>
+        <tr>
+          <td class="mono">2.7</td>
+          <td><span class="p1">P1</span></td>
+          <td class="label">Session save and retrieve (LG-1.8)</td>
+          <td>Professional can save a planning session at any point. Session includes: all inputs (structured and NL), calculated outputs, interaction notes, and confirmation state. Session retrievable from any device, authenticated. Multiple client sessions isolated. Retrieve restores exact state — no recalculation required on resume.</td>
+        </tr>
+        <tr>
+          <td class="mono">2.8</td>
+          <td><span class="p2">P2</span></td>
+          <td class="label">Supporting document intake</td>
+          <td>Professional uploads K-1s, 1099s, brokerage statements, or HUD-1 forms. ITA extracts relevant values and maps to planning session. Same accuracy and confirmation requirements as 1040 PDF intake. Priority lower than 1040 due to greater format variability.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>FA-03 · Strategy Skills &amp; Guardrails</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:8%">ID</th>
+          <th style="width:8%">Priority</th>
+          <th style="width:32%">Requirement</th>
+          <th>Definition of Done</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="mono">3.1</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Strategy skill file structure</td>
+          <td>Each strategy (S-corp, SEP, Roth conversion, etc.) has a human-maintained skill file defining: required output fields, interaction dependencies, applicable IRS code sections, and known edge cases. Engine output is validated against skill file signature before surfacing to user. Incomplete output is rejected, not surfaced.</td>
+        </tr>
+        <tr>
+          <td class="mono">3.2</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Hallucination prevention</td>
+          <td>LLM cannot surface a strategy recommendation without: (a) all skill-required output fields populated, (b) all interaction dependencies calculated, and (c) skill file version matching current deployment. Any skill-file validation failure routes to deterministic fallback or manual review — not a speculative output.</td>
+        </tr>
+        <tr>
+          <td class="mono">3.3</td>
+          <td><span class="p1">P1</span></td>
+          <td class="label">Human-gated skill update workflow</td>
+          <td>When the validation feedback loop identifies a delta between LLM output and PTO return, a candidate skill file update is generated and queued for review. A named tax content team member must approve before deployment. Deployment history is versioned and auditable. Rollback available within 24 hours.</td>
+        </tr>
+        <tr>
+          <td class="mono">3.4</td>
+          <td><span class="p1">P1</span></td>
+          <td class="label">Strategy library coverage</td>
+          <td>At GA: skill files exist for all P0 use cases (UC-1 through UC-6). At V1.1: skill files added for UC-7 through UC-11. Each skill file peer-reviewed by ≥1 CPA or EA before merge. Coverage tracked in public-facing skill registry visible to internal stakeholders.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>FA-06 · Plan Summary Builder (PSB) 2.0</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:8%">ID</th>
+          <th style="width:8%">Priority</th>
+          <th style="width:32%">Requirement</th>
+          <th>Definition of Done</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="mono">6.1</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Net saving vs. isolated saving display</td>
+          <td>PSB shows two columns for each strategy: (1) isolated headline saving, and (2) net saving after all interactions. Net saving is always computed from the unified engine run, not summed from individual calculations. Delta between headline and net is labeled and explained.</td>
+        </tr>
+        <tr>
+          <td class="mono">6.2</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Safe Harbor line</td>
+          <td>PSB surfaces the Safe Harbor threshold (100% of prior year tax, or 110% if prior year AGI &gt;$150K) as a prominent line item. Shows: prior year tax, safe harbor amount, current YTD estimated payments, and gap to safe harbor. Professional can see at a glance if the client is at risk of underpayment penalties.</td>
+        </tr>
+        <tr>
+          <td class="mono">6.3</td>
+          <td><span class="p0">P0</span></td>
+          <td class="label">Strategy toggle with live recalculation</td>
+          <td>Professional can toggle individual strategies on or off in PSB. Tax liability and net saving recalculate in ≤3 seconds. All interaction effects update simultaneously — no stale values shown for un-toggled strategies. State is preserved across toggle actions.</td>
+        </tr>
+        <tr>
+          <td class="mono">6.4</td>
+          <td><span class="p1">P1</span></td>
+          <td class="label">Client-ready summary export</td>
+          <td>One-click generation of a plain-language client summary. Shows: total net saving, key strategy recommendations, important tradeoffs (recapture, QBI interaction), and next steps. No tax jargon without definition. Reviewable and editable by professional before sending. Available as PDF and email-ready HTML.</td>
+        </tr>
+        <tr>
+          <td class="mono">6.5</td>
+          <td><span class="p1">P1</span></td>
+          <td class="label">Interaction narrative</td>
+          <td>For each strategy combination, PSB generates a 1–2 sentence explanation of why the net saving differs from the headline saving. Example: "The SEP-IRA contribution reduces your QBI deduction by approximately $X, reducing the net saving from $Y to $Z." Narrative generated by LLM, validated against skill file output, editable before use.</td>
+        </tr>
+        <tr>
+          <td class="mono">6.6</td>
+          <td><span class="p2">P2</span></td>
+          <td class="label">Multi-year projection view</td>
+          <td>Professional can request a 3-year projection from PSB. ITA calls Lacerte MCP, passes current session context, and surfaces multi-year tax liability and net saving by year in PSB. Async call; progress indicator shown. Results persist in session context.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- /tab-features -->
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!--  TAB 4 · ARCHITECTURE & AI                     -->
+<!-- ══════════════════════════════════════════════ -->
+<div id="tab-architecture" class="tab-panel">
+
+  <div class="section">
+    <div class="section-tag">System Architecture</div>
+    <h2>ITA 2.0 Platform Architecture</h2>
+    <p class="section-lede">Four layers compose the ITA 2.0 platform. Each layer has a clear interface, can be validated independently, and can be evolved without breaking the others.</p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-num">Layer 01 · Input</div>
+        <div class="feature-name">Natural Language Input &amp; Data Pull</div>
+        <div class="feature-desc"><strong>Sources:</strong> PTO via ProConnect Data Service API · 1040 PDF via OCR (digital + scanned) · TTO via authorized API (legal gate) · Direct NL conversation<br><br><strong>Output:</strong> Structured session context object — all input fields confirmed by professional, with source attribution per field.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">Layer 02 · Knowledge</div>
+        <div class="feature-name">RAG: Rates, Limits &amp; Thresholds</div>
+        <div class="feature-desc"><strong>Contents:</strong> Tax brackets by filing status &amp; year · Contribution limits (IRA, 401k, SEP, DB) by year · IRMAA tiers by year · QBI phaseout ranges · NIIT threshold · AMT exemptions · MACRS tables<br><br><strong>Maintained by:</strong> ITA tax content team · Updated annually before filing season · Version-tagged by tax year.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">Layer 03 · Computation</div>
+        <div class="feature-name">LLM Tax Engine + Strategy Skills</div>
+        <div class="feature-desc"><strong>Engine:</strong> LLM with full 1040 federal calculation capability · Validated dollar-exact against ProConnect · Shadow mode with deterministic fallback<br><br><strong>Skills:</strong> Per-strategy guardrail files · Define required output fields &amp; interaction dependencies · Human-approved update workflow · Versioned and auditable.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">Layer 04 · Extension</div>
+        <div class="feature-name">Lacerte MCP (Multi-Year &amp; Entity)</div>
+        <div class="feature-desc"><strong>Handles:</strong> Multi-year projections (1–5 years) · State returns (all 50) · S-corp &amp; C-corp entity modeling · Partnership K-1 projections<br><br><strong>Integration:</strong> MCP protocol · ITA passes session context; Lacerte returns structured projection results · Async call pattern · Results surface in PSB.</div>
+      </div>
+    </div>
+
+    <div class="callout blue">
+      <span class="cl">Why this architecture, and not rebuilding native</span>
+      Multi-year projections and state returns could in theory be built natively into ITA 2.0. The Lacerte MCP approach solves two problems simultaneously: (1) it makes these capabilities available at GA without a 2+ year native build, and (2) Lacerte already has this accuracy validated — rebuilding it would require revalidating it. The MCP integration is not a shortcut; it is the right answer given the tools that exist and the timeline that matters.
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="section">
+    <div class="section-tag">AI Profile</div>
+    <h2>AI Trust &amp; Risk Profile</h2>
+
+    <table>
+      <thead>
+        <tr><th>Dimension</th><th>Assessment</th><th>Mitigation</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">Autonomy Level</td>
+          <td>Medium — LLM recommends and calculates; professional reviews and decides</td>
+          <td>Professional confirmation gate before any recommendation is presented to client. No autonomous client-facing output.</td>
+        </tr>
+        <tr>
+          <td class="label">Decision Risk</td>
+          <td>High — incorrect tax calculations can cause material financial harm (see: $20K AMT case)</td>
+          <td>Shadow mode. Dollar-exact validation benchmark. Strategy skill guardrails. Human-gated skill updates. Deterministic fallback always available.</td>
+        </tr>
+        <tr>
+          <td class="label">Data Sensitivity</td>
+          <td>Very High — client PII, SSNs, financial records, tax returns</td>
+          <td>No LLM training on customer data. All inputs processed in Intuit's secure compute environment. PII redaction before any logging. Complies with IRS Circular 230 and applicable privacy law.</td>
+        </tr>
+        <tr>
+          <td class="label">Known Failure Mode</td>
+          <td>LLM confusion between tax parameters across years (e.g., 2023 vs. 2024 IRA limits)</td>
+          <td>RAG layer provides authoritative, year-tagged parameters for every computation. LLM cannot use internal memory for any parametric value — all rates and limits retrieved, never recalled.</td>
+        </tr>
+        <tr>
+          <td class="label">Reversibility</td>
+          <td>High — all calculations are advisory; professional retains final judgment</td>
+          <td>Session context preserved. Rollback to prior state available. No irreversible actions taken by ITA (it does not file, submit, or commit).</td>
+        </tr>
+        <tr>
+          <td class="label">Hallucination Risk</td>
+          <td>Medium — LLM may generate plausible but incorrect tax logic for edge cases</td>
+          <td>Strategy skill files define required output signature. Any output that does not satisfy the signature is rejected before display. Unknown strategies surface a disclaimer and manual escalation prompt.</td>
+        </tr>
+        <tr>
+          <td class="label">Regulatory Compliance</td>
+          <td>IRS Circular 230 · State bar rules · AICPA standards</td>
+          <td>All recommendations labeled as advisory. Disclaimer: "Review with client before advising." Legal review required before launch of any output directed at end clients (vs. professional tool use).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="rule">
+
+  <div class="section">
+    <div class="section-tag">Validation Loop</div>
+    <h2>The Validation Loop as Moat</h2>
+
+    <p>The production feedback loop is not just a quality control mechanism — it is Intuit's primary competitive advantage in AI-driven tax planning. No competitor without access to ProConnect's return data can build the same validation signal.</p>
+
+    <div class="journey">
+      <div class="journey-step">
+        <div class="journey-left">
+          <div class="journey-dot active">1</div>
+          <div class="journey-line"></div>
+        </div>
+        <div class="journey-content">
+          <h4>Plan Generated in ITA</h4>
+          <p>Professional uses ITA to produce a tax plan for a client who also has a ProConnect return. Session context, inputs, and calculated outputs are logged against an anonymized client ID.</p>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-left">
+          <div class="journey-dot active">2</div>
+          <div class="journey-line"></div>
+        </div>
+        <div class="journey-content">
+          <h4>Return Filed via ProConnect</h4>
+          <p>Client files via ProConnect Tax. Actual filed return data is available via ProConnect Data Service. Final computed liability, AMT, QBI, and all relevant fields are captured.</p>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-left">
+          <div class="journey-dot active">3</div>
+          <div class="journey-line"></div>
+        </div>
+        <div class="journey-content">
+          <h4>Delta Computed</h4>
+          <p>ITA engine output for the planning session is compared against the filed return. Every field that disagrees beyond a tolerance threshold is logged as a delta. Strategy and input characteristics tagged for attribution.</p>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-left">
+          <div class="journey-dot active">4</div>
+          <div class="journey-line"></div>
+        </div>
+        <div class="journey-content">
+          <h4>Candidate Skill Update Generated</h4>
+          <p>For each delta pattern, a candidate update to the relevant strategy skill file is generated and queued for review. The LLM explains the discrepancy and proposes the correction.</p>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-left">
+          <div class="journey-dot">5</div>
+          <div class="journey-line"></div>
+        </div>
+        <div class="journey-content">
+          <h4>Human Approval Gate</h4>
+          <p>A tax content team member (CPA/EA) reviews the candidate skill update, validates the proposed correction, and approves or rejects. Rejected updates go back to the LLM with a reason code. Approved updates are versioned and deployed.</p>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-left">
+          <div class="journey-dot future">6</div>
+        </div>
+        <div class="journey-content">
+          <h4>Engine Improves</h4>
+          <p>Next time that strategy type + input pattern is encountered, the engine runs the updated skill file and produces a more accurate output. The accuracy improvement compounds across all clients with similar scenarios — Intuit's network effect applied to tax accuracy.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout green">
+      <span class="cl">Why this is a moat</span>
+      The validation loop requires access to both the planning intent (ITA session) and the actual filed return (ProConnect). No competitor without both a planning product and a filing product can build this signal. Every ProConnect return filed by an ITA-using professional makes the engine more accurate — and makes the gap between ITA 2.0 and any competing planning tool wider.
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="section">
+    <div class="section-tag">NFRs</div>
+    <h2>Non-Functional Requirements</h2>
+
+    <div class="nfr-grid">
+      <div class="nfr-card">
+        <div class="nfr-type">Performance</div>
+        <div class="nfr-name">Latency</div>
+        <div class="nfr-req">Single strategy: p95 ≤ 4s. Multi-strategy interaction: p95 ≤ 8s. NL extraction: p95 ≤ 3s. PDF intake: p95 ≤ 30s (digital), ≤ 60s (scanned). PSB strategy toggle: ≤ 3s.</div>
+      </div>
+      <div class="nfr-card">
+        <div class="nfr-type">Security &amp; Privacy</div>
+        <div class="nfr-name">Data Handling</div>
+        <div class="nfr-req">Customer PII and financial data processed in Intuit's SOC 2 Type II certified environment. No LLM training on production customer data. PII redacted before any telemetry or logging. TLS 1.3 in transit; AES-256 at rest. OAuth 2.0 for PTO and TTO API access.</div>
+      </div>
+      <div class="nfr-card">
+        <div class="nfr-type">Reliability</div>
+        <div class="nfr-name">Availability</div>
+        <div class="nfr-req">99.5% uptime SLA excluding planned maintenance. Deterministic fallback available when LLM service degraded. Session persistence: no data loss on browser close, network interruption, or server restart. RTO: &lt;15 minutes for P0 incidents during filing season.</div>
+      </div>
+      <div class="nfr-card">
+        <div class="nfr-type">Accuracy</div>
+        <div class="nfr-name">Tax Calculation</div>
+        <div class="nfr-req">Dollar-exact (±$1) vs. ProConnect on benchmark suite of ≥200 returns at GA. Accuracy regression test runs on every engine deployment. Any regression &gt;0.5% of suite fails the deployment gate. Shadow mode delta tracking feeds weekly accuracy report to PM and tech lead.</div>
+      </div>
+      <div class="nfr-card">
+        <div class="nfr-type">Legal &amp; Compliance</div>
+        <div class="nfr-name">Regulatory</div>
+        <div class="nfr-req">All output labeled as advisory. IRS Circular 230 compliant. No output purports to constitute a filed return or a legal tax opinion. Disclaimer reviewed and approved by Intuit Legal before launch. State-specific disclaimers added for states with unique advisory regulations.</div>
+      </div>
+      <div class="nfr-card">
+        <div class="nfr-type">Scalability</div>
+        <div class="nfr-name">Filing Season Load</div>
+        <div class="nfr-req">Sustain 10× average daily request volume during Jan 15–Apr 15. Auto-scaling configured for LLM inference tier. Lacerte MCP calls queued and rate-limited to protect Lacerte's SLA. Load test completed ≥4 weeks before Jan 15 each year.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /tab-architecture -->
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!--  TAB 5 · GOALS & METRICS                       -->
+<!-- ══════════════════════════════════════════════ -->
+<div id="tab-metrics" class="tab-panel">
+
+  <div class="section">
+    <div class="section-tag">Success Framework</div>
+    <h2>Goals &amp; Success Metrics</h2>
+    <p class="section-lede">ITA 2.0 success is measured at three levels: the North Star (client outcome), input metrics (product behavior that drives the outcome), and guardrails (what must not regress). Targets are for the 12-month post-GA period unless noted.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:12%">Type</th>
+          <th style="width:28%">Metric</th>
+          <th style="width:32%">Description</th>
+          <th>Target</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="goal-tier north">North Star</span></td>
+          <td class="label">Net Tax Saving Delivered per Client</td>
+          <td>Median dollar saving across all ITA 2.0 planning sessions where a strategy was recommended and the client filed via ProConnect. Captures the full interaction-aware net saving, not headline savings.</td>
+          <td>≥$2,000/client median; 20% increase over ITA 1.0 baseline</td>
+        </tr>
+        <tr>
+          <td><span class="goal-tier north">North Star</span></td>
+          <td class="label">Professional Trust Score (NPS)</td>
+          <td>NPS among PTG professionals who used ITA 2.0 for ≥3 client plans. Separates "trust in the numbers" from "ease of use" — both measured independently in the survey.</td>
+          <td>NPS ≥ +40 (vs. ITA 1.0 baseline of +N/A — to be established in alpha)</td>
+        </tr>
+        <tr>
+          <td><span class="goal-tier input">Input</span></td>
+          <td class="label">LLM Engine Accuracy</td>
+          <td>Percentage of shadow mode comparisons where LLM output matches ProConnect-filed return within ±$1 on total tax liability. Tracked weekly by strategy type.</td>
+          <td>≥ 98% overall at GA; ≥ 99% for P0 strategies at V1.1</td>
+        </tr>
+        <tr>
+          <td><span class="goal-tier input">Input</span></td>
+          <td class="label">Input Complaint Rate</td>
+          <td>Percentage of ITA 2.0 support tickets and NPS verbatims mentioning input problems (missing fields, can't update values, bundled inputs). Measured as share of all feedback volume.</td>
+          <td>Reduce from 75% (ITA 1.0) to &lt; 20% within 6 months of GA</td>
+        </tr>
+        <tr>
+          <td><span class="goal-tier input">Input</span></td>
+          <td class="label">NL Input Adoption Rate</td>
+          <td>Percentage of new planning sessions initiated via natural language input (vs. form-fill). Proxy for professional comfort with conversational intake.</td>
+          <td>≥ 50% of new sessions at 90 days post-GA</td>
+        </tr>
+        <tr>
+          <td><span class="goal-tier input">Input</span></td>
+          <td class="label">Plans per Professional per Month</td>
+          <td>Average number of completed planning sessions per active PTG professional per month. Measures workflow efficiency improvement — faster plans → more clients served.</td>
+          <td>25% increase over ITA 1.0 baseline at 90 days post-GA</td>
+        </tr>
+        <tr>
+          <td><span class="goal-tier input">Input</span></td>
+          <td class="label">PSB Strategy Interaction Disclosure</td>
+          <td>Percentage of PSBs delivered that show net saving (interaction-aware) vs. isolated saving. Measures whether the core differentiator of ITA 2.0 is actually reaching clients.</td>
+          <td>100% of PSBs at GA — this is a product requirement, not a target</td>
+        </tr>
+        <tr>
+          <td><span class="goal-tier guardrail">Guardrail</span></td>
+          <td class="label">AMT False Trigger Rate</td>
+          <td>Percentage of benchmark returns where ITA 2.0 triggers AMT incorrectly (false positive) or fails to trigger it when it should (false negative). The $20K harm case was an AMT false positive.</td>
+          <td>0% on benchmark suite. Any production report of a false trigger treated as P0 incident.</td>
+        </tr>
+        <tr>
+          <td><span class="goal-tier guardrail">Guardrail</span></td>
+          <td class="label">Skill Hallucination Rate</td>
+          <td>Percentage of strategy recommendations that surface without satisfying the strategy skill file output signature. Measures effectiveness of guardrail enforcement.</td>
+          <td>0% at GA. Skill validation is a hard gate — not a metric with a tolerance band.</td>
+        </tr>
+        <tr>
+          <td><span class="goal-tier guardrail">Guardrail</span></td>
+          <td class="label">Data Incident Rate</td>
+          <td>Number of security incidents involving customer financial data processed by ITA 2.0 in a rolling 12-month period.</td>
+          <td>0 P0/P1 data incidents. Any P0 incident triggers an immediate rollback to shadow mode.</td>
+        </tr>
+        <tr>
+          <td><span class="goal-tier guardrail">Guardrail</span></td>
+          <td class="label">Session Context Integrity</td>
+          <td>Percentage of session save-and-retrieve operations where the restored context matches the saved state exactly (all input values, all calculated outputs, all confirmation states).</td>
+          <td>100% fidelity on save/retrieve. Any data loss on resume treated as P0 bug.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="rule">
+
+  <div class="section">
+    <div class="section-tag">Problem Validation</div>
+    <h2>Evidence &amp; Validation</h2>
+    <p class="section-lede">The case for ITA 2.0 is grounded in existing evidence — not hypothesis. The key claims have been tested or are measurable today.</p>
+
+    <table>
+      <thead>
+        <tr><th style="width:28%">Claim</th><th style="width:36%">Evidence</th><th>Validation Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">LLM can achieve dollar-exact accuracy on 1040 Federal</td>
+          <td>Internal testing vs. ProConnect Tax on a benchmark return suite covering QBI, AMT, MACRS depreciation, passthrough income. Result: dollar-exact agreement.</td>
+          <td>✅ Validated in shadow mode testing</td>
+        </tr>
+        <tr>
+          <td class="label">75% of ITA 1.0 VOC is about inputs</td>
+          <td>Analysis of ITA support tickets, NPS verbatims, and in-product feedback over the prior 12-month period. Four input failure modes documented: missing, bundled, non-overridable, full-field impossibility.</td>
+          <td>✅ Validated from VOC analysis</td>
+        </tr>
+        <tr>
+          <td class="label">ITA 1.0 AMT triggering is incorrect</td>
+          <td>AMT calculation in ITA depends on PTO return state that ITA cannot reliably read. A real client was advised to pay $20K in excess advance tax as a result of a false AMT trigger.</td>
+          <td>✅ Confirmed via incident review</td>
+        </tr>
+        <tr>
+          <td class="label">DSL is unsupported and under-staffed</td>
+          <td>The ITA planner is written in a domain-specific language for which the vendor no longer provides support. Two engineers at Intuit currently have working knowledge of the language.</td>
+          <td>✅ Confirmed via engineering assessment</td>
+        </tr>
+        <tr>
+          <td class="label">Strategy interactions are material — savings are not additive</td>
+          <td>26 documented interaction scenarios showing material difference between isolated headline savings and net interaction-aware savings. Both over-statement and under-statement cases documented.</td>
+          <td>✅ Documented — pending quantification on real return population</td>
+        </tr>
+        <tr>
+          <td class="label">Lacerte can serve as multi-year/entity projection backend</td>
+          <td>Lacerte Planner handles state returns (all 50), S-corp, C-corp, partnership, and multi-year projections. MCP integration pattern confirmed as technically feasible by Lacerte platform team.</td>
+          <td>🔄 Feasibility confirmed; API contract in progress (LG-1.3)</td>
+        </tr>
+        <tr>
+          <td class="label">Natural language input extraction is reliable enough for production</td>
+          <td>To be validated in LG-1.2 (NL input learning goal). Hypothesis: extraction accuracy ≥95% on labeled test set. Method: collect 100 advisor-written descriptions with ground-truth structured inputs; measure extraction precision and recall.</td>
+          <td>⬜ Pending LG-1.2 learning milestone</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- /tab-metrics -->
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!--  TAB 6 · SCOPE & DECISIONS                     -->
+<!-- ══════════════════════════════════════════════ -->
+<div id="tab-scope" class="tab-panel">
+
+  <div class="section">
+    <div class="section-tag">Scope</div>
+    <h2>In Scope / Out of Scope</h2>
+
+    <div class="scope-row">
+      <div class="scope-card in">
+        <h4>In Scope — ITA 2.0 V1.0</h4>
+        <ul class="scope-list">
+          <li>LLM tax engine for 1040 Federal (all income types, deductions, credits)</li>
+          <li>Shadow mode with deterministic fallback</li>
+          <li>Strategy skill guardrails for P0 use cases (UC-1 through UC-6)</li>
+          <li>RAG layer: rates, limits, thresholds (federal, current tax year)</li>
+          <li>Natural language input extraction (PTG and QBL professionals)</li>
+          <li>PTO data pull via ProConnect Data Service (LG-1.1a)</li>
+          <li>Chat-driven context mutation (LG-1.7)</li>
+          <li>Session save and retrieve (LG-1.8)</li>
+          <li>PSB 2.0: net saving display, Safe Harbor line, strategy toggle</li>
+          <li>Lacerte MCP integration for multi-year projections</li>
+          <li>Client-ready plain-language summary export (PTG workflow)</li>
+          <li>Validation feedback loop (delta logging + human-gated skill updates)</li>
+          <li>AMT correct triggering (parallel calculation, no PTO dependency)</li>
+        </ul>
+      </div>
+      <div class="scope-card out">
+        <h4>Out of Scope — V1.0 (Roadmap Candidate)</h4>
+        <ul class="scope-list">
+          <li>State tax calculation natively within ITA (routed to Lacerte)</li>
+          <li>S-corp / C-corp / partnership entity modeling natively (Lacerte)</li>
+          <li>TTO data pull (LG-1.1c) — pending legal and privacy gate</li>
+          <li>1040 PDF intake (LG-1.1b) — targeted for V1.1</li>
+          <li>Supporting document intake (K-1s, 1099s) — V1.1</li>
+          <li>DIY filer (TurboTax) direct access — not a V1.0 persona</li>
+          <li>Credit Karma tax planning integration — separate initiative</li>
+          <li>International (non-US) tax returns</li>
+          <li>Payroll tax computation (separate product domain)</li>
+          <li>Automated plan delivery to clients without professional review</li>
+          <li>Strategy skill files for UC-7 through UC-13 (V1.1 target)</li>
+          <li>Real-time IRS rule change monitoring and automated RAG update</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout yellow">
+      <span class="cl">Scope rationale</span>
+      V1.0 scope is deliberately constrained to what is validated or near-validated per the Project AIR learning plan. State returns, entity modeling, and PDF intake are real needs but their V1.0 absence is offset by Lacerte MCP (state + entity) and PTO data pull (replaces most PDF intake for existing ProConnect clients). TTO data pull is excluded pending a legal and privacy gate that is a genuine blocker, not a product choice.
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="section">
+    <div class="section-tag">Decision Registry</div>
+    <h2>Open Questions &amp; Decisions</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:8%">ID</th>
+          <th style="width:10%">Type</th>
+          <th style="width:30%">Description</th>
+          <th style="width:18%">Owner</th>
+          <th style="width:12%">Status</th>
+          <th>Close By</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="mono">D-01</td>
+          <td>Decision</td>
+          <td class="label">Shadow mode exit threshold</td>
+          <td>PM + PE Lead + Tax Content</td>
+          <td><span class="decision-status open">Open</span></td>
+          <td>LG-1.1a milestone</td>
+        </tr>
+        <tr>
+          <td colspan="6" style="padding: 8px 16px 14px; font-size: 13px; color: var(--mid-gray);">
+            What accuracy rate on the benchmark suite is required before we turn off the deterministic fallback and run LLM-only? 98%? 99.5%? Is the threshold uniform or strategy-specific? Should AMT require a higher bar given its consequence?
+          </td>
+        </tr>
+        <tr>
+          <td class="mono">D-02</td>
+          <td>Decision</td>
+          <td class="label">LLM model selection and hosting</td>
+          <td>PE Lead + Intuit AI Platform</td>
+          <td><span class="decision-status open">Open</span></td>
+          <td>Engineering kickoff</td>
+        </tr>
+        <tr>
+          <td colspan="6" style="padding: 8px 16px 14px; font-size: 13px; color: var(--mid-gray);">
+            Which LLM(s) are used for tax computation vs. NL extraction vs. explanation generation? Are these the same model? Hosted on Intuit infrastructure or API? What is the fallback if the model provider has an outage?
+          </td>
+        </tr>
+        <tr>
+          <td class="mono">D-03</td>
+          <td>Decision</td>
+          <td class="label">ITA 1.0 deprecation timeline</td>
+          <td>PM + Eng + Legal</td>
+          <td><span class="decision-status open">Open</span></td>
+          <td>Pre-GA</td>
+        </tr>
+        <tr>
+          <td colspan="6" style="padding: 8px 16px 14px; font-size: 13px; color: var(--mid-gray);">
+            How long does ITA 1.0 run in parallel after ITA 2.0 GA? What migration path exists for existing client plans? Who communicates the change to PTG professionals and when?
+          </td>
+        </tr>
+        <tr>
+          <td class="mono">D-04</td>
+          <td>Decision</td>
+          <td class="label">Lacerte MCP API contract</td>
+          <td>PE Lead + Lacerte Platform</td>
+          <td><span class="decision-status ip">In Progress</span></td>
+          <td>LG-1.3 milestone</td>
+        </tr>
+        <tr>
+          <td colspan="6" style="padding: 8px 16px 14px; font-size: 13px; color: var(--mid-gray);">
+            What data does ITA pass to Lacerte MCP? What does Lacerte return? What is the SLA for the Lacerte call? What authentication mechanism? Is this a bilateral agreement or does ITA self-service the integration?
+          </td>
+        </tr>
+        <tr>
+          <td class="mono">D-05</td>
+          <td>Question</td>
+          <td class="label">TTO data pull legal gate</td>
+          <td>Legal + PM</td>
+          <td><span class="decision-status blocked">Blocked</span></td>
+          <td>TBD (Legal)</td>
+        </tr>
+        <tr>
+          <td colspan="6" style="padding: 8px 16px 14px; font-size: 13px; color: var(--mid-gray);">
+            Can ITA (a tool used by tax professionals) pull return data from TurboTax Online (a DIY filer product) on behalf of a client? What consent mechanism is required? Is this legally viable in all US states? Engineering is blocked from LG-1.1c until Legal provides a ruling.
+          </td>
+        </tr>
+        <tr>
+          <td class="mono">D-06</td>
+          <td>Question</td>
+          <td class="label">Benchmark suite composition</td>
+          <td>Tax Content + PE</td>
+          <td><span class="decision-status open">Open</span></td>
+          <td>Alpha</td>
+        </tr>
+        <tr>
+          <td colspan="6" style="padding: 8px 16px 14px; font-size: 13px; color: var(--mid-gray);">
+            How are the ≥200 benchmark returns selected? Anonymized from real ProConnect returns? Synthetically generated? How do we ensure the suite covers the long tail of edge cases that matter most (AMT, QBI phaseout, IRMAA threshold-crossings)?
+          </td>
+        </tr>
+        <tr>
+          <td class="mono">D-07</td>
+          <td>Decision</td>
+          <td class="label">PSB interaction narrative tone</td>
+          <td>PM + XD + Tax Content</td>
+          <td><span class="decision-status open">Open</span></td>
+          <td>Alpha UX review</td>
+        </tr>
+        <tr>
+          <td colspan="6" style="padding: 8px 16px 14px; font-size: 13px; color: var(--mid-gray);">
+            When PSB explains that the SEP-IRA reduced QBI deduction by $X, does this feel like the tool is second-guessing the strategy? How do we frame interaction effects as additional intelligence, not as warnings? UX and Tax Content must align on tone before beta.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- /tab-scope -->
+
+
+<!-- ══════════════════════════════════════════════ -->
+<!--  TAB 7 · MILESTONES                            -->
+<!-- ══════════════════════════════════════════════ -->
+<div id="tab-milestones" class="tab-panel">
+
+  <div class="section">
+    <div class="section-tag">Milestones &amp; Releases</div>
+    <h2>Release Timeline</h2>
+    <p class="section-lede">Timeline is structured around the Project AIR learning plan milestones. Engineering milestones do not begin until the relevant learning goal is validated.</p>
+
+    <div class="timeline">
+      <div class="tl-row">
+        <div class="tl-date">Q3 2026</div>
+        <div class="tl-dot-wrap"><div class="tl-dot active"></div></div>
+        <div class="tl-content">
+          <div class="tl-milestone">Learning Plan Complete (LG-1.1a through LG-1.6)</div>
+          <div class="tl-desc">LLM engine accuracy validated. PTO data pull implemented. NL input extraction tested. Lacerte MCP feasibility confirmed. All P0 hypotheses accepted or invalidated with documented learnings.</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Q3 2026</div>
+        <div class="tl-dot-wrap"><div class="tl-dot active"></div></div>
+        <div class="tl-content">
+          <div class="tl-milestone">Alpha — Internal Dogfood</div>
+          <div class="tl-desc">ITA 2.0 engine in shadow mode alongside ITA 1.0. PTG professionals at Intuit use for real client plans. Delta logging active. AMT, QBI, and IRMAA interactions validated end-to-end. Benchmark suite ≥200 returns achieving target accuracy.</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Q4 2026</div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-milestone">Beta — Invited PTG Professionals</div>
+          <div class="tl-desc">100–200 PTG professionals on ITA 2.0 with NL input, PTO data pull, session save/retrieve, PSB 2.0 with net saving display and Safe Harbor line. Lacerte MCP for multi-year (async). Feedback loop collecting deltas from filed returns. Decision: shadow mode exit threshold evaluated.</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Jan 2027</div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-milestone">GA — ITA 2.0 V1.0</div>
+          <div class="tl-desc">Full PTG rollout. ITA 2.0 is the default experience. ITA 1.0 available as fallback. All P0 features live. LLM engine exiting shadow mode (if accuracy threshold met). Filing season load test completed. Legal sign-off on all advisory disclaimers.</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Q2 2027</div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-milestone">V1.1 — PDF Intake + Extended Strategy Library</div>
+          <div class="tl-desc">1040 PDF intake (digital + scanned). Strategy skill files added for UC-7 through UC-11 (IRMAA, passive activity, entity comparison, NOL, charitable). QBL expert rollout begins. ITA 1.0 deprecation notice issued.</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">Q3 2027</div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-milestone">V1.2 — QBL Full Rollout + TTO Intake (if legal cleared)</div>
+          <div class="tl-desc">QBL expert workflow fully supported. Supporting document intake (K-1s, 1099s). TTO data pull if legal gate resolved. ITA 1.0 sunset. Accuracy target raised to 99% on benchmark suite.</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">2028</div>
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <div class="tl-milestone">Platform Vision — 140M Filer Reach</div>
+          <div class="tl-desc">ITA 2.0 engine powers tax planning across PTG, QBL, TurboTax, and Credit Karma. LLM engine serves as Intuit's universal tax computation platform. Validation loop has processed 3+ years of filed returns — accuracy moat established.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <div class="section">
+    <div class="section-tag">Appendix</div>
+    <h2>Related Artifacts</h2>
+
+    <table>
+      <thead>
+        <tr><th>Artifact</th><th>Description</th><th>Location</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">Position Paper</td>
+          <td>The LLM Tax Engine — Foundation for ITA 2.0. Detailed case for engine replacement including strategy interaction table, 26 use cases, failure mode analysis.</td>
+          <td>llm-tax-engine-case.html (Downloads)</td>
+        </tr>
+        <tr>
+          <td class="label">Project AIR Strategy</td>
+          <td>Strategic framing for Project AIR — market context, personas, platform vision.</td>
+          <td>Strategy for AI-first advisory.pdf</td>
+        </tr>
+        <tr>
+          <td class="label">Learning Plan</td>
+          <td>Project AIR MVP Learning Plan — learning goals LG-1.1a through LG-3.3 with hypotheses, methods, and learn-by dates.</td>
+          <td>Learning Plan for AI-first advisory.pdf</td>
+        </tr>
+        <tr>
+          <td class="label">ITA AI-Replatform Doc</td>
+          <td>Full ITA AI-Replatform document including current learning goal status table.</td>
+          <td>ITA AI-Replatform (Project AIR).pdf</td>
+        </tr>
+        <tr>
+          <td class="label">Design Reference</td>
+          <td>QuickBooks Legal Ownership PRD — structural and design reference for this document.</td>
+          <td>ownership_prd.html (Downloads)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- /tab-milestones -->
+
+
+<!-- ══ FOOTER ══ -->
+<div class="doc-footer">
+  <strong>Intuit Tax Advisor 2.0 · PRD Draft</strong> · Project AIR · May 2026 ·
+  ITA Product &amp; Engineering · Ramesh Raman · ramesh_raman@intuit.com
+</div>
+
+</div><!-- /shell -->
+
+<script>
+  function showTab(id) {
+    // hide all panels
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    // show target
+    document.getElementById('tab-' + id).classList.add('active');
+    // activate button
+    event.target.classList.add('active');
+  }
+</script>
+<!-- fieldnote:comments:begin -->
+<div id="fieldnote-comments" data-discussion="8" data-service="https://fieldnote-svc-e2e.api.intuit.com"></div>
+<script>
+"use strict";(()=>{var ke=Object.defineProperty;var Se=(t,e,n)=>e in t?ke(t,e,{enumerable:!0,configurable:!0,writable:!0,value:n}):t[e]=n;var x=(t,e,n)=>Se(t,typeof e!="symbol"?e+"":e,n);function F(t){return t.split("").reverse().join("")}function Le(t){return(t|-t)>>31&1}function Re(t,e,n){let o={};for(let r=0;r<t.length;r+=1){let a=t.charCodeAt(r);o[a]||(o[a]=new Uint32Array(e+1));let d=Math.floor(r/n);o[a][d]|=1<<r%n>>>0}return o}function Te(t,e,n,o){let r=t.P[n],a=t.M[n],d=e[n]|0,f=o>>>31,u=Le(o)&~f,m=d|a;d|=f;let v=(d&r)+r^r|d,g=a|~(v|r),L=r&v,C=(g>>>31)-(L>>>31),I=g<<1|u,R=L<<1|f;return t.P[n]=R|~(m|I),t.M[n]=I&m,C}function V(t,e,n){if(e.length===0)return[];let o=[],r=32,a=Math.ceil(e.length/r)-1,d={P:new Uint32Array(a+1),M:new Uint32Array(a+1)},f=new Uint32Array(a+1);for(let g=0;g<=a;g+=1)d.P[g]=-1>>>0,d.M[g]=0,f[g]=(g+1)*r;f[a]=e.length;let u=Re(e,a,r),m=new Uint32Array(a+1),v=n;for(let g=0;g<t.length;g+=1){let L=t.charCodeAt(g),C=0,I=u[L]||m;for(let k=0;k<=a;k+=1)C=Te(d,I,k,C),f[k]+=C;let R=a;f[R]<=v&&(f[R]<v&&(v=f[R],o=o.filter(k=>k.errors<=v)),o.push({start:-1,end:g+1,errors:f[R]}))}return o}function Me(t,e,n){let o=F(e);return n.map(r=>{let a=Math.max(0,r.end-e.length-r.errors),d=F(t.slice(a,r.end)),f=V(d,o,r.errors),u=d.length;for(let v of f)u=Math.min(u,v.end);return{start:r.end-u,end:r.end,errors:r.errors}})}function q(t,e,n){let o=V(t,e,n);return Me(t,e,o)}var X=32,Ie=.5,He=/^<!--\s*fieldnote-anchor\s*([\s\S]*?)\s*-->\s*/;function ee(t,e){return`<!-- fieldnote-anchor ${JSON.stringify(t)} -->
+${e}`}function te(t){let e=t.match(He);if(!e)return{header:null,body:t};let n=null;try{let o=JSON.parse(e[1]);o&&(o.type==="page"||o.type==="anchored")&&(n=o)}catch(o){n=null}return{header:n,body:t.slice(e[0].length)}}var N=()=>!1;function ne(t){N=t}function O(t){if(N(t))return"";if(t.nodeType===3)return t.data;let e="";for(let n=t.firstChild;n;n=n.nextSibling)e+=O(n);return e}function H(t,e,n){let o=0,r=null,a=d=>{if(r==null&&!N(d)){if(d===t){if(t.nodeType===3)r=o+e;else{let f=o;for(let u=0;u<e&&u<d.childNodes.length;u+=1)f+=O(d.childNodes[u]).length;r=f}return}if(d.nodeType===3){o+=d.data.length;return}for(let f=d.firstChild;f;f=f.nextSibling)a(f)}};return a(n),r!=null?r:0}function G(t,e){let n=0,o=null,r=a=>{if(!o&&!N(a))if(a.nodeType===3){let d=a.data.length;if(e<=n+d){o={node:a,offset:e-n};return}n+=d}else for(let d=a.firstChild;d;d=d.nextSibling)r(d)};return r(t),o!=null?o:{node:t,offset:0}}function W(t,e){let n=[],o=t;for(;o&&o!==e&&o.nodeType===1;){let r=o.tagName.toLowerCase(),a=1,d=o.previousElementSibling;for(;d;)d.tagName.toLowerCase()===r&&(a+=1),d=d.previousElementSibling;n.unshift(`${r}[${a}]`),o=o.parentElement}return"/"+n.join("/")}function J(t,e){let n=e,o=t.split("/").filter(Boolean);for(let r of o){let a=r.match(/^([a-z0-9]+)\[(\d+)\]$/i);if(!a)return null;let d=a[1].toLowerCase(),f=parseInt(a[2],10),u=0,m=null;for(let v=0;v<n.children.length;v+=1){let g=n.children[v];if(g.tagName.toLowerCase()===d&&(u+=1,u===f)){m=g;break}}if(!m)return null;n=m}return n}function Q(t){return t.nodeType===3?t.parentElement:t}function Z(t,e){if(e.length===0)return t.length===0?1:0;if(t.length===0)return 0;let n=q(t,e,e.length);return n.length===0?0:1-Math.min(...n.map(r=>r.errors))/e.length}function _e(t,e,n){let o=e.exact;if(!o)return null;let r=[],a=t.indexOf(o);for(;a!==-1;)r.push({start:a,end:a+o.length,errors:0}),a=t.indexOf(o,a+1);if(r.length===0){let m=Math.min(256,Math.floor(o.length/2));r=q(t,o,m)}if(r.length===0)return null;let d=m=>{let v=1-m.errors/o.length,g=e.prefix?Z(t.slice(Math.max(0,m.start-e.prefix.length),m.start),e.prefix):1,L=e.suffix?Z(t.slice(m.end,m.end+e.suffix.length),e.suffix):1,C=1-Math.abs(m.start-n)/t.length;return(50*v+20*g+20*L+2*C)/92},f=r[0],u=d(r[0]);for(let m=1;m<r.length;m+=1){let v=d(r[m]);v>u&&(f=r[m],u=v)}return{start:f.start,end:f.end,score:u}}function oe(t,e){let n=O(e),o=H(t.startContainer,t.startOffset,e),r=H(t.endContainer,t.endOffset,e),a=Q(t.startContainer),d=Q(t.endContainer);return{range:{type:"RangeSelector",startXPath:W(a,e),startOffset:o-H(a,0,e),endXPath:W(d,e),endOffset:r-H(d,0,e)},position:{type:"TextPositionSelector",start:o,end:r},quote:{type:"TextQuoteSelector",exact:n.slice(o,r),prefix:n.slice(Math.max(0,o-X),o),suffix:n.slice(r,Math.min(n.length,r+X))}}}function re(t,e){let n=O(e),o=null,r=t.range;if(r){let u=J(r.startXPath,e),m=J(r.endXPath,e);if(u&&m){let v=H(u,0,e)+r.startOffset,g=H(m,0,e)+r.endOffset;n.slice(v,g)===t.quote.exact&&(o={start:v,end:g})}}if(!o&&t.position){let u=t.position;n.slice(u.start,u.end)===t.quote.exact&&(o={start:u.start,end:u.end})}if(!o){let u=t.position?t.position.start:0,m=_e(n,t.quote,u);m&&m.score>=Ie&&(o={start:m.start,end:m.end})}if(!o)return null;let a=G(e,o.start),d=G(e,o.end),f=e.ownerDocument.createRange();try{f.setStart(a.node,a.offset),f.setEnd(d.node,d.offset)}catch(u){return null}return f}var M={endpoint:"https://logging-e2e.api.intuit.com/v1/log/message",env:"preprod",appId:"fieldnotes-webapp",assetId:"5339034951582703754",apiKey:"preprdakyresPujjLb65m7ewFreYP4qKjeb9VXG8"};function ae(t){var e,n;return{env:M.env,level:t.level,context:{pluginId:`fieldnote-${t.runMode}`,...t.context},appProps:{runMode:t.runMode},msgProps:{event:t.event,...(e=t.props)!=null?e:{}},eventType:"LOGGING",time:(n=t.time)!=null?n:new Date().toISOString(),message:t.event}}function ie(){return!M.appId.startsWith("FILL_ME")&&!M.apiKey.startsWith("FILL_ME")}var $=class{constructor(e){x(this,"base");x(this,"enabled");x(this,"debug");x(this,"sessionId",`${Date.now()}-${Math.random().toString(36).slice(2,10)}`);this.enabled=e.enabled,this.debug=Ne(),this.base={sessionId:this.sessionId,discussion:e.discussion,slug:e.slug,url:Oe(),widgetVersion:e.version,authed:!1}}setAuth(e,n){this.base.authed=e,e&&n?this.base.login=n:delete this.base.login}event(e,n){this.emit("info",e,n)}error(e,n){this.emit("error",e,n)}loaded(e){let n=()=>this.event("widget_loaded",e),o=window.requestIdleCallback;o?o(n):setTimeout(n,0)}emit(e,n,o){if(this.enabled)try{this.debug&&console.debug("[fieldnote telemetry]",e,n,o!=null?o:{});let r=ae({runMode:"widget",level:e,event:n,context:this.base,props:o});this.send(r)}catch(r){}}send(e){let n=Pe();if(n)try{fetch(n.endpoint,{method:"POST",keepalive:!0,headers:{"Content-Type":"application/json","x-appid":n.appId,Authorization:`Intuit_APIKey intuit_apikey=${n.apiKey}, intuit_apikey_version=1.0`},body:JSON.stringify(e)}).catch(()=>{})}catch(o){}}};function Pe(){try{let t=window.__FC_TELEMETRY__;if(t!=null&&t.appId&&(t!=null&&t.apiKey)&&(t!=null&&t.endpoint))return{endpoint:t.endpoint,appId:t.appId,apiKey:t.apiKey}}catch(t){}return ie()?{endpoint:M.endpoint,appId:M.appId,apiKey:M.apiKey}:null}function Ne(){try{return typeof localStorage!="undefined"&&localStorage.getItem("fcDebug")==="1"?!0:typeof location!="undefined"&&location.search.includes("fc_debug")}catch(t){return!1}}function Oe(){try{return location.origin+location.pathname}catch(t){return""}}var se="fieldnote-anchor",ce="fieldnote-anchor-active",$e="1.0.0",le=document.body,D=class{constructor(e){x(this,"mount",e);x(this,"DISCUSSION");x(this,"SERVICE");x(this,"API_KEY","preprdakyresbVr2LAjcBj8R3ohhAcUeNSsm4fgY");x(this,"me",null);x(this,"comments",[]);x(this,"anchored",[]);x(this,"orphans",[]);x(this,"resolved",[]);x(this,"activeId",null);x(this,"pending",null);x(this,"tel");x(this,"subs",new Set);x(this,"excluded",[]);x(this,"hostEl");x(this,"shadow");x(this,"core",{contractVersion:"v1",host:()=>this.shadow,postComment:(e,n)=>this.doPost(e,n?n.__sel:null,void 0),postReply:(e,n)=>this.doPost(n,null,e),toggleReaction:(e,n,o)=>this.doReact(e,n,o),resolve:(e,n)=>this.doResolve(e,n),signIn:e=>this.signIn(e),captureSelection:()=>this.captureSelection(),activate:(e,n)=>this.activate(e,n),track:(e,n)=>this.tel.event(e,n),excludeRoot:e=>{this.excluded.push(e)},state:()=>this.snapshot(),onChange:e=>{this.subs.add(e)}});var o,r;this.DISCUSSION=(o=e.getAttribute("data-discussion"))!=null?o:"",this.SERVICE=((r=e.getAttribute("data-service"))!=null?r:"").replace(/\/$/,"");let n=e.getAttribute("data-telemetry")!=="off";this.tel=new $({discussion:this.DISCUSSION,slug:je(),version:$e,enabled:n})}start(){if(!this.DISCUSSION||!this.SERVICE)return this.mount.textContent="fieldnote-comments: missing data-discussion/data-service",null;this.hostEl=document.createElement("div"),this.hostEl.id="fieldnote-widget-host",this.hostEl.style.cssText="position:absolute;top:0;left:0;width:0;height:0",document.body.appendChild(this.hostEl),this.shadow=this.hostEl.attachShadow({mode:"open"}),this.injectAnchorHighlightStyles(),ne(n=>{let o=n.nodeType===3?n.parentElement:n;return!!o&&this.excluded.some(r=>r.contains(o))}),this.excluded.push(this.mount,this.hostEl);let e=Date.now();return Promise.all([this.loadMe(),this.loadComments()]).then(()=>{var n;this.resolveAnchors(),this.tel.loaded({loadMs:Date.now()-e,commentCount:this.comments.length,anchoredCount:this.anchored.length,orphanedCount:this.orphans.length,pageCount:this.comments.filter(o=>!o.header||o.header.type==="page").length,authed:!!((n=this.me)!=null&&n.authenticated)}),this.notify()}).catch(n=>this.tel.error("widget_exception",{where:"start",message:n.message})),this.core}snapshot(){return{me:this.me,comments:this.comments.filter(e=>!e.resolved),anchored:this.anchored,orphans:this.orphans,resolved:this.resolved,activeId:this.activeId}}notify(){let e=this.snapshot();this.subs.forEach(n=>n(e))}api(e,n={}){var o;return fetch(this.SERVICE+e,{...n,credentials:"include",headers:{Authorization:`Intuit_APIKey intuit_apikey=${this.API_KEY}, intuit_apikey_version=1.0`,...(o=n.headers)!=null?o:{}}})}loadMe(){return this.api("/v1/me").then(e=>{if(!e.ok)throw new Error(`me (${e.status})`);return e.json()}).then(e=>{var n;this.me=e,this.tel.setAuth(!!e.authenticated,(n=e.user)==null?void 0:n.login)}).catch(e=>{this.me={authenticated:!1,user:null},this.tel.error("load_failed",{endpoint:"/v1/me",message:e.message})})}loadComments(){return this.api(`/v1/comments?discussion=${encodeURIComponent(this.DISCUSSION)}`).then(e=>{if(!e.ok)throw new Error(`comments (${e.status})`);return e.json()}).then(e=>{var n;this.comments=((n=e==null?void 0:e.comments)!=null?n:[]).map(o=>de(o,!0))}).catch(e=>{this.comments=[],this.tel.error("load_failed",{endpoint:"/v1/comments",message:e.message})})}doPost(e,n,o){let r=!!o,a=n?{v:1,type:"anchored",selectors:n}:{v:1,type:"page"},d=o?{body:e,reply_to:o}:{body:ee(a,e)};return this.api(`/v1/comments?discussion=${encodeURIComponent(this.DISCUSSION)}`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)}).then(f=>{if(!f.ok)throw B("upstream",f.status,`post failed (${f.status})`);return f.json()}).then(()=>(this.tel.event(r?"reply_added":"comment_added",{type:r?void 0:a.type,bodyLen:e.length}),this.loadComments())).then(()=>{this.resolveAnchors(),this.notify()}).catch(f=>{let u=U(f);throw this.tel.error("comment_failed",{isReply:r,status:u.status,message:u.message}),u})}doReact(e,n,o){var r;return(r=this.me)!=null&&r.authenticated?(this.optimisticReact(e,n,o),this.notify(),this.api("/v1/reactions",{method:o?"POST":"DELETE",headers:{"Content-Type":"application/json"},body:JSON.stringify({subject_id:e,content:n})}).then(a=>{if(!a.ok)throw B("upstream",a.status,`reaction failed (${a.status})`);return a.json()}).then(a=>{var d;this.tel.event(o?"reaction_added":"reaction_removed",{content:n}),this.applyReactions(e,(d=a.reactions)!=null?d:[]),this.notify()}).catch(a=>{let d=U(a);throw this.tel.error("reaction_failed",{content:n,on:o,status:d.status,message:d.message}),this.notify(),d})):(this.signIn("reaction"),Promise.resolve())}optimisticReact(e,n,o){let a=[...this.comments,...this.comments.flatMap(f=>f.replies)].find(f=>f.id===e);if(!a)return;let d=a.reactions.find(f=>f.content===n);d?(d.viewer_has_reacted=o,d.count+=o?1:-1,d.count<=0&&(a.reactions=a.reactions.filter(f=>f!==d))):o&&(a.reactions=[...a.reactions,{content:n,count:1,viewer_has_reacted:!0}])}applyReactions(e,n){for(let o of this.comments){if(o.id===e){o.reactions=n;return}for(let r of o.replies)if(r.id===e){r.reactions=n;return}}}doResolve(e,n){var o;return(o=this.me)!=null&&o.authenticated?this.setResolvedLocal(e,n)?(this.resolveAnchors(),this.notify(),this.api(`/v1/comments/${encodeURIComponent(e)}/resolve`,{method:n?"POST":"DELETE"}).then(r=>{if(!r.ok)throw B("upstream",r.status,`resolve failed (${r.status})`);return r.json()}).then(r=>{this.tel.event(n?"comment_resolved":"comment_reopened",{}),this.setResolvedLocal(e,!!r.resolved),this.resolveAnchors(),this.notify()}).catch(r=>{let a=U(r);throw this.tel.error("resolve_failed",{on:n,status:a.status,message:a.message}),this.setResolvedLocal(e,!n),this.resolveAnchors(),this.notify(),a})):Promise.resolve():(this.signIn("resolve"),Promise.resolve())}setResolvedLocal(e,n){let o=this.comments.find(r=>r.id===e);return o?(o.resolved=n,!0):!1}signIn(e="unknown"){this.tel.event("signin_started",{trigger:e});let n=encodeURIComponent(window.location.href);window.location.href=`${this.SERVICE}/v1/auth/login?intuit_apikey=${this.API_KEY}&return=${n}`}captureSelection(){let e=window.getSelection();if(!e||e.isCollapsed||e.rangeCount===0)return null;let n=e.getRangeAt(0);if((n.toString()||"").trim().length===0)return null;try{this.pending=oe(n,le)}catch(o){this.pending=null,this.tel.error("anchor_generate_failed",{message:o==null?void 0:o.message})}return this.tel.event("highlight_selected",{quoteLen:(n.toString()||"").trim().length,selectorsOk:!!this.pending}),this.pending?{__sel:this.pending}:null}resolveAnchors(){var e,n;this.anchored=[],this.orphans=[],this.resolved=[];for(let o of this.comments){if(o.resolved){this.resolved.push(o);continue}if(!o.header||o.header.type!=="anchored"||!o.header.selectors)continue;let r=re(o.header.selectors,le);r?this.anchored.push({comment:o,range:r}):(this.orphans.push(o),this.tel.error("anchor_orphaned",{quote:(n=(e=o.header.selectors.quote)==null?void 0:e.exact)==null?void 0:n.slice(0,120)}))}this.paintHighlights(null)}paintHighlights(e){let n=window.Highlight,o=CSS.highlights;!n||!o||(o.set(se,new n(...this.anchored.map(r=>r.range))),o.set(ce,e?new n(e):new n))}injectAnchorHighlightStyles(){let e="fieldnote-anchor-highlight-styles";if(document.getElementById(e))return;let n=document.createElement("style");n.id=e,n.textContent=`::highlight(${se}){background:rgba(201,113,78,.18);text-decoration:underline;text-decoration-color:rgba(154,59,27,.32);text-underline-offset:2px}::highlight(${ce}){background:rgba(201,113,78,.42);text-decoration:underline;text-decoration-color:rgba(154,59,27,.6);text-underline-offset:2px}`,document.head.appendChild(n)}activate(e,n){e!==this.activeId&&this.tel.event("comment_activated",{source:n}),this.activeId=e;let o=this.anchored.find(r=>r.comment.id===e);this.paintHighlights(o?o.range:null),this.notify()}};function Y(t){return new D(t).start()}function de(t,e){var o,r;let n=e?te(t.body):{header:null,body:t.body};return{id:t.id,author:t.author,created_at:t.created_at,text:n.body,header:n.header,replies:((o=t.replies)!=null?o:[]).map(a=>de(a,!1)),reactions:(r=t.reactions)!=null?r:[],resolved:!!t.resolved,viewerCanResolve:!!t.viewer_can_resolve}}function je(){try{let t=/\/([^/]+?)(?:\.html?)?$/.exec(location.pathname);return t?t[1]:""}catch(t){return""}}function B(t,e,n){return{kind:t,status:e,message:n}}function U(t){return t&&typeof t=="object"&&"kind"in t?t:{kind:"network",status:0,message:t instanceof Error?t.message:String(t)}}function fe(t){let e=`:host{--fc-ink:#2b2926;--fc-ink-soft:#6b6661;--fc-ink-faint:#9c958c;--fc-line:#e8e3db;--fc-line-strong:#d8d1c6;--fc-surface:#fffdf9;--fc-surface-hi:#fffefb;--fc-rail-bg:transparent;--fc-accent:#9a3b1b;--fc-accent-soft:#b5552e;--fc-accent-wash:#fbf3ee;--fc-font:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;--fc-ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;--fc-shadow:0 1px 2px rgba(43,41,38,.05),0 4px 14px -8px rgba(43,41,38,.16);--fc-shadow-lift:0 2px 4px rgba(43,41,38,.06),0 12px 28px -12px rgba(120,52,24,.30);--fc-ease:cubic-bezier(.22,.68,.32,1)}.fc-rail{position:fixed;top:0;right:max(12px,calc((100vw - 64rem)/2 - 312px));width:296px;height:0;z-index:2147483600;font:14.5px/1.5 var(--fc-ui);color:var(--fc-ink);-webkit-font-smoothing:antialiased}.fc-rail *{box-sizing:border-box}.fc-card{position:relative;width:100%;background:var(--fc-surface);border:1px solid var(--fc-line);border-radius:10px;padding:13px 15px 14px;box-shadow:var(--fc-shadow);transition:top .26s var(--fc-ease),transform .18s var(--fc-ease),box-shadow .2s var(--fc-ease),border-color .2s,background .2s;animation:fc-in .28s var(--fc-ease) both}.fc-card-anchored{position:absolute;right:0;width:296px;cursor:pointer}@keyframes fc-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}.fc-card-anchored:hover{box-shadow:var(--fc-shadow-lift);border-color:var(--fc-line-strong);transform:translateX(-2px)}.fc-card.fc-active{background:var(--fc-surface-hi);border-color:var(--fc-accent-soft);box-shadow:var(--fc-shadow-lift);transform:translateX(-3px)}.fc-card.fc-active::before{content:"";position:absolute;left:-1px;top:11px;bottom:11px;width:3px;border-radius:3px;background:linear-gradient(var(--fc-accent),var(--fc-accent-soft))}.fc-card-orphan{opacity:.78}.fc-quote{font:italic 13px/1.45 var(--fc-font);color:var(--fc-ink-soft);border-left:2px solid var(--fc-accent-soft);padding:1px 0 1px 9px;margin:0 0 9px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.fc-head{display:flex;align-items:center;gap:8px}.fc-avatar{width:22px;height:22px;border-radius:50%;flex:0 0 auto;object-fit:cover;border:1px solid rgba(43,41,38,.08)}.fc-avatar-mono{display:flex;align-items:center;justify-content:center;background:var(--fc-accent-wash);color:var(--fc-accent);font:700 11px/1 var(--fc-ui);border-color:rgba(154,59,27,.18)}.fc-meta{display:flex;align-items:baseline;gap:7px;min-width:0}.fc-who{font:600 13px/1.2 var(--fc-ui);color:var(--fc-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.fc-when{font:400 11.5px/1 var(--fc-ui);color:var(--fc-ink-faint);white-space:nowrap;flex:0 0 auto}.fc-body{margin-top:7px;font:14.5px/1.55 var(--fc-font);color:var(--fc-ink);white-space:pre-wrap;word-wrap:break-word}.fc-orphan-tag{display:inline-block;font:600 10.5px/1 var(--fc-ui);letter-spacing:.03em;text-transform:uppercase;color:var(--fc-accent);background:var(--fc-accent-wash);border-radius:4px;padding:4px 7px;margin-bottom:9px}.fc-reactions{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-top:9px}.fc-rx{display:inline-flex;align-items:center;gap:4px;font:500 12px/1 var(--fc-ui);padding:3px 8px;border:1px solid var(--fc-line-strong);border-radius:11px;background:var(--fc-surface-hi);color:var(--fc-ink-soft);cursor:pointer;transition:background .14s,border-color .14s,color .14s}.fc-rx:hover{border-color:var(--fc-accent-soft)}.fc-rx-emoji{font-size:13px;line-height:1}.fc-rx-n{font-variant-numeric:tabular-nums}.fc-rx-on{background:var(--fc-accent-wash);border-color:var(--fc-accent-soft);color:var(--fc-accent)}.fc-rx-add{position:relative}.fc-rx-addbtn{font:500 12px/1 var(--fc-ui);padding:3px 7px;border:1px dashed var(--fc-line-strong);border-radius:11px;background:transparent;color:var(--fc-ink-faint);cursor:pointer;opacity:.7;transition:opacity .14s,border-color .14s}.fc-card:hover .fc-rx-addbtn,.fc-reply:hover .fc-rx-addbtn{opacity:1}.fc-rx-addbtn:hover{border-color:var(--fc-accent-soft);color:var(--fc-accent)}.fc-rx-plus{font-weight:700;margin-right:1px}.fc-rx-palette{position:absolute;bottom:calc(100% + 6px);left:0;z-index:5;display:none;gap:2px;padding:5px;background:var(--fc-surface);border:1px solid var(--fc-line-strong);border-radius:9px;box-shadow:0 8px 24px -10px rgba(43,41,38,.4)}.fc-rx-open .fc-rx-palette{display:flex}.fc-rx-opt{font-size:17px;line-height:1;padding:4px;border:0;background:transparent;cursor:pointer;border-radius:6px;transition:transform .1s,background .12s}.fc-rx-opt:hover{background:var(--fc-accent-wash);transform:scale(1.18)}.fc-replies:not(:empty){margin-top:11px;padding-top:4px;border-top:1px solid var(--fc-line);display:flex;flex-direction:column;gap:11px}.fc-reply{padding-left:11px;border-left:2px solid var(--fc-line-strong)}.fc-reply .fc-body{font-size:13.5px}.fc-replywrap{margin-top:9px}.fc-cardfoot{display:flex;align-items:center;gap:10px}.fc-reply-link{font:600 12px/1 var(--fc-ui);color:var(--fc-accent);background:transparent;border:0;padding:2px 0;cursor:pointer;border-bottom:1px solid transparent;transition:border-color .14s}.fc-reply-link:hover{border-bottom-color:var(--fc-accent-soft)}.fc-reply-box{margin-top:8px}.fc-reply-box .fc-ta{min-height:2.4rem}.fc-stamp{margin-left:auto;display:inline-flex;align-items:center;gap:5px;font:600 11px/1 var(--fc-ui);letter-spacing:.02em;color:var(--fc-ink-faint);background:transparent;border:0;padding:3px 5px;border-radius:6px;cursor:pointer;opacity:0;transition:opacity .15s,color .15s,background .15s}.fc-card:hover .fc-stamp,.fc-stamp:focus-visible{opacity:1}.fc-stamp svg{display:block}.fc-stamp:hover{color:var(--fc-accent);background:var(--fc-accent-wash)}@keyframes fc-press{40%{transform:scale(.82) rotate(-8deg)}100%{transform:none}}.fc-stamp:active svg{animation:fc-press .24s var(--fc-ease)}@keyframes fc-resolve-out{0%{opacity:1;transform:none}100%{opacity:0;transform:translateY(10px) scale(.97)}}.fc-resolving{animation:fc-resolve-out .24s var(--fc-ease) forwards;pointer-events:none}.fc-pagewrap{position:fixed;right:24px;bottom:24px;z-index:2147483600;font:14.5px/1.5 var(--fc-ui)}.fc-fab{position:relative;display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1px solid var(--fc-line-strong);background:var(--fc-surface);color:var(--fc-ink-soft);cursor:pointer;box-shadow:var(--fc-shadow-lift);transition:transform .16s var(--fc-ease),color .15s,background .15s}.fc-fab:hover{transform:translateY(-2px);color:var(--fc-accent);background:var(--fc-surface-hi)}.fc-open .fc-fab{color:var(--fc-accent)}.fc-fab-count{position:absolute;top:-3px;right:-3px;min-width:18px;height:18px;padding:0 4px;border-radius:9px;background:var(--fc-accent);color:#fff;font:700 10.5px/18px var(--fc-ui);text-align:center;box-shadow:0 0 0 2px var(--fc-surface)}.fc-panel{position:absolute;right:0;bottom:58px;width:320px;max-height:min(70vh,560px);display:flex;flex-direction:column;background:var(--fc-surface);border:1px solid var(--fc-line-strong);border-radius:12px;overflow:hidden;box-shadow:0 12px 48px -12px rgba(43,41,38,.42);opacity:0;transform:translateY(8px) scale(.98);transform-origin:bottom right;pointer-events:none;transition:opacity .18s var(--fc-ease),transform .18s var(--fc-ease)}.fc-open .fc-panel{opacity:1;transform:none;pointer-events:auto}.fc-panel-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--fc-line)}.fc-panel-title{font:600 13px/1 var(--fc-ui);color:var(--fc-ink)}.fc-panel-n{display:inline-block;margin-left:5px;padding:1px 6px;border-radius:8px;background:var(--fc-accent-wash);color:var(--fc-accent);font:700 11px/1.4 var(--fc-ui)}.fc-panel-x{border:0;background:transparent;color:var(--fc-ink-faint);font-size:13px;cursor:pointer;padding:2px 4px;border-radius:5px;transition:color .15s,background .15s}.fc-panel-x:hover{color:var(--fc-ink);background:rgba(43,41,38,.05)}.fc-panel-list{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px}.fc-panel-list .fc-card{cursor:default}.fc-empty{font:italic 13.5px/1.5 var(--fc-font);color:var(--fc-ink-faint);text-align:center;padding:14px 8px}.fc-panel-foot{padding:12px 14px;border-top:1px solid var(--fc-line);background:var(--fc-surface-hi)}.fc-ledger{margin:0 0 11px;border-top:1px dashed var(--fc-line-strong)}.fc-ledger-bar{display:flex;align-items:center;gap:7px;width:100%;background:transparent;border:0;padding:8px 0 6px;cursor:pointer;font:600 10.5px/1 var(--fc-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--fc-ink-faint);transition:color .15s}.fc-ledger-bar:hover{color:var(--fc-ink-soft)}.fc-ledger-mark{font-size:13px;letter-spacing:0;color:var(--fc-accent-soft)}.fc-ledger-n{font-variant-numeric:tabular-nums;color:var(--fc-ink-soft);font-weight:700}.fc-ledger-lbl{margin-right:auto}.fc-ledger-caret{transition:transform .18s var(--fc-ease)}.fc-ledger-open .fc-ledger-caret{transform:rotate(90deg)}.fc-ledger-list{display:grid;grid-template-rows:0fr;transition:grid-template-rows .22s var(--fc-ease)}.fc-ledger-open .fc-ledger-list{grid-template-rows:1fr}.fc-ledger-list>*{overflow:hidden}.fc-resolved-item{display:flex;align-items:baseline;gap:7px;padding:5px 0;font:13px/1.4 var(--fc-font);color:var(--fc-ink-faint);border-top:1px solid var(--fc-line)}.fc-resolved-item:first-child{border-top:0}.fc-resolved-who{font:600 11px/1.4 var(--fc-ui);color:var(--fc-ink-soft);flex:0 0 auto}.fc-resolved-gist{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-decoration:line-through;text-decoration-color:var(--fc-line-strong)}.fc-reopen{flex:0 0 auto;font:600 10.5px/1 var(--fc-ui);letter-spacing:.04em;color:var(--fc-accent);background:transparent;border:0;padding:2px 0;cursor:pointer;border-bottom:1px solid transparent;transition:border-color .14s}.fc-reopen:hover{border-bottom-color:var(--fc-accent-soft)}.fc-foot-row{display:flex;align-items:center;gap:10px}.fc-signedin{font:400 12px/1.3 var(--fc-ui);color:var(--fc-ink-faint)}.fc-signedin b{color:var(--fc-ink-soft);font-weight:600}.fc-ta{width:100%;font:14.5px/1.5 var(--fc-font);color:var(--fc-ink);padding:9px 11px;background:var(--fc-surface);border:1px solid var(--fc-line-strong);border-radius:8px;resize:vertical;min-height:3rem;transition:border-color .15s,box-shadow .15s}.fc-ta::placeholder{color:var(--fc-ink-faint)}.fc-ta:focus{outline:0;border-color:var(--fc-accent-soft);box-shadow:0 0 0 3px var(--fc-accent-wash)}.fc-panel-foot .fc-ta{margin-bottom:9px}.fc-btn{font:600 13px/1 var(--fc-ui);padding:8px 15px;border:1px solid transparent;border-radius:7px;background:var(--fc-accent);color:#fff;cursor:pointer;transition:background .15s,transform .1s}.fc-btn:hover{background:var(--fc-accent-soft)}.fc-btn:active{transform:translateY(1px)}.fc-btn.fc-cancel{background:transparent;color:var(--fc-ink-soft);border-color:var(--fc-line-strong)}.fc-btn.fc-cancel:hover{background:rgba(43,41,38,.04)}.fc-btn:disabled{opacity:.45;cursor:default;transform:none}.fc-link{font:600 13px/1.3 var(--fc-ui);color:var(--fc-accent);cursor:pointer;border-bottom:1px solid transparent;transition:border-color .15s}.fc-link:hover{border-bottom-color:var(--fc-accent-soft)}.fc-err{font:400 12.5px/1.4 var(--fc-ui);color:#a3331a;margin-top:7px}.fc-adder{position:absolute;z-index:2147483646;display:none;align-items:center;gap:6px;background:var(--fc-ink);color:#fdf9f4;font:600 12.5px/1 var(--fc-ui);padding:8px 12px;border-radius:8px;cursor:pointer;box-shadow:0 6px 20px -6px rgba(43,41,38,.5);animation:fc-pop .14s var(--fc-ease) both}@keyframes fc-pop{from{opacity:0;transform:translateY(3px) scale(.97)}to{opacity:1;transform:none}}.fc-adder:hover{background:#1f1d1a}.fc-composer{position:absolute;z-index:2147483647;width:308px;background:var(--fc-surface);border:1px solid var(--fc-line-strong);border-radius:11px;padding:14px;box-shadow:0 10px 40px -10px rgba(43,41,38,.4);font:14.5px/1.5 var(--fc-ui);animation:fc-pop .16s var(--fc-ease) both}.fc-composer .fc-quote{margin-top:0}.fc-row{display:flex;gap:8px;margin-top:0}.fc-row .fc-btn{margin-right:0}`,n=document.createElement("style");n.textContent=e,t.appendChild(n)}var qe=8,pe=[{content:"THUMBS_UP",emoji:"\u{1F44D}",label:"Like"},{content:"HEART",emoji:"\u2764\uFE0F",label:"Love"},{content:"HOORAY",emoji:"\u{1F389}",label:"Hooray"},{content:"ROCKET",emoji:"\u{1F680}",label:"Ship it"},{content:"EYES",emoji:"\u{1F440}",label:"Watching"},{content:"LAUGH",emoji:"\u{1F604}",label:"Laugh"},{content:"CONFUSED",emoji:"\u{1F615}",label:"Confused"},{content:"THUMBS_DOWN",emoji:"\u{1F44E}",label:"Dislike"}],Be=Object.fromEntries(pe.map(t=>[t.content,t.emoji]));function ue(t){let e=t.host();fe(e);let n=document.createElement("div");n.className="fc-rail",e.appendChild(n);let o=[],r=null,a=!1;t.onChange(()=>d()),he(),ye(),we(),Ee(),d();function d(){let c=t.state();n.innerHTML="",o=[];for(let{comment:i,range:s}of c.anchored){let l=f(i,s,!1);l.classList.add("fc-card-anchored"),l.classList.toggle("fc-active",i.id===c.activeId),n.appendChild(l),o.push({comment:i,el:l,range:s,idealTop:s.getBoundingClientRect().top})}C(c),k()}function f(c,i,s){var b,y;let l=document.createElement("div");l.className="fc-card"+(s?" fc-card-orphan":""),l.dataset.id=c.id;let p=(y=(b=c.header)==null?void 0:b.selectors)==null?void 0:y.quote.exact;p&&l.appendChild(K(`<div class="fc-quote">${S(z(p,90))}</div>`)),s&&l.appendChild(K('<div class="fc-orphan-tag">passage no longer found</div>')),l.appendChild(u(c));let h=document.createElement("div");h.className="fc-replies";for(let w of c.replies)h.appendChild(u(w,!0));return l.appendChild(h),l.appendChild(g(c)),i&&l.addEventListener("click",()=>t.activate(c.id,"card")),l}function u(c,i=!1){let s=c.author||{},l=document.createElement("div");return l.className=i?"fc-reply":"fc-comment",l.innerHTML='<div class="fc-head">'+Ye(s)+`<div class="fc-meta"><span class="fc-who">${S(s.login||"unknown")}</span><span class="fc-when">${S(Ue(c.created_at))}</span></div></div><div class="fc-body">${S(c.text)}</div>`,l.appendChild(m(c)),l}function m(c){var s;let i=document.createElement("div");i.className="fc-reactions",i.addEventListener("click",l=>l.stopPropagation());for(let l of c.reactions){let p=document.createElement("button");p.type="button",p.className="fc-rx"+(l.viewer_has_reacted?" fc-rx-on":""),p.title=l.content,p.innerHTML=`<span class="fc-rx-emoji">${(s=Be[l.content])!=null?s:"\u2022"}</span><span class="fc-rx-n">${l.count}</span>`,p.addEventListener("click",()=>{t.toggleReaction(c.id,l.content,!l.viewer_has_reacted)}),i.appendChild(p)}return i.appendChild(v(c)),i}function v(c){let i=document.createElement("div");i.className="fc-rx-add";let s=document.createElement("button");s.type="button",s.className="fc-rx-addbtn",s.title="Add reaction",s.innerHTML='<span class="fc-rx-plus">\uFF0B</span>\u{1F642}';let l=document.createElement("div");l.className="fc-rx-palette";for(let p of pe){let h=document.createElement("button");h.type="button",h.className="fc-rx-opt",h.title=p.label,h.textContent=p.emoji,h.addEventListener("click",()=>{i.classList.remove("fc-rx-open"),t.toggleReaction(c.id,p.content,!0)}),l.appendChild(h)}return s.addEventListener("click",()=>i.classList.toggle("fc-rx-open")),i.append(s,l),i}function g(c){let i=document.createElement("div");i.className="fc-replywrap",i.addEventListener("click",p=>p.stopPropagation());let s=document.createElement("div");s.className="fc-cardfoot";let l=document.createElement("button");if(l.type="button",l.className="fc-reply-link",l.textContent="Reply",l.addEventListener("click",()=>{var p;if(!((p=t.state().me)!=null&&p.authenticated))return t.signIn("reply");i.querySelector(".fc-reply-box")||(l.style.display="none",i.insertBefore(L(c,l),s.nextSibling))}),s.appendChild(l),c.viewerCanResolve){let p=document.createElement("button");p.type="button",p.className="fc-stamp",p.title="Resolve this note",p.setAttribute("aria-label","Resolve this note"),p.innerHTML='<svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><circle cx="10" cy="10" r="8.25" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M6.2 10.4l2.5 2.5 5-5.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="fc-stamp-lbl">Resolve</span>',p.addEventListener("click",()=>{var h,b;if(!((h=t.state().me)!=null&&h.authenticated))return t.signIn("resolve");(b=p.closest(".fc-card"))==null||b.classList.add("fc-resolving"),t.resolve(c.id,!0)}),s.appendChild(p)}return i.appendChild(s),i}function L(c,i){let s=K('<div class="fc-reply-box"><textarea class="fc-ta" placeholder="Reply\u2026"></textarea><div class="fc-foot-row"><button class="fc-btn fc-reply-post" type="button">Reply</button><button class="fc-btn fc-cancel fc-reply-cancel" type="button">Cancel</button></div><div class="fc-err"></div></div>'),l=s.querySelector(".fc-ta"),p=()=>{s.remove(),i.style.display=""};return s.querySelector(".fc-reply-cancel").addEventListener("click",p),s.querySelector(".fc-reply-post").addEventListener("click",()=>{let h=l.value.trim(),b=s.querySelector(".fc-err");if(!h)return;let y=s.querySelector(".fc-reply-post");y.disabled=!0,t.postReply(c.id,h).catch(w=>{b.textContent=w.message,y.disabled=!1})}),setTimeout(()=>l.focus(),0),s}function C(c){let i=c.comments.filter(E=>!E.header||E.header.type==="page"),s=i.length+c.orphans.length,l=document.createElement("div");l.className="fc-pagewrap";let p=document.createElement("button");p.className="fc-fab",p.type="button",p.setAttribute("aria-label","Page comments"),p.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>'+(s?`<span class="fc-fab-count">${s}</span>`:"");let h=document.createElement("div");h.className="fc-panel";let b=document.createElement("div");b.className="fc-panel-head",b.innerHTML=`<span class="fc-panel-title">Page comments${s?` <span class="fc-panel-n">${s}</span>`:""}</span><button class="fc-panel-x" type="button" aria-label="Close">\u2715</button>`;let y=document.createElement("div");y.className="fc-panel-list",s||(y.innerHTML='<div class="fc-empty">No comments on the whole page yet.</div>');for(let E of i)y.appendChild(f(E,null,!1));for(let E of c.orphans)y.appendChild(f(E,null,!0));let w=document.createElement("div");w.className="fc-panel-foot";let T=R(c);T&&w.appendChild(T);let _=document.createElement("div");w.appendChild(_),I(_,c),h.append(b,y,w),l.append(h,p),n.appendChild(l);let P=E=>{l.classList.toggle("fc-open",E)};p.addEventListener("click",()=>P(!l.classList.contains("fc-open"))),b.querySelector(".fc-panel-x").addEventListener("click",()=>P(!1))}function I(c,i){var s,l,p;(s=i.me)!=null&&s.authenticated?(c.innerHTML=`<textarea class="fc-ta" placeholder="Comment on the whole page\u2026"></textarea><div class="fc-foot-row"><button class="fc-btn fc-pagepost" type="button">Post</button><span class="fc-signedin">as <b>${S((p=(l=i.me.user)==null?void 0:l.login)!=null?p:"")}</b></span></div><div class="fc-err"></div>`,c.querySelector(".fc-pagepost").addEventListener("click",()=>{let h=c.querySelector(".fc-ta"),b=c.querySelector(".fc-err"),y=h.value.trim();y&&(c.querySelector(".fc-pagepost").disabled=!0,t.postComment(y,null).catch(w=>{b.textContent=w.message,c.querySelector(".fc-pagepost").disabled=!1}))})):(c.innerHTML='<span class="fc-link fc-signin">Sign in to comment \u2192</span>',c.querySelector(".fc-signin").addEventListener("click",()=>t.signIn("page")))}function R(c){var h,b,y;let i=c.resolved;if(i.length===0)return null;let s=document.createElement("div");s.className="fc-ledger"+(a?" fc-ledger-open":"");let l=document.createElement("button");l.type="button",l.className="fc-ledger-bar",l.innerHTML=`<span class="fc-ledger-mark">\u205D</span><span class="fc-ledger-n">${i.length}</span><span class="fc-ledger-lbl">resolved</span><span class="fc-ledger-caret">\u25B8</span>`,l.addEventListener("click",()=>{a=!a,s.classList.toggle("fc-ledger-open",a)}),s.appendChild(l);let p=document.createElement("div");p.className="fc-ledger-list";for(let w of i){let T=document.createElement("div");T.className="fc-resolved-item";let _=(b=(h=w.header)==null?void 0:h.selectors)==null?void 0:b.quote.exact,P=_?`\u201C${z(_,48)}\u201D`:z(w.text,52);if(T.innerHTML=`<span class="fc-resolved-who">${S(((y=w.author)==null?void 0:y.login)||"unknown")}</span><span class="fc-resolved-gist">${S(P)}</span>`,w.viewerCanResolve){let E=document.createElement("button");E.type="button",E.className="fc-reopen",E.textContent="reopen",E.title="Reopen this note",E.addEventListener("click",()=>{t.resolve(w.id,!1)}),T.appendChild(E)}p.appendChild(T)}return s.appendChild(p),s}function k(){for(let s of o)s.idealTop=s.range.getBoundingClientRect().top;let c=[...o].sort((s,l)=>s.idealTop-l.idealTop),i=-1/0;for(let s of c){let l=Math.max(s.idealTop,i);s.el.style.top=`${l}px`,i=l+s.el.offsetHeight+qe}}function he(){document.addEventListener("mouseup",()=>setTimeout(ge,0)),document.addEventListener("selectionchange",()=>{let c=window.getSelection();(!c||c.isCollapsed)&&A()})}function ge(){let c=window.getSelection();if(!c||c.isCollapsed||c.rangeCount===0)return A();let i=c.getRangeAt(0);if((i.toString()||"").trim().length===0)return A();ve(i)}function ve(c){let i=c.getBoundingClientRect();r||(r=document.createElement("div"),r.className="fc-adder",r.textContent="\u{1F4AC} Comment",r.addEventListener("mousedown",s=>s.preventDefault()),r.addEventListener("click",xe),e.appendChild(r)),r.style.display="block",r.style.top=`${window.scrollY+i.top-38}px`,r.style.left=`${window.scrollX+i.left}px`}function A(){r&&(r.style.display="none")}function xe(){var i;let c=t.captureSelection();if(A(),!!c){if(!((i=t.state().me)!=null&&i.authenticated))return t.signIn("comment");be(c)}}function j(){e.querySelectorAll(".fc-composer").forEach(c=>c.remove())}function be(c){j();let i=document.createElement("div");i.className="fc-composer",i.innerHTML='<div class="fc-quote">Comment on this passage\u2026</div><textarea class="fc-ta" placeholder="Comment on this passage\u2026"></textarea><div class="fc-row"><button class="fc-btn fc-post">Comment</button><button class="fc-btn fc-cancel">Cancel</button></div><div class="fc-err"></div>',e.appendChild(i);let s=window.getSelection(),l=s&&s.rangeCount?s.getRangeAt(0).getBoundingClientRect():{top:100,left:100};i.style.top=`${window.scrollY+l.top+24}px`,i.style.left=`${window.scrollX+l.left}px`;let p=i.querySelector(".fc-ta");p.focus(),i.querySelector(".fc-cancel").addEventListener("click",j),i.querySelector(".fc-post").addEventListener("click",()=>{let h=p.value.trim(),b=i.querySelector(".fc-err");if(!h)return;let y=i.querySelector(".fc-post");y.disabled=!0,t.postComment(h,c).then(()=>j()).catch(w=>{b.textContent=w.message,y.disabled=!1})})}function ye(){let c=0,i=()=>{cancelAnimationFrame(c),c=requestAnimationFrame(k)};window.addEventListener("scroll",i,{passive:!0}),window.addEventListener("resize",i,{passive:!0})}function we(){document.addEventListener("click",c=>{if(Ce(c))return;let i=c,s=t.state().anchored.find(l=>De(l.range,i.clientX,i.clientY));s&&t.activate(s.comment.id,"highlight")})}function Ee(){let c=i=>{e.querySelectorAll(".fc-rx-add.fc-rx-open").forEach(s=>{s!==i&&s.classList.remove("fc-rx-open")})};document.addEventListener("pointerdown",i=>{var l;let s=(l=i.composedPath().find(p=>{var h,b;return(b=(h=p==null?void 0:p.classList)==null?void 0:h.contains)==null?void 0:b.call(h,"fc-rx-open")}))!=null?l:null;c(s)}),document.addEventListener("keydown",i=>{i.key==="Escape"&&c(null)})}function Ce(c){return c.composedPath().some(i=>{var s,l;return i===e||((l=(s=i==null?void 0:i.classList)==null?void 0:s.contains)==null?void 0:l.call(s,"fc-adder"))})}}function S(t){let e=document.createElement("div");return e.textContent=t==null?"":String(t),e.innerHTML}function Ue(t){try{return new Date(t).toLocaleString()}catch(e){return t||""}}function z(t,e){return t.length>e?t.slice(0,e-1)+"\u2026":t}function K(t){let e=document.createElement("template");return e.innerHTML=t.trim(),e.content.firstElementChild}function De(t,e,n){let o=t.getClientRects();for(let r=0;r<o.length;r++){let a=o[r];if(e>=a.left&&e<=a.right&&n>=a.top&&n<=a.bottom)return!0}return!1}function Ye(t){let e=t.login||"?";if(t.avatar_url)return`<img class="fc-avatar" src="${S(t.avatar_url)}" alt="" loading="lazy">`;let n=S(e.charAt(0).toUpperCase()||"?");return`<span class="fc-avatar fc-avatar-mono" data-initial="${n}">${n}</span>`}var me=document.getElementById("fieldnote-comments");if(me){let t=Y(me);t&&ue(t)}})();
+
+</script>
+<!-- fieldnote:comments:end -->
+</body>
+</html>

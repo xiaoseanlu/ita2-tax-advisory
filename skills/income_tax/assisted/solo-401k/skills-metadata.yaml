@@ -1,0 +1,35 @@
+fqn: income_tax.assisted.solo-401k
+name: solo-401k
+semver: 0.1.0
+taxonomy: income_tax
+subdomain: assisted
+strategy_ids:
+  - solo_401k
+devportal_asset_id: TBD
+tenant_visibility:
+  - intuit_internal
+alert_channel: TBD
+
+tool_dependencies:
+  - mcp_asset_alias: tax-mcp
+    tool_name: assess_solo401k_applicability
+    skill_part: 1
+    local_impl: tools/solo_401k.py::assess_applicability
+  - mcp_asset_alias: tax-mcp
+    tool_name: estimate_solo401k_savings
+    skill_part: 2
+    local_impl: tools/solo_401k.py::estimate_savings
+
+change_policy: steward_review_on_minor_major
+
+evaluations:
+  - name: spouse_full_headroom
+    description: Spouse max 27000 at 49.3% → savings 13311
+  - name: sep_blocks_recommend
+    description: sepIRA > 0 and no solo deferral → not recommended
+  - name: spouse_requires_married
+    description: Spouse + single filing → not applicable
+
+references:
+  - ita-rules/solo-401k-strategy.md
+  - tax-strategy-content/IndUS/strategies/Solo 401k Contribution/

@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_036",
+  "category": "retirement",
+  "strategy_type": "Retirement Plans",
+  "title": "403(b) Employee Salary Deferral Contributions",
+  "implementation_effort_score": 5,
+  "tax_savings_score": 5,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must maximize 403(b) employee salary deferral contributions for public school employees, non-profit organization employees, and certain ministers to reduce taxable income and build tax-deferred retirement savings",
+    "criteria": [
+      "Must be employed by public school, tax-exempt 501(c)(3) organization, or certain church organizations",
+      "2025 employee deferral limit: $23,500 for participants under age 50 (same as 401(k))",
+      "Age 50+ catch-up contribution: Additional $7,500 (total $31,000)",
+      "Special 15-year catch-up: Additional $3,000 per year for employees with 15+ years service (subject to limits)",
+      "Contributions can be traditional (pre-tax) or Roth (after-tax) within aggregate limits",
+      "403(b) plans limited to annuity contracts or mutual fund custodial accounts (no individual stocks)",
+      "Can contribute to both 403(b) and 457(b) if employer offers both, essentially doubling deferral limits",
+      "Consider coordination with employer contributions and other retirement savings opportunities"
+    ]
+  },
+  "limitations": {
+    "403b_contribution_rules": {
+      "deferral_limit_2025": "$23,500 under age 50; $31,000 age 50+ with catch-up",
+      "15_year_catchup": "Additional $3,000 annually for employees with 15+ years service (lifetime limit $15,000)",
+      "dual_plan_opportunity": "Can maximize both 403(b) and 457(b) if employer offers governmental 457(b) plan",
+      "tax_deduction": "Traditional contributions reduce taxable income providing immediate tax savings",
+      "roth_option": "Roth 403(b) contributions provide tax-free growth and distributions",
+      "employer_contributions": "Employer contributions (if any) don't count toward employee deferral limit"
+    },
+    "restrictions": [
+      "15-year catch-up limited to $3,000 per year and $15,000 lifetime; cannot use simultaneously with age 50+ catch-up",
+      "Total contributions (employee + employer) limited to lesser of $70,000 (2025) or 100% compensation",
+      "Investment options limited to annuities or mutual funds; cannot invest in individual securities",
+      "Higher fees common in 403(b) plans, especially older annuity contracts; review expenses carefully",
+      "Early withdrawal before age 59½ subject to 10% penalty except for specific exceptions",
+      "Required minimum distributions begin at age 73 (age 75 if born 1960+)",
+      "Job change: can roll over to IRA, new employer 403(b), or 401(k); avoid taxable distribution",
+      "Some 403(b) plans have limited investment options or high-cost annuity products"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

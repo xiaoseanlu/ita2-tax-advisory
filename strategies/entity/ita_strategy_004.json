@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_004",
+  "category": "entity",
+  "strategy_type": "Entity Selection",
+  "title": "Pass-Through Entity Selection and Optimization",
+  "implementation_effort_score": 6,
+  "tax_savings_score": 9,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must analyze and select optimal pass-through entity structure (sole proprietorship, partnership, LLC, S Corp) based on liability protection, tax efficiency, administrative burden, and business objectives",
+    "criteria": [
+      "Consider liability protection needs, operational flexibility, and management structure requirements",
+      "Analyze self-employment tax implications for each entity type and owner compensation strategies",
+      "Evaluate qualified business income (QBI) deduction optimization across different entity structures",
+      "Compare administrative compliance burden including state fees, filing requirements, and ongoing maintenance costs",
+      "Consider owner basis calculations, loss limitations, and tax attribute tracking requirements",
+      "Assess flexibility for future growth, multiple owners, equity compensation, and exit strategies",
+      "Evaluate state tax treatment as many states impose entity-level taxes or don't conform to federal classification",
+      "Plan for entity conversion or restructuring timing to minimize tax costs and maximize strategic benefits"
+    ]
+  },
+  "limitations": {
+    "entity_type_comparison": {
+      "sole_proprietorship": "Simplest form; Schedule C reporting; full self-employment tax; no liability protection; QBI deduction available",
+      "partnership_llc": "Multi-member default; K-1 reporting; self-employment tax on guaranteed payments and distributive share; flexible allocations",
+      "single_member_llc": "Disregarded entity default; Schedule C reporting; can elect S Corp or C Corp status; state law liability protection",
+      "s_corporation": "Payroll required; reasonable compensation rules; distribution optimization; limited to 100 shareholders; one class of stock",
+      "self_employment_tax": "15.3% on sole prop/partnership income; S Corp distributions avoid SE tax; balance with reasonable compensation",
+      "qbi_deduction_interaction": "Available for all pass-through types; W-2 wages and property basis affect phase-out calculations"
+    },
+    "restrictions": [
+      "Entity classification elections (Form 8832) and S Corp elections (Form 2553) have strict timing requirements",
+      "Conversion between entity types may trigger deemed sale, recognition of income, or basis adjustments",
+      "Self-employment tax applies to general partners and LLC members for guaranteed payments and distributive share",
+      "S Corporation restrictions limit ownership flexibility and capital structure compared to partnerships",
+      "Partnership allocations must have substantial economic effect; special allocation rules complex and require careful planning",
+      "State entity-level taxes (PTET) in some states allow workaround for $10,000 SALT deduction limitation",
+      "Basis limitations restrict pass-through loss deductions; at-risk and passive activity rules layer additional restrictions",
+      "Professional service businesses face additional QBI deduction phase-outs and limitations requiring careful entity planning"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

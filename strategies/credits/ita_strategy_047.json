@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_047",
+  "category": "credits",
+  "strategy_type": "Tax Credits",
+  "title": "Child Tax Credit Optimization",
+  "implementation_effort_score": 2,
+  "tax_savings_score": 8,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must have qualifying children under age 17 and income below phase-out thresholds to claim Child Tax Credit providing up to $2,000 per child credit with refundable Additional Child Tax Credit portion for lower-income families",
+    "criteria": [
+      "Qualifying child must be under age 17 at end of tax year",
+      "Child must be dependent: son, daughter, stepchild, foster child, sibling, or descendant",
+      "Child must have lived with you more than half the year and not provided over half own support",
+      "Child must be U.S. citizen, national, or resident alien with valid Social Security number",
+      "2024 credit: $2,000 per qualifying child under age 17",
+      "Credit phases out: $200,000 AGI (single/head of household), $400,000 (married filing jointly)",
+      "Up to $1,700 (2024) refundable as Additional Child Tax Credit if earned income exceeds $2,500",
+      "Credit for other dependents (age 17+): $500 non-refundable credit for qualifying dependents"
+    ]
+  },
+  "limitations": {
+    "child_tax_credit_rules": {
+      "credit_amount": "$2,000 per qualifying child under 17; $500 for other qualifying dependents",
+      "refundable_portion": "Up to $1,700 refundable (Additional Child Tax Credit) if earned income over $2,500",
+      "income_thresholds": "Full credit if income under $200,000 (single/HOH) or $400,000 (MFJ)",
+      "phase_out_rate": "$50 reduction for each $1,000 income over threshold",
+      "ssn_requirement": "Qualifying child must have SSN issued before due date of return to qualify",
+      "dollar_for_dollar": "Credit reduces tax liability dollar-for-dollar; more valuable than deduction"
+    },
+    "restrictions": [
+      "Age limit strictly enforced: child must be under 17 on December 31 of tax year",
+      "ITIN not sufficient for child; must have valid Social Security number for $2,000 credit",
+      "Phase-out reduces credit by $50 for each $1,000 over income threshold; can eliminate credit entirely",
+      "Modified AGI includes excluded foreign earned income for phase-out calculation",
+      "Cannot claim credit if married filing separately in most cases",
+      "Child must meet relationship, age, residency, support, and dependent tests",
+      "Divorced/separated parents: only custodial parent can claim unless Form 8332 releases exemption",
+      "Credit claimed on Form 1040, Schedule 8812; Additional Child Tax Credit on Form 8812 if refundable portion"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

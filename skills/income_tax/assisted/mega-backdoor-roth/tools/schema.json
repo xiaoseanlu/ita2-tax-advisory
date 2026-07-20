@@ -1,0 +1,31 @@
+{
+  "tools": [
+    {
+      "name": "assess_mega_backdoor_roth_applicability",
+      "description": "SPE gates for mega backdoor Roth applicability/recommend.",
+      "input_schema": {
+        "type": "object",
+        "required": ["w2", "filing_status_code"],
+        "properties": {
+          "w2": { "type": "object" },
+          "retirement": { "type": "object" },
+          "filing_status_code": { "type": "integer" }
+        }
+      }
+    },
+    {
+      "name": "estimate_mega_backdoor_roth_savings",
+      "description": "SPE savings (always 0) and cash outlay for mega backdoor Roth.",
+      "input_schema": {
+        "type": "object",
+        "required": ["w2"],
+        "properties": {
+          "w2": { "type": "object" },
+          "retirement": { "type": "object" },
+          "filing_status_code": { "type": "integer" },
+          "strategy_change": { "type": ["number", "null"] }
+        }
+      }
+    }
+  ]
+}

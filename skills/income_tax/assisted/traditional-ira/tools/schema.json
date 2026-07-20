@@ -1,0 +1,30 @@
+{
+  "tools": [
+    {
+      "name": "assess_traditional_ira_applicability",
+      "description": "SPE gates for Traditional IRA applicability/recommend.",
+      "input_schema": {
+        "type": "object",
+        "required": ["person", "filing_status_code"],
+        "properties": {
+          "person": { "type": "object" },
+          "filing_status_code": { "type": "integer" }
+        }
+      }
+    },
+    {
+      "name": "estimate_traditional_ira_savings",
+      "description": "SPE projected tax savings for Traditional IRA STRATEGY_CHANGE.",
+      "input_schema": {
+        "type": "object",
+        "required": ["person"],
+        "properties": {
+          "person": { "type": "object" },
+          "rates": { "type": "object" },
+          "filing_status_code": { "type": "integer" },
+          "strategy_change": { "type": ["number", "null"] }
+        }
+      }
+    }
+  ]
+}

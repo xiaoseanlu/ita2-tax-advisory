@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_029",
+  "category": "business",
+  "strategy_type": "Business Deduction",
+  "title": "QBI Deduction Optimization Through Phase-Out Planning",
+  "implementation_effort_score": 8,
+  "tax_savings_score": 6,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must strategically manage taxable income and business structure when income falls within QBI phase-out ranges to maximize Section 199A deduction through timing income, increasing deductions, and optimizing W-2 wages",
+    "criteria": [
+      "Taxable income near or within phase-out range requiring strategic planning to optimize deduction",
+      "2025 phase-out ranges: $197,300-$247,300 (single), $394,600-$494,600 (MFJ)",
+      "Strategies to reduce taxable income below thresholds: retirement contributions, charitable donations, equipment purchases",
+      "For non-SSTB businesses: Increase W-2 wages to maximize deduction within wage/property limitations",
+      "For SSTB businesses: Critical to keep income below phase-out range or completely above to avoid partial limitation",
+      "Consider income and deduction timing strategies: defer income to next year, accelerate deductions to current year",
+      "Analyze S Corporation vs sole proprietorship: S Corp wages reduce QBI but satisfy W-2 wage limitation",
+      "Multi-year planning to smooth income and avoid bouncing in and out of phase-out ranges"
+    ]
+  },
+  "limitations": {
+    "qbi_optimization_strategies": {
+      "threshold_management": "Keep income below $197,300/$394,600 for full deduction without limitations",
+      "phase_out_planning": "Within phase-out range, strategic planning can preserve significant deduction",
+      "w2_wage_strategy": "Increase W-2 wages through S Corp election or employee hiring to maximize non-SSTB deduction",
+      "equipment_purchases": "Qualified property increases UBIA providing alternative limitation calculation (25% wages + 2.5% UBIA)",
+      "retirement_contributions": "Maximize retirement plan contributions to reduce taxable income below thresholds",
+      "sstb_critical_planning": "SSTB owners must prioritize staying below phase-out range; lose entire deduction above $247,300/$494,600"
+    },
+    "restrictions": [
+      "SSTB phase-out eliminates deduction entirely; cannot optimize through W-2 wages or property",
+      "Reasonable compensation requirements limit ability to manipulate S Corporation wage levels",
+      "Equipment purchase timing must consider bonus depreciation phase-out reducing immediate deduction benefit",
+      "Retirement contribution limits cap ability to reduce taxable income through this strategy",
+      "Multi-year income smoothing may not be feasible for businesses with volatile or unpredictable income",
+      "State tax implications of optimization strategies may differ from federal creating additional complexity",
+      "Trading off current year income for deduction may have long-term implications for business growth",
+      "Phase-out cliff effects at upper threshold ($247,300/$494,600) create all-or-nothing scenarios for SSTB"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

@@ -1,0 +1,471 @@
+[
+  {
+    "id": "401k-employee",
+    "display_name": "401(k) Employee Contribution",
+    "spe_folder": "401k Employee Contribution",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/401k-employee",
+    "status": "implemented",
+    "category": "retirement",
+    "ita_id": "ita_034",
+    "fidelity": "spe-faithful"
+  },
+  {
+    "id": "fsa-contribution",
+    "display_name": "Flex Spending Account",
+    "spe_folder": "FSA Contribution",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/fsa-contribution",
+    "status": "outlined",
+    "category": "health",
+    "ita_id": "ita_013"
+  },
+  {
+    "id": "401k-employer",
+    "display_name": "401(k) Employer Contribution",
+    "spe_folder": "401k Employer Contribution",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/401k-employer",
+    "status": "implemented",
+    "category": "retirement",
+    "ita_id": "ita_035",
+    "fidelity": "spe-faithful"
+  },
+  {
+    "id": "traditional-ira",
+    "display_name": "Traditional IRA",
+    "spe_folder": "Traditional IRA",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/traditional-ira",
+    "status": "implemented",
+    "category": "retirement",
+    "ita_id": "ita_045",
+    "fidelity": "spe-faithful"
+  },
+  {
+    "id": "bonus-depreciation",
+    "display_name": "Bonus depreciation",
+    "spe_folder": "Bonus Depreciation",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/bonus-depreciation",
+    "status": "outlined",
+    "category": "business",
+    "ita_id": "ita_025"
+  },
+  {
+    "id": "scorp-conversion",
+    "display_name": "S-Corporation entity selection",
+    "spe_folder": "Scorp",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/scorp-conversion",
+    "status": "implemented",
+    "category": "entity-optimization",
+    "ita_id": "ita_002",
+    "fidelity": "spe-faithful"
+  },
+  {
+    "id": "augusta-rule-rental",
+    "display_name": "Augusta Rule - tax-free rental income",
+    "spe_folder": "Augusta Rule-Rental Income (Tax Free)",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/augusta-rule-rental",
+    "status": "outlined",
+    "category": "business",
+    "ita_id": "ita_018"
+  },
+  {
+    "id": "section-179",
+    "display_name": "Section 179",
+    "spe_folder": "Section 179",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/section-179",
+    "status": "outlined",
+    "category": "business",
+    "ita_id": "ita_026"
+  },
+  {
+    "id": "accountable-reimb-employer",
+    "display_name": "Accountable Reimbursement Plan as Employer",
+    "spe_folder": "Accountable Reimbursement Plan as Employer",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/accountable-reimb-employer",
+    "status": "outlined",
+    "category": "business",
+    "ita_id": "ita_007"
+  },
+  {
+    "id": "sep-ira",
+    "display_name": "SEP-IRA",
+    "spe_folder": "SEP-IRA",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/sep-ira",
+    "status": "implemented",
+    "category": "retirement",
+    "ita_id": "ita_043",
+    "fidelity": "spe-faithful"
+  },
+  {
+    "id": "scorp-compensation",
+    "display_name": "S Corp Compensation Analysis",
+    "spe_folder": "Scorp Compensation Analysis",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/scorp-compensation",
+    "status": "outlined",
+    "category": "entity-optimization",
+    "ita_id": "ita_003"
+  },
+  {
+    "id": "bunching-itemized",
+    "display_name": "Bunching Itemized Deductions",
+    "spe_folder": "Bunching Itemized Deductions",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/bunching-itemized",
+    "status": "outlined",
+    "category": "deduction",
+    "ita_id": "ita_008"
+  },
+  {
+    "id": "residential-energy-credit",
+    "display_name": "Residential Energy Credit",
+    "spe_folder": "Residential Energy Credit",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/residential-energy-credit",
+    "status": "outlined",
+    "category": "credit",
+    "ita_id": "ita_048"
+  },
+  {
+    "id": "solo-401k",
+    "display_name": "Solo 401(k)",
+    "spe_folder": "Solo 401k Contribution",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/solo-401k",
+    "status": "implemented",
+    "category": "retirement",
+    "ita_id": "ita_044",
+    "fidelity": "spe-faithful"
+  },
+  {
+    "id": "roth-ira-conversion",
+    "display_name": "Roth IRA conversion",
+    "spe_folder": "Roth IRA Conversion",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/roth-ira-conversion",
+    "status": "implemented",
+    "category": "retirement",
+    "ita_id": "ita_042",
+    "fidelity": "spe-faithful"
+  },
+  {
+    "id": "donor-advised-fund",
+    "display_name": "Donor Advised Fund To Time Contributions",
+    "spe_folder": "Donor Advised Fund To Time Contributions",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/donor-advised-fund",
+    "status": "outlined",
+    "category": "charity",
+    "ita_id": "ita_050"
+  },
+  {
+    "id": "business-use-of-home",
+    "display_name": "Business Use of Home",
+    "spe_folder": "business use of home",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/business-use-of-home",
+    "status": "outlined",
+    "category": "deduction",
+    "ita_id": "ita_009"
+  },
+  {
+    "id": "merp",
+    "display_name": "Medical Expense Reimbursement Plan",
+    "spe_folder": "Medical Expense Reimbursement Plan",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/merp",
+    "status": "outlined",
+    "category": "business",
+    "ita_id": "ita_016"
+  },
+  {
+    "id": "qbi-minimize-phase-out",
+    "display_name": "Optimize QBI",
+    "spe_folder": "QBI Minimize Phase Out",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/qbi-minimize-phase-out",
+    "status": "outlined",
+    "category": "business",
+    "ita_id": "ita_029"
+  },
+  {
+    "id": "tax-loss-harvesting-lt",
+    "display_name": "Tax loss harvesting (long-term)",
+    "spe_folder": "Tax Loss Harvesting - LT",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/tax-loss-harvesting-lt",
+    "status": "outlined",
+    "category": "capital",
+    "ita_id": "ita_022"
+  },
+  {
+    "id": "accountable-reimb-employee",
+    "display_name": "Accountable Reimbursement Plan as Employee",
+    "spe_folder": "Accountable Reimbursement Plan as Employee",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/accountable-reimb-employee",
+    "status": "outlined",
+    "category": "business",
+    "ita_id": "ita_006"
+  },
+  {
+    "id": "capital-gain-timing",
+    "display_name": "Capital gain timing",
+    "spe_folder": "Capital Gain Timing",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/capital-gain-timing",
+    "status": "outlined",
+    "category": "capital",
+    "ita_id": "ita_019"
+  },
+  {
+    "id": "hsa-contribution",
+    "display_name": "HSA Contribution",
+    "spe_folder": "HSA Contribution",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/hsa-contribution",
+    "status": "outlined",
+    "category": "health",
+    "ita_id": "ita_015"
+  },
+  {
+    "id": "cost-segregation",
+    "display_name": "Cost Segregation Study",
+    "spe_folder": "Cost Segregation Study",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/cost-segregation",
+    "status": "outlined",
+    "category": "business",
+    "ita_id": "ita_027"
+  },
+  {
+    "id": "donate-appreciated-stock",
+    "display_name": "Donating Appreciated Stock",
+    "spe_folder": "Donating Appreciated Stock to Charity",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/donate-appreciated-stock",
+    "status": "outlined",
+    "category": "charity",
+    "ita_id": "ita_049"
+  },
+  {
+    "id": "hire-your-kids",
+    "display_name": "Hire Your Kids",
+    "spe_folder": "Hire Your Kids",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/hire-your-kids",
+    "status": "outlined",
+    "category": "business",
+    "ita_id": "ita_020"
+  },
+  {
+    "id": "dependent-care-reimbursement",
+    "display_name": "Dependent Care Reimbursement",
+    "spe_folder": "Dependent Care Reimbursement",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/dependent-care-reimbursement",
+    "status": "outlined",
+    "category": "health",
+    "ita_id": "ita_012"
+  },
+  {
+    "id": "roth-ira-contribution",
+    "display_name": "Roth IRA contribution",
+    "spe_folder": "Roth IRA Contribution",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/roth-ira-contribution",
+    "status": "outlined",
+    "category": "retirement",
+    "ita_id": "ita_041"
+  },
+  {
+    "id": "mega-backdoor-roth",
+    "display_name": "Mega Backdoor Roth",
+    "spe_folder": "Mega Backdoor Roth",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/mega-backdoor-roth",
+    "status": "implemented",
+    "category": "retirement",
+    "ita_id": "ita_040",
+    "fidelity": "spe-faithful"
+  },
+  {
+    "id": "like-kind-exchange",
+    "display_name": "Like-kind exchange",
+    "spe_folder": "Like Kind Exchange",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/like-kind-exchange",
+    "status": "outlined",
+    "category": "capital",
+    "ita_id": "ita_017"
+  },
+  {
+    "id": "real-estate-professional",
+    "display_name": "Real Estate Professional",
+    "spe_folder": "realEstateProfessional",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/real-estate-professional",
+    "status": "outlined",
+    "category": "business",
+    "ita_id": "ita_001"
+  },
+  {
+    "id": "backdoor-roth-ira",
+    "display_name": "Backdoor Roth IRA",
+    "spe_folder": "Backdoor Roth IRA",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/backdoor-roth-ira",
+    "status": "implemented",
+    "category": "retirement",
+    "ita_id": "ita_039",
+    "fidelity": "spe-faithful"
+  },
+  {
+    "id": "tax-loss-harvesting-st",
+    "display_name": "Tax loss harvesting (short-term)",
+    "spe_folder": "Tax Loss Harvesting - ST",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/tax-loss-harvesting-st",
+    "status": "outlined",
+    "category": "capital",
+    "ita_id": "ita_023"
+  },
+  {
+    "id": "combined-business-travel",
+    "display_name": "Combine business and personal travel",
+    "spe_folder": "Combined Business and Personal Travel",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/combined-business-travel",
+    "status": "outlined",
+    "category": "deduction",
+    "ita_id": "ita_010"
+  },
+  {
+    "id": "403b-employee",
+    "display_name": "403(b) Employee Contribution",
+    "spe_folder": "403b Employee Contribution",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/403b-employee",
+    "status": "implemented",
+    "category": "retirement",
+    "ita_id": "ita_036",
+    "fidelity": "spe-faithful"
+  },
+  {
+    "id": "403b-employer",
+    "display_name": "403(b) Employer Contribution",
+    "spe_folder": "403b Employer Contribution",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/403b-employer",
+    "status": "implemented",
+    "category": "retirement",
+    "ita_id": "ita_037",
+    "fidelity": "spe-faithful"
+  },
+  {
+    "id": "third-party-installment-sale",
+    "display_name": "Third party installment sale",
+    "spe_folder": "Third Party Installment Sale",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/third-party-installment-sale",
+    "status": "outlined",
+    "category": "capital",
+    "ita_id": "ita_024"
+  },
+  {
+    "id": "ptet",
+    "display_name": "Pass-through-Entity-Tax",
+    "spe_folder": "PTET",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/ptet",
+    "status": "outlined",
+    "category": "business"
+  },
+  {
+    "id": "hire-your-spouse",
+    "display_name": "Hire your Spouse",
+    "spe_folder": "Hire Your Spouse",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/hire-your-spouse",
+    "status": "outlined",
+    "category": "business",
+    "ita_id": "ita_021"
+  },
+  {
+    "id": "child-tax-credit",
+    "display_name": "Child Tax Credit",
+    "spe_folder": "Child Tax Credit",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/child-tax-credit",
+    "status": "outlined",
+    "category": "credit",
+    "ita_id": "ita_047"
+  },
+  {
+    "id": "qbi-deduction",
+    "display_name": "QBI Deduction",
+    "spe_folder": "QBI",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/qbi-deduction",
+    "status": "outlined",
+    "category": "business",
+    "ita_id": "ita_028"
+  },
+  {
+    "id": "ira-qcd",
+    "display_name": "IRA QCD",
+    "spe_folder": "IRA QCD",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/ira-qcd",
+    "status": "outlined",
+    "category": "charity",
+    "ita_id": "ita_051"
+  },
+  {
+    "id": "stock-gift-children-tuition",
+    "display_name": "Stock Gift For Childrens Tution",
+    "spe_folder": "Stock gift for childrens tuition",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/stock-gift-children-tuition",
+    "status": "outlined",
+    "category": "capital"
+  },
+  {
+    "id": "student-loan-employer",
+    "display_name": "Student loan payments made by employer",
+    "spe_folder": "Student loan payments made by employer",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/student-loan-employer",
+    "status": "outlined",
+    "category": "deduction",
+    "ita_id": "ita_011"
+  },
+  {
+    "id": "startup-amortize",
+    "display_name": "Startup Amortize",
+    "spe_folder": "Startup Amortize",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/startup-amortize",
+    "status": "outlined",
+    "category": "business",
+    "ita_id": "ita_030"
+  },
+  {
+    "id": "startup-expense",
+    "display_name": "Startup Expense",
+    "spe_folder": "Startup Expense",
+    "spe_found": true,
+    "skill_dir": "skills/income_tax/assisted/startup-expense",
+    "status": "outlined",
+    "category": "business",
+    "ita_id": "ita_031"
+  }
+]

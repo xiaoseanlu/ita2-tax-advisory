@@ -1,0 +1,6 @@
+skill_id: income_tax.assisted.backdoor-roth-ira
+status: implemented
+spe_folder: "Backdoor Roth IRA"
+ita_id: ita_039
+category: retirement
+fidelity: spe-faithful

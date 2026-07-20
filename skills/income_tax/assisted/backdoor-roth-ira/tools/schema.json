@@ -1,0 +1,29 @@
+{
+  "tools": [
+    {
+      "name": "assess_backdoor_roth_ira_applicability",
+      "description": "SPE gates for backdoor Roth IRA applicability/recommend.",
+      "input_schema": {
+        "type": "object",
+        "required": ["person", "filing_status_code"],
+        "properties": {
+          "person": { "type": "object" },
+          "filing_status_code": { "type": "integer" }
+        }
+      }
+    },
+    {
+      "name": "estimate_backdoor_roth_ira_savings",
+      "description": "SPE savings (always 0) and cash outlay for backdoor Roth.",
+      "input_schema": {
+        "type": "object",
+        "required": ["person"],
+        "properties": {
+          "person": { "type": "object" },
+          "filing_status_code": { "type": "integer" },
+          "strategy_change": { "type": ["number", "null"] }
+        }
+      }
+    }
+  ]
+}

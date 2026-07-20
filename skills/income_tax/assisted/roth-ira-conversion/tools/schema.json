@@ -1,0 +1,32 @@
+{
+  "tools": [
+    {
+      "name": "assess_roth_ira_conversion_applicability",
+      "description": "SPE gates for Roth IRA conversion applicability/recommend.",
+      "input_schema": {
+        "type": "object",
+        "required": ["person", "filing_status_code"],
+        "properties": {
+          "person": { "type": "object" },
+          "filing_status_code": { "type": "integer" }
+        }
+      }
+    },
+    {
+      "name": "estimate_roth_ira_conversion_savings",
+      "description": "SPE tax_cost or growth estimate modes for Roth conversion.",
+      "input_schema": {
+        "type": "object",
+        "required": ["person"],
+        "properties": {
+          "person": { "type": "object" },
+          "rates": { "type": "object" },
+          "filing_status_code": { "type": "integer" },
+          "estimate_mode": { "type": "string", "enum": ["tax_cost", "growth"] },
+          "strategy_change": { "type": ["number", "null"] },
+          "growth": { "type": "object" }
+        }
+      }
+    }
+  ]
+}

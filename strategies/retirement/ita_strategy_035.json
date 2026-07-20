@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_035",
+  "category": "retirement",
+  "strategy_type": "Retirement Plans",
+  "title": "401(k) Employer Matching Contributions Maximization",
+  "implementation_effort_score": 4,
+  "tax_savings_score": 5,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must contribute sufficient employee deferrals to capture full employer matching contribution, effectively receiving tax-free compensation and guaranteed investment return through employer retirement plan match",
+    "criteria": [
+      "Must be eligible for employer matching contributions under plan's vesting and eligibility requirements",
+      "Common match formulas: 50% or 100% of employee deferrals up to 3-6% of compensation",
+      "Contribute at least enough to receive maximum employer match (typically 6% of salary)",
+      "Match typically requires employee deferral; no deferral means no match regardless of eligibility",
+      "Understand vesting schedule: immediate, cliff (e.g., 3 years), or graded (e.g., 20% per year over 6 years)",
+      "Safe harbor plans provide immediate vesting and avoid most nondiscrimination testing",
+      "Timing matters: some plans require employment on last day of year; others use pay period matching",
+      "Consider impact of bonus compensation on match calculation depending on plan definition of compensation"
+    ]
+  },
+  "limitations": {
+    "employer_match_optimization": {
+      "free_money": "Employer match is immediate guaranteed return on employee contributions (50-100% ROI)",
+      "tax_advantaged": "Match contributions tax-free when received; taxed as ordinary income when distributed",
+      "vesting_schedule": "Match may vest over time; understand schedule before job change to maximize vested balance",
+      "safe_harbor_match": "Safe harbor 401(k) plans provide immediate 100% vesting and nondiscrimination relief",
+      "true_up_contributions": "Some plans provide annual true-up ensuring full match even with irregular contribution timing",
+      "combined_limits": "Employee deferrals + employer match + other contributions limited to $70,000 (2025)"
+    },
+    "restrictions": [
+      "Must contribute to receive match; employer typically won't match if employee doesn't defer",
+      "Matching formula varies by plan; review SPD to understand exact calculation and maximization strategy",
+      "Vesting cliff can result in forfeiture if leave employer before vesting; understand schedule before job changes",
+      "Timing of contributions affects match if no true-up provision; front-loading may forfeit later match opportunities",
+      "Highly compensated employees may face matching contribution restrictions due to nondiscrimination testing",
+      "Employer match counts toward overall plan contribution limit ($70,000 for 2025)",
+      "Match typically only on elective deferrals, not on after-tax contributions or other plan contributions",
+      "Job change before vesting complete may forfeit unvested match; coordinate timing with vesting schedule"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

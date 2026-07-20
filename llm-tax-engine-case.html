@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The LLM Tax Engine — ITA 2.0 Foundation</title>
+<style>
+  :root {
+    --navy:       #0D1D44;
+    --navy-soft:  #1a2f5e;
+    --teal:       #00B388;
+    --teal-light: #E0F7F2;
+    --yellow:     #F9C741;
+    --yellow-lt:  #FFF8E1;
+    --yellow-dk:  #AC6500;
+    --red:        #D92B2B;
+    --red-light:  #FDECEA;
+    --green:      #2CA01C;
+    --green-lt:   #E7FDC8;
+    --dark-gray:  #393A3D;
+    --mid-gray:   #6B6C72;
+    --lt-gray:    #D4D5D9;
+    --off-white:  #F7F8F5;
+    --paper:      #FDFDFA;
+    --white:      #FFFFFF;
+    --font: 'Avenir Next for Intuit','Avenir Next','Avenir','Helvetica Neue',Arial,sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html,body { margin:0; padding:0; font-family:var(--font); color:var(--dark-gray);
+    background:var(--off-white); font-size:15px; line-height:1.6;
+    -webkit-font-smoothing:antialiased; }
+  .doc { max-width:960px; margin:0 auto; background:var(--paper);
+    box-shadow:0 1px 2px rgba(0,0,0,.04),0 8px 32px rgba(13,29,68,.08); }
+
+  /* ── COVER ── */
+  .cover {
+    background:
+      radial-gradient(ellipse 800px 400px at 15% 10%, rgba(0,179,136,.13), transparent 60%),
+      radial-gradient(ellipse 600px 300px at 90% 90%, rgba(249,199,65,.07), transparent 60%),
+      var(--navy);
+    color:var(--white); padding:48px 64px 56px;
+  }
+  .cover-eyebrow { font-size:12px; font-weight:700; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--teal); margin-bottom:20px; }
+  .cover h1 { font-size:42px; line-height:1.1; font-weight:700; margin:0 0 14px;
+    letter-spacing:-.01em; }
+  .cover h1 .accent { color:var(--teal); }
+  .cover-sub { font-size:17px; line-height:1.5; color:rgba(255,255,255,.82);
+    max-width:640px; margin:0 0 48px; }
+  .cover-meta { display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+    border-top:1px solid rgba(255,255,255,.15); padding-top:24px; }
+  .meta-item { display:flex; flex-direction:column; }
+  .meta-label { font-size:11px; text-transform:uppercase; letter-spacing:.12em;
+    color:rgba(255,255,255,.5); margin-bottom:6px; font-weight:600; }
+  .meta-value { font-size:14px; color:var(--white); font-weight:500; }
+
+  /* ── BODY ── */
+  .body { padding:64px; }
+  .section { margin-bottom:64px; }
+  .section-number { display:inline-block; font-size:11px; font-weight:700;
+    letter-spacing:.2em; text-transform:uppercase; color:var(--teal); margin-bottom:10px; }
+  h2 { font-size:26px; color:var(--navy); margin:0 0 8px; font-weight:700; line-height:1.25; }
+  .section-lede { font-size:16px; color:var(--mid-gray); margin:0 0 28px;
+    max-width:720px; line-height:1.55; }
+  h3 { font-size:17px; color:var(--navy); margin:36px 0 12px; font-weight:600; }
+  p { margin:0 0 14px; }
+  strong { color:var(--navy); font-weight:600; }
+  code { font-family:'SF Mono',Menlo,Consolas,monospace; font-size:13px;
+    background:var(--teal-light); color:var(--navy); padding:1px 6px; border-radius:3px; }
+  .rule { border:none; border-top:1px solid var(--lt-gray); margin:40px 0; }
+
+  /* ── BLUF ── */
+  .bluf { background:var(--teal-light); border-left:4px solid var(--teal);
+    padding:24px 28px; border-radius:0 8px 8px 0; margin-bottom:44px; }
+  .bluf-label { font-size:11px; font-weight:700; color:var(--navy);
+    letter-spacing:.2em; text-transform:uppercase; margin-bottom:10px; }
+  .bluf p { font-size:15.5px; line-height:1.6; color:var(--navy); margin:0 0 12px; }
+  .bluf p:last-child { margin-bottom:0; }
+  .bluf .analogy { font-size:14px; color:#1a5545; font-style:italic;
+    border-top:1px solid rgba(0,179,136,.25); padding-top:12px; margin-top:14px; }
+
+  /* ── STAT ROW ── */
+  .stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:24px 0 36px; }
+  .stat { background:var(--navy); color:var(--white); padding:24px 20px;
+    border-radius:10px; text-align:center; }
+  .stat-number { font-size:40px; font-weight:700; color:var(--teal);
+    line-height:1; margin-bottom:10px; letter-spacing:-.02em; }
+  .stat-label { font-size:13px; color:rgba(255,255,255,.78); line-height:1.45; }
+
+  /* ── TABLES ── */
+  table { width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:14px;
+    background:var(--white); border-radius:8px; overflow:hidden;
+    box-shadow:0 1px 0 var(--lt-gray); }
+  thead th { background:var(--navy); color:var(--white); text-align:left;
+    font-weight:600; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    padding:12px 16px; }
+  tbody td { padding:12px 16px; border-bottom:1px solid var(--lt-gray);
+    vertical-align:top; line-height:1.45; }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody tr:nth-child(even) { background:var(--off-white); }
+  td.label { font-weight:600; color:var(--navy); }
+
+  /* ── CALLOUT ── */
+  .callout { background:var(--yellow-lt); border-left:3px solid var(--yellow);
+    padding:14px 18px; border-radius:0 6px 6px 0; margin:16px 0;
+    font-size:14px; color:var(--dark-gray); line-height:1.5; }
+  .callout .cl { display:block; font-size:10px; font-weight:700;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--yellow-dk); margin-bottom:4px; }
+  .callout.red { background:var(--red-light); border-left-color:var(--red); }
+  .callout.red .cl { color:var(--red); }
+  .callout.green { background:var(--green-lt); border-left-color:var(--green); }
+  .callout.green .cl { color:#1a6e12; }
+
+  /* ── FAILURE GRID ── */
+  .failure-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:16px 0 28px; }
+  .failure-card { background:var(--white); border:1px solid var(--lt-gray);
+    border-radius:10px; padding:22px; }
+  .failure-num { font-size:32px; font-weight:700; color:var(--lt-gray);
+    line-height:1; margin-bottom:8px; letter-spacing:-.02em; }
+  .failure-name { font-size:14px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+  .failure-desc { font-size:13px; color:var(--mid-gray); line-height:1.5; }
+
+  /* ── COMPARE ── */
+  .compare { display:grid; grid-template-columns:1fr auto 1fr; gap:24px;
+    align-items:stretch; margin:24px 0 36px; }
+  .compare-col { border-radius:10px; padding:24px; border:1px solid var(--lt-gray); }
+  .compare-col.today { background:var(--off-white); }
+  .compare-col.proposed { background:linear-gradient(135deg,var(--teal-light) 0%,#f0fff9 100%);
+    border-color:var(--teal); }
+  .compare-title { font-size:11px; font-weight:700; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--mid-gray); margin-bottom:14px; }
+  .compare-col.proposed .compare-title { color:var(--navy); }
+  .compare-layer { font-size:13px; padding:10px 12px; background:var(--white);
+    border:1px solid var(--lt-gray); border-radius:6px; margin-bottom:8px; line-height:1.35; }
+  .compare-layer.broken { border-color:#f5b8b8; background:#fff5f5;
+    color:var(--red); text-decoration:line-through; opacity:.75; }
+  .compare-layer.new { border-color:var(--teal); color:var(--navy);
+    font-weight:600; position:relative; }
+  .compare-layer.new::before { content:"NEW"; position:absolute; top:-8px; right:10px;
+    font-size:9px; font-weight:700; letter-spacing:.12em; background:var(--teal);
+    color:white; padding:2px 6px; border-radius:3px; }
+  .compare-arrow { display:flex; align-items:center; justify-content:center;
+    color:var(--mid-gray); font-size:24px; }
+
+  /* ── SOLUTION LAYERS ── */
+  .layers { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:24px 0; }
+  .layer { background:var(--white); border:1px solid var(--lt-gray);
+    border-top:4px solid var(--teal); padding:22px; border-radius:0 0 10px 10px; }
+  .layer-num { font-size:11px; font-weight:700; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--teal); margin-bottom:8px; }
+  .layer-name { font-size:15px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+  .layer-desc { font-size:13px; color:var(--mid-gray); line-height:1.5; margin-bottom:12px; }
+  .layer-solves { font-size:12px; color:var(--teal); font-weight:600;
+    border-top:1px solid var(--lt-gray); padding-top:10px; }
+
+  /* ── FOOTER ── */
+  .doc-footer { background:var(--navy); color:rgba(255,255,255,.65);
+    padding:28px 64px; font-size:12px; text-align:center; letter-spacing:.04em; }
+  .doc-footer strong { color:var(--teal); }
+
+  @media print {
+    body { background:white; }
+    .doc { box-shadow:none; max-width:none; }
+    .section { page-break-inside:avoid; }
+    .cover { page-break-after:always; }
+  }
+</style>
+</head>
+<body>
+<div class="doc">
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <div class="cover-eyebrow">Position Paper · Project AIR · May 2026</div>
+  <h1>The LLM Tax Engine<br><span class="accent">Foundation for ITA 2.0</span></h1>
+  <p class="cover-sub">Three failure modes. One architecture. Why replacing the computational core of ITA is now both necessary and possible.</p>
+  <div class="cover-meta">
+    <div class="meta-item">
+      <div class="meta-label">Initiative</div>
+      <div class="meta-value">Project AIR</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Team</div>
+      <div class="meta-value">ITA Product &amp; Engineering</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Status</div>
+      <div class="meta-value">Draft · Internal</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Date</div>
+      <div class="meta-value">May 2026</div>
+    </div>
+  </div>
+</div>
+
+<div class="body">
+
+<!-- ══ BLUF ══ -->
+<div class="bluf">
+  <div class="bluf-label">Bottom Line Up Front</div>
+  <p>Tax advisory has three failure modes, and ITA 1.0 has all of them. The first is computational: tax strategies never operate on a single line of the return. Every strategy simultaneously moves AGI, QBI, passive income, NIIT exposure, Social Security taxability, and IRMAA thresholds — all of which interact with each other at different rates and different income levels. The net saving of any strategy is only visible when the full return is held in memory and recomputed. The second failure mode is upstream of the engine entirely: 75% of ITA 1.0 customer feedback involves inputs that are missing, stale, bundled, or locked — and there is no static UI solution to an input space that spans hundreds of fields across clients with categorically different financial situations. The third forecloses the future entirely: an engine written in a domain-specific language no longer supported by its vendor, understood by exactly two engineers at Intuit, that incorrectly triggers AMT — a failure already responsible for a documented $20,000 client harm.</p>
+  <p>The answer to all three failure modes turns out to be the same architecture applied at different layers. The LLM handles computation and natural language input — dollar-exact against ProConnect, with a smaller intentional data model (that potentially supports MCP access into Intuit's existing tax engines where required). RAG provides the rates, limits, and thresholds the LLM cannot be trusted to recall across tax years. Strategy skill files bound hallucination by defining what a valid output must contain. Lacerte via MCP handles multi-year projections, state returns, and entity modeling — without rebuilding what Lacerte already maintains. Each component does what it is best at. The known weakness of each is covered by another layer.</p>
+  <p class="analogy">ITA 1.0 is like a financial advisor who gives precise recommendations based on information from your last meeting, cannot accept new information unless it matches a form they already have, and whose training manual is written in a language only two of their colleagues can still read. Every year the tax code changes, the manual falls further behind — and every client whose situation falls outside the form library gets advice based on data that was never theirs.</p>
+</div>
+
+<!-- ══ SECTION 01: THE PROBLEM ══ -->
+<div class="section">
+  <div class="section-number">01 · The Problem</div>
+  <h2>Three failures that compound</h2>
+  <p class="section-lede">Each failure is significant on its own. Together they describe a system that cannot give accurate advice, cannot accept the inputs that would make advice accurate, and cannot be maintained or extended to support what the market now requires.</p>
+
+  <!-- ACCORDION STYLES -->
+  <style>
+    .acc-failure { border: 1px solid var(--lt-gray); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .acc-failure-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 22px; cursor: pointer; user-select: none;
+      background: var(--white); transition: background .15s;
+      gap: 16px;
+    }
+    .acc-failure-header:hover { background: var(--off-white); }
+    .acc-failure.open .acc-failure-header { background: var(--off-white); border-bottom: 1px solid var(--lt-gray); }
+    .acc-failure-left { display: flex; align-items: baseline; gap: 14px; flex: 1; min-width: 0; }
+    .acc-failure-tag { font-size: 10px; font-weight: 700; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--teal); white-space: nowrap; flex-shrink: 0; }
+    .acc-failure-title { font-size: 15px; font-weight: 700; color: var(--navy); line-height: 1.3; }
+    .acc-failure-stat { font-size: 12px; color: var(--mid-gray); white-space: nowrap; flex-shrink: 0; margin-left: 8px; }
+    .acc-chevron { font-size: 13px; color: var(--mid-gray); transition: transform .25s; flex-shrink: 0; }
+    .acc-failure.open .acc-chevron { transform: rotate(180deg); }
+    .acc-failure-body { display: none; padding: 24px 24px 28px; }
+    .acc-failure.open .acc-failure-body { display: block; }
+  </style>
+
+  <!-- F2 first: Input failures -->
+  <div class="acc-failure" id="acc-f2">
+    <div class="acc-failure-header" onclick="toggleAcc('acc-f2')">
+      <div class="acc-failure-left">
+        <span class="acc-failure-tag">Failure 1</span>
+        <span class="acc-failure-title">The inputs are wrong before the calculation starts</span>
+        <span class="acc-failure-stat">75% of VOC involves inputs — missing, stale, bundled, or non-overridable</span>
+      </div>
+      <span class="acc-chevron">▼</span>
+    </div>
+    <div class="acc-failure-body">
+      <p>Seventy-five percent of ITA 1.0 VOC involves inputs — missing, stale, bundled, or locked. This is not a complaint about the UI. It is a structural impossibility: the input space required to serve a median PTG client spans hundreds of fields across sole props, S-corp shareholders, real estate investors, retirees with complex distributions, and pass-through partners — each with their own relevant subset and their own natural language for describing their tax situation. There is no static form that covers all of them, and every prior attempt to solve this by adding more fields simply moved the complaints to the sections that hadn't yet been updated. The four failure modes are not independent edge cases. They are consequences of trying to approximate an unbounded input space with a fixed data model.</p>
+
+      <div class="failure-grid">
+        <div class="failure-card">
+          <div class="failure-num">01</div>
+          <div class="failure-name">Missing inputs</div>
+          <div class="failure-desc">Prior year values that cannot be updated flow directly into the engine unchanged. Detailed retirement distributions, investment details, and inputs outside the data model simply aren't there. The engine computes with confidence on data that was never the client's.</div>
+        </div>
+        <div class="failure-card">
+          <div class="failure-num">02</div>
+          <div class="failure-name">Bundled inputs</div>
+          <div class="failure-desc">Multiple line items aggregated into a single adjustable number. "I didn't have that large advertising expense this year" becomes a multi-step decomposition exercise — not a description of the client's situation.</div>
+        </div>
+        <div class="failure-card">
+          <div class="failure-num">03</div>
+          <div class="failure-name">Non-overridable inputs</div>
+          <div class="failure-desc">Fields visible but unchangeable. The gap between what the client described and what the engine received widens silently, with no error and no warning.</div>
+        </div>
+        <div class="failure-card">
+          <div class="failure-num">04</div>
+          <div class="failure-name">The full-field impossibility</div>
+          <div class="failure-desc">ITA 1.0's answer — full input views per section — shifted complaints to whichever sections hadn't yet been updated. This problem has no static answer. The client base is too diverse; the domain too wide.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F1 second: Strategy interactions -->
+  <div class="acc-failure" id="acc-f1">
+    <div class="acc-failure-header" onclick="toggleAcc('acc-f1')">
+      <div class="acc-failure-left">
+        <span class="acc-failure-tag">Failure 2</span>
+        <span class="acc-failure-title">Tax strategies interact — the net saving is only visible when the full return recomputes</span>
+        <span class="acc-failure-stat">$20K in excess advance tax from a single incorrect AMT trigger</span>
+      </div>
+      <span class="acc-chevron">▼</span>
+    </div>
+    <div class="acc-failure-body">
+      <p>Every tax strategy operates on the same shared substrate: AGI, MAGI, taxable income, QBI, passive income, capital gains, Social Security taxability, NIIT, and AMT. None of these inputs moves in isolation. Reduce SE income with an S-corp election and you reduce QBI — losing part of the 20% deduction. A strategy that appears to save $8,000 in SE tax may cost $3,000 in lost QBI deduction, making S-corp conversion net-neutral or net-negative below roughly $80,000 of net profit. Accelerate a depreciation deduction and you reduce QBI again, create future recapture at ordinary rates, and potentially suspend losses in a passive entity where they cannot be used for years.</p>
+      <p>The interactions cut both ways. A $30,000 retirement contribution for a taxpayer sitting just above an IRMAA Medicare surcharge tier or a QBI phaseout threshold can save nearly twice its face-value tax — simultaneously reducing ordinary income and unlocking a deduction or eliminating a surcharge tier that the isolated calculation never sees. A rules-based system that evaluates strategies independently will overstate benefits when interactions reduce them and miss value entirely when interactions amplify them. In both cases the client is harmed — once by a bad recommendation, once by an opportunity never surfaced. The cost of not having the engine is systematically understated because missed upside is invisible.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width:20%">Strategy</th>
+            <th style="width:28%">Headline saving</th>
+            <th style="width:30%">What else moves on the return</th>
+            <th>Net reality</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label">S-corp conversion</td>
+            <td>Reduce SE tax via salary + distributions</td>
+            <td>SE income reduction lowers QBI → reduces 20% QBI deduction</td>
+            <td>Net-neutral or negative below ~$80K net profit</td>
+          </tr>
+          <tr>
+            <td class="label">SEP-IRA / Solo 401(k)</td>
+            <td>Deduct pre-tax contributions</td>
+            <td>Reduces QBI; ~20¢ of QBI deduction lost per $1 contributed</td>
+            <td>Effective marginal benefit ~16–17%, not full marginal rate — but may unlock QBI deduction if near phaseout</td>
+          </tr>
+          <tr>
+            <td class="label">Section 179 / bonus depreciation</td>
+            <td>Deduct full equipment cost in year one</td>
+            <td>Reduces QBI; ordinary-rate recapture on sale; may suspend passive losses</td>
+            <td>True benefit reduced by ~$2K per $50K deduction in 22% bracket; hidden tax bill at sale</td>
+          </tr>
+          <tr>
+            <td class="label">Home office deduction</td>
+            <td>Deduct home expenses against business income</td>
+            <td>Reduces QBI; home office depreciation triggers 25% recapture at sale, excluding it from the §121 exclusion</td>
+            <td>Hidden tax bill at sale, undisclosed at time of recommendation</td>
+          </tr>
+          <tr>
+            <td class="label">Roth conversion</td>
+            <td>Pay tax now, grow tax-free</td>
+            <td>Raises AGI → more Social Security taxable, IRMAA surcharges triggered, phase-outs accelerated</td>
+            <td>True marginal cost often 2–3× the stated marginal rate for taxpayers near these thresholds</td>
+          </tr>
+          <tr>
+            <td class="label">Retirement contribution near IRMAA tier</td>
+            <td>Reduce taxable income by contribution amount</td>
+            <td>Drops AGI below a Medicare surcharge threshold, eliminating $2,000+/yr in IRMAA</td>
+            <td>True saving significantly exceeds face value — IRMAA saving invisible without full-return view</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout green">
+        <span class="cl">The asymmetry is the point</span>
+        The engine is needed in both directions. When interactions reduce savings, an incomplete system over-promises. When interactions amplify savings, an incomplete system leaves value on the table — and the client never knows. The cost of not having the engine is systematically understated because missed upside is invisible.
+      </div>
+    </div>
+  </div>
+
+  <!-- F3 third: Architectural debt + future requirements -->
+  <div class="acc-failure" id="acc-f3">
+    <div class="acc-failure-header" onclick="toggleAcc('acc-f3')">
+      <div class="acc-failure-left">
+        <span class="acc-failure-tag">Failure 3</span>
+        <span class="acc-failure-title">The engine cannot be maintained — and forecloses everything the market now requires</span>
+        <span class="acc-failure-stat">2 engineers understand the DSL — vendor support ended</span>
+      </div>
+      <span class="acc-chevron">▼</span>
+    </div>
+    <div class="acc-failure-body">
+      <p>The ITA planner — the component responsible for projections — is written in a domain-specific language no longer supported by its vendor and understood by exactly two engineers at Intuit. Every federal and state conformity update must pass through this bottleneck. The cost is high enough that the team consistently accepts known defects rather than implement them. This is not a resource problem. It is a structural impossibility: the wrongness compounds over time as each conformity cycle the system misses becomes a permanent divergence from current law.</p>
+
+      <div class="callout red">
+        <span class="cl">Real-world consequence — documented</span>
+        AMT triggering — whether alternative minimum tax applies, and on what — is determined by the actual return in ProConnect, not by ITA's internal model. ITA cannot replicate the triggering logic without rebuilding it inside the DSL that nobody can maintain. The result: AMT incorrectly triggers in some cases and fails to trigger in others. A tax professional using ITA's projection recommended that a client pay $20,000 in excess advance tax — a direct, documented harm to a real client, caused by an architectural constraint that has no fix within the current system.
+      </div>
+
+      <p>And this is before reaching the capabilities the market now requires. Multi-year projections — essential for S-corp conversion breakevens, Roth conversion ladders, retirement distribution sequencing, and QOZ hold-period decisions — require a planner that can carry inputs, tax law, and entity structure forward across multiple years simultaneously. S-corp and C-corp projections require modeling payroll, distributions, reasonable compensation, and accumulated earnings across periods. State returns require annual conformity implementation for every state in which clients operate. There is no conceivable path to any of this on a DSL that two people understand and no vendor supports. The choice is not between the current engine and a new one. It is between a new engine and the gradual exit from every use case that requires accurate, maintainable, multi-year, multi-entity tax computation. That is the entire addressable market for serious tax advisory.</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleAcc(id) {
+      document.getElementById(id).classList.toggle('open');
+    }
+  </script>
+
+</div>
+
+<hr class="rule">
+
+<!-- ══ SECTION 02: THE SOLUTION ══ -->
+<div class="section">
+  <div class="section-number">02 · The Solution</div>
+  <h2>The same architecture, applied differently at each layer</h2>
+  <p class="section-lede">The answer to all three failure modes turns out to be the same architecture. The LLM handles computation and natural language input. RAG handles the rates and rules the LLM cannot recall. Skills handle strategy guardrails. Lacerte via MCP handles multi-year and state projections. Each component does what it is best at. The known weakness of each is covered by a different layer.</p>
+
+  <div class="compare">
+    <div class="compare-col today">
+      <div class="compare-title">ITA 1.0 · Today</div>
+      <div class="compare-layer broken">DSL planner — 2 engineers, vendor-unsupported</div>
+      <div class="compare-layer broken">Fixed data model — missing and bundled inputs</div>
+      <div class="compare-layer broken">Rules-based engine — no interaction modeling</div>
+      <div class="compare-layer broken">AMT controlled externally in PTO</div>
+      <div class="compare-layer broken">No multi-year, no S-corp, no C-corp projections</div>
+      <div class="compare-layer broken">State conformity deferred — live with defects</div>
+    </div>
+    <div class="compare-arrow">→</div>
+    <div class="compare-col proposed">
+      <div class="compare-title">ITA 2.0 · Proposed</div>
+      <div class="compare-layer new">LLM tax engine — full-return computation + natural language input</div>
+      <div class="compare-layer new">RAG — rates, limits &amp; thresholds by year</div>
+      <div class="compare-layer new">Skills — strategy guardrails, hallucination prevention</div>
+      <div class="compare-layer new">MCP → Lacerte — multi-year, state, S-corp, C-corp</div>
+    </div>
+  </div>
+
+  <div class="layers">
+    <div class="layer">
+      <div class="layer-num">Layer 01</div>
+      <div class="layer-name">LLM Tax Engine</div>
+      <div class="layer-desc">Dollar-exact accuracy against ProConnect returns — validated on 1040 Federal including QBI phaseouts, AMT, multi-year MACR depreciation carry-forward, 1120S passthrough income, and full cascading effects. More significantly, the LLM achieves this without requiring every input to be given explicitly: it infers the appropriate adjustments from whatever context it receives, applying the same logic a skilled preparer would apply when a client says "I had a large advertising expense last year that I won't have this year." The entire return adjusts. The computational accuracy problem and the natural language input problem are solved by the same capability.</div>
+      <div class="layer-solves">Solves · strategy interaction modeling &nbsp;·&nbsp; natural language input &nbsp;·&nbsp; full-return recomputation</div>
+    </div>
+    <div class="layer">
+      <div class="layer-num">Layer 02</div>
+      <div class="layer-name">RAG — Rates, Limits &amp; Thresholds</div>
+      <div class="layer-desc">The LLM's most consistent failure mode is conflating rates, phase-out thresholds, and contribution limits across tax years. The mitigation is straightforward: an internal RAG containing current-year and projected-year rates, limits, thresholds, and select rules, retrieved at inference time. The LLM is not asked to remember that the QBI phaseout begins at $191,950 for single filers in 2024 — it is given that number when it needs it. This converts a memorization problem into a retrieval problem, which is both more reliable and auditable.</div>
+      <div class="layer-solves">Solves · year-specific accuracy &nbsp;·&nbsp; rate and threshold conformity</div>
+    </div>
+    <div class="layer">
+      <div class="layer-num">Layer 03</div>
+      <div class="layer-name">Skills — Strategy Guardrails</div>
+      <div class="layer-desc">Every tax strategy can be expressed as a set of return items that must move, in what direction, by what mechanism. An S-corp conversion skill specifies that SE income decreases, W-2 wages appear, QBI recalculates, and the QBI deduction adjusts accordingly — giving the engine a verification framework for its own output. Where the LLM computes a result that violates the expected return signature, it is flagged before reaching the advisor. The guardrail doesn't prevent the LLM from reasoning about the strategy — it prevents it from returning an answer that is internally inconsistent with the strategy's known mechanics.</div>
+      <div class="layer-solves">Solves · hallucination prevention &nbsp;·&nbsp; strategy output verification</div>
+    </div>
+    <div class="layer">
+      <div class="layer-num">Layer 04</div>
+      <div class="layer-name">MCP → Lacerte Planner</div>
+      <div class="layer-desc">The Lacerte planner already solves multi-year projections — modeling multiple years with proper indexing of rate changes, standard deduction adjustments, and bracket inflation. State conformity lives inside Lacerte, maintained by the teams that have always maintained it. MCP integration surfaces Lacerte's output as a tool the LLM engine can call, rather than attempting to rebuild that computation inside a new system. Multi-year projections, S-corp modeling, C-corp projections, and state returns are solved by the system that already solves them correctly. ITA 2.0 does not need to solve state conformity. It needs to stop duplicating it.</div>
+      <div class="layer-solves">Solves · multi-year projections &nbsp;·&nbsp; state conformity &nbsp;·&nbsp; S-corp &amp; C-corp modeling</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:28%">Failure mode</th>
+        <th style="width:36%">Root cause in ITA 1.0</th>
+        <th>Solution in ITA 2.0</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="label">Strategy interactions not modeled</td>
+        <td>Rules-based engine evaluates strategies independently; no full-return recomputation</td>
+        <td>LLM recomputes the full return on every input change and every strategy applied</td>
+      </tr>
+      <tr>
+        <td class="label">75% VOC: input problems</td>
+        <td>Fixed data model; bundled fields; no override without shadow; no natural language</td>
+        <td>LLM accepts natural language; any input adjusts the return without a matching field</td>
+      </tr>
+      <tr>
+        <td class="label">AMT incorrect or not triggered</td>
+        <td>AMT logic lives in PTO, not ITA; too costly to rebuild in the unsupported DSL</td>
+        <td>LLM computes AMT inline; RAG provides current-year AMT thresholds and rates</td>
+      </tr>
+      <tr>
+        <td class="label">Conformity defects accumulate</td>
+        <td>DSL, 2 engineers, update cost too high to keep current</td>
+        <td>Rate/threshold conformity via RAG; structural conformity via Lacerte (already maintained)</td>
+      </tr>
+      <tr>
+        <td class="label">No multi-year projections</td>
+        <td>Architecture does not support it; DSL cannot be extended</td>
+        <td>MCP into Lacerte planner — already models multiple years with proper indexing</td>
+      </tr>
+      <tr>
+        <td class="label">No S-corp / C-corp projections</td>
+        <td>Architecture does not support it</td>
+        <td>MCP into Lacerte planner</td>
+      </tr>
+      <tr>
+        <td class="label">State returns with conformity burden</td>
+        <td>Each state requires manual implementation; deferred updates create permanent defects</td>
+        <td>Lacerte handles state conformity; MCP surfaces it without duplication</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<hr class="rule">
+
+<!-- ══ SECTION 03: WHY NOW ══ -->
+<div class="section">
+  <div class="section-number">03 · Why Now</div>
+  <h2>The accuracy threshold has been crossed</h2>
+  <p class="section-lede">The LLM tax engine is not a bet on future capability. The core validation — dollar-exact agreement with ProConnect — is complete for 1040 Federal.</p>
+
+  <p>This has been demonstrated across the full range of 1040 complexity: QBI with income-based phaseouts, AMT with ISO stock option triggers, multi-year MACR depreciation where ITA 1.0 copies the first-year value rather than computing the correct year-in-service percentage, 1120S passthrough income with basis limitations, and full cascading effects where a depreciation deduction drives tax liability to zero and converts non-refundable credits to refundable. These are not clean test cases. They are the exact scenarios where ITA 1.0 either returns the wrong answer or cannot be updated to return the right one.</p>
+
+  <p>Two properties of the LLM make this moment different from every prior attempt to modernize the engine. First, the LLM operates on input descriptions rather than input fields — it does not require the data model to grow before it can accept a new fact about the client's situation. Second, its known failure mode is narrow and bounded: it conflates rates and thresholds across years. That problem is solved by retrieval. Every prior attempt at engine replacement failed because it required rebuilding the entire input model and the entire computation simultaneously. This architecture separates those two problems and solves them independently. Both are now solved.</p>
+
+  <p>Taken together: the LLM handles the computation and the input layer. RAG handles the rates and rules the LLM cannot be trusted to recall. Skills handle strategy guardrails. Lacerte via MCP handles multi-year and state projections. The result is an architecture where each component does what it is best at, the known weaknesses of each are covered by a different layer, and the whole produces something ITA 1.0 cannot: an accurate, maintainable, extensible tax advisory engine that accepts how clients actually describe their situation and returns the true net impact of every decision across their full return.</p>
+
+  <div class="callout green">
+    <span class="cl">Intuit's differentiated advantage</span>
+    The advantage is not the model. It is the validation loop. Running the LLM in shadow mode against deterministic ProConnect output — using prior-year returns as ground truth, with tax professionals as the continuous human signal — creates a feedback flywheel no competitor can replicate. The data and the client relationships already exist. The architecture to exploit them is what Project AIR is building.
+  </div>
+</div>
+
+<!-- ══ SECTION 04: WHAT THIS UNLOCKS ══ -->
+<div class="section">
+  <div class="section-number">04 · What This Unlocks</div>
+  <h2>From product to platform</h2>
+  <p class="section-lede">The LLM tax engine is not a replacement for ITA 1.0 — it is the foundation that ITA 1.0 was never able to provide, and that every downstream capability requires.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:26%">Capability</th>
+        <th style="width:38%">Why it requires the new engine</th>
+        <th>Who benefits</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="label">True net savings — every strategy</td>
+        <td>Full return must recompute on every change; rules-based system cannot model interactions</td>
+        <td>Independent pros, QBL experts, AI advisory agents</td>
+      </tr>
+      <tr>
+        <td class="label">Natural language input</td>
+        <td>"I had a large advertising expense last year" requires no matching data model field</td>
+        <td>All users — eliminates the root cause of 75% of ITA 1.0 VOC</td>
+      </tr>
+      <tr>
+        <td class="label">Correct AMT triggering</td>
+        <td>AMT logic must live inside the engine, not in PTO</td>
+        <td>Every client in or near AMT territory — eliminates documented $20K harm class</td>
+      </tr>
+      <tr>
+        <td class="label">Multi-year projections</td>
+        <td>Roth ladders, S-corp breakevens, retirement distribution sequencing require multi-year engine</td>
+        <td>Complex clients, pass-through entities, retirement planning engagements</td>
+      </tr>
+      <tr>
+        <td class="label">S-corp and C-corp modeling</td>
+        <td>Entity projections require payroll, distributions, and accumulated earnings modeling across years</td>
+        <td>PTG firms, QBL experts, business owner advisory</td>
+      </tr>
+      <tr>
+        <td class="label">State returns without conformity debt</td>
+        <td>Conformity maintained in Lacerte; surfaced via MCP without duplication or deferred defects</td>
+        <td>All multi-state filers; eliminates permanent state conformity backlog</td>
+      </tr>
+      <tr>
+        <td class="label">AI + HI advisory handoff</td>
+        <td>AI and human expert must share a single consistent view of the plan, safe harbor, and prior state</td>
+        <td>QBL experts, QBO subscription model, all AI-assisted engagements</td>
+      </tr>
+      <tr>
+        <td class="label">Advisory platform — cross-product</td>
+        <td>Tax plan as a portable, reusable capability across PTG, QBO, TurboTax, CK, AI+HI</td>
+        <td>140 million American tax filers across all Intuit surfaces</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div><!-- /body -->
+
+<div class="doc-footer">
+  <strong>Project AIR · ITA 2.0</strong> &nbsp;·&nbsp; LLM Tax Engine — Position Paper &nbsp;·&nbsp; Draft · Confidential · Internal &nbsp;·&nbsp; May 2026
+</div>
+
+</div><!-- /doc -->
+<script src="inline-comments.js"></script>
+</body>
+</html>

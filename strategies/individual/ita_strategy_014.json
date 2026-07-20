@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_014",
+  "category": "individual",
+  "strategy_type": "Expense Shifting",
+  "title": "Pre-Tax Health Insurance Premium Deduction",
+  "implementation_effort_score": 1,
+  "tax_savings_score": 2,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must properly structure health insurance premium payments through employer cafeteria plan or self-employed health insurance deduction to maximize pre-tax benefits and reduce overall tax liability",
+    "criteria": [
+      "Employees: Premiums paid through employer Section 125 cafeteria plan deducted pre-tax from wages",
+      "Self-employed: Can deduct health insurance premiums as above-the-line deduction reducing adjusted gross income",
+      "Self-employed deduction limited to net self-employment income from business under which plan established",
+      "Cannot deduct insurance premiums for months eligible for employer-sponsored plan (including spouse's plan)",
+      "Qualifying insurance: medical, dental, vision, qualified long-term care (subject to age-based limits)",
+      "S Corporation 2%+ shareholders treated as self-employed for health insurance deduction purposes",
+      "Deduction reduces income tax but not self-employment tax for self-employed individuals",
+      "Premiums for coverage of self, spouse, dependents, and children under age 27 (even if not dependent) qualify"
+    ]
+  },
+  "limitations": {
+    "health_insurance_premium_rules": {
+      "employee_cafeteria_plan": "Pre-tax treatment through Section 125 reduces wages for income tax and FICA purposes",
+      "self_employed_deduction": "Above-the-line deduction on Schedule 1; reduces AGI but not self-employment income/tax",
+      "income_limitation": "Self-employed deduction cannot exceed net self-employment income from that business",
+      "s_corp_2_percent": "Premiums paid by S Corp for 2%+ shareholders treated as wages then deductible by shareholder",
+      "medicare_premium_limitation": "Medicare premiums generally deductible; Medicare supplement plans qualify",
+      "ltc_premium_limits": "Long-term care insurance premiums deductible up to age-based limits ($470-$5,880 for 2025)"
+    },
+    "restrictions": [
+      "Cannot deduct premiums as self-employed if eligible for employer plan even if choose not to participate",
+      "Spouse's employer coverage eligibility disqualifies self-employed deduction for that coverage period",
+      "Premium tax credit (marketplace subsidy) reduces or eliminates self-employed deduction for same premiums",
+      "S Corp 2%+ shareholder premiums must be included in W-2 wages then deducted by shareholder",
+      "Partnership guaranteed payments treatment differs; health insurance may be part of guaranteed payment",
+      "Self-employed deduction cannot create or increase net operating loss",
+      "Medicare Part B and D premiums deductible but cannot create excess deduction beyond income",
+      "State tax treatment may differ from federal requiring separate analysis and state return adjustments"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

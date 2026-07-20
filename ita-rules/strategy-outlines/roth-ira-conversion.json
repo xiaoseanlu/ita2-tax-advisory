@@ -1,0 +1,384 @@
+{
+  "strategy": "Roth IRA Conversion",
+  "content_repo": "/Users/rraman2/Documents/GitHub/tax-strategy-content",
+  "summary": {
+    "calculated": 18,
+    "undeterminable-template": 1,
+    "user-data": 6
+  },
+  "include_tree": [
+    {
+      "rel_path": "strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "depth": 0,
+      "included_from": null,
+      "is_entry": true
+    },
+    {
+      "rel_path": "strategies/common/rate_calculations.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/rate_calculations.spe",
+      "depth": 1,
+      "included_from": "strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/rate_global.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/rate_global.spe",
+      "depth": 1,
+      "included_from": "strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/setup_global.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/setup_global.spe",
+      "depth": 1,
+      "included_from": "strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/update_parameters.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/update_parameters.spe",
+      "depth": 1,
+      "included_from": "strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "is_entry": false
+    }
+  ],
+  "missing_includes": [],
+  "fields": [
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.addtlMedTaxWithheldThreshold",
+      "leaf": "addtlMedTaxWithheldThreshold",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateAddtlMedicare",
+      "leaf": "marginalRateAddtlMedicare",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateFICA",
+      "leaf": "marginalRateFICA",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateMedicare",
+      "leaf": "marginalRateMedicare",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateSelfEmployed",
+      "leaf": "marginalRateSelfEmployed",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateSocialSecurity",
+      "leaf": "marginalRateSocialSecurity",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.maxSSwage",
+      "leaf": "maxSSwage",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.netEarningRatio",
+      "leaf": "netEarningRatio",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "also_defined_in": [
+        "strategies/common/rate_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.marginalNYC",
+      "leaf": "marginalNYC",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "also_defined_in": [
+        "strategies/common/rate_calculations.spe",
+        "strategies/common/rate_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.marginalRate",
+      "leaf": "marginalRate",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.stateMarginalRate",
+      "leaf": "stateMarginalRate",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.stateStrategyChangeFactor1",
+      "leaf": "stateStrategyChangeFactor1",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": false,
+      "defined_in": "strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareRRTA",
+      "leaf": "subjectMedicareRRTA",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareSE",
+      "leaf": "subjectMedicareSE",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareWages",
+      "leaf": "subjectMedicareWages",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "also_defined_in": [
+        "strategies/common/rate_global.spe",
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "$.projection.${primary.parameters.RELATIVE_MODEL_PATH_ID.value}",
+      "leaf": "value}",
+      "source_kind": "template",
+      "category": "undeterminable-template",
+      "shared": false,
+      "defined_in": "strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "distCode1",
+      "leaf": "distCode1",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "1099-R",
+      "likely_source_note": "Pension/IRA distribution detail \u2014 Form 1099-R."
+    },
+    {
+      "path": "nameOfPensPayer",
+      "leaf": "nameOfPensPayer",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "1099-R",
+      "likely_source_note": "Pension/IRA distribution detail \u2014 Form 1099-R."
+    },
+    {
+      "path": "pensionTpSp",
+      "leaf": "pensionTpSp",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "1099-R",
+      "likely_source_note": "Pension/IRA distribution detail \u2014 Form 1099-R."
+    },
+    {
+      "path": "return.income.usIncSum.usRetPlnDistrSum.usPensInp",
+      "leaf": "usPensInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.filingStatus",
+      "leaf": "filingStatus",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "Taxpayer selection (single/MFJ/MFS/HOH/QW).",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.primaryResidentState",
+      "leaf": "primaryResidentState",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Roth IRA Conversion/Roth_IRA_Conversion.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "Entered/selected home state.",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    }
+  ]
+}

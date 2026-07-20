@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_037",
+  "category": "retirement",
+  "strategy_type": "Retirement Plans",
+  "title": "403(b) Employer Matching Contributions",
+  "implementation_effort_score": 10,
+  "tax_savings_score": 5,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must contribute sufficient employee deferrals to capture full employer matching contribution in 403(b) plan, maximizing tax-advantaged compensation and retirement savings for non-profit and educational organization employees",
+    "criteria": [
+      "Must be eligible for employer matching under 403(b) plan provisions",
+      "Contribute at least enough to receive maximum employer match (typically 3-6% of compensation)",
+      "Match formulas vary: dollar-for-dollar up to 3-4%, or 50% of deferrals up to 6%",
+      "Understand vesting schedule which may be immediate, cliff, or graded over time",
+      "Some 403(b) plans provide discretionary employer contributions beyond matching",
+      "Coordinate employee deferrals throughout year to maximize match (watch for true-up provisions)",
+      "Consider impact of bonus and supplemental compensation on match calculation",
+      "Review if employer offers both 403(b) matching and 457(b) opportunity for additional savings"
+    ]
+  },
+  "limitations": {
+    "403b_employer_match": {
+      "immediate_return": "Employer match provides immediate guaranteed return on employee contributions",
+      "tax_free_contribution": "Match contributions not taxed when made; taxed as ordinary income when distributed",
+      "vesting_schedule": "Match may vest immediately or over time; understand schedule before job change",
+      "combined_limits": "Employee + employer contributions limited to $70,000 (2025) or 100% compensation",
+      "nonprofit_advantage": "Non-profit employees may access both 403(b) and 457(b) for enhanced savings",
+      "true_up_provisions": "Some plans provide year-end true-up ensuring full match despite contribution timing"
+    },
+    "restrictions": [
+      "Must make employee deferrals to receive match; no contribution typically means no match",
+      "Matching formula varies by employer; review plan document to understand exact calculation",
+      "Vesting schedule may result in forfeiture if leave before fully vested; coordinate with career timing",
+      "Non-profit employers may have lower match rates than corporate sector 401(k) plans",
+      "Front-loading contributions may forfeit later match if no true-up and compensation varies",
+      "Employer match counts toward overall plan contribution limit reducing room for other contributions",
+      "Match typically only applies to elective deferrals, not to employee after-tax contributions",
+      "Job change before vesting may forfeit unvested match; understand vesting schedule before leaving"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

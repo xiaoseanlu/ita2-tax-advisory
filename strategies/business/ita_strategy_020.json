@@ -1,0 +1,57 @@
+{
+  "strategy_id": "ita_020",
+  "category": "business",
+  "strategy_type": "Income Shifting",
+  "title": "Hiring Your Children in Family Business",
+  "implementation_effort_score": 8,
+  "tax_savings_score": 10,
+  "requires_contribution": false,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must legitimately employ children in family business with reasonable compensation for actual work performed to shift income to children's lower tax brackets while business deducts wages and avoids certain payroll taxes",
+    "criteria": [
+      "Child must perform legitimate work appropriate for age and actually perform the work claimed",
+      "Compensation must be reasonable for work performed and comparable to what would be paid to non-family member",
+      "Maintain proper documentation: time records, job descriptions, pay stubs, and work product evidence",
+      "Children under 18 working in parent's sole proprietorship or partnership (only parents) exempt from FICA taxes",
+      "Children under 21 exempt from FUTA tax when working in parent's sole proprietorship or partnership",
+      "Must file W-2 and follow proper payroll procedures even if FICA exempt",
+      "Child's wages deductible by business; child files own return using standard deduction ($14,600 for 2024)",
+      "Consider Roth IRA contributions for child using earned income (up to $7,000 or earned income, whichever less)"
+    ]
+  },
+  "limitations": {
+    "employing_children_rules": {
+      "business_deduction": "Business deducts wages as ordinary and necessary business expense",
+      "fica_exemption": "Children under 18 working for parent's sole prop/partnership (parents only) exempt from FICA",
+      "futa_exemption": "Children under 21 exempt from FUTA tax in parent's sole prop/partnership",
+      "child_standard_deduction": "Child uses standard deduction ($14,600 for 2024, $15,000 for 2025) sheltering wages from tax",
+      "income_shifting": "Shifts income from parent's high bracket (potentially 37%) to child's low/zero bracket",
+      "roth_ira_opportunity": "Child can contribute to Roth IRA using earned income for long-term tax-free growth"
+    },
+    "restrictions": [
+      "S Corporations and C Corporations do not qualify for FICA exemption; must pay payroll taxes on children's wages",
+      "IRS scrutinizes legitimacy of work, reasonableness of compensation, and actual performance",
+      "Child must actually perform work; paper-only arrangements disallowed and subject to penalties",
+      "Excessive compensation relative to work performed may be disallowed or reclassified as gift",
+      "Must maintain contemporaneous time records and documentation showing work performed",
+      "Children subject to income tax on wages exceeding standard deduction amount",
+      "Unearned income (kiddie tax) rules don't apply to earned wages but affect investment income",
+      "State child labor laws may restrict hours, times, and types of work children can perform"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

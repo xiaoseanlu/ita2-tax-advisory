@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_007",
+  "category": "business",
+  "strategy_type": "Expense Shifting",
+  "title": "Employer Accountable Reimbursement Plan Design and Administration",
+  "implementation_effort_score": 6,
+  "tax_savings_score": 8,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must design and administer accountable reimbursement plan from employer perspective to maximize deductible business expenses while ensuring proper substantiation and compliance with tax requirements",
+    "criteria": [
+      "Create written accountable plan document establishing policies, procedures, and requirements",
+      "Define eligible expenses - must be ordinary and necessary business expenses deductible by employer",
+      "Establish substantiation requirements and documentation standards for all expense categories",
+      "Implement reasonable time periods for expense submission (generally 60 days) and excess return (120 days)",
+      "Set up processes for expense report review, approval, and reimbursement",
+      "Determine whether to use actual expense reimbursement or per diem methods for travel and meals",
+      "Ensure plan applies consistently to all employees in similar situations to avoid discrimination",
+      "Train employees on plan requirements and provide clear guidance on business vs personal expense allocation"
+    ]
+  },
+  "limitations": {
+    "employer_plan_design": {
+      "business_deduction": "Employer deducts reimbursed expenses as ordinary and necessary business expenses",
+      "expense_limitations": "Specific limits apply (50% meals, luxury auto caps, entertainment restrictions, etc.)",
+      "payroll_tax_savings_score": "Accountable reimbursements avoid payroll taxes compared to additional wages or nonaccountable payments",
+      "compliance_administration": "Proper plan administration essential to maintain accountable plan tax treatment",
+      "per_diem_simplification": "IRS per diem rates simplify substantiation for meals ($59-$74) and lodging (varies by location)",
+      "policy_consistency": "Consistent application and enforcement critical for maintaining plan qualification"
+    },
+    "restrictions": [
+      "Inadequate substantiation converts reimbursements to taxable wages requiring amended W-2s and payroll tax adjustments",
+      "Must monitor and enforce return of excess advances and reimbursements within 120-day period",
+      "Cannot reimburse expenses that employer cannot deduct (fines, penalties, political contributions, personal expenses)",
+      "Entertainment expenses generally not deductible even with proper substantiation under TCJA provisions",
+      "Mileage reimbursement above IRS standard rate ($0.67/mile for 2024, $0.70/mile for 2025) potentially taxable",
+      "Home office reimbursements require administrative office exception or specific business convenience requirements",
+      "Plan must be established before expenses incurred; retroactive plan adoption may not achieve accountable plan treatment",
+      "State tax implications may differ from federal treatment requiring separate analysis and compliance"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

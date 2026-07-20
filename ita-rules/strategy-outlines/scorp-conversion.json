@@ -1,0 +1,916 @@
+{
+  "strategy": "Scorp",
+  "content_repo": "/Users/rraman2/Documents/GitHub/tax-strategy-content",
+  "summary": {
+    "calculated": 23,
+    "user-data": 35
+  },
+  "include_tree": [
+    {
+      "rel_path": "strategies/Scorp/SE_Income.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/Scorp/SE_Income.spe",
+      "depth": 0,
+      "included_from": null,
+      "is_entry": true
+    },
+    {
+      "rel_path": "strategies/Scorp/new_scorp.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/Scorp/new_scorp.spe",
+      "depth": 0,
+      "included_from": null,
+      "is_entry": true
+    },
+    {
+      "rel_path": "strategies/Scorp/new_w2.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/Scorp/new_w2.spe",
+      "depth": 0,
+      "included_from": null,
+      "is_entry": true
+    },
+    {
+      "rel_path": "strategies/Scorp/sCorp-SE-Tax-Savings.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/Scorp/sCorp-SE-Tax-Savings.spe",
+      "depth": 0,
+      "included_from": null,
+      "is_entry": true
+    },
+    {
+      "rel_path": "strategies/Scorp/unitTests.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/Scorp/unitTests.spe",
+      "depth": 1,
+      "included_from": "strategies/Scorp/sCorp-SE-Tax-Savings.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/rate_global.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/rate_global.spe",
+      "depth": 1,
+      "included_from": "strategies/Scorp/SE_Income.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/readStrategyChangeFromModel.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/readStrategyChangeFromModel.spe",
+      "depth": 1,
+      "included_from": "strategies/Scorp/SE_Income.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/refresh_parameters_For_PSB_Changes.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/refresh_parameters_For_PSB_Changes.spe",
+      "depth": 1,
+      "included_from": "strategies/Scorp/sCorp-SE-Tax-Savings.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/setup_business_activities.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/setup_business_activities.spe",
+      "depth": 1,
+      "included_from": "strategies/Scorp/sCorp-SE-Tax-Savings.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/setup_global.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/setup_global.spe",
+      "depth": 1,
+      "included_from": "strategies/Scorp/SE_Income.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/test/test_cash_outlay.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/test/test_cash_outlay.spe",
+      "depth": 1,
+      "included_from": "strategies/Scorp/sCorp-SE-Tax-Savings.spe",
+      "is_entry": false
+    },
+    {
+      "rel_path": "strategies/common/updateModelTotalSEIncome.spe",
+      "abs_path": "/Users/rraman2/Documents/GitHub/tax-strategy-content/IndUS/strategies/common/updateModelTotalSEIncome.spe",
+      "depth": 1,
+      "included_from": "strategies/Scorp/SE_Income.spe",
+      "is_entry": false
+    }
+  ],
+  "missing_includes": [],
+  "fields": [
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.addtlMedTaxWithheldThreshold",
+      "leaf": "addtlMedTaxWithheldThreshold",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/Scorp/new_w2.spe",
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateAddtlMedicare",
+      "leaf": "marginalRateAddtlMedicare",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/Scorp/new_w2.spe",
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateFICA",
+      "leaf": "marginalRateFICA",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateMedicare",
+      "leaf": "marginalRateMedicare",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/Scorp/new_w2.spe",
+        "strategies/Scorp/sCorp-SE-Tax-Savings.spe",
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateSelfEmployed",
+      "leaf": "marginalRateSelfEmployed",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.marginalRateSocialSecurity",
+      "leaf": "marginalRateSocialSecurity",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/Scorp/new_w2.spe",
+        "strategies/Scorp/sCorp-SE-Tax-Savings.spe",
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.maxSSwage",
+      "leaf": "maxSSwage",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/Scorp/new_w2.spe",
+        "strategies/Scorp/sCorp-SE-Tax-Savings.spe",
+        "strategies/common/setup_business_activities.spe",
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITAIndexedAmount.defaultSection.netEarningRatio",
+      "leaf": "netEarningRatio",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/Scorp/sCorp-SE-Tax-Savings.spe",
+        "strategies/common/refresh_parameters_For_PSB_Changes.spe",
+        "strategies/common/setup_business_activities.spe",
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection.allSEIncome",
+      "leaf": "allSEIncome",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": false,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/Scorp/sCorp-SE-Tax-Savings.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection.incomeTaxedBySocSec",
+      "leaf": "incomeTaxedBySocSec",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": false,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/Scorp/sCorp-SE-Tax-Savings.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASpouseItems.defaultSection.strategyChangeSE",
+      "leaf": "strategyChangeSE",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/common/updateModelTotalSEIncome.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.marginalNYC",
+      "leaf": "marginalNYC",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.marginalRate",
+      "leaf": "marginalRate",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/Scorp/new_scorp.spe",
+        "strategies/Scorp/new_w2.spe",
+        "strategies/Scorp/sCorp-SE-Tax-Savings.spe",
+        "strategies/common/rate_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.stateMarginalRate",
+      "leaf": "stateMarginalRate",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/Scorp/new_scorp.spe",
+        "strategies/Scorp/new_w2.spe",
+        "strategies/Scorp/sCorp-SE-Tax-Savings.spe",
+        "strategies/common/rate_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareRRTA",
+      "leaf": "subjectMedicareRRTA",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareSE",
+      "leaf": "subjectMedicareSE",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/Scorp/new_w2.spe",
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITASummary.defaultSection.subjectMedicareWages",
+      "leaf": "subjectMedicareWages",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/Scorp/new_w2.spe",
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection",
+      "leaf": "defaultSection",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/common/rate_global.spe",
+      "also_defined_in": [
+        "strategies/common/setup_global.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.allSEIncome",
+      "leaf": "allSEIncome",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": false,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/Scorp/sCorp-SE-Tax-Savings.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.incomeTaxedBySocSec",
+      "leaf": "incomeTaxedBySocSec",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": false,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/Scorp/sCorp-SE-Tax-Savings.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.strategyChangeSE",
+      "leaf": "strategyChangeSE",
+      "source_kind": "base",
+      "category": "calculated",
+      "shared": true,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/common/updateModelTotalSEIncome.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "",
+      "likely_source_note": ""
+    },
+    {
+      "path": "deleteNextYear",
+      "leaf": "deleteNextYear",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    },
+    {
+      "path": "eINemp",
+      "leaf": "eINemp",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2 employer info",
+      "likely_source_note": "Employer name / EIN from W-2."
+    },
+    {
+      "path": "fsaContribution",
+      "leaf": "fsaContribution",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Benefits statement",
+      "likely_source_note": "FSA contribution."
+    },
+    {
+      "path": "namEmp",
+      "leaf": "namEmp",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2 employer info",
+      "likely_source_note": "Employer name / EIN from W-2."
+    },
+    {
+      "path": "return.income.usIncSum.usBusIncSum.usBusIncInp",
+      "leaf": "usBusIncInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Sole-prop books",
+      "likely_source_note": "Schedule C line detail."
+    },
+    {
+      "path": "return.income.usIncSum.usFarmIncSum.usFarmIncInp",
+      "leaf": "usFarmIncInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Farm records",
+      "likely_source_note": "Schedule F detail."
+    },
+    {
+      "path": "return.income.usIncSum.usPassthrSum.usEstateTrustInp",
+      "leaf": "usEstateTrustInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    },
+    {
+      "path": "return.income.usIncSum.usPassthrSum.usPShipInp",
+      "leaf": "usPShipInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Schedule K-1 (1065)",
+      "likely_source_note": "Partnership K-1 detail."
+    },
+    {
+      "path": "return.income.usIncSum.usPassthrSum.usPShipInp.selfEmployment",
+      "leaf": "selfEmployment",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Schedule K-1 (1065)",
+      "likely_source_note": "Partnership K-1 detail."
+    },
+    {
+      "path": "return.income.usIncSum.usPassthrSum.usScorpInp",
+      "leaf": "usScorpInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/Scorp/new_scorp.spe",
+      "also_defined_in": [
+        "strategies/Scorp/new_w2.spe",
+        "strategies/Scorp/sCorp-SE-Tax-Savings.spe",
+        "strategies/common/setup_business_activities.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Schedule K-1 (1120-S)",
+      "likely_source_note": "S-corp K-1 detail."
+    },
+    {
+      "path": "return.income.usIncSum.usRentRoyInp",
+      "leaf": "usRentRoyInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_business_activities.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Rental records",
+      "likely_source_note": "Schedule E per-property detail."
+    },
+    {
+      "path": "return.income.usIncSum.usWageSum.usWageInp",
+      "leaf": "usWageInp",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [
+        "strategies/Scorp/sCorp-SE-Tax-Savings.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.filingStatus",
+      "leaf": "filingStatus",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": true,
+      "defined_in": "strategies/common/setup_global.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "Taxpayer selection (single/MFJ/MFS/HOH/QW).",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    },
+    {
+      "path": "return.summary.usITATaxpayerItems.defaultSection.primaryResidentState",
+      "leaf": "primaryResidentState",
+      "source_kind": "base",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/SE_Income.spe",
+      "also_defined_in": [
+        "strategies/Scorp/new_scorp.spe",
+        "strategies/Scorp/new_w2.spe"
+      ],
+      "dead_reference": "",
+      "override_note": "Entered/selected home state.",
+      "likely_source_doc": "user answer / source doc",
+      "likely_source_note": "Not matched to a known IRS document pattern \u2014 likely a user question or source-doc field."
+    },
+    {
+      "path": "substantiatedEmployeeExp",
+      "leaf": "substantiatedEmployeeExp",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "Employee-expense records",
+      "likely_source_note": "Substantiated employee expenses."
+    },
+    {
+      "path": "usWageInp408p",
+      "leaf": "usWageInp408p",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wages401kContribution",
+      "leaf": "wages401kContribution",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wages403bContribution",
+      "leaf": "wages403bContribution",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wagesMedicalSavingsAccount",
+      "leaf": "wagesMedicalSavingsAccount",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wagesadoptionCredit",
+      "leaf": "wagesadoptionCredit",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wagesdesignated401kRothContribution",
+      "leaf": "wagesdesignated401kRothContribution",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wagesdesignated403bRothContribution",
+      "leaf": "wagesdesignated403bRothContribution",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wagesdesignated457bRothContribution",
+      "leaf": "wagesdesignated457bRothContribution",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wageshealthSavingsAccount",
+      "leaf": "wageshealthSavingsAccount",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wg408k6",
+      "leaf": "wg408k6",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wg457b",
+      "leaf": "wg457b",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wg501c",
+      "leaf": "wg501c",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wgDCB",
+      "leaf": "wgDCB",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wgFedTxwH",
+      "leaf": "wgFedTxwH",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wgFedwages",
+      "leaf": "wgFedwages",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wgMedTxwH",
+      "leaf": "wgMedTxwH",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wgMedwages",
+      "leaf": "wgMedwages",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wgSSTxwH",
+      "leaf": "wgSSTxwH",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wgSSwages",
+      "leaf": "wgSSwages",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    },
+    {
+      "path": "wgTpSp",
+      "leaf": "wgTpSp",
+      "source_kind": "expr-leaf",
+      "category": "user-data",
+      "shared": false,
+      "defined_in": "strategies/Scorp/new_w2.spe",
+      "also_defined_in": [],
+      "dead_reference": "",
+      "override_note": "",
+      "likely_source_doc": "W-2",
+      "likely_source_note": "Wage & withholding detail \u2014 W-2 boxes."
+    }
+  ]
+}

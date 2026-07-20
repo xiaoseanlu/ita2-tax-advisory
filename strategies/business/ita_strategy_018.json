@@ -1,0 +1,57 @@
+{
+  "strategy_id": "ita_018",
+  "category": "business",
+  "strategy_type": "Income Shifting",
+  "title": "Augusta Rule - 14-Day Tax-Free Home Rental",
+  "implementation_effort_score": 7,
+  "tax_savings_score": 10,
+  "requires_contribution": false,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must rent personal residence or vacation home for 14 days or fewer during tax year to receive tax-free rental income without reporting income or depreciation deductions under IRC §280A(g) Augusta Rule exception",
+    "criteria": [
+      "Rent dwelling unit (home, vacation property, apartment) used as personal residence",
+      "Total rental period cannot exceed 14 days (or 10% of days rented at fair rental value if longer, whichever greater)",
+      "Rental income completely tax-free - no reporting on tax return required",
+      "Cannot deduct rental expenses (depreciation, utilities, maintenance) allocable to rental period",
+      "Fair rental value determination important if renting to related party or own business",
+      "Personal mortgage interest and property taxes remain deductible as normally allowed",
+      "Strategy works for business owners renting home to own business for meetings, retreats, events",
+      "Document rental arrangement, business purpose, fair market rental rate, and actual rental days"
+    ]
+  },
+  "limitations": {
+    "augusta_rule_requirements": {
+      "14_day_limit": "Rental period cannot exceed 14 days; 15th day triggers full rental income reporting",
+      "tax_free_income": "Rental income not reported; completely excluded from gross income under §280A(g)",
+      "no_rental_deductions": "Cannot deduct expenses allocable to rental period (no depreciation, utilities, cleaning)",
+      "personal_deductions_preserved": "Mortgage interest and property taxes remain deductible as itemized deductions",
+      "business_use_planning": "Business owners can rent home to own business for legitimate meetings and events",
+      "fair_rental_value": "Must charge fair market rental rate, especially for related party transactions"
+    },
+    "restrictions": [
+      "Renting 15+ days disqualifies Augusta Rule; must report all rental income and follow vacation home rules",
+      "IRS scrutinizes business rentals to related entities; must establish legitimate business purpose and FMV rent",
+      "Cannot create loss by deducting rental expenses; if disqualified, vacation home passive loss limitations apply",
+      "Fair market value determination critical; compare to similar venue rentals in area",
+      "Must document actual rental use, business purpose, attendees, agenda, and business benefit",
+      "Sham transaction risk if no legitimate business purpose or rental rate unreasonably high",
+      "State tax treatment generally follows federal but verify state conformity to Augusta Rule exclusion",
+      "Property must be dwelling unit; cannot use rule for office buildings or pure commercial property"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

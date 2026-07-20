@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_039",
+  "category": "retirement",
+  "strategy_type": "Retirement Plans",
+  "title": "Backdoor Roth IRA Contribution Strategy",
+  "implementation_effort_score": 6,
+  "tax_savings_score": 5,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must make non-deductible traditional IRA contribution and convert to Roth IRA to circumvent Roth IRA income limits, enabling high-income earners to build tax-free retirement savings through backdoor strategy",
+    "criteria": [
+      "Income exceeds Roth IRA contribution phase-out limits ($146,000-$161,000 single; $230,000-$240,000 MFJ for 2024)",
+      "Have earned income enabling traditional IRA contribution ($7,000 for 2024; $8,000 if age 50+)",
+      "Make non-deductible traditional IRA contribution (Form 8606 required to track basis)",
+      "Convert traditional IRA to Roth IRA shortly after contribution to minimize taxable gain",
+      "Consider pro-rata rule if existing pre-tax traditional, SEP, or SIMPLE IRA balances exist",
+      "Must have no or minimal existing traditional IRA balances to avoid pro-rata taxation on conversion",
+      "Can be done annually as long-term strategy for tax-free retirement savings accumulation",
+      "Coordinate with spouse to double annual Roth accumulation ($14,000 or $16,000 if both age 50+)"
+    ]
+  },
+  "limitations": {
+    "backdoor_roth_rules": {
+      "income_limit_workaround": "Allows Roth contributions despite income exceeding direct contribution limits",
+      "contribution_limit": "$7,000 per person ($8,000 if age 50+) can be backdoored annually",
+      "minimal_tax_if_clean": "If no existing IRA balances and immediate conversion, minimal tax on conversion",
+      "tax_free_growth": "Once in Roth IRA, grows tax-free and distributions tax-free in retirement",
+      "no_rmd_requirement": "Roth IRAs not subject to required minimum distributions during owner's lifetime",
+      "spousal_strategy": "Each spouse can execute backdoor Roth for household total of $14,000-$16,000 annually"
+    },
+    "restrictions": [
+      "Pro-rata rule applies if existing traditional, SEP, or SIMPLE IRA balances; can't cherry-pick non-deductible portion",
+      "Pro-rata calculation uses 12/31 year-end balances of all traditional IRAs to determine taxable portion",
+      "Step transaction doctrine risk if contribution and conversion too close together; wait prudent period (30+ days)",
+      "Must file Form 8606 annually to track non-deductible contributions and basis for future distributions",
+      "Cannot deduct traditional IRA contribution if income exceeds deductibility limits and covered by employer plan",
+      "Conversion creates taxable income if pro-rata rule applies; may push into higher brackets",
+      "State tax treatment varies; some states tax Roth conversions even when federal tax minimal",
+      "5-year rule applies to converted amounts; early withdrawal of converted principal may trigger penalty"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_013",
+  "category": "individual",
+  "strategy_type": "Expense Shifting",
+  "title": "Health Care Flexible Spending Account (FSA) Optimization",
+  "implementation_effort_score": 1,
+  "tax_savings_score": 4,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must elect participation in employer's health care FSA to pay qualified medical expenses with pre-tax dollars while carefully estimating expenses to minimize forfeiture under use-or-lose rules",
+    "criteria": [
+      "Employer must offer health care FSA as part of IRC \u00a7125 cafeteria plan",
+      "Maximum contribution for 2025: $3,200 per employee (indexed annually)",
+      "Eligible expenses include medical, dental, vision expenses qualifying under IRC \u00a7213(d) not reimbursed by insurance",
+      "Election made during annual enrollment; generally cannot change mid-year except qualifying life events",
+      "Expenses must be incurred during plan year (definition based on plan design - incurred when service provided)",
+      "Claims submitted during plan year plus run-out period (typically 60-90 days after plan year end)",
+      "Plan may offer $640 carryover (20% of $3,200) OR 2.5 month grace period, not both",
+      "Cannot contribute to general purpose health care FSA if participating in HSA; must use limited purpose FSA"
+    ]
+  },
+  "limitations": {
+    "health_care_fsa_rules": {
+      "annual_limit_2025": "$3,200 maximum employee contribution; employer may contribute additional amounts",
+      "pre_tax_savings_score": "Contributions reduce taxable wages saving federal income tax, FICA (7.65%), and often state income tax",
+      "use_or_lose_rule": "Unused amounts forfeited unless plan offers carryover ($640 for 2025) or grace period options",
+      "uniform_coverage": "Full elected amount available first day of plan year even though contributed ratably through payroll",
+      "limited_purpose_fsa": "Can participate with HSA if FSA limited to dental, vision, and post-deductible medical expenses only",
+      "qualified_expenses": "IRC \u00a7213(d) expenses including prescriptions, copays, deductibles, dental, vision, certain OTC items"
+    },
+    "restrictions": [
+      "Use-or-lose rule creates risk of forfeiture; requires careful expense estimation and year-end planning",
+      "Cannot participate in general purpose health FSA and contribute to HSA simultaneously",
+      "Carryover and grace period are mutually exclusive; plan can offer one or neither, not both",
+      "Election changes generally prohibited mid-year except for qualifying events (marriage, birth, divorce, employment change)",
+      "Terminated employees may elect COBRA continuation but must weigh cost against remaining FSA balance",
+      "Over-the-counter medications generally require prescription except specific items like menstrual products, first aid supplies",
+      "Cosmetic procedures, insurance premiums, and long-term care expenses not qualified for FSA reimbursement",
+      "State tax treatment generally follows federal but some states have different rules requiring state tax adjustment"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_005",
+  "category": "individual",
+  "strategy_type": "Expense Shifting",
+  "title": "Health Savings Account (HSA) and Health Care FSA Coordination",
+  "implementation_effort_score": 10,
+  "tax_savings_score": 4,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must coordinate HSA contributions with Health Care FSA eligibility when changing employers or health plans, maximizing tax-advantaged healthcare savings while avoiding prohibited contribution overlaps",
+    "criteria": [
+      "HSA requires enrollment in High Deductible Health Plan (HDHP) with minimum deductibles and maximum out-of-pocket limits",
+      "Cannot contribute to both general purpose Health Care FSA and HSA in same year",
+      "Limited Purpose FSA (dental/vision only) or Post-Deductible FSA compatible with HSA contributions",
+      "Mid-year job change may allow HSA at new employer if old employer FSA exhausted or limited purpose",
+      "2025 HSA contribution limits: $4,300 individual, $8,550 family, plus $1,000 catch-up (age 55+)",
+      "Health Care FSA limit for 2025: $3,200 with $640 carryover permitted (or 2.5 month grace period)",
+      "Last-month rule allows full HSA contribution if enrolled December 1 and maintain HDHP for following 12 months",
+      "Prorated HSA contributions based on months of HDHP coverage unless last-month rule applies"
+    ]
+  },
+  "limitations": {
+    "hsa_fsa_coordination": {
+      "triple_tax_benefit": "HSA offers tax-deductible contributions, tax-free growth, tax-free withdrawals for qualified medical expenses",
+      "fsa_use_or_lose": "Health Care FSA subject to use-or-lose rule (with carryover or grace period option) unlike HSA rollover",
+      "hsa_disqualification": "General purpose Health Care FSA disqualifies HSA contributions; must be limited purpose or post-deductible",
+      "mid_year_changes": "Job change or plan change mid-year requires careful coordination to avoid excess contributions and penalties",
+      "contribution_timing": "HSA contributions can be made until tax filing deadline; FSA elections generally locked at annual enrollment",
+      "hdhp_requirements_2025": "Minimum deductibles $1,650/$3,300 (self/family); max out-of-pocket $8,300/$16,600"
+    },
+    "restrictions": [
+      "Cannot contribute to HSA if enrolled in Medicare (Part A, B, C, or D) or claimed as dependent",
+      "Cannot contribute to HSA if covered by general purpose Health Care FSA (own or spouse's plan)",
+      "Cannot contribute to HSA if covered by spouse's non-HDHP that provides coverage to you",
+      "FSA run-out period (incur expenses during plan year, submit claims after) doesn't affect HSA eligibility",
+      "HSA excess contributions subject to 6% excise tax annually until corrected; must withdraw excess with earnings",
+      "Last-month rule requires maintaining HDHP for 12-month testing period; failure causes income inclusion and 10% penalty",
+      "State tax treatment varies; California and New Jersey don't recognize HSA tax benefits at state level",
+      "Health Care FSA cannot be converted to Limited Purpose FSA mid-year without qualifying event or plan design"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

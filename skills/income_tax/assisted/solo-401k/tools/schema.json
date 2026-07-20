@@ -1,0 +1,62 @@
+{
+  "mcp_asset_alias": "tax-mcp",
+  "tools": [
+    {
+      "name": "assess_solo401k_applicability",
+      "skill_part": 1,
+      "description": "Deterministic Solo 401(k) applicability/recommend gates. No LLM.",
+      "input_schema": {
+        "type": "object",
+        "required": ["person", "retirement"],
+        "properties": {
+          "person": {
+            "type": "object",
+            "required": ["taxpayer_spouse_or_joint", "all_se_income", "biz_exists_without_wages"],
+            "properties": {
+              "taxpayer_spouse_or_joint": { "type": "string", "enum": ["taxpayer", "spouse"] },
+              "filing_status_code": { "type": "integer" },
+              "all_se_income": { "type": "number" },
+              "earned_income": { "type": "number" },
+              "sep_ira": { "type": "number" },
+              "solo_elective_deferral": { "type": "number" },
+              "biz_exists_without_wages": { "type": "boolean" }
+            }
+          },
+          "retirement": {
+            "type": "object",
+            "required": ["max_solo401k_contribution_allowed"],
+            "properties": {
+              "max_solo401k_contribution_allowed": { "type": "number" },
+              "combined_401k_limit": { "type": "number" },
+              "total_401k": { "type": "number" },
+              "baseline_solo401k": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "estimate_solo401k_savings",
+      "skill_part": 2,
+      "description": "SPE-faithful Solo 401(k) savings: strategy_change × total marginal rate.",
+      "input_schema": {
+        "type": "object",
+        "required": ["person", "retirement", "rates"],
+        "properties": {
+          "person": { "$ref": "#/tools/0/input_schema/properties/person" },
+          "retirement": { "$ref": "#/tools/0/input_schema/properties/retirement" },
+          "strategy_change": { "type": "number", "minimum": 0 },
+          "rates": {
+            "type": "object",
+            "properties": {
+              "federal_marginal_rate_pct": { "type": "number" },
+              "state_marginal_rate_pct": { "type": "number" },
+              "nyc_marginal_rate_pct": { "type": "number" },
+              "resident_state": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

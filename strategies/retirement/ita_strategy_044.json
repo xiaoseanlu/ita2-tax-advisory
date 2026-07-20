@@ -1,0 +1,57 @@
+{
+  "strategy_id": "ita_044",
+  "category": "retirement",
+  "strategy_type": "Retirement Plans",
+  "title": "Solo 401(k) Contribution Maximization",
+  "implementation_effort_score": 3,
+  "tax_savings_score": 5,
+  "requires_contribution": true,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must be self-employed with no employees (except spouse) to establish Solo 401(k) enabling employee deferrals plus employer profit-sharing contributions up to $70,000 annually providing maximum retirement savings for solo entrepreneurs",
+    "criteria": [
+      "Self-employed individual with no full-time employees other than spouse",
+      "2025 limits: $23,500 employee deferrals ($31,000 if age 50+) PLUS employer contribution up to 25% compensation",
+      "Total contribution limit: $70,000 (or $77,500 with age 50+ catch-up)",
+      "Calculation: Employee deferral up to $23,500/$31,000 + employer contribution of 20% net self-employment income",
+      "Roth option available for employee deferrals in many Solo 401(k) plans",
+      "Loan provisions permitted; can borrow up to $50,000 or 50% of account value",
+      "Must establish plan by December 31; contributions can be made until tax filing deadline with extensions",
+      "Form 5500-EZ required if plan assets exceed $250,000 at year-end"
+    ]
+  },
+  "limitations": {
+    "solo_401k_advantages": {
+      "maximum_contributions": "Employee deferral ($23,500-$31,000) + employer contribution (20% SE income) = up to $70,000+",
+      "higher_than_sep": "Employee deferral component allows higher contributions than SEP-IRA at same income level",
+      "roth_option": "Many plans offer Roth option for employee deferrals providing tax-free growth opportunity",
+      "loan_provision": "Can borrow up to $50,000 or 50% of vested balance for personal needs",
+      "age_50_catchup": "$7,500 catch-up contribution available unlike SEP-IRA",
+      "spousal_participation": "Spouse can participate doubling household retirement savings"
+    },
+    "restrictions": [
+      "Cannot have full-time employees other than owner and spouse (part-time under 1,000 hours generally okay)",
+      "More administrative complexity than SEP-IRA; must file Form 5500-EZ if assets exceed $250,000",
+      "Must establish plan by December 31 of year (contributions can be made by filing deadline)",
+      "Employer contribution limited to 20% of net self-employment income (after SE tax deduction)",
+      "Loan feature adds complexity; must follow specific repayment schedule or deemed distribution occurs",
+      "Prohibited transaction rules apply; cannot engage in self-dealing with plan assets",
+      "Must maintain separate plan for each unrelated business if multiple self-employment activities",
+      "RMDs required starting age 73 (75 if born 1960+) for pre-tax contributions and earnings"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

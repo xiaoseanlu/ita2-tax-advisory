@@ -1,0 +1,57 @@
+{
+  "strategy_id": "ita_010",
+  "category": "business",
+  "strategy_type": "Expense Shifting",
+  "title": "Combined Business and Personal Travel Deduction Optimization",
+  "implementation_effort_score": 4,
+  "tax_savings_score": 8,
+  "requires_contribution": true,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must properly allocate combined business and personal travel expenses to maximize deductible business portion while maintaining proper substantiation and meeting primary purpose requirements",
+    "criteria": [
+      "Primary purpose of trip must be business to deduct transportation costs for domestic travel",
+      "Business days generally include days conducting business, travel days, weekends/holidays between business days",
+      "Personal days require allocation of lodging, meals, and incidental expenses (transportation still deductible if primary purpose business)",
+      "Foreign travel requires allocation of transportation costs unless trip entirely business or meets specific exceptions",
+      "Foreign travel exception: Outside U.S. 7 days or less, or personal days less than 25% of total days and no substantial control",
+      "Document business purpose, activities, contacts, and outcomes for each business day with contemporaneous records",
+      "Deduct 50% of business meals (100% if meeting specific requirements under temporary provisions)",
+      "Personal travel days expenses (lodging, meals, entertainment) not deductible even on primarily business trip"
+    ]
+  },
+  "limitations": {
+    "travel_allocation_rules": {
+      "domestic_travel": "If primary purpose business, entire transportation deductible; allocate lodging and meals by days",
+      "foreign_travel": "Must allocate transportation costs unless entire trip business or meets specific time/control exceptions",
+      "primary_purpose_test": "Compare number of business days to personal days; business must predominate for transportation deduction",
+      "business_day_definition": "Day where principal activity is business pursuit; includes travel days and standby days",
+      "spouse_travel": "Spouse travel generally not deductible unless bona fide business purpose and employee of business",
+      "per_diem_option": "Can use IRS per diem rates for meals and lodging simplifying substantiation for business days"
+    },
+    "restrictions": [
+      "Personal portion of travel expenses never deductible even if business purpose exists for other portions",
+      "Convention and seminar travel subject to additional substantiation and reasonableness requirements",
+      "Foreign convention deduction limited to conventions in North American area unless specific exception applies",
+      "Cruise ship convention deduction limited to $2,000 annually and requires U.S. flag vessel and ports",
+      "Investment seminars and conventions not deductible regardless of business purpose or benefit",
+      "Lavish or extravagant travel expenses subject to disallowance even if business purpose substantiated",
+      "Additional recordkeeping required showing time spent on business vs personal activities each day",
+      "State tax treatment may not conform to federal allocation methods requiring state-specific analysis and planning"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

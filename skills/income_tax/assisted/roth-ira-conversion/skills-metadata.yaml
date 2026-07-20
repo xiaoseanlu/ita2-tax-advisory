@@ -1,0 +1,6 @@
+skill_id: income_tax.assisted.roth-ira-conversion
+status: implemented
+spe_folder: "Roth IRA Conversion"
+ita_id: ita_042
+category: retirement
+fidelity: spe-faithful

@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_021",
+  "category": "business",
+  "strategy_type": "Income Shifting",
+  "title": "Hiring Your Spouse in Family Business",
+  "implementation_effort_score": 5,
+  "tax_savings_score": 6,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must legitimately employ spouse in family business to provide tax-deductible employee benefits, establish qualified retirement plans, and optimize household income allocation while maintaining proper employment relationship",
+    "criteria": [
+      "Spouse must perform bona fide services for business with reasonable compensation for work performed",
+      "Document employment relationship with job description, time records, and actual duties performed",
+      "Pay reasonable compensation comparable to what would be paid to unrelated employee for same work",
+      "Spouse employment enables medical reimbursement plan, retirement plan, and other employee benefit deductions",
+      "If business is sole proprietorship employing only spouse, can elect out of FICA taxes (both must elect)",
+      "Must issue W-2 to spouse and follow proper payroll tax withholding and reporting procedures",
+      "Consider qualified retirement plan contributions for both spouses maximizing household retirement savings",
+      "Spouse can participate in accountable reimbursement plans, group health insurance, and other employee benefits"
+    ]
+  },
+  "limitations": {
+    "spousal_employment_benefits": {
+      "business_deduction": "Business deducts wages and employee benefits as ordinary and necessary expenses",
+      "medical_reimbursement": "Spouse employee enables §105 medical reimbursement plan covering entire family tax-free",
+      "retirement_plans": "Qualified plans covering spouse enable significant retirement contributions for household",
+      "group_insurance": "Spouse as employee enables group health insurance deduction and employee benefit programs",
+      "fica_election": "Sole proprietor employing only spouse can elect out of FICA (file Form 1040, Schedule H exemption)",
+      "income_splitting": "Shifts income recognition but household income same; benefit from marginal rate management"
+    },
+    "restrictions": [
+      "Must have legitimate employer-employee relationship; spouse cannot be partner or co-owner",
+      "Compensation must be reasonable for services performed; excessive wages may be challenged",
+      "FICA exemption only available if sole proprietor employs only spouse (no other employees)",
+      "S Corporation 2%+ shareholder rules affect fringe benefits for spouse of shareholder",
+      "Must maintain documentation proving actual services performed and business necessity",
+      "Spousal wages subject to income tax withholding and must be reported on W-2",
+      "Community property states have special considerations affecting income allocation and characterization",
+      "IRS scrutinizes family employment arrangements; must demonstrate legitimate business purpose and actual work"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

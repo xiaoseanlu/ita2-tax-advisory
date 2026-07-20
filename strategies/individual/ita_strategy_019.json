@@ -1,0 +1,56 @@
+{
+  "strategy_id": "ita_019",
+  "category": "individual",
+  "strategy_type": "Income Shifting",
+  "title": "Capital Gain Timing and Recognition Planning",
+  "implementation_effort_score": 5,
+  "tax_savings_score": 1,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must strategically time recognition of capital gains across tax years to manage tax brackets, utilize 0% capital gain rate brackets, offset losses, and optimize overall tax liability through multi-year planning",
+    "criteria": [
+      "Analyze capital gain realization timing to manage taxable income and marginal tax brackets across multiple years",
+      "2025 long-term capital gain rates: 0% (up to $47,025 single/$94,050 MFJ), 15% (up to $518,900/$583,750), 20% (above)",
+      "Hold appreciated assets over 12 months for preferential long-term capital gain rates vs ordinary income rates",
+      "Consider net investment income tax (NIIT) 3.8% surtax on investment income above $200,000/$250,000 thresholds",
+      "Harvest capital gains in low-income years to utilize 0% rate bracket without triggering tax",
+      "Defer gains to future years if expecting lower income or tax rates in those years",
+      "Accelerate gains if expecting higher income or tax rates in future years",
+      "Coordinate with loss harvesting, charitable donations of appreciated assets, and retirement account distributions"
+    ]
+  },
+  "limitations": {
+    "capital_gain_timing_factors": {
+      "rate_brackets_2025": "0% rate for income in 10-12% ordinary brackets; 15% for most taxpayers; 20% for high earners",
+      "holding_period": "Must hold over 12 months for long-term rates; 12 months or less taxed as ordinary income",
+      "niit_surtax": "Additional 3.8% tax on net investment income when MAGI exceeds $200,000/$250,000/$125,000 (S/MFJ/MFS)",
+      "bracket_management": "Strategic realization keeps taxable income in targeted brackets across multiple years",
+      "zero_percent_opportunity": "Single filers with income under $47,025 can realize LTCG tax-free up to threshold",
+      "loss_offset_coordination": "Capital losses offset gains dollar-for-dollar; $3,000 ordinary loss deduction annually"
+    },
+    "restrictions": [
+      "Wash sale rule prevents loss recognition if repurchase substantially identical security within 61-day window",
+      "Constructive sale rules prevent deferral through short sales, futures, collars on appreciated positions",
+      "Must consider state tax implications; many states don't provide preferential capital gain rates",
+      "Alternative Minimum Tax (AMT) may affect capital gain tax rates and bracket thresholds",
+      "Collectibles, IRC \u00a71202 qualified small business stock, and unrecaptured \u00a71250 gain subject to special rates",
+      "Medicare premium income-related monthly adjustment (IRMAA) triggered by large gain recognition",
+      "Financial aid calculations (FAFSA) include capital gains potentially reducing aid eligibility",
+      "Estate planning consideration: stepped-up basis at death eliminates built-in gains permanently"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}

@@ -1,0 +1,32 @@
+{
+  "tools": [
+    {
+      "name": "assess_403b_employer_applicability",
+      "description": "SPE gates for W-2 403(b) employer match applicability/recommend.",
+      "input_schema": {
+        "type": "object",
+        "required": ["w2", "filing_status_code"],
+        "properties": {
+          "w2": { "type": "object" },
+          "retirement": { "type": "object" },
+          "filing_status_code": { "type": "integer" }
+        }
+      }
+    },
+    {
+      "name": "estimate_403b_employer_savings",
+      "description": "SPE projected tax savings for 403(b) ER STRATEGY_CHANGE.",
+      "input_schema": {
+        "type": "object",
+        "required": ["w2"],
+        "properties": {
+          "w2": { "type": "object" },
+          "retirement": { "type": "object" },
+          "rates": { "type": "object" },
+          "filing_status_code": { "type": "integer" },
+          "strategy_change": { "type": ["number", "null"] }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "strategy_id": "ita_042",
+  "category": "retirement",
+  "strategy_type": "Retirement Plans",
+  "title": "Roth IRA Conversion Strategy",
+  "implementation_effort_score": 9,
+  "tax_savings_score": 5,
+  "last_updated": "2025-12-05",
+  "requirements_for_qualification": {
+    "summary": "Must strategically convert pre-tax traditional IRA, SEP-IRA, or SIMPLE IRA balances to Roth IRA paying taxes currently to achieve tax-free growth and distributions, optimally timed during low-income years or market downturns",
+    "criteria": [
+      "Have existing traditional IRA, SEP-IRA, or SIMPLE IRA with pre-tax contributions and earnings",
+      "No income limits on Roth conversions (unlike direct Roth contributions)",
+      "Can convert any amount; entire balance or partial conversions allowed",
+      "Conversion creates taxable income in year of conversion at ordinary income rates",
+      "Strategic timing: convert during low-income years, early retirement, market downturns, or before RMDs begin",
+      "Consider bracket management: convert up to top of target bracket to minimize marginal rate",
+      "Must wait 2 years after SIMPLE IRA contribution before converting to avoid 25% penalty",
+      "Multi-year conversion strategy can spread tax liability across multiple years optimizing total tax paid"
+    ]
+  },
+  "limitations": {
+    "roth_conversion_strategy": {
+      "no_income_limits": "Unlike contributions, anyone can convert regardless of income level",
+      "unlimited_amounts": "Can convert any amount from traditional IRA to Roth IRA",
+      "tax_payment_options": "Pay conversion tax from outside sources to maximize Roth balance growth",
+      "bracket_management": "Convert up to top of 12%, 22%, or 24% bracket to manage marginal rate",
+      "low_income_opportunity": "Early retirement, business loss years, or sabbatical years ideal for conversions",
+      "market_timing": "Convert when market down; pay tax on lower value then enjoy tax-free recovery",
+      "five_year_rule": "Each conversion has separate 5-year clock for penalty-free principal withdrawal"
+    },
+    "restrictions": [
+      "Conversion creates ordinary income potentially pushing into higher tax brackets and affecting other tax items",
+      "Increased AGI affects Medicare premiums (IRMAA), net investment income tax, QBI deduction, and other income-based provisions",
+      "Cannot recharacterize Roth conversions after 2017 TCJA; conversion is permanent decision",
+      "Must pay taxes on conversion; using IRA funds to pay taxes reduces amount converted and future growth",
+      "5-year rule: converted amounts subject to 10% penalty if withdrawn within 5 years before age 59½",
+      "Each conversion has separate 5-year period creating tracking complexity for multiple conversions",
+      "State tax implications: conversion taxable in conversion year; some states have different Roth treatment",
+      "Required minimum distributions (RMDs) cannot be converted; must take RMD first then convert other amounts"
+    ]
+  },
+  "legal_authority": {
+    "irc_sections": [],
+    "regulations": [],
+    "revenue_rulings": [],
+    "tax_court_cases": [],
+    "hr1_reference": ""
+  },
+  "optimal_timing": {},
+  "implementation_steps": [],
+  "calculation_methodology": {},
+  "risk_analysis": {},
+  "integration_considerations": {},
+  "state_tax_treatment": {},
+  "compliance_monitoring": {}
+}
