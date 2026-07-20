@@ -4,13 +4,8 @@
 
 - **ITA strategies — interactive prototype:** https://xiaoseanlu.github.io/ita2-tax-advisory/ita-strategies.html
   (calculators run the actual SPE-faithful Python tools in-browser via Pyodide — first calculation takes a few seconds while Python loads)
-- **Product binder:** https://xiaoseanlu.github.io/ita2-tax-advisory/
-- **PRD:** https://xiaoseanlu.github.io/ita2-tax-advisory/ita2.0-prd.html
-- **Product blueprint:** https://xiaoseanlu.github.io/ita2-tax-advisory/ita2.0-product-blueprint.html
-- **Use cases:** https://xiaoseanlu.github.io/ita2-tax-advisory/ita2.0-use-cases.html
-- **LLM tax engine case:** https://xiaoseanlu.github.io/ita2-tax-advisory/llm-tax-engine-case.html
 
-> The interactive tax-advisory web app (Flask + GenOS) requires Intuit credentials and runs locally only — see below. The links above are the static product artifacts served via GitHub Pages.
+> The full tax-advisory web app (Flask + GenOS) requires Intuit credentials and runs locally only — see below.
 
 
 Tax advisory web UI and GenOS-backed calculation flow.
