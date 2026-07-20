@@ -2,7 +2,9 @@
 
 ## View it live
 
-- **Product binder (start here):** https://xiaoseanlu.github.io/ita2-tax-advisory/
+- **ITA strategies — interactive prototype:** https://xiaoseanlu.github.io/ita2-tax-advisory/ita-strategies.html
+  (calculators run the actual SPE-faithful Python tools in-browser via Pyodide — first calculation takes a few seconds while Python loads)
+- **Product binder:** https://xiaoseanlu.github.io/ita2-tax-advisory/
 - **PRD:** https://xiaoseanlu.github.io/ita2-tax-advisory/ita2.0-prd.html
 - **Product blueprint:** https://xiaoseanlu.github.io/ita2-tax-advisory/ita2.0-product-blueprint.html
 - **Use cases:** https://xiaoseanlu.github.io/ita2-tax-advisory/ita2.0-use-cases.html

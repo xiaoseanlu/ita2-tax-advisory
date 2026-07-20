@@ -1,0 +1,2993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ITA strategies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0b1f33;
+      --ink-muted: #4a6073;
+      --paper: #f7f9fc;
+      --panel: rgba(255, 255, 255, 0.88);
+      --line: #d5dee8;
+      --blue: #236cff;
+      --blue-deep: #0b4fd6;
+      --blue-soft: rgba(35, 108, 255, 0.1);
+      --green: #0a7a45;
+      --green-soft: rgba(10, 122, 69, 0.1);
+      --amber: #9a6700;
+      --amber-soft: rgba(154, 103, 0, 0.12);
+      --red: #b42318;
+      --red-soft: rgba(180, 35, 24, 0.1);
+      --radius: 12px;
+      --shadow: 0 18px 40px rgba(11, 31, 51, 0.08);
+      --font: "DM Sans", "Avenir Next", "Segoe UI", sans-serif;
+      --display: "Instrument Serif", Georgia, serif;
+      --sidebar-w: 268px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: var(--font);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(35, 108, 255, 0.16), transparent 55%),
+        radial-gradient(900px 500px at 100% 0%, rgba(11, 79, 214, 0.1), transparent 50%),
+        linear-gradient(180deg, #eef3f9 0%, var(--paper) 48%, #e8eef6 100%);
+    }
+
+    .app {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: var(--sidebar-w);
+      flex-shrink: 0;
+      padding: 1.75rem 0 2rem;
+      border-right: 1px solid rgba(213, 222, 232, 0.85);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(8px);
+      animation: rise 0.45s ease both;
+    }
+
+    .sidebar-title {
+      margin: 0 1.1rem 1.25rem;
+      font-family: var(--display);
+      font-size: 1.45rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0 0.65rem;
+    }
+
+    .nav-item {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--ink-muted);
+      font: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .nav-item:hover {
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--ink);
+    }
+
+    .nav-item.active {
+      background: var(--blue-soft);
+      color: var(--blue-deep);
+      border-color: rgba(35, 108, 255, 0.22);
+      box-shadow: inset 3px 0 0 var(--blue);
+    }
+
+    .nav-pill.outline {
+      background: rgba(11, 31, 51, 0.08);
+      color: var(--ink-muted);
+    }
+
+    .projection-bar {
+      margin: 0.75rem 0.65rem 0.25rem;
+      padding: 0.65rem 0.7rem;
+      border: 1px solid rgba(213, 222, 232, 0.95);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+    .projection-bar .proj-title {
+      margin: 0 0 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .projection-bar .proj-meta {
+      margin: 0.4rem 0 0;
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      line-height: 1.35;
+    }
+    .projection-bar .proj-meta.ok { color: var(--green); }
+    .projection-bar .proj-meta.err { color: var(--red); }
+    .projection-bar .btn-secondary {
+      width: 100%;
+      margin-top: 0.15rem;
+      padding: 0.45rem 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .nav-group-label {
+      margin: 0.85rem 0.75rem 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .nav-item-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.4rem;
+    }
+
+    .nav-item-label { flex: 1; line-height: 1.25; }
+
+    .nav-pill {
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+      padding: 0.1rem 0.35rem;
+      border-radius: 999px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .nav-pill.live {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .nav-pill.outlined {
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+
+    .nav-accordion {
+      margin-top: 0.5rem;
+      border-top: 1px solid rgba(213, 222, 232, 0.9);
+      padding-top: 0.65rem;
+    }
+    .nav-accordion-toggle {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--ink);
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .nav-accordion-toggle:hover { background: rgba(255,255,255,0.7); }
+    .nav-accordion-toggle .chevron {
+      transition: transform 0.2s ease;
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+    }
+    .nav-accordion.open .nav-accordion-toggle .chevron { transform: rotate(90deg); }
+    .nav-accordion-body {
+      display: none;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.15rem 0 0.35rem;
+    }
+    .nav-accordion.open .nav-accordion-body { display: flex; }
+    .nav-accordion-count {
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue-deep);
+    }
+
+
+    .outline-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0 0 1rem;
+    }
+
+    .outline-body {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+
+    .outline-body h2 {
+      margin: 1.25rem 0 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    .outline-body table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .outline-body th,
+    .outline-body td {
+      border: 1px solid var(--line);
+      padding: 0.4rem 0.55rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .outline-body th { background: rgba(35, 108, 255, 0.06); }
+
+    .outline-body code {
+      font-size: 0.84em;
+      background: rgba(11, 31, 51, 0.05);
+      padding: 0.05rem 0.3rem;
+      border-radius: 4px;
+    }
+
+    .outline-todo {
+      margin: 0 0 1rem;
+      padding: 0.75rem 0.9rem;
+      border-radius: 8px;
+      background: var(--amber-soft);
+      color: var(--amber);
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .main {
+      flex: 1;
+      min-width: 0;
+      max-width: none;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .app { flex-direction: column; }
+      .sidebar {
+        width: 100%;
+        border-right: 0;
+        border-bottom: 1px solid rgba(213, 222, 232, 0.85);
+        padding-bottom: 1rem;
+      }
+      .nav { flex-direction: row; flex-wrap: wrap; }
+      .nav-item { flex: 1 1 auto; min-width: 9rem; }
+      .nav-item.active { box-shadow: inset 0 -3px 0 var(--blue); }
+    }
+
+    .strategy-panel { display: none; animation: rise 0.5s ease both; }
+    .strategy-panel.active { display: block; }
+
+    header { margin-bottom: 1.75rem; }
+
+    .eyebrow {
+      margin: 0 0 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue-deep);
+    }
+
+    h1 {
+      margin: 0 0 0.45rem;
+      font-family: var(--display);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 48rem;
+      color: var(--ink-muted);
+      font-size: 1.02rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(260px, 1fr) minmax(260px, 1fr) minmax(340px, 1.05fr);
+      grid-template-areas: "form results guide";
+      gap: 1.1rem;
+      column-gap: 1.1rem;
+      align-items: start;
+    }
+
+    .panel-form { grid-area: form; }
+    .panel-results { grid-area: results; }
+    .panel-map { grid-area: guide; }
+
+    @media (max-width: 1200px) {
+      .layout {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "form results"
+          "guide guide";
+      }
+      .panel-map {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: 0;
+        margin-top: 0.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid rgba(11, 31, 51, 0.14);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "form"
+          "results"
+          "guide";
+      }
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid rgba(213, 222, 232, 0.9);
+      border-radius: calc(var(--radius) + 2px);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      animation: rise 0.65s ease both;
+    }
+
+    .panel-form { animation-delay: 0.05s; }
+    .panel-results { animation-delay: 0.12s; min-height: 28rem; }
+    .panel-map {
+      grid-area: guide;
+      animation-delay: 0.18s;
+      min-height: 28rem;
+      margin-left: 0.35rem;
+      padding-left: 1.5rem;
+      border-left: 1px solid rgba(11, 31, 51, 0.16);
+      background: transparent;
+      border-top: 0;
+      border-right: 0;
+      border-bottom: 0;
+      border-radius: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .panel-inner { padding: 1.35rem 1.4rem 1.5rem; }
+    .panel-map .panel-inner { padding-left: 0.15rem; padding-right: 0; }
+
+
+    .map-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+    }
+    .map-table th {
+      text-align: left;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-muted);
+      padding: 0 0.4rem 0.45rem 0;
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+    .map-table td {
+      padding: 0.55rem 0.4rem 0.55rem 0;
+      border-bottom: 1px solid #eef2f7;
+      vertical-align: top;
+      word-break: break-word;
+    }
+    .map-table .ita-field {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: #243447;
+    }
+    .map-table .ita-path-hint {
+      display: block;
+      margin-top: 0.2rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.62rem;
+      font-weight: 400;
+      color: var(--ink-muted);
+      word-break: break-all;
+      line-height: 1.3;
+    }
+
+    .map-table .role {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+      background: var(--blue-soft);
+      color: var(--blue-deep);
+      margin-left: 0.35rem;
+    }
+    .map-table .role.constant { background: var(--amber-soft); color: var(--amber); }
+    .map-table .role.engine { background: var(--green-soft); color: var(--green); }
+    .map-table .role.lever { background: rgba(11, 31, 51, 0.08); color: var(--ink); }
+
+    .map-table tr.attn-error {
+      background: rgba(180, 35, 24, 0.07);
+      box-shadow: inset 3px 0 0 var(--red);
+    }
+    .map-table tr.attn-warn {
+      background: rgba(154, 103, 0, 0.08);
+      box-shadow: inset 3px 0 0 var(--amber);
+    }
+    .map-table tr.attn-error td.mono.tps-cell,
+    .map-table tr.attn-warn td.mono.tps-cell {
+      text-decoration: line-through;
+      text-decoration-color: rgba(180, 35, 24, 0.55);
+      color: #7a2e28;
+    }
+    .map-table tr.attn-warn td.mono.tps-cell {
+      text-decoration-color: rgba(154, 103, 0, 0.65);
+      color: #6b4a00;
+    }
+    .attn-tag {
+      display: inline-block;
+      margin: 0.2rem 0.25rem 0 0;
+      padding: 0.08rem 0.35rem;
+      border-radius: 4px;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .attn-tag.error {
+      background: var(--red-soft);
+      color: var(--red);
+    }
+    .attn-tag.warn {
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+    .attn-reason {
+      display: block;
+      margin-top: 0.25rem;
+      font-family: var(--font);
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      line-height: 1.3;
+      text-decoration: none;
+    }
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin: 0 0 0.75rem;
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+    }
+    .map-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .map-note {
+      margin: 0 0 0.85rem;
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+    .map-val {
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .section-title {
+      margin: 0 0 1rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem 0.9rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem 0.9rem;
+    }
+
+    @media (max-width: 560px) {
+      .grid-2, .form-grid { grid-template-columns: 1fr; }
+    }
+
+    .field { display: flex; flex-direction: column; gap: 0.35rem; }
+    .field.span-2 { grid-column: 1 / -1; }
+
+    label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+    }
+
+    .hint {
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      opacity: 0.9;
+    }
+    .ita-tag {
+      display: inline-block;
+      margin-left: 0.35rem;
+      padding: 0.05rem 0.3rem;
+      border-radius: 4px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0;
+      text-transform: none;
+      background: rgba(11, 31, 51, 0.06);
+      color: #3a4a5c;
+      vertical-align: middle;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px var(--blue-soft);
+    }
+
+    /* User contribution / STRATEGY_CHANGE only — thick green border + light fill */
+    input.user-contrib,
+    select.user-contrib {
+      border: 2.5px solid var(--green);
+      background: #f0faf4;
+    }
+
+    input.user-contrib:focus,
+    select.user-contrib:focus {
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px var(--green-soft);
+    }
+
+    /* SPE validationMax exceeded — match ITA red “Exceeds $X” treatment */
+    input.user-contrib.exceeds-max,
+    select.user-contrib.exceeds-max {
+      border: 2.5px solid var(--red);
+      background: #fff5f5;
+    }
+
+    input.user-contrib.exceeds-max:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px var(--red-soft);
+    }
+
+    .exceeds-hint {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.82rem;
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    input.engine-locked,
+    select.engine-locked {
+      background: #eef2f7;
+      color: var(--ink-muted);
+      border: 1px solid #d0d8e2;
+      cursor: not-allowed;
+    }
+
+    .check-row.engine-locked {
+      opacity: 0.75;
+      cursor: not-allowed;
+    }
+
+    .check-row.engine-locked label {
+      cursor: not-allowed;
+      color: var(--ink-muted);
+    }
+
+    .check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      padding: 0.35rem 0;
+    }
+
+    .check-row input[type="checkbox"] {
+      width: auto;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+
+    .check-row label {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .divider {
+      margin: 1.15rem 0 1rem;
+      border: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.15rem;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      padding: 0.7rem 1rem;
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+
+    button:active { transform: translateY(1px); }
+    button:disabled { opacity: 0.55; cursor: wait; }
+
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-primary:hover:not(:disabled) { background: var(--blue-deep); }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .btn-secondary:hover:not(:disabled) { border-color: #b8c5d4; }
+
+    .status {
+      margin-top: 0.85rem;
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      min-height: 1.2em;
+    }
+    .status.error { color: var(--red); }
+
+    .empty {
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      padding: 0.25rem 0;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .badge.yes { background: var(--green-soft); color: var(--green); }
+    .badge.no { background: var(--red-soft); color: var(--red); }
+    .badge.warn { background: var(--amber-soft); color: var(--amber); }
+    .badge.neutral { background: var(--blue-soft); color: var(--blue-deep); }
+
+    .hero-savings {
+      margin: 0 0 1.1rem;
+      padding: 1rem 1.1rem;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(35, 108, 255, 0.12), rgba(11, 79, 214, 0.05));
+      border: 1px solid rgba(35, 108, 255, 0.18);
+    }
+
+    .hero-savings .label {
+      margin: 0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-savings .amount {
+      margin: 0.2rem 0 0;
+      font-family: var(--display);
+      font-size: 2.35rem;
+      line-height: 1.1;
+      color: var(--ink);
+      animation: pop 0.45s ease both;
+    }
+
+    .hero-savings .amount.negative { color: var(--red); }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+      margin-bottom: 1rem;
+    }
+
+    .stat {
+      padding: 0.75rem 0.85rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+    }
+    .stat .k {
+      margin: 0;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+    }
+    .stat .v {
+      margin: 0.15rem 0 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .breakdown {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .breakdown th {
+      text-align: left;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-muted);
+      padding: 0 0 0.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .breakdown td {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid #eef2f7;
+      vertical-align: top;
+    }
+    .breakdown td.num {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .breakdown td.mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.72rem;
+      color: #243447;
+      max-width: 14rem;
+      word-break: break-word;
+    }
+    .breakdown tr.total td {
+      border-bottom: 0;
+      padding-top: 0.75rem;
+      font-weight: 700;
+    }
+
+    .list {
+      margin: 0.75rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--ink-muted);
+      font-size: 0.86rem;
+    }
+    .list li { margin: 0.25rem 0; }
+
+    .footer-note {
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      text-align: center;
+    }
+    .footer-note a { color: var(--blue-deep); }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: none; }
+    }
+    @keyframes pop {
+      from { opacity: 0; transform: translateY(6px) scale(0.98); }
+      to { opacity: 1; transform: none; }
+    }
+  </style>
+
+<script>
+/* ── Static GitHub Pages shim ─────────────────────────────────────────────
+   Replaces the Flask backend:
+   • GET endpoints → static files in this repo
+   • POST calculator endpoints → the ACTUAL Python tool modules from
+     skills/income_tax/assisted/, executed in-browser via Pyodide.
+   No tax logic is reimplemented here (SPE-faithful, not invented here). */
+(() => {
+  const BASE = new URL('.', location.href);
+  const RET = {
+    '401k-employee': ['401k-employee', 'ee_401k'],
+    '401k-employer': ['401k-employer', 'er_401k'],
+    '403b-employee': ['403b-employee', 'ee_403b'],
+    '403b-employer': ['403b-employer', 'er_403b'],
+    'traditional-ira': ['traditional-ira', 'traditional_ira'],
+    'sep-ira': ['sep-ira', 'sep_ira'],
+    'backdoor-roth-ira': ['backdoor-roth-ira', 'backdoor_roth'],
+    'mega-backdoor-roth': ['mega-backdoor-roth', 'mega_backdoor'],
+    'roth-ira-conversion': ['roth-ira-conversion', 'roth_conversion'],
+    'solo-401k': ['solo-401k', 'solo_401k'],
+  };
+  const DIRECT = {
+    'scorp-conversion': ['scorp-conversion', 'scorp_conversion'],
+    'solo-401k': ['solo-401k', 'solo_401k'],
+    '401k-employee': ['401k-employee', 'ee_401k'],
+  };
+  const origFetch = window.fetch.bind(window);
+  let pyodideP = null;
+  const loaded = {};
+
+  function getPyodide() {
+    if (!pyodideP) {
+      pyodideP = new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js';
+        s.onload = () => resolve();
+        s.onerror = () => { pyodideP = null; reject(new Error('Could not load Pyodide from CDN')); };
+        document.head.appendChild(s);
+      }).then(() => loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.26.4/full/' }));
+    }
+    return pyodideP;
+  }
+
+  async function runTool(skillDir, moduleName, kind, bodyText) {
+    const py = await getPyodide();
+    const key = (skillDir + '_' + moduleName).replace(/[^a-zA-Z0-9_]/g, '_');
+    if (!loaded[key]) {
+      const res = await origFetch(new URL('skills/income_tax/assisted/' + skillDir + '/tools/' + moduleName + '.py', BASE));
+      if (!res.ok) throw new Error('Could not fetch tool module ' + moduleName + ' (HTTP ' + res.status + ')');
+      py.globals.set('_src', await res.text());
+      py.globals.set('_key', key);
+      py.runPython('import types, sys\n_m = types.ModuleType(_key)\nexec(compile(_src, _key, "exec"), _m.__dict__)\nsys.modules[_key] = _m');
+      loaded[key] = true;
+    }
+    py.globals.set('_key', key);
+    py.globals.set('_body', bodyText || '{}');
+    py.globals.set('_fn', kind === 'assess' ? 'assess_from_dict' : 'savings_from_dict');
+    const out = py.runPython(
+      'import json, sys\n' +
+      'try:\n' +
+      '    _r = getattr(sys.modules[_key], _fn)(json.loads(_body) or {})\n' +
+      '    _out = json.dumps({"s": 200, "d": _r}, default=str)\n' +
+      'except Exception as _e:\n' +
+      '    _out = json.dumps({"s": 400, "d": {"error": str(_e)}})\n' +
+      '_out'
+    );
+    const parsed = JSON.parse(out);
+    return new Response(JSON.stringify(parsed.d), { status: parsed.s, headers: { 'Content-Type': 'application/json' } });
+  }
+
+  window.fetch = function (input, init) {
+    const url = typeof input === 'string' ? input : (input && input.url) || '';
+    const method = ((init && init.method) || 'GET').toUpperCase();
+    if (url.startsWith('/')) {
+      if (url.startsWith('/api/ita-strategies/registry'))
+        return origFetch(new URL('ita-rules/strategy-registry.json', BASE));
+      let m = url.match(/^\/api\/ita-strategies\/outline\/([^?]+)/);
+      if (m)
+        return origFetch(new URL('ita-rules/strategy-outlines/' + decodeURIComponent(m[1]) + '.md', BASE));
+      if (url.startsWith('/api/ita-strategies/projection-seed'))
+        return origFetch(new URL('static-api/projection-seed.json', BASE));
+      if (url.startsWith('/ita-tps-field-catalog.json'))
+        return origFetch(new URL('web_ui/ita-tps-field-catalog.json', BASE));
+      m = url.match(/^\/api\/retirement\/([a-z0-9-]+)\/(assess|estimate)$/);
+      if (m && method === 'POST' && RET[m[1]])
+        return runTool(RET[m[1]][0], RET[m[1]][1], m[2], init && init.body);
+      m = url.match(/^\/api\/(scorp-conversion|solo-401k|401k-employee)\/(assess|estimate)$/);
+      if (m && method === 'POST')
+        return runTool(DIRECT[m[1]][0], DIRECT[m[1]][1], m[2], init && init.body);
+    }
+    return origFetch(input, init);
+  };
+
+  window.addEventListener('load', () => setTimeout(() => { getPyodide().catch(() => {}); }, 1200));
+})();
+</script>
+
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" aria-label="ITA strategies">
+      <h2 class="sidebar-title">ITA strategies</h2>
+      <div class="projection-bar">
+        <p class="proj-title">Sample return</p>
+        <button type="button" class="btn-secondary" id="btn-load-projection">
+          Load 2025 projection
+        </button>
+        <p class="proj-meta" id="projection-status">Forms stay empty until this JSON is loaded — no demo stubs.</p>
+      </div>
+      <nav class="nav" id="strategy-nav" aria-busy="true">
+        <p class="empty" style="padding:0.5rem 0.75rem;margin:0;font-size:0.85rem;">Loading registry…</p>
+      </nav>
+    </aside>
+
+    <div class="main">
+      <!-- Outline panel (SPE inputs only until SPE-faithful tools ship) -->
+      <div id="panel-outline" class="strategy-panel" role="region" aria-label="Strategy outline">
+        <header>
+          <p class="eyebrow" id="outline-eyebrow">ITA · outlined</p>
+          <h1 id="outline-title">Strategy outline</h1>
+          <p class="lede" id="outline-lede">
+            SPE inputs extracted. Calculators ship only as line-by-line SPE ports (see S-Corp / Solo 401(k)).
+          </p>
+        </header>
+        <div class="layout" style="grid-template-columns: 1fr;">
+          <section class="panel" aria-labelledby="outline-inputs-title">
+            <div class="panel-inner">
+              <p class="outline-todo" id="outline-todo">Tools TODO — SPE-faithful assess / estimate not implemented yet.</p>
+              <div class="outline-meta" id="outline-meta"></div>
+              <h2 id="outline-inputs-title" class="section-title">SPE input outline</h2>
+              <div id="outline-body" class="outline-body">
+                <p class="empty">Select a strategy from the left nav.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- S-Corp panel -->
+      <div id="panel-scorp-conversion" class="strategy-panel active" role="region" aria-label="S-Corp conversion">
+        <header>
+          <p class="eyebrow">ITA · Entity Optimization · S-Corp conversion</p>
+          <h1>Estimate SE-tax savings</h1>
+          <p class="lede">
+            Enter Schedule C (or other SE) facts, confirm a reasonable wage, and see the
+            deterministic SPE-faithful savings estimate — including Social Security headroom for taxpayer or spouse.
+          </p>
+        </header>
+
+        <div class="layout">
+          <section class="panel panel-form" aria-labelledby="scorp-inputs-title">
+            <div class="panel-inner">
+              <h2 id="scorp-inputs-title" class="section-title">Activity inputs</h2>
+              <form id="scorp-form" novalidate>
+                <div class="grid-2">
+                  <div class="field span-2">
+                    <label for="scorp-name">Business name</label>
+                    <input id="scorp-name" name="name" type="text" value="" required />
+                  </div>
+
+                  <div class="field">
+                    <label for="scorp-source">Source</label>
+                    <select id="scorp-source" name="source">
+                      <option value="Schedule C" selected>Schedule C</option>
+                      <option value="Schedule F">Schedule F</option>
+                      <option value="Partnership">Partnership</option>
+                      <option value="Schedule E">Schedule E</option>
+                      <option value="SCorp">SCorp</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="scorp-owner">Owned by<span class="ita-tag">busTpSpJt</span></label>
+                    <select id="scorp-owner" name="owner">
+                      <option value="taxpayer" selected>Taxpayer</option>
+                      <option value="spouse">Spouse</option>
+                      <option value="joint">Joint</option>
+                    </select>
+                    <span class="hint">Whose SS wage base to use</span>
+                  </div>
+
+                  <div class="field">
+                    <label for="scorp-net_income">Net income ($)<span class="ita-tag">itaNetProfitLoss</span></label>
+                    <input id="scorp-net_income" name="net_income" type="number" step="1" value="" required />
+                  </div>
+
+                  <div class="field">
+                    <label for="scorp-ownership_pct">Ownership %<span class="ita-tag">ownershipPct</span></label>
+                    <input id="scorp-ownership_pct" name="ownership_pct" type="number" step="1" min="0" max="100" value="" />
+                  </div>
+
+                  <div class="field">
+                    <label for="scorp-is_se_biz">Subject to SE tax?<span class="ita-tag">subjsETax</span></label>
+                    <select id="scorp-is_se_biz" name="is_se_biz">
+                      <option value="true" selected>Yes</option>
+                      <option value="false">No</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="scorp-reasonable_wage">Reasonable wage ($)<span class="ita-tag">taxpayerReasonableWages</span></label>
+                    <input id="scorp-reasonable_wage" class="user-contrib" name="reasonable_wage" type="number" step="1" min="0" value="" />
+                    <span class="hint">Advisor-confirmed — not invented by the tool</span>
+                  </div>
+                </div>
+
+                <hr class="divider" />
+                <h2 class="section-title">Rates &amp; SS headroom</h2>
+                <div class="grid-2">
+                  <div class="field">
+                    <label for="scorp-fed_rate">Federal marginal %<span class="ita-tag">marginalRate</span></label>
+                    <input id="scorp-fed_rate" type="number" step="0.1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="scorp-state_rate">State marginal %<span class="ita-tag">stateMarginalRate</span></label>
+                    <input id="scorp-state_rate" type="number" step="0.1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="scorp-ss_wage_base">SS wage base ($)<span class="ita-tag">maxSSwage</span></label>
+                    <input id="scorp-ss_wage_base" type="number" step="1" value="" />
+                    <span class="hint">Engine indexed maxSSwage</span>
+                  </div>
+                  <div class="field">
+                    <label for="scorp-ss_already">Owner’s W-2 already toward SS ($)<span class="ita-tag">incomeTaxedBySocSec</span></label>
+                    <input id="scorp-ss_already" type="number" step="1" value="" />
+                    <span class="hint">incomeTaxedBySocSec for that person</span>
+                  </div>
+                  <div class="field span-2">
+                    <label for="scorp-all_se_income">Owner’s all SE income ($)<span class="ita-tag">allSEIncome</span></label>
+                    <input id="scorp-all_se_income" type="number" step="1" value="" placeholder="Defaults to this activity’s net income" />
+                    <span class="hint">
+                      SPE allSEIncome for that person — includes other Schedule C / F / partnership SE,
+                      not just this activity. Stacked with W-2 SS wages when sizing SS relief.
+                    </span>
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <button type="submit" class="btn-primary" id="scorp-btn-estimate">Estimate savings</button>
+                  <button type="button" class="btn-secondary" id="scorp-btn-assess">Check applicability only</button>
+                </div>
+                <p class="status" id="scorp-status" aria-live="polite"></p>
+              </form>
+            </div>
+          </section>
+
+          <section class="panel panel-results" aria-labelledby="scorp-results-title">
+            <div class="panel-inner">
+              <h2 id="scorp-results-title" class="section-title">Results</h2>
+              <div id="scorp-results">
+                <p class="empty">Enter details and run an estimate. Applicability runs first; savings need a reasonable wage.</p>
+              </div>
+            </div>
+          </section>
+
+          <aside class="panel panel-map" aria-labelledby="scorp-map-title">
+            <div class="panel-inner">
+              <h2 id="scorp-map-title" class="section-title">Developers Guide</h2>
+              <p class="map-note">
+                Values currently used by the tool. ITA paths are TaxML/return JSON names;
+                TURBO_TAX codes come from <code>tax-model-schema.json</code>.
+                Rows tagged <span class="attn-tag error">NOT_AVAILABLE</span> have no
+                TURBO_TAX mapping (redlined).
+              </p>
+              <div id="scorp-map" class="map-body">
+                <p class="empty">Loading field catalog…</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- Solo 401(k) panel -->
+      <div id="panel-solo-401k" class="strategy-panel" role="region" aria-label="Solo 401(k)">
+        <header>
+          <p class="eyebrow">ITA · Solo 401(k)</p>
+          <h1>Estimate contribution savings</h1>
+          <p class="lede">
+            Model Solo 401(k) elective deferral headroom for taxpayer or spouse.
+            <em>Max Solo 401k allowed</em> and <em>combined 401k limit</em> come from the
+            engine and are locked; strategy change defaults to remaining headroom.
+          </p>
+        </header>
+
+        <div class="layout">
+          <section class="panel panel-form" aria-labelledby="solo-inputs-title">
+            <div class="panel-inner">
+              <h2 id="solo-inputs-title" class="section-title">Person</h2>
+              <form id="solo-form" novalidate>
+                <div class="grid-2">
+                  <div class="field">
+                    <label for="solo-owner">Owned by<span class="ita-tag">busTpSpJt</span></label>
+                    <select id="solo-owner" name="owner">
+                      <option value="taxpayer">Taxpayer</option>
+                      <option value="spouse" selected>Spouse</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="solo-filing_status">Filing status code<span class="ita-tag">filingStatus</span></label>
+                    <input id="solo-filing_status" type="number" step="1" value="" />
+                    <span class="hint">Spouse requires 2 or 5 (married)</span>
+                  </div>
+
+                  <div class="field">
+                    <label for="solo-all_se_income">All SE income ($)<span class="ita-tag">allSEIncome</span></label>
+                    <input id="solo-all_se_income" type="number" step="1" value="" />
+                  </div>
+
+                  <div class="field">
+                    <label for="solo-earned_income">Earned income ($)<span class="ita-tag">earnedIncome</span></label>
+                    <input id="solo-earned_income" type="number" step="1" value="" />
+                  </div>
+
+                  <div class="field">
+                    <label for="solo-sep_ira">SEP-IRA ($)<span class="ita-tag">sepIRA</span></label>
+                    <input id="solo-sep_ira" type="number" step="1" value="" />
+                  </div>
+
+                  <div class="field">
+                    <label for="solo-solo_elective_deferral">Existing Solo elective deferral ($)</label>
+                    <input id="solo-solo_elective_deferral" type="number" step="1" value="" />
+                  </div>
+
+                  <div class="field">
+                    <label for="solo-solo401k_contribution">Existing solo401k contribution ($)<span class="ita-tag">solo401kContribution</span></label>
+                    <input id="solo-solo401k_contribution" type="number" step="1" value="" />
+                  </div>
+
+                  <div class="field">
+                    <label for="solo-solo401k_catchup">Existing solo401k catchup ($)<span class="ita-tag">solo401kCatchUp</span></label>
+                    <input id="solo-solo401k_catchup" type="number" step="1" value="" />
+                  </div>
+
+                  <div class="field span-2">
+                    <div class="check-row">
+                      <input id="solo-biz_exists_without_wages" type="checkbox" checked />
+                      <label for="solo-biz_exists_without_wages">Qualifying solo biz without wages</label>
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="divider" />
+                <h2 class="section-title">Retirement / limits</h2>
+                <div class="grid-2">
+                  <div class="field">
+                    <label for="solo-max_allowed">Max Solo 401k allowed (engine) ($)<span class="ita-tag">maxSolo401kContributionAllowed</span></label>
+                    <input id="solo-max_allowed" class="engine-locked" type="number" step="1" value="" readonly tabindex="-1" />
+                    <span class="hint">Engine — read-only</span>
+                  </div>
+
+                  <div class="field">
+                    <label for="solo-combined_limit">Combined 401k limit ($)<span class="ita-tag">combined401KLimit</span></label>
+                    <input id="solo-combined_limit" class="engine-locked" type="number" step="1" value="" readonly tabindex="-1" />
+                    <span class="hint">Engine — read-only</span>
+                  </div>
+
+                  <div class="field">
+                    <label for="solo-total_401k">Other total 401k ($)<span class="ita-tag">total401kContribution</span></label>
+                    <input id="solo-total_401k" type="number" step="1" value="" />
+                  </div>
+
+                  <div class="field">
+                    <label for="solo-total_roth_401k">Other Roth 401k ($)<span class="ita-tag">totalRoth401kContribution</span></label>
+                    <input id="solo-total_roth_401k" type="number" step="1" value="" />
+                  </div>
+
+                  <div class="field">
+                    <label for="solo-total_403b">Other 403b ($)<span class="ita-tag">total403bContribution</span></label>
+                    <input id="solo-total_403b" type="number" step="1" value="" />
+                  </div>
+
+                  <div class="field">
+                    <label for="solo-total_roth_403b">Other Roth 403b ($)<span class="ita-tag">totalRoth403bContribution</span></label>
+                    <input id="solo-total_roth_403b" type="number" step="1" value="" />
+                  </div>
+
+                  <div class="field">
+                    <label for="solo-baseline_solo401k">Baseline solo ($)<span class="ita-tag">solo401kContribution</span></label>
+                    <input id="solo-baseline_solo401k" type="number" step="1" value="" />
+                  </div>
+
+                  <div class="field">
+                    <label for="solo-strategy_change">Strategy change ($)</label>
+                    <input id="solo-strategy_change" class="user-contrib" type="number" step="1" placeholder="Default = headroom" />
+                    <span class="hint">Advisor lever — leave empty for SPE headroom default</span>
+                  </div>
+                </div>
+
+                <hr class="divider" />
+                <h2 class="section-title">Rates</h2>
+                <div class="grid-2">
+                  <div class="field">
+                    <label for="solo-fed_rate">Federal %<span class="ita-tag">marginalRate</span></label>
+                    <input id="solo-fed_rate" type="number" step="0.1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="solo-state_rate">State %<span class="ita-tag">stateMarginalRate</span></label>
+                    <input id="solo-state_rate" type="number" step="0.1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="solo-nyc_rate">NYC %<span class="ita-tag">marginalNYC</span></label>
+                    <input id="solo-nyc_rate" type="number" step="0.1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="solo-resident_state">Resident state</label>
+                    <input id="solo-resident_state" type="text" value="" placeholder="e.g. CA" />
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <button type="submit" class="btn-primary" id="solo-btn-estimate">Estimate savings</button>
+                  <button type="button" class="btn-secondary" id="solo-btn-assess">Check applicability only</button>
+                </div>
+                <p class="status" id="solo-status" aria-live="polite"></p>
+              </form>
+            </div>
+          </section>
+
+          <section class="panel panel-results" aria-labelledby="solo-results-title">
+            <div class="panel-inner">
+              <h2 id="solo-results-title" class="section-title">Results</h2>
+              <div id="solo-results">
+                <p class="empty">Enter person and engine facts, then estimate savings or check applicability.</p>
+              </div>
+            </div>
+          </section>
+
+          <aside class="panel panel-map" aria-labelledby="solo-map-title">
+            <div class="panel-inner">
+              <h2 id="solo-map-title" class="section-title">Developers Guide</h2>
+              <p class="map-note">
+                Engine-locked limits and live form values. ITA paths from the return model;
+                TURBO_TAX codes from <code>tax-model-schema.json</code>.
+                Rows tagged <span class="attn-tag error">NOT_AVAILABLE</span> have no
+                TURBO_TAX mapping (redlined).
+              </p>
+              <div id="solo-map" class="map-body">
+                <p class="empty">Loading field catalog…</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- 401(k) Employee panel -->
+      <div id="panel-401k-employee" class="strategy-panel" role="region" aria-label="401(k) Employee Contribution">
+        <header>
+          <p class="eyebrow">ITA · 401(k) Employee Contribution</p>
+          <h1>Estimate W-2 deferral savings</h1>
+          <p class="lede">
+            SPE-faithful port of <code>employee-401k-contribution.spe</code>.
+            Default strategy change = <code>min(wgFedwages, employee_headroom)</code> after shared 401(k) baselines.
+            Engine <em>max401kContributionAllowed</em> is required — not invented here.
+          </p>
+        </header>
+
+        <div class="layout">
+          <section class="panel panel-form" aria-labelledby="ee401k-inputs-title">
+            <div class="panel-inner">
+              <h2 id="ee401k-inputs-title" class="section-title">W-2</h2>
+              <form id="ee401k-form" novalidate>
+                <div class="grid-2">
+                  <div class="field">
+                    <label for="ee401k-owner">Owned by (wgTpSp)<span class="ita-tag">wgTpSp</span></label>
+                    <select id="ee401k-owner">
+                      <option value="0" selected>Taxpayer (0)</option>
+                      <option value="1">Spouse (1)</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-filing">Filing status code<span class="ita-tag">filingStatus</span></label>
+                    <input id="ee401k-filing" type="number" step="1" value="" />
+                    <span class="hint">Spouse requires 2 or 5</span>
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-nam">Employer name<span class="ita-tag">namEmp</span></label>
+                    <input id="ee401k-nam" type="text" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-prefix">W-2 prefix</label>
+                    <input id="ee401k-prefix" type="number" step="1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-wages">Federal wages — Box 1 ($)<span class="ita-tag">wgFedwages</span></label>
+                    <input id="ee401k-wages" type="number" step="1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-401k">401(k) already — Box 12-D ($)<span class="ita-tag">wages401kContribution</span></label>
+                    <input id="ee401k-401k" type="number" step="1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-403b">403(b) on this W-2 ($)<span class="ita-tag">wages403bContribution</span></label>
+                    <input id="ee401k-403b" type="number" step="1" value="" />
+                    <span class="hint">Recommend gate: must be 0</span>
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-457b">457(b) on this W-2 ($)<span class="ita-tag">wg457b</span></label>
+                    <input id="ee401k-457b" type="number" step="1" value="" />
+                    <span class="hint">Recommend gate: must be 0</span>
+                  </div>
+                </div>
+
+                <hr class="divider" />
+                <h2 class="section-title">Retirement / limits (engine)</h2>
+                <div class="grid-2">
+                  <div class="field">
+                    <label for="ee401k-max">Max 401k allowed (engine) ($)<span class="ita-tag">max401kContributionAllowed</span></label>
+                    <input id="ee401k-max" class="engine-locked" type="number" step="1" value="" readonly tabindex="-1" />
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-combined">Combined 401k limit ($)<span class="ita-tag">combined401KLimit</span></label>
+                    <input id="ee401k-combined" class="engine-locked" type="number" step="1" value="" readonly tabindex="-1" />
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-total401k">Baseline total 401k ($)<span class="ita-tag">total401kContribution</span></label>
+                    <input id="ee401k-total401k" type="number" step="1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-roth401k">Baseline Roth 401k ($)<span class="ita-tag">totalRoth401kContribution</span></label>
+                    <input id="ee401k-roth401k" type="number" step="1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-403b-base">Baseline total 403b ($)<span class="ita-tag">total403bContribution</span></label>
+                    <input id="ee401k-403b-base" type="number" step="1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-roth403b">Baseline Roth 403b ($)<span class="ita-tag">totalRoth403bContribution</span></label>
+                    <input id="ee401k-roth403b" type="number" step="1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-solo">Baseline Solo 401k ($)<span class="ita-tag">solo401kContribution</span></label>
+                    <input id="ee401k-solo" type="number" step="1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-abs-ee">Employee limit absorbed ($)<span class="ita-tag">employee401kcontributionlimitabsorbed</span></label>
+                    <input id="ee401k-abs-ee" type="number" step="1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-abs-comb">Combined limit absorbed ($)<span class="ita-tag">combined401kcontributionlimitabsorbed</span></label>
+                    <input id="ee401k-abs-comb" type="number" step="1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-change">Strategy change ($)</label>
+                    <input id="ee401k-change" class="user-contrib" type="number" step="1" placeholder="Default = min(wages, headroom)" />
+                    <span id="ee401k-change-hint" class="exceeds-hint" hidden></span>
+                  </div>
+                </div>
+
+                <hr class="divider" />
+                <h2 class="section-title">Rates</h2>
+                <div class="grid-2">
+                  <div class="field">
+                    <label for="ee401k-fed">Federal %<span class="ita-tag">marginalRate</span></label>
+                    <input id="ee401k-fed" type="number" step="0.1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-state">State %<span class="ita-tag">stateMarginalRate</span></label>
+                    <input id="ee401k-state" type="number" step="0.1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-nyc">NYC %<span class="ita-tag">marginalNYC</span></label>
+                    <input id="ee401k-nyc" type="number" step="0.1" value="" />
+                  </div>
+                  <div class="field">
+                    <label for="ee401k-res">Resident state</label>
+                    <input id="ee401k-res" type="text" value="" />
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <button type="submit" class="btn-primary" id="ee401k-btn-estimate">Estimate savings</button>
+                  <button type="button" class="btn-secondary" id="ee401k-btn-assess">Check applicability only</button>
+                </div>
+                <p class="status" id="ee401k-status" aria-live="polite"></p>
+              </form>
+            </div>
+          </section>
+
+          <section class="panel panel-results" aria-labelledby="ee401k-results-title">
+            <div class="panel-inner">
+              <h2 id="ee401k-results-title" class="section-title">Results</h2>
+              <div id="ee401k-results">
+                <p class="empty">Enter W-2 and engine facts, then estimate (SPE anchor: $22,500 @ 33% → $7,425).</p>
+              </div>
+            </div>
+          </section>
+
+          <aside class="panel panel-map" aria-labelledby="ee401k-map-title">
+            <div class="panel-inner">
+              <h2 id="ee401k-map-title" class="section-title">Developers Guide</h2>
+              <p class="map-note">
+                Values used by the tool. ITA paths are TaxML/return JSON names;
+                TURBO_TAX codes from <code>tax-model-schema.json</code>.
+                Rows tagged <span class="attn-tag error">NOT_AVAILABLE</span> have no
+                TURBO_TAX mapping (redlined).
+              </p>
+              <div id="ee401k-map" class="map-body">
+                <p class="empty">Loading field catalog…</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+
+      <!-- Shared retirement SPE panel (all retirement except dedicated panels) -->
+      <div id="panel-retirement" class="strategy-panel" role="region" aria-label="Retirement strategy">
+        <header>
+          <p class="eyebrow" id="ret-eyebrow">ITA · Retirement</p>
+          <h1 id="ret-title">Retirement strategy</h1>
+          <p class="lede" id="ret-lede">SPE-faithful assess / estimate.</p>
+        </header>
+        <div class="layout">
+          <section class="panel panel-form" aria-labelledby="ret-inputs-title">
+            <div class="panel-inner">
+              <h2 id="ret-inputs-title" class="section-title">Inputs</h2>
+              <form id="ret-form" novalidate>
+                <div id="ret-fields" class="grid-2"></div>
+                <div class="actions" style="margin-top:1rem;">
+                  <button type="submit" class="btn-primary" id="ret-btn-estimate">Estimate savings</button>
+                  <button type="button" class="btn-secondary" id="ret-btn-assess">Check applicability only</button>
+                </div>
+                <p class="status" id="ret-status" aria-live="polite"></p>
+              </form>
+            </div>
+          </section>
+          <section class="panel panel-results" aria-labelledby="ret-results-title">
+            <div class="panel-inner">
+              <h2 id="ret-results-title" class="section-title">Results</h2>
+              <div id="ret-results"><p class="empty">Select inputs, then estimate.</p></div>
+            </div>
+          </section>
+          <aside class="panel panel-map" aria-labelledby="ret-map-title">
+            <div class="panel-inner">
+              <h2 id="ret-map-title" class="section-title">Developers Guide</h2>
+              <p class="map-note">ITA paths from the return model; TPS from <code>tax-model-schema.json</code>.</p>
+              <div id="ret-map" class="map-body"><p class="empty">Loading…</p></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <p class="footer-note">
+        Deterministic tools from
+        <a href="./">Tax Advisory</a>
+        · SPE-faithful Entity Optimization + Retirement · others outlined until SPE-ported
+      </p>
+    </div>
+  </div>
+
+  <script>
+    /* ── Shared helpers ── */
+    let FIELD_CATALOG = null;
+
+    const money = (n) => {
+      if (n == null || Number.isNaN(Number(n))) return "—";
+      return Number(n).toLocaleString(undefined, {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0,
+      });
+    };
+
+    const money2 = (n) => {
+      if (n == null || Number.isNaN(Number(n))) return "—";
+      return Number(n).toLocaleString(undefined, {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+    };
+
+    const pct = (n) => {
+      if (n == null || Number.isNaN(Number(n))) return "—";
+      return Number(n).toLocaleString(undefined, { maximumFractionDigits: 2 }) + "%";
+    };
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    async function postJson(url, body) {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.error || `Request failed (${res.status})`);
+      }
+      return data;
+    }
+
+    function renderApplicabilityBadges(appl) {
+      if (!appl) return "";
+      const a = appl.applicable
+        ? `<span class="badge yes">Applicable</span>`
+        : `<span class="badge no">Not applicable</span>`;
+      const r = appl.recommended
+        ? `<span class="badge yes">Recommended</span>`
+        : `<span class="badge warn">Not recommended</span>`;
+      const owner = `<span class="badge neutral">${escapeHtml(appl.taxpayer_spouse_or_joint || "taxpayer")}</span>`;
+      const reasons = (appl.reasons || [])
+        .map((x) => `<li>${escapeHtml(x)}</li>`)
+        .join("");
+      return `
+        <div class="badge-row">${a}${r}${owner}</div>
+        ${reasons ? `<ul class="list">${reasons}</ul>` : ""}
+      `;
+    }
+
+    /* ── Strategy navigation (registry-driven) ── */
+    const DEDICATED_PANELS = new Set(["scorp-conversion", "solo-401k", "401k-employee"]);
+    const RETIREMENT_SHARED = new Set([
+      "401k-employer", "403b-employee", "403b-employer",
+      "traditional-ira", "sep-ira", "backdoor-roth-ira",
+      "mega-backdoor-roth", "roth-ira-conversion",
+    ]);
+    const RETIREMENT_ORDER = [
+      "401k-employee", "401k-employer", "403b-employee", "403b-employer",
+      "backdoor-roth-ira", "mega-backdoor-roth", "roth-ira-conversion",
+      "sep-ira", "solo-401k", "traditional-ira",
+    ];
+    const URL_ALIASES = {
+      scorp: "scorp-conversion",
+      solo401k: "solo-401k",
+      "401k-ee": "401k-employee",
+    };
+    const ENTITY_ORDER = ["scorp-conversion", "scorp-compensation"];
+    const CATEGORY_ORDER = [
+      "business", "health", "deduction", "capital", "charity", "credit",
+    ];
+    const CATEGORY_LABELS = {
+      business: "Business",
+      health: "Health",
+      deduction: "Deduction",
+      capital: "Capital",
+      charity: "Charity",
+      credit: "Credit",
+      "entity-optimization": "Entity Optimization",
+      retirement: "Retirement",
+    };
+    let REGISTRY = [];
+    let REGISTRY_BY_ID = {};
+    let CURRENT_RET_SLUG = null;
+    let PROJECTION_SEED = null;
+
+    function normalizeStrategyId(raw) {
+      if (!raw) return null;
+      const aliased = URL_ALIASES[raw] || raw;
+      if (REGISTRY_BY_ID[aliased]) return aliased;
+      if (DEDICATED_PANELS.has(aliased) || RETIREMENT_SHARED.has(aliased)) return aliased;
+      return null;
+    }
+
+    function resolveStrategyFromLocation() {
+      const params = new URLSearchParams(location.search);
+      const fromQ = normalizeStrategyId(params.get("strategy"));
+      if (fromQ) return fromQ;
+      const hash = (location.hash || "").replace(/^#/, "");
+      const fromHash = normalizeStrategyId(hash);
+      if (fromHash) return fromHash;
+      return "scorp-conversion";
+    }
+
+    function simpleMarkdown(md) {
+      const lines = md.replace(/\r\n/g, "\n").split("\n");
+      let html = "";
+      let inTable = false;
+      let tableRows = [];
+      function flushTable() {
+        if (!tableRows.length) return;
+        const rows = tableRows.map((r) =>
+          r.split("|").map((c) => c.trim()).filter((c, i, a) => !(i === 0 && c === "") && !(i === a.length - 1 && c === ""))
+        );
+        const body = rows.filter((cells) => !cells.every((c) => /^[-:]+$/.test(c)));
+        tableRows = [];
+        if (!body.length) return;
+        const head = body[0];
+        const rest = body.slice(1);
+        html += "<table><thead><tr>" + head.map((c) => `<th>${inlineMd(c)}</th>`).join("") + "</tr></thead><tbody>";
+        rest.forEach((cells) => { html += "<tr>" + cells.map((c) => `<td>${inlineMd(c)}</td>`).join("") + "</tr>"; });
+        html += "</tbody></table>";
+      }
+      function inlineMd(s) {
+        return escapeHtml(s).replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+      }
+      for (const line of lines) {
+        if (line.trim().startsWith("|")) { inTable = true; tableRows.push(line); continue; }
+        if (inTable) { flushTable(); inTable = false; }
+        if (/^#\s+/.test(line)) html += `<h2>${inlineMd(line.replace(/^#\s+/, ""))}</h2>`;
+        else if (/^##\s+/.test(line)) html += `<h2>${inlineMd(line.replace(/^##\s+/, ""))}</h2>`;
+        else if (/^-\s+/.test(line)) html += `<li>${inlineMd(line.replace(/^-\s+/, ""))}</li>`;
+        else if (line.trim()) html += `<p>${inlineMd(line)}</p>`;
+      }
+      if (inTable) flushTable();
+      html = html.replace(/(?:<li>.*?<\/li>\s*)+/gs, (m) => `<ul>${m}</ul>`);
+      return html;
+    }
+
+    async function loadOutlinePanel(id) {
+      const entry = REGISTRY_BY_ID[id];
+      document.getElementById("outline-eyebrow").textContent =
+        `ITA · ${entry?.category || "strategy"} · outlined`;
+      document.getElementById("outline-title").textContent = entry?.display_name || id;
+      document.getElementById("outline-lede").textContent =
+        `SPE folder: ${entry?.spe_folder || "—"} · awaiting SPE-faithful port`;
+      document.getElementById("outline-meta").innerHTML = [
+        entry?.ita_id ? `<span class="badge neutral">${escapeHtml(entry.ita_id)}</span>` : "",
+        `<span class="badge warn">outlined</span>`,
+        entry?.category ? `<span class="badge neutral">${escapeHtml(entry.category)}</span>` : "",
+      ].join("");
+      const body = document.getElementById("outline-body");
+      body.innerHTML = `<p class="empty">Loading outline…</p>`;
+      try {
+        const res = await fetch(`/api/ita-strategies/outline/${encodeURIComponent(id)}`);
+        if (!res.ok) throw new Error(`Outline HTTP ${res.status}`);
+        body.innerHTML = simpleMarkdown(await res.text());
+      } catch (err) {
+        body.innerHTML = `<p class="empty">Could not load outline: ${escapeHtml(err.message)}</p>`;
+      }
+    }
+
+    /* Shared retirement form field presets */
+    const RET_FORMS = {
+      "401k-employer": {
+        lede: "SPE employer-401k-contribution.spe — match ≈ min(5% of wages, combined headroom). Cash outlay = 0.",
+        fields: [
+          { id: "wg_tp_sp", ita: "wgTpSp", label: "Owned by", type: "select", options: [["0","Taxpayer"],["1","Spouse"]], def: "", group: "w2" },
+          { id: "filing_status_code", ita: "filingStatus", label: "Filing status", type: "number", def: "" },
+          { id: "nam_emp", ita: "namEmp", label: "Employer", type: "text", def: "", group: "w2" },
+          { id: "wg_fed_wages", ita: "wgFedwages", label: "Box 1 wages ($)", type: "number", def: "", group: "w2" },
+          { id: "wages_401k_contribution", ita: "wages401kContribution", label: "401k already ($)", type: "number", def: "", group: "w2" },
+          { id: "wages_403b_contribution", ita: "wages403bContribution", label: "403b on W-2 ($)", type: "number", def: "", group: "w2" },
+          { id: "wg_457b", ita: "wg457b", label: "457b on W-2 ($)", type: "number", def: "", group: "w2" },
+          { id: "max_401k_contribution_allowed", ita: "max401kContributionAllowed", label: "Max 401k allowed (engine)", type: "number", def: "", group: "ret", engine: true },
+          { id: "combined_401k_limit", ita: "combined401KLimit", label: "Combined 401k limit", type: "number", def: "", group: "ret", engine: true },
+          { id: "combined_limit_absorbed", ita: "combined401kcontributionlimitabsorbed", label: "Combined absorbed", type: "number", def: "", group: "ret" },
+          { id: "strategy_change", ita: "STRATEGY_CHANGE", label: "Strategy change (optional)", type: "number", def: "", group: "lever" },
+          { id: "federal_marginal_rate_pct", ita: "marginalRate", label: "Federal %", type: "number", def: "", group: "rates" },
+          { id: "state_marginal_rate_pct", ita: "stateMarginalRate", label: "State %", type: "number", def: "", group: "rates" },
+          { id: "nyc_marginal_rate_pct", ita: "marginalNYC", label: "NYC %", type: "number", def: "", group: "rates" },
+        ],
+        build: (v) => ({
+          w2: { wg_tp_sp: +v.wg_tp_sp, nam_emp: v.nam_emp, prefix: 1, wg_fed_wages: +v.wg_fed_wages,
+            wages_401k_contribution: +v.wages_401k_contribution, wages_403b_contribution: +v.wages_403b_contribution, wg_457b: +v.wg_457b },
+          filing_status_code: +v.filing_status_code,
+          retirement: { max_401k_contribution_allowed: +v.max_401k_contribution_allowed, combined_401k_limit: +v.combined_401k_limit, combined_limit_absorbed: +v.combined_limit_absorbed },
+          rates: { federal_marginal_rate_pct: +v.federal_marginal_rate_pct, state_marginal_rate_pct: +v.state_marginal_rate_pct, nyc_marginal_rate_pct: +v.nyc_marginal_rate_pct },
+          ...(v.strategy_change !== "" ? { strategy_change: +v.strategy_change } : {}),
+        }),
+      },
+      "403b-employee": {
+        lede: "SPE employee-403b-contribution.spe — STRATEGY_CHANGE = min(wages, employee headroom). Recommend needs existing 403b > 0.",
+        fields: [
+          { id: "wg_tp_sp", ita: "wgTpSp", label: "Owned by", type: "select", options: [["0","Taxpayer"],["1","Spouse"]], def: "", group: "w2" },
+          { id: "filing_status_code", ita: "filingStatus", label: "Filing status", type: "number", def: "" },
+          { id: "wg_fed_wages", ita: "wgFedwages", label: "Box 1 wages ($)", type: "number", def: "", group: "w2" },
+          { id: "wages_403b_contribution", ita: "wages403bContribution", label: "403b already ($)", type: "number", def: "", group: "w2" },
+          { id: "max_401k_contribution_allowed", ita: "max401kContributionAllowed", label: "Max 401k/403b allowed (engine)", type: "number", def: "", group: "ret", engine: true },
+          { id: "combined_401k_limit", ita: "combined401KLimit", label: "Combined limit", type: "number", def: "", group: "ret", engine: true },
+          { id: "total_403b", ita: "total403bContribution", label: "Baseline total 403b", type: "number", def: "", group: "ret" },
+          { id: "strategy_change", ita: "STRATEGY_CHANGE", label: "Strategy change (optional)", type: "number", def: "", group: "lever" },
+          { id: "federal_marginal_rate_pct", ita: "marginalRate", label: "Federal %", type: "number", def: "", group: "rates" },
+          { id: "state_marginal_rate_pct", ita: "stateMarginalRate", label: "State %", type: "number", def: "", group: "rates" },
+          { id: "resident_state", label: "Resident state", type: "text", def: "", group: "rates" },
+        ],
+        build: (v) => ({
+          w2: { wg_tp_sp: +v.wg_tp_sp, prefix: 1, wg_fed_wages: +v.wg_fed_wages, wages_403b_contribution: +v.wages_403b_contribution },
+          filing_status_code: +v.filing_status_code,
+          retirement: { max_401k_contribution_allowed: +v.max_401k_contribution_allowed, combined_401k_limit: +v.combined_401k_limit, total_403b: +v.total_403b },
+          rates: { federal_marginal_rate_pct: +v.federal_marginal_rate_pct, state_marginal_rate_pct: +v.state_marginal_rate_pct, resident_state: v.resident_state },
+          ...(v.strategy_change !== "" ? { strategy_change: +v.strategy_change } : {}),
+        }),
+      },
+      "403b-employer": {
+        lede: "SPE employer-403b-contribution.spe — 5% match capped by employee headroom. Cash outlay = 0.",
+        fields: [
+          { id: "wg_tp_sp", ita: "wgTpSp", label: "Owned by", type: "select", options: [["0","Taxpayer"],["1","Spouse"]], def: "", group: "w2" },
+          { id: "filing_status_code", ita: "filingStatus", label: "Filing status", type: "number", def: "" },
+          { id: "wg_fed_wages", ita: "wgFedwages", label: "Box 1 wages ($)", type: "number", def: "", group: "w2" },
+          { id: "wages_403b_contribution", ita: "wages403bContribution", label: "403b already ($)", type: "number", def: "", group: "w2" },
+          { id: "max_401k_contribution_allowed", ita: "max401kContributionAllowed", label: "Max allowed (engine)", type: "number", def: "", group: "ret", engine: true },
+          { id: "combined_401k_limit", ita: "combined401KLimit", label: "Combined limit", type: "number", def: "", group: "ret", engine: true },
+          { id: "strategy_change", ita: "STRATEGY_CHANGE", label: "Strategy change (optional)", type: "number", def: "", group: "lever" },
+          { id: "federal_marginal_rate_pct", ita: "marginalRate", label: "Federal %", type: "number", def: "", group: "rates" },
+          { id: "state_marginal_rate_pct", ita: "stateMarginalRate", label: "State %", type: "number", def: "", group: "rates" },
+          { id: "resident_state", label: "Resident state", type: "text", def: "", group: "rates" },
+        ],
+        build: (v) => ({
+          w2: { wg_tp_sp: +v.wg_tp_sp, prefix: 1, wg_fed_wages: +v.wg_fed_wages, wages_403b_contribution: +v.wages_403b_contribution },
+          filing_status_code: +v.filing_status_code,
+          retirement: { max_401k_contribution_allowed: +v.max_401k_contribution_allowed, combined_401k_limit: +v.combined_401k_limit },
+          rates: { federal_marginal_rate_pct: +v.federal_marginal_rate_pct, state_marginal_rate_pct: +v.state_marginal_rate_pct, resident_state: v.resident_state },
+          ...(v.strategy_change !== "" ? { strategy_change: +v.strategy_change } : {}),
+        }),
+      },
+      "traditional-ira": {
+        lede: "SPE contribution-Traditional-IRA.spe — STRATEGY_CHANGE = maxIRAAllowed − iraContribution.",
+        fields: [
+          { id: "is_spouse", ita: "wgTpSp", label: "Person", type: "select", options: [["0","Taxpayer"],["1","Spouse"]], def: "" },
+          { id: "filing_status_code", ita: "filingStatus", label: "Filing status", type: "number", def: "" },
+          { id: "earned_income", ita: "earnedIncome", label: "Earned income ($)", type: "number", def: "" },
+          { id: "ira_contribution", ita: "iraContribution", label: "IRA already contributed ($)", type: "number", def: "" },
+          { id: "max_ira_allowed", ita: "maxIRAContributionAllowed", label: "Max IRA allowed (engine)", type: "number", def: "", engine: true },
+          { id: "roth_cont", ita: "nonDeductibleIRA", label: "Roth IRA contribution ($)", type: "number", def: "" },
+          { id: "has_plan", ita: "wgPensPlanYN", label: "Covered by workplace plan", type: "select", options: [["0","No"],["1","Yes"]], def: "" },
+          { id: "ira_magi", ita: "iRAMagi", label: "IRA MAGI ($)", type: "number", def: "" },
+          { id: "ira_phase_out_begin", ita: "iRAPhaseOutBegin", label: "Phase-out begin ($)", type: "number", def: "" },
+          { id: "strategy_change", ita: "STRATEGY_CHANGE", label: "Strategy change (optional)", type: "number", def: "" },
+          { id: "federal_marginal_rate_pct", ita: "marginalRate", label: "Federal %", type: "number", def: "" },
+          { id: "state_marginal_rate_pct", ita: "stateMarginalRate", label: "State %", type: "number", def: "" },
+          { id: "resident_state", label: "Resident state", type: "text", def: "" },
+        ],
+        build: (v) => ({
+          person: {
+            taxpayer_spouse_or_joint: v.is_spouse === "1" ? "spouse" : "taxpayer",
+            earned_income: +v.earned_income,
+            ira_contribution: +v.ira_contribution,
+            max_ira_allowed: +v.max_ira_allowed,
+            roth_cont: +v.roth_cont,
+            has_plan: +v.has_plan,
+            ira_magi: +v.ira_magi,
+            ira_phase_out_begin: +v.ira_phase_out_begin,
+          },
+          filing_status_code: +v.filing_status_code,
+          rates: { federal_marginal_rate_pct: +v.federal_marginal_rate_pct, state_marginal_rate_pct: +v.state_marginal_rate_pct, resident_state: v.resident_state },
+          ...(v.strategy_change !== "" ? { strategy_change: +v.strategy_change } : {}),
+        }),
+      },
+      "sep-ira": {
+        lede: "SPE SEP-IRA.spe — STRATEGY_CHANGE = maxSepIRA − sep contribution.",
+        fields: [
+          { id: "is_spouse", ita: "wgTpSp", label: "Person", type: "select", options: [["0","Taxpayer"],["1","Spouse"]], def: "" },
+          { id: "filing_status_code", ita: "filingStatus", label: "Filing status", type: "number", def: "" },
+          { id: "all_se_income", ita: "allSEIncome", label: "All SE income ($)", type: "number", def: "" },
+          { id: "sep_ira_contribution", ita: "sepIRA", label: "SEP already ($)", type: "number", def: "" },
+          { id: "max_sep_ira", ita: "maxSepIRA", label: "Max SEP allowed (engine)", type: "number", def: "", engine: true },
+          { id: "solo_401k_contribution", ita: "solo401kContribution", label: "Solo 401k ($)", type: "number", def: "" },
+          { id: "wages_paid_by_scorp", label: "S-Corp wages count", type: "number", def: "" },
+          { id: "strategy_change", ita: "STRATEGY_CHANGE", label: "Strategy change (optional)", type: "number", def: "" },
+          { id: "federal_marginal_rate_pct", ita: "marginalRate", label: "Federal %", type: "number", def: "" },
+          { id: "state_marginal_rate_pct", ita: "stateMarginalRate", label: "State %", type: "number", def: "" },
+          { id: "resident_state", label: "Resident state", type: "text", def: "" },
+        ],
+        build: (v) => ({
+          person: {
+            taxpayer_spouse_or_joint: v.is_spouse === "1" ? "spouse" : "taxpayer",
+            all_se_income: +v.all_se_income,
+            sep_ira_contribution: +v.sep_ira_contribution,
+            max_sep_ira: +v.max_sep_ira,
+            solo401k: +v.solo_401k_contribution,
+            wages_paid_by_scorp: +v.wages_paid_by_scorp,
+          },
+          filing_status_code: +v.filing_status_code,
+          rates: { federal_marginal_rate_pct: +v.federal_marginal_rate_pct, state_marginal_rate_pct: +v.state_marginal_rate_pct, resident_state: v.resident_state },
+          ...(v.strategy_change !== "" ? { strategy_change: +v.strategy_change } : {}),
+        }),
+      },
+      "backdoor-roth-ira": {
+        lede: "SPE backdoorRothIRA.spe — current-year tax savings are 0 (future Roth benefit only).",
+        fields: [
+          { id: "is_spouse", ita: "wgTpSp", label: "Person", type: "select", options: [["0","Taxpayer"],["1","Spouse"]], def: "" },
+          { id: "filing_status_code", ita: "filingStatus", label: "Filing status", type: "number", def: "" },
+          { id: "earned_income", ita: "earnedIncome", label: "Earned income ($)", type: "number", def: "" },
+          { id: "non_deductible_ira", ita: "nonDeductibleIRA", label: "Nondeductible IRA ($)", type: "number", def: "" },
+          { id: "strategy_change", ita: "STRATEGY_CHANGE", label: "Strategy change ($)", type: "number", def: "" },
+        ],
+        build: (v) => ({
+          person: {
+            taxpayer_spouse_or_joint: v.is_spouse === "1" ? "spouse" : "taxpayer",
+            earned_income: +v.earned_income,
+            non_deductible_ira: +v.non_deductible_ira,
+          },
+          filing_status_code: +v.filing_status_code,
+          strategy_change: +v.strategy_change || 0,
+        }),
+      },
+      "mega-backdoor-roth": {
+        lede: "SPE megaBackdoor.spe — after-tax mega contribution. Current-year tax savings = 0.",
+        fields: [
+          { id: "is_spouse", ita: "wgTpSp", label: "Person", type: "select", options: [["0","Taxpayer"],["1","Spouse"]], def: "" },
+          { id: "filing_status_code", ita: "filingStatus", label: "Filing status", type: "number", def: "" },
+          { id: "wg_fed_wages", ita: "wgFedwages", label: "Box 1 wages ($)", type: "number", def: "" },
+          { id: "modified_agi", ita: "modifiedAgi", label: "Modified AGI ($)", type: "number", def: "" },
+          { id: "roth_phase_out", ita: "rothMAGILimit", label: "Roth phase-out ($)", type: "number", def: "" },
+          { id: "wages_401k", ita: "wages401kContribution", label: "401k deferral ($)", type: "number", def: "" },
+          { id: "prior_year_max_401k_allowed", label: "Prior-year max 401k", type: "number", def: "" },
+          { id: "max_solo_401k_allowed", ita: "maxSolo401kContributionAllowed", label: "Max solo/overall (engine)", type: "number", def: "", engine: true },
+          { id: "current_year_max_401k_allowed", ita: "max401kContributionAllowed", label: "Current max EE (engine)", type: "number", def: "", engine: true },
+          { id: "strategy_change", ita: "STRATEGY_CHANGE", label: "Strategy change (optional)", type: "number", def: "" },
+        ],
+        build: (v) => ({
+          w2: {
+            wg_tp_sp: v.is_spouse === "1" ? 1 : 0,
+            prefix: 1,
+            delete_next_year: 0,
+            wg_fed_wages: +v.wg_fed_wages,
+            wages_401k_contribution: +v.wages_401k,
+            wages_403b_contribution: 0,
+            wg_457b: 0,
+          },
+          retirement: {
+            max_solo_401k_allowed: +v.max_solo_401k_allowed,
+            current_year_max_401k_allowed: +v.current_year_max_401k_allowed,
+            prior_year_max_401k: +v.prior_year_max_401k_allowed,
+            modified_agi: +v.modified_agi,
+            roth_phase_out: +v.roth_phase_out,
+          },
+          filing_status_code: +v.filing_status_code,
+          ...(v.strategy_change !== "" ? { strategy_change: +v.strategy_change } : {}),
+        }),
+      },
+      "roth-ira-conversion": {
+        lede: "SPE Roth_IRA_Conversion.spe — tax_cost (negative savings) or growth (FV × retirement rate).",
+        fields: [
+          { id: "is_spouse", ita: "wgTpSp", label: "Person", type: "select", options: [["0","Taxpayer"],["1","Spouse"]], def: "" },
+          { id: "filing_status_code", ita: "filingStatus", label: "Filing status", type: "number", def: "" },
+          { id: "ira_contribution", ita: "iraContribution", label: "IRA balance/contrib signal ($)", type: "number", def: "" },
+          { id: "total_401k", ita: "total401kContribution", label: "Total 401k ($)", type: "number", def: "" },
+          { id: "estimate_mode", label: "Estimate mode", type: "select", options: [["tax_cost","Tax cost (ConvertedAmount)"],["growth","Growth savings"]], def: "" },
+          { id: "converted_amount", label: "Amount to convert ($)", type: "number", def: "" },
+          { id: "federal_marginal_rate_pct", ita: "marginalRate", label: "Federal %", type: "number", def: "" },
+          { id: "state_marginal_rate_pct", ita: "stateMarginalRate", label: "State %", type: "number", def: "" },
+          { id: "resident_state", label: "Resident state", type: "text", def: "" },
+          { id: "current_age", label: "Current age (growth)", type: "number", def: "" },
+          { id: "retirement_age", label: "Retirement age (growth)", type: "number", def: "" },
+          { id: "expected_return_pct", label: "Expected return % (growth)", type: "number", def: "" },
+          { id: "expected_retirement_tax_rate_pct", label: "Retirement tax rate %", type: "number", def: "" },
+        ],
+        build: (v) => {
+          const years = Math.max(0, (+v.retirement_age) - (+v.current_age));
+          return {
+            person: {
+              taxpayer_spouse_or_joint: v.is_spouse === "1" ? "spouse" : "taxpayer",
+              ira_contribution: +v.ira_contribution,
+              total_401k_contribution: +v.total_401k,
+              total_403b_contribution: 0,
+              total_457b_contribution: 0,
+            },
+            filing_status_code: +v.filing_status_code,
+            estimate_mode: v.estimate_mode,
+            strategy_change: v.estimate_mode === "tax_cost" ? +v.converted_amount : undefined,
+            growth: {
+              amount: +v.converted_amount,
+              growth_rate_pct: +v.expected_return_pct,
+              years,
+              retirement_rate_pct: +v.expected_retirement_tax_rate_pct,
+            },
+            rates: { federal_marginal_rate_pct: +v.federal_marginal_rate_pct, state_marginal_rate_pct: +v.state_marginal_rate_pct, resident_state: v.resident_state },
+          };
+        },
+      },
+    };
+
+    function retReadValues() {
+      const vals = {};
+      document.querySelectorAll("#ret-fields [data-ret-id]").forEach((el) => {
+        vals[el.dataset.retId] = el.value;
+      });
+      return vals;
+    }
+
+    function loadRetirementPanel(id) {
+      // If a projection was loaded earlier, bake values into this form's defaults first.
+      if (PROJECTION_SEED && PROJECTION_SEED.retirement_common) {
+        applyRetirementCommonSeed(PROJECTION_SEED.retirement_common, { reload: false });
+      }
+      CURRENT_RET_SLUG = id;
+      const entry = REGISTRY_BY_ID[id];
+      const form = RET_FORMS[id];
+      document.getElementById("ret-eyebrow").textContent = `ITA · Retirement · SPE`;
+      document.getElementById("ret-title").textContent = entry?.display_name || id;
+      document.getElementById("ret-lede").textContent = form?.lede || `SPE folder: ${entry?.spe_folder || "—"}`;
+      document.getElementById("ret-status").textContent = "";
+      document.getElementById("ret-results").innerHTML = `<p class="empty">Adjust inputs, then estimate.</p>`;
+      const root = document.getElementById("ret-fields");
+      root.innerHTML = "";
+      if (!form) {
+        root.innerHTML = `<p class="empty">No form config for ${escapeHtml(id)}.</p>`;
+        return;
+      }
+      form.fields.forEach((f) => {
+        const wrap = document.createElement("div");
+        wrap.className = "field";
+        const fid = `ret-f-${f.id}`;
+        let control = "";
+        const isUserContrib = f.id === "strategy_change" || f.id === "converted_amount" || f.group === "lever" || f.ita === "STRATEGY_CHANGE";
+        if (f.type === "select") {
+          const cls = isUserContrib ? ` class="user-contrib"` : "";
+          control = `<select id="${fid}" data-ret-id="${f.id}"${cls}>` +
+            f.options.map(([val, lab]) => `<option value="${val}" ${String(f.def)===String(val)?"selected":""}>${lab}</option>`).join("") +
+            `</select>`;
+        } else {
+          const cls = f.engine ? "engine-locked" : (isUserContrib ? "user-contrib" : "");
+          const ro = f.engine ? ` class="engine-locked" readonly tabindex="-1"` : (cls ? ` class="${cls}"` : "");
+          control = `<input id="${fid}" data-ret-id="${f.id}" type="${f.type==="number"?"number":"text"}" step="any" value="${f.def ?? ""}"${ro} />`;
+        }
+        wrap.innerHTML = `<label for="${fid}">${escapeHtml(f.label)}${f.ita ? `<span class="ita-tag">${escapeHtml(f.ita)}</span>` : ""}</label>${control}`;
+        root.appendChild(wrap);
+      });
+      refreshRetMap();
+    }
+
+    function retSetBusy(busy, msg) {
+      document.getElementById("ret-btn-estimate").disabled = busy;
+      document.getElementById("ret-btn-assess").disabled = busy;
+      const status = document.getElementById("ret-status");
+      status.classList.toggle("error", false);
+      status.textContent = msg || "";
+    }
+
+    function retSetError(msg) {
+      const status = document.getElementById("ret-status");
+      status.classList.add("error");
+      status.textContent = msg;
+    }
+
+    function renderRetResults(data, mode) {
+      const root = document.getElementById("ret-results");
+      const appl = data.applicability || data;
+      const badges = typeof renderApplicabilityBadges === "function"
+        ? renderApplicabilityBadges(appl)
+        : "";
+      if (mode === "estimate" && data.ok === false) {
+        root.innerHTML = `${badges}<p class="empty" style="color:var(--red)">${escapeHtml((data.errors||[]).join(" "))}</p>`;
+        return;
+      }
+      if (mode === "assess") {
+        root.innerHTML = `${badges}<ul class="list">${(appl.reasons||[]).map(r=>`<li>${escapeHtml(r)}</li>`).join("")}</ul>
+          <div class="split" style="margin-top:1rem;">
+            <div class="stat"><p class="k">Default STRATEGY_CHANGE</p><p class="v">${money(appl.strategy_change_default ?? appl.strategy_change)}</p></div>
+          </div>`;
+        return;
+      }
+      const s = data.savings || {};
+      root.innerHTML = `
+        ${badges}
+        <div class="hero-savings">
+          <p class="label">Projected tax savings</p>
+          <p class="amount ${Number(s.projected_tax_savings)<0?"negative":""}">${money2(s.projected_tax_savings)}</p>
+        </div>
+        <div class="split">
+          <div class="stat"><p class="k">Strategy change</p><p class="v">${money(s.strategy_change ?? data.strategy_change)}</p></div>
+          <div class="stat"><p class="k">Cash outlay</p><p class="v">${money(s.cash_outlay ?? data.cash_outlay)}</p></div>
+          <div class="stat"><p class="k">Marginal total</p><p class="v">${s.marginal_rate_total != null ? Number(s.marginal_rate_total).toFixed(2)+"%" : "—"}</p></div>
+        </div>`;
+    }
+
+    async function retAssess() {
+      if (!CURRENT_RET_SLUG) return;
+      const form = RET_FORMS[CURRENT_RET_SLUG];
+      retSetBusy(true, "Checking…");
+      try {
+        const payload = form.build(retReadValues());
+        const data = await postJson(`/api/retirement/${CURRENT_RET_SLUG}/assess`, payload);
+        renderRetResults(data, "assess");
+        retSetBusy(false, "Done.");
+      } catch (err) {
+        retSetBusy(false, "");
+        retSetError(err.message || String(err));
+      }
+    }
+
+    async function retEstimate(ev) {
+      if (ev) ev.preventDefault();
+      if (!CURRENT_RET_SLUG) return;
+      const form = RET_FORMS[CURRENT_RET_SLUG];
+      retSetBusy(true, "Estimating…");
+      try {
+        const payload = form.build(retReadValues());
+        const data = await postJson(`/api/retirement/${CURRENT_RET_SLUG}/estimate`, payload);
+        renderRetResults(data, "estimate");
+        retSetBusy(false, data.ok ? "Done." : "Not applicable.");
+      } catch (err) {
+        retSetBusy(false, "");
+        retSetError(err.message || String(err));
+      }
+    }
+
+    function refreshRetMap() {
+      const el = document.getElementById("ret-map");
+      if (!el || !CURRENT_RET_SLUG) return;
+      const form = RET_FORMS[CURRENT_RET_SLUG];
+      const entry = REGISTRY_BY_ID[CURRENT_RET_SLUG];
+      const cat = (FIELD_CATALOG && (FIELD_CATALOG[CURRENT_RET_SLUG] || FIELD_CATALOG.retirement || FIELD_CATALOG.ee401k)) || [];
+      if (cat.length) {
+        el.innerHTML = renderMapTable(cat, (key) => {
+          const node = document.querySelector(`#ret-fields [data-ret-id="${key}"]`);
+          return node ? node.value : "—";
+        });
+      } else {
+        el.innerHTML = `<p class="map-note">SPE: <code>${escapeHtml(entry?.spe_folder || CURRENT_RET_SLUG)}</code><br/>
+          Skill: <code>income_tax.assisted.${escapeHtml(CURRENT_RET_SLUG)}</code><br/>
+          ${form ? escapeHtml(form.lede) : ""}</p>`;
+      }
+    }
+
+    function selectStrategy(id, updateUrl = true) {
+      let normalized = normalizeStrategyId(id) || "scorp-conversion";
+      // Don't open outlined stubs in the hub nav.
+      const entry = REGISTRY_BY_ID[normalized];
+      if (entry && entry.status !== "implemented") {
+        normalized = "scorp-conversion";
+      }
+      document.querySelectorAll(".nav-item").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.strategy === normalized);
+      });
+
+      let panelId = "panel-outline";
+      if (DEDICATED_PANELS.has(normalized)) panelId = `panel-${normalized}`;
+      else if (RETIREMENT_SHARED.has(normalized)) panelId = "panel-retirement";
+
+      document.querySelectorAll(".strategy-panel").forEach((panel) => {
+        panel.classList.toggle("active", panel.id === panelId);
+      });
+
+      if (panelId === "panel-outline") loadOutlinePanel(normalized);
+      if (panelId === "panel-retirement") {
+        loadRetirementPanel(normalized);
+        const acc = document.getElementById("retirement-accordion");
+        if (acc) acc.classList.add("open");
+      }
+      if (normalized === "scorp-conversion" || (REGISTRY_BY_ID[normalized] || {}).category === "entity-optimization") {
+        const acc = document.getElementById("entity-accordion");
+        if (acc) acc.classList.add("open");
+      }
+
+      if (updateUrl) {
+        const url = new URL(location.href);
+        url.searchParams.set("strategy", normalized);
+        url.hash = "";
+        history.replaceState({ strategy: normalized }, "", url);
+      }
+    }
+
+    function buildNav(registry) {
+      const nav = document.getElementById("strategy-nav");
+      nav.innerHTML = "";
+      nav.removeAttribute("aria-busy");
+
+      // Nav shows SPE-implemented only — outlined stubs are clutter for now.
+      const live = registry.filter((s) => s.status === "implemented");
+
+      const byCat = {};
+      live.forEach((s) => {
+        (byCat[s.category || "other"] = byCat[s.category || "other"] || []).push(s);
+      });
+
+      const appendFlatCategory = (cat) => {
+        if (!byCat[cat] || !byCat[cat].length) return;
+        const label = document.createElement("div");
+        label.className = "nav-group-label";
+        label.textContent = CATEGORY_LABELS[cat] || cat;
+        nav.appendChild(label);
+        byCat[cat].forEach((s) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "nav-item";
+          btn.dataset.strategy = s.id;
+          btn.innerHTML = `<span class="nav-item-row"><span class="nav-item-label">${escapeHtml(s.display_name)}</span><span class="nav-pill live">SPE</span></span>`;
+          btn.addEventListener("click", () => selectStrategy(s.id));
+          nav.appendChild(btn);
+        });
+      };
+
+      const appendAccordion = (cat, order, accordionId, openByDefault) => {
+        const items = (byCat[cat] || []).slice().sort((a, b) => {
+          const ia = order.indexOf(a.id);
+          const ib = order.indexOf(b.id);
+          return (ia < 0 ? 999 : ia) - (ib < 0 ? 999 : ib);
+        });
+        if (!items.length) return;
+        const acc = document.createElement("div");
+        acc.className = "nav-accordion" + (openByDefault ? " open" : "");
+        acc.id = accordionId;
+        const toggle = document.createElement("button");
+        toggle.type = "button";
+        toggle.className = "nav-accordion-toggle";
+        const title = CATEGORY_LABELS[cat] || cat;
+        toggle.innerHTML = `<span>${escapeHtml(title)} <span class="nav-accordion-count">${items.length}</span></span><span class="chevron">▸</span>`;
+        toggle.addEventListener("click", () => acc.classList.toggle("open"));
+        const body = document.createElement("div");
+        body.className = "nav-accordion-body";
+        items.forEach((s) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "nav-item";
+          btn.dataset.strategy = s.id;
+          btn.innerHTML = `<span class="nav-item-row"><span class="nav-item-label">${escapeHtml(s.display_name)}</span><span class="nav-pill live">SPE</span></span>`;
+          btn.addEventListener("click", () => selectStrategy(s.id));
+          body.appendChild(btn);
+        });
+        acc.appendChild(toggle);
+        acc.appendChild(body);
+        nav.appendChild(acc);
+      };
+
+      // Entity Optimization first (Scorp family)
+      appendAccordion("entity-optimization", ENTITY_ORDER, "entity-accordion", true);
+
+      // Other flat categories
+      CATEGORY_ORDER.filter((c) => byCat[c]).forEach(appendFlatCategory);
+
+      // Retirement accordion at the end
+      appendAccordion("retirement", RETIREMENT_ORDER, "retirement-accordion", true);
+    }
+
+    async function initRegistryNav() {
+      try {
+        const res = await fetch("/api/ita-strategies/registry");
+        if (!res.ok) throw new Error(`Registry HTTP ${res.status}`);
+        REGISTRY = await res.json();
+        REGISTRY_BY_ID = Object.fromEntries(REGISTRY.map((s) => [s.id, s]));
+        buildNav(REGISTRY);
+        selectStrategy(resolveStrategyFromLocation(), false);
+      } catch (err) {
+        document.getElementById("strategy-nav").innerHTML =
+          `<p class="empty" style="padding:0.5rem 0.75rem;color:var(--red);">Registry failed: ${escapeHtml(err.message)}</p>`;
+      }
+    }
+
+    document.getElementById("ret-form").addEventListener("submit", retEstimate);
+    document.getElementById("ret-btn-assess").addEventListener("click", retAssess);
+    document.getElementById("ret-form").addEventListener("input", refreshRetMap);
+
+    window.addEventListener("popstate", () => selectStrategy(resolveStrategyFromLocation(), false));
+    window.addEventListener("hashchange", () => {
+      const id = normalizeStrategyId((location.hash || "").replace(/^#/, ""));
+      if (id) selectStrategy(id);
+    });
+    initRegistryNav();
+
+    /* ── S-Corp conversion ── */
+    function scorpPayloadFromForm() {
+      const wageRaw = document.getElementById("scorp-reasonable_wage").value;
+      return {
+        activity: {
+          activity_id: "ui-schc-1",
+          source: document.getElementById("scorp-source").value,
+          name: document.getElementById("scorp-name").value.trim() || "SE business",
+          net_income: Number(document.getElementById("scorp-net_income").value),
+          is_se_biz: document.getElementById("scorp-is_se_biz").value === "true",
+          ownership_pct: Number(document.getElementById("scorp-ownership_pct").value || 100),
+          taxpayer_spouse_or_joint: document.getElementById("scorp-owner").value,
+          prefix: 1,
+        },
+        reasonable_wage: wageRaw === "" ? null : Number(wageRaw),
+        rates: {
+          federal_marginal_rate_pct: Number(document.getElementById("scorp-fed_rate").value || 24),
+          state_marginal_rate_pct: Number(document.getElementById("scorp-state_rate").value || 0),
+          ss_wage_base: Number(document.getElementById("scorp-ss_wage_base").value || 176100),
+          income_already_taxed_by_ss: Number(document.getElementById("scorp-ss_already").value || 0),
+        },
+        tax_year: 2026,
+      };
+      const allSeRaw = document.getElementById("scorp-all_se_income").value.trim();
+      if (allSeRaw !== "") {
+        payload.rates.starting_se_income = Number(allSeRaw);
+      }
+      return payload;
+    }
+
+    function scorpSetBusy(busy, msg) {
+      document.getElementById("scorp-btn-estimate").disabled = busy;
+      document.getElementById("scorp-btn-assess").disabled = busy;
+      const status = document.getElementById("scorp-status");
+      status.classList.toggle("error", false);
+      status.textContent = msg || "";
+    }
+
+    function scorpSetError(msg) {
+      const status = document.getElementById("scorp-status");
+      status.classList.add("error");
+      status.textContent = msg;
+    }
+
+    function renderScorpApplicability(appl) {
+      if (!appl) return "";
+      const badges = renderApplicabilityBadges(appl);
+      return `
+        ${badges}
+        <div class="split">
+          <div class="stat"><p class="k">Net income</p><p class="v">${money(appl.net_income)}</p></div>
+          <div class="stat"><p class="k">Net earnings (SE)</p><p class="v">${money(appl.net_earnings)}</p></div>
+        </div>
+      `;
+    }
+
+    function renderScorpEstimate(data) {
+      const root = document.getElementById("scorp-results");
+      if (!data.ok) {
+        root.innerHTML = `
+          ${renderScorpApplicability(data.applicability)}
+          <p class="empty" style="color:var(--red)">${escapeHtml((data.errors || ["Estimate failed."]).join(" "))}</p>
+        `;
+        return;
+      }
+
+      const s = data.savings || {};
+      const projected = Number(s.projected_tax_savings || 0);
+      const cat = (FIELD_CATALOG && FIELD_CATALOG.scorp) || [];
+      const byKey = Object.fromEntries(cat.map((r) => [r.ui_key, r]));
+      const rows = [
+        ["Step 1 — Sch C income backed out (tax)", s.se_income_back_out_tax_savings, "net_income"],
+        ["Step 2 — SE tax reduction", s.se_tax_reduction, "all_se_income"],
+        ["Step 3 — ½ SE deduction lost (cost)", -Math.abs(Number(s.se_deduction_lost_tax_cost || 0)), "fed_rate"],
+        ["Step 4 — Wages income tax (cost)", -Math.abs(Number(s.wages_income_tax_cost || 0)), "reasonable_wage"],
+        ["Step 5 — Wages payroll tax / FICA (cost)", -Math.abs(Number(s.wages_fica || 0)), "ss_rate"],
+        ["Step 6 — S-Corp ordinary income tax (cost)", -Math.abs(Number(s.scorp_ordinary_income_tax_cost || 0)), "net_income"],
+        ["Step 7 — Employer payroll tax deduction savings", s.employer_fica_half_tax_savings, "med_rate"],
+      ];
+
+      const warnings = (data.warnings || [])
+        .map((w) => `<li>${escapeHtml(w)}</li>`)
+        .join("");
+
+      root.innerHTML = `
+        ${renderScorpApplicability(data.applicability)}
+        <div class="hero-savings">
+          <p class="label">Projected tax savings</p>
+          <p class="amount ${projected < 0 ? "negative" : ""}">${money2(projected)}</p>
+        </div>
+        <div class="split">
+          <div class="stat"><p class="k">Reasonable wage</p><p class="v">${money(data.wages_allocated)}</p></div>
+          <div class="stat"><p class="k">S-Corp ordinary</p><p class="v">${money(data.scorp_ordinary_income)}</p></div>
+          <div class="stat"><p class="k">Owner all SE (pre-factor)</p><p class="v">${money(s.starting_se_income)}</p></div>
+          <div class="stat"><p class="k">Owner all SE net earnings</p><p class="v">${money(s.starting_se_net_earnings)}</p></div>
+          <div class="stat"><p class="k">W-2 already toward SS</p><p class="v">${money(s.income_already_taxed_by_ss)}</p></div>
+          <div class="stat"><p class="k">SS relieved on this activity</p><p class="v">${money(s.se_subject_to_ss ?? s.change_in_ss_income)}</p></div>
+        </div>
+        <table class="breakdown">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th style="text-align:right">Amount</th>
+              <th>ITA field</th>
+              <th>TURBO_TAX</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows
+              .map(([label, val, key]) => {
+                const m = byKey[key] || {};
+                const ita = m.schema_name || "—";
+                const tps = m.turbo_tax_code || m.tps_name || "—";
+                return `<tr>
+                  <td>${escapeHtml(label)}</td>
+                  <td class="num">${money2(val)}</td>
+                  <td class="mono">${escapeHtml(ita)}</td>
+                  <td class="mono">${escapeHtml(tps)}</td>
+                </tr>`;
+              })
+              .join("")}
+            <tr class="total">
+              <td>Projected tax savings</td>
+              <td class="num">${money2(projected)}</td>
+              <td class="mono">PROJECTED_TAX_SAVINGS</td>
+              <td class="mono">—</td>
+            </tr>
+          </tbody>
+        </table>
+        ${warnings ? `<ul class="list">${warnings}</ul>` : ""}
+      `;
+      refreshScorpMap();
+    }
+
+    function renderScorpAssessOnly(appl) {
+      document.getElementById("scorp-results").innerHTML =
+        renderScorpApplicability(appl) +
+        `<p class="empty" style="margin-top:1rem">Applicability only — enter a reasonable wage and estimate to see savings.</p>`;
+    }
+
+    document.getElementById("scorp-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const payload = scorpPayloadFromForm();
+      if (payload.reasonable_wage == null || Number.isNaN(payload.reasonable_wage)) {
+        scorpSetError("Enter a confirmed reasonable wage to estimate savings.");
+        return;
+      }
+      if (Number.isNaN(payload.activity.net_income)) {
+        scorpSetError("Net income is required.");
+        return;
+      }
+      try {
+        scorpSetBusy(true, "Calculating…");
+        const data = await postJson("/api/scorp-conversion/estimate", payload);
+        renderScorpEstimate(data);
+        scorpSetBusy(false, data.ok ? "Done." : "Estimate returned with errors.");
+      } catch (err) {
+        scorpSetBusy(false, "");
+        scorpSetError(err.message || String(err));
+      }
+    });
+
+    document.getElementById("scorp-btn-assess").addEventListener("click", async () => {
+      const payload = scorpPayloadFromForm();
+      if (Number.isNaN(payload.activity.net_income)) {
+        scorpSetError("Net income is required.");
+        return;
+      }
+      try {
+        scorpSetBusy(true, "Checking applicability…");
+        const data = await postJson("/api/scorp-conversion/assess", payload);
+        renderScorpAssessOnly(data);
+        scorpSetBusy(false, "Done.");
+      } catch (err) {
+        scorpSetBusy(false, "");
+        scorpSetError(err.message || String(err));
+      }
+    });
+
+    /* ── Solo 401(k) ── */
+    function soloPayloadFromForm(includeRates = true) {
+      const person = {
+        taxpayer_spouse_or_joint: document.getElementById("solo-owner").value,
+        filing_status_code: Number(document.getElementById("solo-filing_status").value || 2),
+        all_se_income: Number(document.getElementById("solo-all_se_income").value || 0),
+        earned_income: Number(document.getElementById("solo-earned_income").value || 0),
+        sep_ira: Number(document.getElementById("solo-sep_ira").value || 0),
+        solo_elective_deferral: Number(document.getElementById("solo-solo_elective_deferral").value || 0),
+        solo401k_contribution: Number(document.getElementById("solo-solo401k_contribution").value || 0),
+        solo401k_catchup: Number(document.getElementById("solo-solo401k_catchup").value || 0),
+        biz_exists_without_wages: document.getElementById("solo-biz_exists_without_wages").checked,
+      };
+
+      const retirement = {
+        max_solo401k_contribution_allowed: Number(document.getElementById("solo-max_allowed").value || 0),
+        combined_401k_limit: Number(document.getElementById("solo-combined_limit").value || 69000),
+        total_401k: Number(document.getElementById("solo-total_401k").value || 0),
+        total_roth_401k: Number(document.getElementById("solo-total_roth_401k").value || 0),
+        total_403b: Number(document.getElementById("solo-total_403b").value || 0),
+        total_roth_403b: Number(document.getElementById("solo-total_roth_403b").value || 0),
+        baseline_solo401k: Number(document.getElementById("solo-baseline_solo401k").value || 0),
+      };
+
+      const payload = { person, retirement };
+
+      if (includeRates) {
+        payload.rates = {
+          federal_marginal_rate_pct: Number(document.getElementById("solo-fed_rate").value || 0),
+          state_marginal_rate_pct: Number(document.getElementById("solo-state_rate").value || 0),
+          nyc_marginal_rate_pct: Number(document.getElementById("solo-nyc_rate").value || 0),
+          resident_state: document.getElementById("solo-resident_state").value.trim(),
+        };
+
+        const scRaw = document.getElementById("solo-strategy_change").value.trim();
+        if (scRaw !== "") {
+          payload.strategy_change = Number(scRaw);
+        }
+      }
+
+      return payload;
+    }
+
+    function soloSetBusy(busy, msg) {
+      document.getElementById("solo-btn-estimate").disabled = busy;
+      document.getElementById("solo-btn-assess").disabled = busy;
+      const status = document.getElementById("solo-status");
+      status.classList.toggle("error", false);
+      status.textContent = msg || "";
+    }
+
+    function soloSetError(msg) {
+      const status = document.getElementById("solo-status");
+      status.classList.add("error");
+      status.textContent = msg;
+    }
+
+    function renderSoloApplicability(appl) {
+      if (!appl) return "";
+      const badges = renderApplicabilityBadges(appl);
+      return `
+        ${badges}
+        <div class="split">
+          <div class="stat"><p class="k">All SE income</p><p class="v">${money(appl.all_se_income)}</p></div>
+          <div class="stat"><p class="k">Earned income</p><p class="v">${money(appl.earned_income)}</p></div>
+          <div class="stat"><p class="k">Headroom</p><p class="v">${money(appl.max_allowed_contribution)}</p></div>
+          <div class="stat"><p class="k">Filing status</p><p class="v">${escapeHtml(String(appl.filing_status_code ?? "—"))}</p></div>
+        </div>
+      `;
+    }
+
+    function renderSoloEstimate(data) {
+      const root = document.getElementById("solo-results");
+      if (!data.ok) {
+        root.innerHTML = `
+          ${renderSoloApplicability(data.applicability)}
+          <p class="empty" style="color:var(--red)">${escapeHtml((data.errors || ["Estimate failed."]).join(" "))}</p>
+        `;
+        return;
+      }
+
+      const s = data.savings || {};
+      const projected = Number(s.projected_tax_savings || 0);
+      const warnings = (data.warnings || [])
+        .map((w) => `<li>${escapeHtml(w)}</li>`)
+        .join("");
+
+      root.innerHTML = `
+        ${renderSoloApplicability(data.applicability)}
+        <div class="hero-savings">
+          <p class="label">Projected tax savings</p>
+          <p class="amount ${projected < 0 ? "negative" : ""}">${money2(projected)}</p>
+        </div>
+        <div class="split">
+          <div class="stat"><p class="k">Cash outlay</p><p class="v">${money2(data.cash_outlay ?? s.cash_outlay)}</p></div>
+          <div class="stat"><p class="k">Strategy change</p><p class="v">${money2(data.strategy_change ?? s.strategy_change)}</p></div>
+          <div class="stat"><p class="k">Baseline</p><p class="v">${money2(data.baseline_amount ?? s.baseline_amount)}</p></div>
+          <div class="stat"><p class="k">Projected amount</p><p class="v">${money2(data.projected_amount ?? s.projected_amount)}</p></div>
+          <div class="stat"><p class="k">Headroom</p><p class="v">${money(s.max_allowed_contribution ?? data.applicability?.max_allowed_contribution)}</p></div>
+          <div class="stat"><p class="k">Marginal total</p><p class="v">${pct(s.marginal_rate_total)}</p></div>
+        </div>
+        ${warnings ? `<ul class="list">${warnings}</ul>` : ""}
+      `;
+    }
+
+    function renderSoloAssessOnly(appl) {
+      document.getElementById("solo-results").innerHTML =
+        renderSoloApplicability(appl) +
+        `<p class="empty" style="margin-top:1rem">Applicability only — run an estimate to see projected tax savings.</p>`;
+    }
+
+    document.getElementById("solo-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const payload = soloPayloadFromForm(true);
+      if (Number.isNaN(payload.person.all_se_income) || Number.isNaN(payload.person.earned_income)) {
+        soloSetError("SE and earned income are required.");
+        return;
+      }
+      if (Number.isNaN(payload.retirement.max_solo401k_contribution_allowed)) {
+        soloSetError("Max Solo 401k allowed (engine) is required.");
+        return;
+      }
+      try {
+        soloSetBusy(true, "Calculating…");
+        const data = await postJson("/api/solo-401k/estimate", payload);
+        renderSoloEstimate(data);
+        soloSetBusy(false, data.ok ? "Done." : "Estimate returned with errors.");
+      } catch (err) {
+        soloSetBusy(false, "");
+        soloSetError(err.message || String(err));
+      }
+    });
+
+    document.getElementById("solo-btn-assess").addEventListener("click", async () => {
+      const payload = soloPayloadFromForm(false);
+      try {
+        soloSetBusy(true, "Checking applicability…");
+        const data = await postJson("/api/solo-401k/assess", payload);
+        renderSoloAssessOnly(data);
+        soloSetBusy(false, "Done.");
+      } catch (err) {
+        soloSetBusy(false, "");
+        soloSetError(err.message || String(err));
+      }
+    });
+
+    /* ── 401(k) Employee Contribution ── */
+    function ee401kPayloadFromForm(includeStrategyChange) {
+      const changeRaw = document.getElementById("ee401k-change").value.trim();
+      const payload = {
+        w2: {
+          delete_next_year: 0,
+          wg_tp_sp: Number(document.getElementById("ee401k-owner").value),
+          nam_emp: document.getElementById("ee401k-nam").value.trim(),
+          prefix: Number(document.getElementById("ee401k-prefix").value || 1),
+          wg_fed_wages: Number(document.getElementById("ee401k-wages").value),
+          wages_401k_contribution: Number(document.getElementById("ee401k-401k").value || 0),
+          wages_403b_contribution: Number(document.getElementById("ee401k-403b").value || 0),
+          wg_457b: Number(document.getElementById("ee401k-457b").value || 0),
+        },
+        filing_status_code: Number(document.getElementById("ee401k-filing").value || 1),
+        retirement: {
+          max_401k_contribution_allowed: Number(document.getElementById("ee401k-max").value),
+          combined_401k_limit: Number(document.getElementById("ee401k-combined").value || 69000),
+          total_401k: Number(document.getElementById("ee401k-total401k").value || 0),
+          total_roth_401k: Number(document.getElementById("ee401k-roth401k").value || 0),
+          total_403b: Number(document.getElementById("ee401k-403b-base").value || 0),
+          total_roth_403b: Number(document.getElementById("ee401k-roth403b").value || 0),
+          baseline_solo401k: Number(document.getElementById("ee401k-solo").value || 0),
+          employee_limit_absorbed: Number(document.getElementById("ee401k-abs-ee").value || 0),
+          combined_limit_absorbed: Number(document.getElementById("ee401k-abs-comb").value || 0),
+        },
+        rates: {
+          federal_marginal_rate_pct: Number(document.getElementById("ee401k-fed").value || 24),
+          state_marginal_rate_pct: Number(document.getElementById("ee401k-state").value || 0),
+          nyc_marginal_rate_pct: Number(document.getElementById("ee401k-nyc").value || 0),
+          resident_state: document.getElementById("ee401k-res").value.trim(),
+        },
+      };
+      if (includeStrategyChange && changeRaw !== "") {
+        payload.strategy_change = Number(changeRaw);
+      }
+      return payload;
+    }
+
+    function ee401kSetBusy(busy, msg) {
+      document.getElementById("ee401k-btn-estimate").disabled = busy;
+      document.getElementById("ee401k-btn-assess").disabled = busy;
+      const status = document.getElementById("ee401k-status");
+      status.classList.toggle("error", false);
+      status.textContent = msg || "";
+    }
+
+    function ee401kSetError(msg) {
+      const status = document.getElementById("ee401k-status");
+      status.classList.add("error");
+      status.textContent = msg;
+    }
+
+    function renderEe401kEstimate(data) {
+      const root = document.getElementById("ee401k-results");
+      const appl = data.applicability || {};
+      const badges = renderApplicabilityBadges(appl);
+      const exceeds = !!data.validation_exceeded;
+      const s = data.savings || {};
+      const errBanner = (data.errors || []).length
+        ? `<p class="empty" style="color:var(--red);font-weight:600">${escapeHtml(data.errors.join(" "))}${
+            exceeds ? " — SPE validationMax (ITA will not credit this amount; totals stay $0)." : ""
+          }</p>`
+        : "";
+
+      // Keep strategy-change field styling in sync with SPE validationMax.
+      const changeEl = document.getElementById("ee401k-change");
+      const hintEl = document.getElementById("ee401k-change-hint");
+      if (changeEl) {
+        changeEl.classList.toggle("exceeds-max", exceeds);
+      }
+      if (hintEl) {
+        hintEl.textContent = exceeds
+          ? `⚠ Exceeds $${Number(data.validation_max || 0).toLocaleString("en-US")}`
+          : "";
+        hintEl.hidden = !exceeds;
+      }
+
+      if (!data.ok && !exceeds) {
+        root.innerHTML = `${badges}${errBanner}`;
+        return;
+      }
+
+      const capNote = exceeds
+        ? `<p class="empty" style="margin-top:0.5rem">Showing savings at SPE max allowed ($${Number(data.validation_max || 0).toLocaleString("en-US")}), not the $${Number(data.strategy_change_requested || 0).toLocaleString("en-US")} entered.</p>`
+        : "";
+
+      root.innerHTML = `
+        ${badges}
+        ${errBanner}
+        <div class="hero-savings">
+          <p class="label">${exceeds ? "Projected tax savings (at max allowed)" : "Projected tax savings"}</p>
+          <p class="amount">${money2(s.projected_tax_savings)}</p>
+        </div>
+        ${capNote}
+        <div class="split">
+          <div class="stat"><p class="k">Strategy change (effective)</p><p class="v">${money(s.strategy_change)}</p></div>
+          <div class="stat"><p class="k">Cash outlay</p><p class="v">${money(s.cash_outlay)}</p></div>
+          <div class="stat"><p class="k">Employee headroom</p><p class="v">${money(s.employee_max_401k_contribution)}</p></div>
+          <div class="stat"><p class="k">Projected Box 12-D</p><p class="v">${money(s.projected_amount)}</p></div>
+          <div class="stat"><p class="k">Marginal total</p><p class="v">${Number(s.marginal_rate_total).toFixed(2)}%</p></div>
+          <div class="stat"><p class="k">Employer</p><p class="v">${escapeHtml(appl.nam_emp || "—")}</p></div>
+        </div>
+      `;
+    }
+
+    function renderEe401kAssessOnly(appl) {
+      document.getElementById("ee401k-results").innerHTML =
+        renderApplicabilityBadges(appl) +
+        `<div class="split" style="margin-top:1rem;">
+          <div class="stat"><p class="k">Default STRATEGY_CHANGE</p><p class="v">${money(appl.strategy_change_default)}</p></div>
+          <div class="stat"><p class="k">Employee headroom</p><p class="v">${money(appl.employee_max_401k_contribution)}</p></div>
+          <div class="stat"><p class="k">Validation max</p><p class="v">${money(appl.validation_max)}</p></div>
+        </div>
+        <ul class="list">${(appl.reasons || []).map((r) => `<li>${escapeHtml(r)}</li>`).join("")}</ul>`;
+    }
+
+    document.getElementById("ee401k-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const payload = ee401kPayloadFromForm(true);
+      try {
+        ee401kSetBusy(true, "Calculating…");
+        const data = await postJson("/api/401k-employee/estimate", payload);
+        renderEe401kEstimate(data);
+        ee401kSetBusy(false, data.ok ? "Done." : "Estimate returned with errors.");
+      } catch (err) {
+        ee401kSetBusy(false, "");
+        ee401kSetError(err.message || String(err));
+      }
+    });
+
+    document.getElementById("ee401k-btn-assess").addEventListener("click", async () => {
+      const payload = ee401kPayloadFromForm(false);
+      try {
+        ee401kSetBusy(true, "Checking applicability…");
+        const data = await postJson("/api/401k-employee/assess", payload);
+        renderEe401kAssessOnly(data);
+        ee401kSetBusy(false, "Done.");
+      } catch (err) {
+        ee401kSetBusy(false, "");
+        ee401kSetError(err.message || String(err));
+      }
+    });
+
+    /* ── ITA / TPS mapping pane ── */
+    function scorpValueForKey(key) {
+      const map = {
+        net_income: () => document.getElementById("scorp-net_income").value,
+        ownership_pct: () => document.getElementById("scorp-ownership_pct").value,
+        owner_code: () => document.getElementById("scorp-owner").value,
+        fed_rate: () => document.getElementById("scorp-fed_rate").value + "%",
+        state_rate: () => document.getElementById("scorp-state_rate").value + "%",
+        ss_wage_base: () => document.getElementById("scorp-ss_wage_base").value,
+        ss_already: () => document.getElementById("scorp-ss_already").value,
+        all_se_income: () => {
+          const v = document.getElementById("scorp-all_se_income").value.trim();
+          return v || document.getElementById("scorp-net_income").value + " (default=this activity)";
+        },
+        net_earnings_ratio: () => "0.9235",
+        ss_rate: () => "0.062 (SPE EE; ×2 in formula)",
+        med_rate: () => "0.0145 (SPE EE; ×2 in formula)",
+        reasonable_wage: () => document.getElementById("scorp-reasonable_wage").value,
+      };
+      return (map[key] && map[key]()) || "—";
+    }
+
+    function soloValueForKey(key) {
+      const map = {
+        all_se_income: () => document.getElementById("solo-all_se_income").value,
+        earned_income: () => document.getElementById("solo-earned_income").value,
+        max_solo: () => document.getElementById("solo-max_allowed").value,
+        combined_limit: () => document.getElementById("solo-combined_limit").value,
+        solo_elective: () => {
+          const v = document.getElementById("solo-strategy_change").value.trim();
+          return v || "(default = headroom)";
+        },
+        fed_rate: () => document.getElementById("solo-fed_rate").value + "%",
+        state_rate: () => document.getElementById("solo-state_rate").value + "%",
+      };
+      return (map[key] && map[key]()) || "—";
+    }
+
+    function ee401kValueForKey(key) {
+      const map = {
+        wg_fed_wages: () => document.getElementById("ee401k-wages").value,
+        wages_401k: () => document.getElementById("ee401k-401k").value,
+        wages_403b: () => document.getElementById("ee401k-403b").value,
+        wg_457b: () => document.getElementById("ee401k-457b").value,
+        wg_tp_sp: () => {
+          const v = document.getElementById("ee401k-owner").value;
+          return v === "1" ? "spouse (1)" : "taxpayer (0)";
+        },
+        nam_emp: () => document.getElementById("ee401k-nam").value,
+        max_401k: () => document.getElementById("ee401k-max").value,
+        combined_limit: () => document.getElementById("ee401k-combined").value,
+        total_401k: () => document.getElementById("ee401k-total401k").value,
+        solo_baseline: () => document.getElementById("ee401k-solo").value,
+        absorbed_ee: () => document.getElementById("ee401k-abs-ee").value,
+        strategy_change: () => {
+          const v = document.getElementById("ee401k-change").value.trim();
+          return v || "(default = min(wages, headroom))";
+        },
+        fed_rate: () => document.getElementById("ee401k-fed").value + "%",
+        state_rate: () => document.getElementById("ee401k-state").value + "%",
+      };
+      return (map[key] && map[key]()) || "—";
+    }
+
+    function classifyTpsAttention(row) {
+      // Inputs are never redlined — show green INPUT treatment instead.
+      if (row && String(row.role || "").toLowerCase() === "input") {
+        return { attention: false, severity: "none", tag: null, reason: null };
+      }
+      // Red when there is no TURBO_TAX mapping in tax-model-schema.json.
+      if (row && row.has_turbo_tax === false) {
+        return {
+          attention: true,
+          severity: "error",
+          tag: row.attention_tag || "NOT_AVAILABLE",
+          reason: row.attention_reason || "No TURBO_TAX product mapping in tax-model-schema.json",
+        };
+      }
+      if (row && row.attention && (row.attention_tag === "NOT_AVAILABLE" || row.has_turbo_tax === false)) {
+        return {
+          attention: true,
+          severity: "error",
+          tag: "NOT_AVAILABLE",
+          reason: row.attention_reason || "No TURBO_TAX product mapping in tax-model-schema.json",
+        };
+      }
+      if (row && !row.tps_name && !row.turbo_tax_code && row.has_turbo_tax !== true) {
+        return {
+          attention: true,
+          severity: "error",
+          tag: "NOT_AVAILABLE",
+          reason: "No TURBO_TAX product mapping in tax-model-schema.json",
+        };
+      }
+      return { attention: false, severity: "none", tag: null, reason: null };
+    }
+
+    function renderMapTable(rows, valueFn) {
+      if (!rows || !rows.length) {
+        return `<p class="empty">No catalog rows.</p>`;
+      }
+      let errorN = 0;
+      const body = rows
+        .map((r) => {
+          const attn = classifyTpsAttention(r);
+          if (attn.severity === "error") errorN += 1;
+          const code = r.turbo_tax_code || r.tps_name || "—";
+          const rowClass = attn.severity === "error" ? "attn-error" : "";
+          const tagHtml = attn.attention
+            ? `<span class="attn-tag error">${escapeHtml(attn.tag || "NOT_AVAILABLE")}</span>`
+            : "";
+          const reasonHtml = attn.reason
+            ? `<span class="attn-reason">${escapeHtml(attn.reason)}</span>`
+            : "";
+          return `<tr class="${rowClass}">
+            <td>${escapeHtml(r.label)}<span class="role ${escapeHtml(r.role || "")}">${escapeHtml(r.role || "")}</span></td>
+            <td class="map-val">${escapeHtml(String(valueFn(r.ui_key)))}</td>
+            <td>
+              <span class="ita-field">${escapeHtml(r.schema_name || "—")}</span>
+            </td>
+            <td class="mono tps-cell">${tagHtml}${escapeHtml(code)}${reasonHtml}</td>
+          </tr>`;
+        })
+        .join("");
+
+      const legend = errorN
+        ? `<div class="map-legend">
+            <span><span class="attn-tag error">NOT_AVAILABLE</span> ${errorN} with no TURBO_TAX mapping</span>
+          </div>`
+        : `<div class="map-legend"><span>All non-input rows have a TURBO_TAX mapping.</span></div>`;
+
+      return `
+        ${legend}
+        <table class="map-table">
+          <thead>
+            <tr>
+              <th>Input / constant</th>
+              <th>Value</th>
+              <th>ITA field</th>
+              <th>TURBO_TAX</th>
+            </tr>
+          </thead>
+          <tbody>${body}</tbody>
+        </table>`;
+    }
+
+    function refreshScorpMap() {
+      const el = document.getElementById("scorp-map");
+      if (!FIELD_CATALOG) {
+        el.innerHTML = `<p class="empty">Field catalog not loaded.</p>`;
+        return;
+      }
+      el.innerHTML = renderMapTable(FIELD_CATALOG.scorp, scorpValueForKey);
+    }
+
+    function refreshSoloMap() {
+      const el = document.getElementById("solo-map");
+      if (!FIELD_CATALOG) {
+        el.innerHTML = `<p class="empty">Field catalog not loaded.</p>`;
+        return;
+      }
+      el.innerHTML = renderMapTable(FIELD_CATALOG.solo401k, soloValueForKey);
+    }
+
+    function refreshEe401kMap() {
+      const el = document.getElementById("ee401k-map");
+      if (!el) return;
+      if (!FIELD_CATALOG) {
+        el.innerHTML = `<p class="empty">Field catalog not loaded.</p>`;
+        return;
+      }
+      el.innerHTML = renderMapTable(FIELD_CATALOG.ee401k, ee401kValueForKey);
+    }
+
+    document.getElementById("scorp-form").addEventListener("input", refreshScorpMap);
+    document.getElementById("solo-form").addEventListener("input", refreshSoloMap);
+    document.getElementById("ee401k-form").addEventListener("input", refreshEe401kMap);
+
+    function setFieldValue(id, value) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (el.type === "checkbox") {
+        el.checked = !!value;
+        return;
+      }
+      if (value === null || value === undefined) return;
+      el.value = value;
+    }
+
+    function applyScorpSeed(s) {
+      if (!s) return;
+      setFieldValue("scorp-name", s.name);
+      setFieldValue("scorp-source", s.source || "Schedule C");
+      setFieldValue("scorp-owner", s.owner || "taxpayer");
+      setFieldValue("scorp-net_income", s.net_income);
+      setFieldValue("scorp-ownership_pct", s.ownership_pct ?? 100);
+      setFieldValue("scorp-is_se_biz", s.is_se_biz ? "true" : "false");
+      setFieldValue("scorp-reasonable_wage", s.reasonable_wage === "" || s.reasonable_wage == null ? "" : s.reasonable_wage);
+      setFieldValue("scorp-fed_rate", s.fed_rate);
+      setFieldValue("scorp-state_rate", s.state_rate);
+      setFieldValue("scorp-ss_wage_base", s.ss_wage_base);
+      setFieldValue("scorp-ss_already", s.ss_already);
+      setFieldValue("scorp-all_se_income", s.all_se_income);
+      refreshScorpMap();
+    }
+
+    function applySoloSeed(s) {
+      if (!s) return;
+      setFieldValue("solo-owner", s.owner || "taxpayer");
+      setFieldValue("solo-filing_status", s.filing_status);
+      setFieldValue("solo-all_se_income", s.all_se_income);
+      setFieldValue("solo-earned_income", s.earned_income);
+      setFieldValue("solo-sep_ira", s.sep_ira);
+      setFieldValue("solo-solo_elective_deferral", s.solo_elective_deferral);
+      setFieldValue("solo-solo401k_contribution", s.solo401k_contribution);
+      setFieldValue("solo-solo401k_catchup", s.solo401k_catchup);
+      setFieldValue("solo-biz_exists_without_wages", s.biz_exists_without_wages !== false);
+      setFieldValue("solo-max_allowed", s.max_allowed);
+      setFieldValue("solo-combined_limit", s.combined_limit);
+      setFieldValue("solo-total_401k", s.total_401k);
+      setFieldValue("solo-total_roth_401k", s.total_roth_401k);
+      setFieldValue("solo-total_403b", s.total_403b);
+      setFieldValue("solo-total_roth_403b", s.total_roth_403b);
+      setFieldValue("solo-baseline_solo401k", s.baseline_solo401k);
+      setFieldValue("solo-fed_rate", s.fed_rate);
+      setFieldValue("solo-state_rate", s.state_rate);
+      setFieldValue("solo-nyc_rate", s.nyc_rate);
+      refreshSoloMap();
+    }
+
+    function applyEe401kSeed(s) {
+      if (!s) return;
+      setFieldValue("ee401k-owner", s.owner);
+      setFieldValue("ee401k-filing", s.filing);
+      setFieldValue("ee401k-nam", s.nam);
+      setFieldValue("ee401k-prefix", s.prefix);
+      setFieldValue("ee401k-wages", s.wages);
+      setFieldValue("ee401k-401k", s["401k"]);
+      setFieldValue("ee401k-403b", s["403b"]);
+      setFieldValue("ee401k-457b", s["457b"]);
+      setFieldValue("ee401k-max", s.max);
+      setFieldValue("ee401k-combined", s.combined);
+      setFieldValue("ee401k-total401k", s.total401k);
+      setFieldValue("ee401k-roth401k", s.roth401k);
+      setFieldValue("ee401k-403b-base", s["403b_base"]);
+      setFieldValue("ee401k-roth403b", s.roth403b);
+      setFieldValue("ee401k-solo", s.solo);
+      setFieldValue("ee401k-abs-ee", s.abs_ee);
+      setFieldValue("ee401k-abs-comb", s.abs_comb);
+      setFieldValue("ee401k-fed", s.fed);
+      setFieldValue("ee401k-state", s.state);
+      setFieldValue("ee401k-nyc", s.nyc);
+      refreshEe401kMap();
+    }
+
+    function applyRetirementCommonSeed(common, { reload = true } = {}) {
+      if (!common) return;
+      // Always bake into every shared retirement form's field defaults so later
+      // panel opens (e.g. Traditional IRA) pick up projection — not hardcoded stubs.
+      Object.keys(RET_FORMS).forEach((slug) => {
+        const form = RET_FORMS[slug];
+        if (!form || !form.fields) return;
+        form.fields.forEach((f) => {
+          if (Object.prototype.hasOwnProperty.call(common, f.id)) {
+            f.def = common[f.id];
+          }
+        });
+      });
+      if (reload && CURRENT_RET_SLUG && RET_FORMS[CURRENT_RET_SLUG]) {
+        loadRetirementPanel(CURRENT_RET_SLUG);
+      }
+    }
+
+    async function loadProjectionSeed() {
+      const status = document.getElementById("projection-status");
+      const btn = document.getElementById("btn-load-projection");
+      btn.disabled = true;
+      status.className = "proj-meta";
+      status.textContent = "Loading ita-rules/2025projection.json…";
+      try {
+        const res = await fetch("/api/ita-strategies/projection-seed");
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+        PROJECTION_SEED = data;
+        applyScorpSeed(data.scorp);
+        applySoloSeed(data.solo401k);
+        applyEe401kSeed(data.ee401k);
+        applyRetirementCommonSeed(data.retirement_common);
+        const m = data.meta || {};
+        status.className = "proj-meta ok";
+        status.textContent =
+          `Loaded ${data.label || "projection"} · Sch C $${Number(m.schedule_c_income || 0).toLocaleString()} · ` +
+          `W-2 $${Number(m.total_wages || 0).toLocaleString()} · Fed marginal ${data.rates?.federal_marginal_rate_pct}%`;
+      } catch (err) {
+        status.className = "proj-meta err";
+        status.textContent = err.message || "Could not load projection";
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    document.getElementById("btn-load-projection").addEventListener("click", loadProjectionSeed);
+    // Auto-load projection so panels never show invented stub amounts.
+    loadProjectionSeed();
+
+    fetch("/ita-tps-field-catalog.json")
+      .then((r) => r.json())
+      .then((cat) => {
+        FIELD_CATALOG = cat;
+        refreshScorpMap();
+        refreshSoloMap();
+        refreshEe401kMap();
+      })
+      .catch((err) => {
+        document.getElementById("scorp-map").innerHTML =
+          `<p class="empty" style="color:var(--red)">Could not load ITA/TPS catalog: ${escapeHtml(err.message)}</p>`;
+        document.getElementById("solo-map").innerHTML =
+          `<p class="empty" style="color:var(--red)">Could not load ITA/TPS catalog.</p>`;
+        const ee = document.getElementById("ee401k-map");
+        if (ee) {
+          ee.innerHTML =
+            `<p class="empty" style="color:var(--red)">Could not load ITA/TPS catalog.</p>`;
+        }
+      });
+  </script>
+</body>
+</html>
